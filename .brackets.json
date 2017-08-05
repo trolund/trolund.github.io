@@ -1,0 +1,15 @@
+{
+    "sass.enabled": false,
+    "path": {
+        "sass/app.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "outputDir": "../css/",
+                "includePaths": [],
+                "sourceComments": true,
+                "outputStyle": "nested"
+            },
+            "brackets-bower.show": false
+        }
+    }
+}
