@@ -139,16 +139,32 @@
         transition: all 0.2s;
     }
     
-    .somedia>i {
+    .somedia i {
         transform: rotate(+4deg);
         height: 29px;
         width: 29px;
         z-index: 800;
+        transition: all 0.3s;
     }
     
-    .somedia:hover {
+    .somedia i:hover {
         cursor: pointer;
-        color: antiquewhite;
+    }
+    
+    .somedia i[class*="facebook"]:hover {
+        color: blue;
+    }
+    
+    .somedia i[class*="github"]:hover {
+        color: blueviolet;
+    }
+    
+    .somedia i[class*="youtube"]:hover {
+        color: red;
+    }
+    
+    .somedia i[class*="insta"]:hover {
+        color: brown;
     }
     
     main article {
@@ -158,7 +174,11 @@
         max-width: 800px;
     }
     
-    #aboutMe>h1 {
+    main {
+        margin-top: 100px;
+    }
+    
+    #AboutMe>h1 {
         margin-top: 120px;
     }
     

@@ -1,50 +1,71 @@
 var pro = 1;
 
+function AutoMenuUpdate(Htag, des, aniTime) {
+    var name = "";
+    var id = "";
+    $("article " + Htag).each(function () {
 
-$(document).ready(function () {
+        // create menu
+        name = $(this).text().replace(" ", "");
 
 
+        $('#' + des).append('<a data="' + name + '"  class="' + name + 'Link" href="#' + name + '">' + $(this).text() + '</a>');
 
+        // give tags id's
+
+        $(this).attr('id', name);
+
+
+        // ani
+
+        $("." + name + "Link").click(function () {
+            id = $(this).attr('data');;
+            console.log('Go to: ' + id);
+            $('html, body').animate({
+                scrollTop: $('#' + id).offset().top - 80
+            }, aniTime);
+
+        })
+    })
+
+}
+
+function setUpRevealAni(aniTime) {
 
     // Changing the defaults
     window.sr = ScrollReveal({
         reset: true
     });
 
-    // Customizing a reveal set
-    sr.reveal('#aboutMe', {
-        duration: 200
-    });
-    sr.reveal('#projects', {
-        duration: 200
+
+    $('article').each(function () {
+        if ($(this).parent().hasClass('farvebg')) {
+            sr.reveal($(this).parent()), {
+                duration: aniTime
+            };
+        } else {
+            sr.reveal($(this)), {
+                duration: aniTime
+            };
+        }
     });
 
     sr.reveal('.footer', {
-        duration: 200
+        duration: aniTime
     });
 
+}
 
 
-
+$(document).ready(function () {
     var viewportWidth = $(window).width();
     var headerheigt = $('header').height() + $('.somedia').height() * pro;
     var smallHeader = 90;
     var menuPX = $('header').height();
+    var scrollcount = 0;
 
-    $(".abouteMeLink").click(function () {
-        $('html, body').animate({
-            scrollTop: $("#aboutMe").offset().top - 80
-        }, 800);
-    })
-
-    $(".projectsLink").click(function () {
-        $('html, body').animate({
-            scrollTop: $("#projects").offset().top - 80
-        }, 800);
-    })
-
-
-
+    AutoMenuUpdate('h1', 'nav', 800);
+    setUpRevealAni(200);
 
     $(window).resize(function () {
         viewportWidth = $(window).width();
@@ -70,8 +91,6 @@ $(document).ready(function () {
 
         menuPX = $('header').height();
     });
-
-    var scrollcount = 0;
 
     $(window).bind('scroll', function () {
 
@@ -123,7 +142,15 @@ $(document).ready(function () {
     });
 
 
-
-
-
+    //    $(".abouteMeLink").click(function () {
+    //        $('html, body').animate({
+    //            scrollTop: $("#aboutMe").offset().top - 80
+    //        }, 800);
+    //    })
+    //
+    //    $(".projectsLink").click(function () {
+    //        $('html, body').animate({
+    //            scrollTop: $("#projects").offset().top - 80
+    //        }, 800);
+    //    })
 });
