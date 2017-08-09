@@ -8,8 +8,9 @@ function AutoMenuUpdate(Htag, des, aniTime) {
         // create menu
         name = $(this).text().replace(" ", "");
 
+        var aTag = '<a data="' + name + '"  class="' + name + 'Link" href="#' + name + '">' + $(this).text() + '</a>';
 
-        $('#' + des).append('<a data="' + name + '"  class="' + name + 'Link" href="#' + name + '">' + $(this).text() + '</a>');
+        $('#' + des).append(aTag);
 
         // give tags id's
 
@@ -28,6 +29,16 @@ function AutoMenuUpdate(Htag, des, aniTime) {
         })
     })
 
+    $('nav a').each(function () {
+        if ($(this).is(':last-child')) {
+            $(this).after('');
+        } else {
+            $(this).after(' I ');
+        }
+
+
+    });
+
 }
 
 function setUpRevealAni(aniTime) {
@@ -37,7 +48,7 @@ function setUpRevealAni(aniTime) {
         reset: true
     });
 
-
+    // set up for all articles
     $('article').each(function () {
         if ($(this).parent().hasClass('farvebg')) {
             sr.reveal($(this).parent()), {
@@ -66,6 +77,13 @@ $(document).ready(function () {
 
     AutoMenuUpdate('h1', 'nav', 800);
     setUpRevealAni(200);
+
+    $('#goToTopBut').hide();
+    $('#goToTopBut').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 800);
+    });
 
     $(window).resize(function () {
         viewportWidth = $(window).width();
@@ -107,6 +125,7 @@ $(document).ready(function () {
             $('.header').removeClass('ani');
             $('#name').removeClass('ani2');
             $('#titel').removeClass('ani2');
+            $('#goToTopBut').show(200);
         } else {
             $('.space').css('display', 'none');
             $('.space').css('height', 0);
@@ -114,6 +133,7 @@ $(document).ready(function () {
             $('.somedia').removeClass('displayNone');
             $('.header').removeClass('fixedMenu');
             $('.header').removeClass('notransition');
+            $('#goToTopBut').hide(200);
             if (scrollcount >= 1) {
                 $('.profilimg').addClass('ani4');
                 $('.somedia').addClass('ani');

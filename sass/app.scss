@@ -28,6 +28,19 @@
         -moz-transition: opacity 0.5s;
         transition: opacity op 0.5s;
         transition-delay: 0.1s;
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
     }
     
     header h1,
@@ -79,6 +92,13 @@
         line-height: 35px;
     }
     
+    //        nav>a::before {
+    //        content: 'I ';
+    //    }
+    //    
+    //    nav>a:first-child::before {
+    //        content: '';
+    //    }
     nav>a:hover {
         color: dimgray;
         background-color: aliceblue;
@@ -137,6 +157,19 @@
         -webkit-transition: all 0.2s;
         -moz-transition: all 0.2s;
         transition: all 0.2s;
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
     }
     
     .somedia i {
@@ -152,19 +185,19 @@
     }
     
     .somedia i[class*="facebook"]:hover {
-        color: blue;
+        color: #3B5998;
     }
     
     .somedia i[class*="github"]:hover {
-        color: blueviolet;
+        color: #6e5494;
     }
     
     .somedia i[class*="youtube"]:hover {
-        color: red;
+        color: #c4302b;
     }
     
     .somedia i[class*="insta"]:hover {
-        color: brown;
+        color: #d6249f;
     }
     
     main article {
@@ -211,6 +244,27 @@
         position: relative;
         width: 132px;
         font-size: 2.2em;
+        transition: all 0.3s;
+    }
+    
+    .footerMedia i:hover {
+        cursor: pointer;
+    }
+    
+    .footerMedia i[class*="facebook"]:hover {
+        color: #3B5998;
+    }
+    
+    .footerMedia i[class*="github"]:hover {
+        color: #6e5494;
+    }
+    
+    .footerMedia i[class*="youtube"]:hover {
+        color: #c4302b;
+    }
+    
+    .footerMedia i[class*="insta"]:hover {
+        color: #d6249f;
     }
     
     .footerFooter {
@@ -264,6 +318,62 @@
     #projects {
         padding-top: 80px;
         padding-bottom: 80px;
+    }
+    
+    form p {
+        margin-bottom: -15px;
+        margin-top: 10px;
+    }
+    
+    form input[type="text"] {
+        border-radius: 5px;
+        border: 1px solid lightblue;
+        padding: 5px;
+        background-color: ghostwhite;
+    }
+    
+    form textarea {
+        border-radius: 5px;
+        border: 1px solid lightblue;
+        padding: 5px;
+        background-color: ghostwhite;
+        height: 150px;
+        width: 250px;
+        max-height: 300px;
+        max-width: 700px;
+    }
+    
+    form input[type="submit"] {
+        border-radius: 5px;
+        border: 1px solid lightblue;
+        padding: 5px;
+        background-color: ghostwhite;
+        transition: all 0.3s;
+    }
+    
+    form input[type="submit"]:hover {
+        border-radius: 5px;
+        border: 1px solid darkblue;
+        padding: 5px;
+        background-color: darkgray;
+    }
+    
+    #goToTopBut {
+        width: 50px;
+        height: 50px;
+        background-color: darkslategrey;
+        bottom: 0px;
+        right: 20px;
+        position: fixed;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    #goToTopBut img {
+        width: 30px;
+        height: 30px;
     }
     
     @keyframes mobilMenu {
