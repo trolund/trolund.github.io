@@ -67,6 +67,29 @@ function setUpRevealAni(aniTime) {
 
 }
 
+function newsBox() {
+    $('.newsContainer>div:last-child').addClass('newsShow');
+    $('.newsContainer>div:not(.newsShow)').css({
+        width: 60
+    });
+    $('.newsContainer>div:last-child').css({
+        width: '100%'
+    });
+
+
+    $('.newsContainer>div').hover(function (evt) {
+        $('.newsShow').removeClass('newsShow').css({
+            width: 60
+        });
+        $(this).addClass('newsShow').css({
+            width: '100%'
+        });
+
+    });
+
+
+
+}
 
 $(document).ready(function () {
     var viewportWidth = $(window).width();
@@ -77,6 +100,7 @@ $(document).ready(function () {
 
     AutoMenuUpdate('h1', 'nav', 800);
     setUpRevealAni(200);
+    newsBox();
 
     $('#goToTopBut').hide();
     $('#goToTopBut').click(function () {
@@ -125,7 +149,7 @@ $(document).ready(function () {
             $('.header').removeClass('ani');
             $('#name').removeClass('ani2');
             $('#titel').removeClass('ani2');
-            $('#goToTopBut').show(200);
+            $('#goToTopBut').slideDown(200);
         } else {
             $('.space').css('display', 'none');
             $('.space').css('height', 0);
@@ -133,7 +157,7 @@ $(document).ready(function () {
             $('.somedia').removeClass('displayNone');
             $('.header').removeClass('fixedMenu');
             $('.header').removeClass('notransition');
-            $('#goToTopBut').hide(200);
+            $('#goToTopBut').slideUp(200);
             if (scrollcount >= 1) {
                 $('.profilimg').addClass('ani4');
                 $('.somedia').addClass('ani');
@@ -160,17 +184,4 @@ $(document).ready(function () {
 
 
     });
-
-
-    //    $(".abouteMeLink").click(function () {
-    //        $('html, body').animate({
-    //            scrollTop: $("#aboutMe").offset().top - 80
-    //        }, 800);
-    //    })
-    //
-    //    $(".projectsLink").click(function () {
-    //        $('html, body').animate({
-    //            scrollTop: $("#projects").offset().top - 80
-    //        }, 800);
-    //    })
 });

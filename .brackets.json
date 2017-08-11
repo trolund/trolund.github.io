@@ -9,7 +9,8 @@
                 "sourceComments": true,
                 "outputStyle": "nested"
             },
-            "brackets-bower.show": false
+            "brackets-bower.show": false,
+            "linting.collapsed": false
         }
     }
 }

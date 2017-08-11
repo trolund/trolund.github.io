@@ -5,11 +5,11 @@
     font-family: 'Alfa Slab One', cursive;
     
 */
-/* line 14, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 15, /Users/troelslund/Desktop/work web design/sass/app.scss */
 body {
   margin: 0px; }
 
-/* line 18, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 19, /Users/troelslund/Desktop/work web design/sass/app.scss */
 header {
   width: 100%;
   height: 500px;
@@ -36,7 +36,7 @@ header {
   /* Non-prefixed version, currently
                                   supported by Chrome and Opera */ }
 
-/* line 46, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 47, /Users/troelslund/Desktop/work web design/sass/app.scss */
 header h1,
 h3 {
   font-family: Helvetica, sans-serif;
@@ -47,15 +47,15 @@ h3 {
   color: #fff !important;
   text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8); }
 
-/* line 57, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 58, /Users/troelslund/Desktop/work web design/sass/app.scss */
 header h1 {
   font-size: 4em; }
 
-/* line 61, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 62, /Users/troelslund/Desktop/work web design/sass/app.scss */
 header h3 {
   font-size: 2em; }
 
-/* line 65, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 66, /Users/troelslund/Desktop/work web design/sass/app.scss */
 header nav {
   width: auto;
   margin-left: auto;
@@ -65,17 +65,17 @@ header nav {
   text-align: center;
   color: gray; }
 
-/* line 75, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 76, /Users/troelslund/Desktop/work web design/sass/app.scss */
 header > div {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto; }
 
-/* line 82, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 83, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .round {
   border-radius: 50%; }
 
-/* line 86, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 87, /Users/troelslund/Desktop/work web design/sass/app.scss */
 nav > a {
   color: #fff;
   font-family: Helvetica, sans-serif;
@@ -84,7 +84,7 @@ nav > a {
   text-decoration: none;
   line-height: 35px; }
 
-/* line 102, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 103, /Users/troelslund/Desktop/work web design/sass/app.scss */
 nav > a:hover {
   color: dimgray;
   background-color: aliceblue;
@@ -92,7 +92,7 @@ nav > a:hover {
   border-radius: 5px;
   text-decoration: none; }
 
-/* line 114, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 115, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .profilimg {
   height: 200px;
   width: 200px;
@@ -112,16 +112,16 @@ nav > a:hover {
   -moz-transition: all 0.2s;
   transition: all 0.2s; }
 
-/* line 138, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 139, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .profilimg:hover {
   border: 5px #fff solid; }
 
-/* line 142, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 143, /Users/troelslund/Desktop/work web design/sass/app.scss */
 main {
   height: auto;
   width: 100%; }
 
-/* line 147, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 148, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .somedia {
   margin-left: auto;
   margin-right: auto;
@@ -149,7 +149,7 @@ main {
   /* Non-prefixed version, currently
                                   supported by Chrome and Opera */ }
 
-/* line 175, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 176, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .somedia i {
   transform: rotate(4deg);
   height: 29px;
@@ -157,50 +157,50 @@ main {
   z-index: 800;
   transition: all 0.3s; }
 
-/* line 183, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 184, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .somedia i:hover {
   cursor: pointer; }
 
-/* line 187, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 188, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .somedia i[class*="facebook"]:hover {
   color: #3B5998; }
 
-/* line 191, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 192, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .somedia i[class*="github"]:hover {
   color: #6e5494; }
 
-/* line 195, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 196, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .somedia i[class*="youtube"]:hover {
   color: #c4302b; }
 
-/* line 199, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 200, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .somedia i[class*="insta"]:hover {
   color: #d6249f; }
 
-/* line 203, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 204, /Users/troelslund/Desktop/work web design/sass/app.scss */
 main article {
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
   max-width: 800px; }
 
-/* line 210, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 211, /Users/troelslund/Desktop/work web design/sass/app.scss */
 main {
   margin-top: 100px; }
 
-/* line 214, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 215, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #AboutMe > h1 {
   margin-top: 120px; }
 
-/* line 218, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 219, /Users/troelslund/Desktop/work web design/sass/app.scss */
 main > article:first-child {
   margin-top: -80px; }
 
-/* line 222, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 223, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerbuffer {
   height: 200px; }
 
-/* line 226, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 227, /Users/troelslund/Desktop/work web design/sass/app.scss */
 footer {
   margin-top: 50px;
   min-height: 100px;
@@ -213,7 +213,7 @@ footer {
   width: 100%;
   background-image: url(../assets/img/ep_naturalblack.png); }
 
-/* line 239, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 240, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerMedia {
   color: #fff;
   margin-left: auto;
@@ -224,27 +224,27 @@ footer {
   font-size: 2.2em;
   transition: all 0.3s; }
 
-/* line 250, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 251, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerMedia i:hover {
   cursor: pointer; }
 
-/* line 254, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 255, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerMedia i[class*="facebook"]:hover {
   color: #3B5998; }
 
-/* line 258, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 259, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerMedia i[class*="github"]:hover {
   color: #6e5494; }
 
-/* line 262, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 263, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerMedia i[class*="youtube"]:hover {
   color: #c4302b; }
 
-/* line 266, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 267, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerMedia i[class*="insta"]:hover {
   color: #d6249f; }
 
-/* line 270, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 271, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .footerFooter {
   bottom: -110px;
   position: relative;
@@ -266,12 +266,12 @@ footer {
   text-align: center;
   line-height: 50px; }
 
-/* line 292, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 293, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .center {
   margin-left: auto;
   margin-right: auto; }
 
-/* line 297, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 298, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .farvebg {
   background-color: black;
   clip-path: polygon(0 100% calc(100% - 5vw), 100% 0, 100% calc(100% - 5vw), 0 100%);
@@ -281,7 +281,7 @@ footer {
   margin-top: 80px;
   min-height: 400; }
 
-/* line 307, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 308, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .fixedMenu {
   position: fixed;
   top: 0px;
@@ -292,24 +292,24 @@ footer {
   animation-duration: 0.2s;
   z-index: 9999; }
 
-/* line 318, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 319, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #projects {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 323, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 324, /Users/troelslund/Desktop/work web design/sass/app.scss */
 form p {
   margin-bottom: -15px;
   margin-top: 10px; }
 
-/* line 328, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 329, /Users/troelslund/Desktop/work web design/sass/app.scss */
 form input[type="text"] {
   border-radius: 5px;
   border: 1px solid lightblue;
   padding: 5px;
   background-color: ghostwhite; }
 
-/* line 335, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 336, /Users/troelslund/Desktop/work web design/sass/app.scss */
 form textarea {
   border-radius: 5px;
   border: 1px solid lightblue;
@@ -320,7 +320,7 @@ form textarea {
   max-height: 300px;
   max-width: 700px; }
 
-/* line 346, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 347, /Users/troelslund/Desktop/work web design/sass/app.scss */
 form input[type="submit"] {
   border-radius: 5px;
   border: 1px solid lightblue;
@@ -328,14 +328,18 @@ form input[type="submit"] {
   background-color: ghostwhite;
   transition: all 0.3s; }
 
-/* line 354, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 355, /Users/troelslund/Desktop/work web design/sass/app.scss */
 form input[type="submit"]:hover {
   border-radius: 5px;
   border: 1px solid darkblue;
   padding: 5px;
   background-color: darkgray; }
 
-/* line 361, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 362, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.borderRadius {
+  border-radius: 5px; }
+
+/* line 366, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #goToTopBut {
   width: 50px;
   height: 50px;
@@ -348,10 +352,50 @@ form input[type="submit"]:hover {
   padding: 10px;
   cursor: pointer; }
 
-/* line 374, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 379, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #goToTopBut img {
   width: 30px;
   height: 30px; }
+
+/* line 384, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  background-color: black; }
+
+/* line 391, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer > div {
+  min-height: 250px;
+  transition: all 0.3s;
+  overflow: auto;
+  max-height: 250px;
+  display: inline; }
+
+/* line 399, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer > div > div:first-child {
+  white-space: nowrap;
+  float: left;
+  width: 50px;
+  height: 250px;
+  overflow: auto; }
+
+/* line 409, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer > div > div:first-child h2 {
+  transform: rotate(90deg); }
+
+/* line 413, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer > div:nth-child(1) {
+  background-color: antiquewhite; }
+
+/* line 417, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer > div:nth-child(2) {
+  background-color: aquamarine; }
+
+/* line 421, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer > div:nth-child(3) {
+  background-color: azure;
+  width: 100%; }
 
 @keyframes mobilMenu {
   from {
@@ -387,68 +431,68 @@ form input[type="submit"]:hover {
     opacity: 1;
     border: 10px #fff solid; } }
 
-/* line 425, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 472, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani {
   animation-name: ani;
   animation-duration: 0.9s; }
 
-/* line 430, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 477, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani2 {
   animation-name: ani2;
   animation-duration: 1.4s; }
 
-/* line 435, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 482, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani3 {
   animation-name: ani;
   animation-duration: 0.2s; }
 
-/* line 440, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 487, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani4 {
   animation-name: spin;
   animation-duration: 0.8s; }
 
-/* line 445, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 492, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .fixedMenu h1 {
   display: none; }
 
-/* line 449, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 496, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .fixedMenu h3 {
   display: none; }
 
-/* line 453, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 500, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .displayNone {
   opacity: 0;
   display: none; }
 
-/* line 458, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 505, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .list {
   list-style: circle;
   list-style-type: armenian;
   list-style-position: outside; }
 
-/* line 464, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 511, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .notransition {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important; }
 
-/* line 471, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 518, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .space {
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s;
   transition-delay: 0.1; }
 
-/* line 478, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 525, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #titel {
   font-family: 'Gloria Hallelujah', cursive; }
 
-/* line 485, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 532, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #name {
   font-family: 'Paytone One', sans-serif; }
 
-/* line 495, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 542, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .activeLink {
   color: aliceblue;
   text-decoration: underline; }
@@ -461,118 +505,118 @@ form input[type="submit"]:hover {
    480-less    - phone landscape & smaller
 --------------------------------------------*/
 @media all and (min-width: 1024px) and (max-width: 1280px) {
-  /* line 509, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 558, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 400px; }
-  /* line 512, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 561, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 50px; }
-  /* line 516, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 565, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 3em; }
-  /* line 519, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 568, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 2em; }
-  /* line 522, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 571, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 527, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 576, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     left: 160px;
     bottom: 50px; }
-  /* line 531, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 580, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 75px; } }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
-  /* line 538, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 587, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 300px; }
-  /* line 541, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 590, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 30px; }
-  /* line 545, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 594, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 548, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 597, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 551, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 600, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 556, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 605, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     left: 160px;
     bottom: 50px; }
-  /* line 560, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 609, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 70px; } }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-  /* line 567, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 616, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 260px; }
-  /* line 570, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 619, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 574, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 623, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 577, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 626, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 580, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 629, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 585, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 634, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     transform: rotate(0deg);
     left: 20px;
     bottom: -0px; }
-  /* line 590, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 639, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia > i {
     transform: rotate(0deg); }
-  /* line 593, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 642, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 65px; } }
 
 @media all and (max-width: 480px) {
-  /* line 600, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 649, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 260px; }
-  /* line 603, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 652, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 607, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 656, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 610, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 659, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 613, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 662, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 618, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 667, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     transform: rotate(0deg);
     left: 20px;
     bottom: -10px; }
-  /* line 623, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 672, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia > i {
     transform: rotate(0deg); }
-  /* line 626, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 675, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 60px; } }
 
@@ -589,13 +633,13 @@ form input[type="submit"]:hover {
 /* Retina */
 /* iPhone Portrait */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
-  /* line 653, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 714, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     clip-path: none; } }
 
 /* iPhone Landscape */
 @media screen and (max-device-width: 480px) and (orientation: landscape) {
-  /* line 660, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 723, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     clip-path: none; } }
 
