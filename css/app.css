@@ -361,40 +361,63 @@ form input[type="submit"]:hover {
 .newsContainer {
   display: flex;
   width: 100%;
-  max-width: 800px;
-  background-color: black; }
+  max-width: 800px; }
 
-/* line 391, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 390, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer h3 {
+  color: black !important; }
+
+/* line 394, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .newsContainer > div {
   min-height: 250px;
-  transition: all 0.3s;
-  overflow: auto;
+  transition: all 0.2s;
+  overflow: hidden;
   max-height: 250px;
   display: inline; }
 
-/* line 399, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 402, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .newsContainer > div > div:first-child {
   white-space: nowrap;
   float: left;
   width: 50px;
   height: 250px;
-  overflow: auto; }
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 15px; }
 
-/* line 409, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 412, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.content {
+  float: right;
+  position: relative;
+  width: calc(100% - 60px) !important;
+  padding: 10px; }
+
+/* line 419, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .newsContainer > div > div:first-child h2 {
-  transform: rotate(90deg); }
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+  margin-left: -135px;
+  text-align: left; }
 
-/* line 413, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 426, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .newsContainer > div:nth-child(1) {
-  background-color: antiquewhite; }
+  background-image: url("../assets/img/pattern%20(5).svg"); }
 
-/* line 417, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 430, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .newsContainer > div:nth-child(2) {
-  background-color: aquamarine; }
+  background-image: url("../assets/img/pattern%20(6).svg");
+  color: black !important; }
 
-/* line 421, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 435, /Users/troelslund/Desktop/work web design/sass/app.scss */
+.newsContainer > div:nth-child(2) img {
+  width: 100%;
+  text-align: center;
+  margin-right: -40px;
+  max-height: 180px; }
+
+/* line 442, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .newsContainer > div:nth-child(3) {
-  background-color: azure;
+  background-image: url("../assets/img/pattern%20(9).svg");
   width: 100%; }
 
 @keyframes mobilMenu {
@@ -431,68 +454,68 @@ form input[type="submit"]:hover {
     opacity: 1;
     border: 10px #fff solid; } }
 
-/* line 472, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 527, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani {
   animation-name: ani;
   animation-duration: 0.9s; }
 
-/* line 477, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 532, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani2 {
   animation-name: ani2;
   animation-duration: 1.4s; }
 
-/* line 482, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 537, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani3 {
   animation-name: ani;
   animation-duration: 0.2s; }
 
-/* line 487, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 542, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .ani4 {
   animation-name: spin;
   animation-duration: 0.8s; }
 
-/* line 492, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 547, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .fixedMenu h1 {
   display: none; }
 
-/* line 496, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 551, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .fixedMenu h3 {
   display: none; }
 
-/* line 500, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 555, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .displayNone {
   opacity: 0;
   display: none; }
 
-/* line 505, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 560, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .list {
   list-style: circle;
   list-style-type: armenian;
   list-style-position: outside; }
 
-/* line 511, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 566, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .notransition {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important; }
 
-/* line 518, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 573, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .space {
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s;
   transition-delay: 0.1; }
 
-/* line 525, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 580, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #titel {
   font-family: 'Gloria Hallelujah', cursive; }
 
-/* line 532, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 587, /Users/troelslund/Desktop/work web design/sass/app.scss */
 #name {
   font-family: 'Paytone One', sans-serif; }
 
-/* line 542, /Users/troelslund/Desktop/work web design/sass/app.scss */
+/* line 597, /Users/troelslund/Desktop/work web design/sass/app.scss */
 .activeLink {
   color: aliceblue;
   text-decoration: underline; }
@@ -505,118 +528,118 @@ form input[type="submit"]:hover {
    480-less    - phone landscape & smaller
 --------------------------------------------*/
 @media all and (min-width: 1024px) and (max-width: 1280px) {
-  /* line 558, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 613, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 400px; }
-  /* line 561, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 616, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 50px; }
-  /* line 565, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 620, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 3em; }
-  /* line 568, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 623, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 2em; }
-  /* line 571, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 626, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 576, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 631, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     left: 160px;
     bottom: 50px; }
-  /* line 580, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 635, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 75px; } }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
-  /* line 587, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 642, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 300px; }
-  /* line 590, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 645, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 30px; }
-  /* line 594, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 649, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 597, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 652, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 600, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 655, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 605, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 660, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     left: 160px;
     bottom: 50px; }
-  /* line 609, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 664, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 70px; } }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-  /* line 616, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 671, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 260px; }
-  /* line 619, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 674, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 623, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 678, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 626, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 681, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 629, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 684, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 634, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 689, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     transform: rotate(0deg);
     left: 20px;
     bottom: -0px; }
-  /* line 639, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 694, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia > i {
     transform: rotate(0deg); }
-  /* line 642, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 697, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 65px; } }
 
 @media all and (max-width: 480px) {
-  /* line 649, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 704, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     height: 260px; }
-  /* line 652, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 707, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 656, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 711, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 659, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 714, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 662, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 717, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 667, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 722, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia {
     transform: rotate(0deg);
     left: 20px;
     bottom: -10px; }
-  /* line 672, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 727, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .somedia > i {
     transform: rotate(0deg); }
-  /* line 675, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 730, /Users/troelslund/Desktop/work web design/sass/app.scss */
   .fixedMenu {
     height: 60px; } }
 
@@ -633,13 +656,13 @@ form input[type="submit"]:hover {
 /* Retina */
 /* iPhone Portrait */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
-  /* line 714, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 769, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     clip-path: none; } }
 
 /* iPhone Landscape */
 @media screen and (max-device-width: 480px) and (orientation: landscape) {
-  /* line 723, /Users/troelslund/Desktop/work web design/sass/app.scss */
+  /* line 778, /Users/troelslund/Desktop/work web design/sass/app.scss */
   header {
     clip-path: none; } }
 

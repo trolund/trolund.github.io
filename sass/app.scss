@@ -385,13 +385,16 @@ form input[type="submit"]:hover {
     display: flex;
     width: 100%;
     max-width: 800px;
-    background-color: black;
+}
+
+.newsContainer h3 {
+    color: black !important;
 }
 
 .newsContainer>div {
     min-height: 250px;
-    transition: all 0.3s;
-    overflow: auto;
+    transition: all 0.2s;
+    overflow: hidden;
     max-height: 250px;
     display: inline;
 }
@@ -401,28 +404,80 @@ form input[type="submit"]:hover {
     float: left;
     width: 50px;
     height: 250px;
-    overflow: auto;
+    overflow: hidden;
+    vertical-align: middle;
+    padding: 15px;
 }
 
-.newsContent {}
+.content {
+    float: right;
+    position: relative;
+    width: calc(100% - 60px) !important;
+    padding: 10px;
+}
 
 .newsContainer>div>div:first-child h2 {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
+    transform-origin: bottom right;
+    margin-left: -135px;
+    text-align: left;
 }
 
 .newsContainer>div:nth-child(1) {
-    background-color: antiquewhite;
+    background-image: url('../assets/img/pattern%20(5).svg');
 }
 
 .newsContainer>div:nth-child(2) {
-    background-color: aquamarine;
+    background-image: url('../assets/img/pattern%20(6).svg');
+    color: black !important;
+}
+
+.newsContainer>div:nth-child(2) img {
+    width: 100%;
+    text-align: center;
+    margin-right: -40px;
+    max-height: 180px;
 }
 
 .newsContainer>div:nth-child(3) {
-    background-color: azure;
+    background-image: url('../assets/img/pattern%20(9).svg');
     width: 100%;
 }
 
+//#accordion {
+//    list-style: none;
+//    margin: 30px 0;
+//    padding: 0;
+//    height: 200px;
+//    overflow: hidden;
+//    background: #7d8d96;
+//}
+//
+//#accordion li {
+//    float: left;
+//    border-left: solid 5px black;
+//    display: block;
+//    height: 170px;
+//    width: 50px;
+//    padding: 15px 0;
+//    overflow: hidden;
+//    color: #fff;
+//    text-decoration: none;
+//    font-size: 16px;
+//    line-height: 1.5em;
+//    border-left: 1px solid #fff;
+//}
+//
+//#accordion li img {
+//    border: none;
+//    border-right: 1px solid #fff;
+//    float: left;
+//    margin: -15px 15px 0 0;
+//}
+//
+//#accordion li.active {
+//    width: 450px;
+//}
 @keyframes mobilMenu {
     from {
         top: -25px;

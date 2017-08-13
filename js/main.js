@@ -69,21 +69,21 @@ function setUpRevealAni(aniTime) {
 
 function newsBox() {
     $('.newsContainer>div:last-child').addClass('newsShow');
-    $('.newsContainer>div:not(.newsShow)').css({
+    $('.newsContainer div:not(.newsShow)').css({
         width: 60
-    });
+    }, 2000);
     $('.newsContainer>div:last-child').css({
         width: '100%'
-    });
+    }, 2000);
 
 
     $('.newsContainer>div').hover(function (evt) {
         $('.newsShow').removeClass('newsShow').css({
             width: 60
-        });
+        }, 200);;
         $(this).addClass('newsShow').css({
             width: '100%'
-        });
+        }, 200);
 
     });
 
