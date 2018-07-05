@@ -4,6 +4,12 @@ sans-serif;
 $primary-color: #333;
 $footerheight: 200px;
 
+$colordarkblue: #1C3144;
+$colorcyan: #D6FFF6;
+$colortur: #4DCCBD;
+$colorAzureblue: #39A0ED;
+$colorsemidarkblue: #102E4A;
+
 /* google fonts imported: 
 
     font-family: 'Gloria Hallelujah', cursive;
@@ -18,10 +24,10 @@ body {
 
 header {
     width: 100%;
-    height: $headerheigt;
-    //    background-image: url("../assets/img/thumb-1920-467160.jpg");
-    background-image: url("/assets/img/pattern%20(1).png");
-    background-image: url("/assets/img/pattern%20(1).svg");
+    height: $headerheigt; //    background-image: url("../assets/img/thumb-1920-467160.jpg");
+    /* background-image: url("/assets/img/pattern%20(1).png");
+    background-image: url("/assets/img/pattern%20(1).svg");*/
+    background-color: $colordarkblue;
     background-position: center;
     background-size: cover;
     clip-path: polygon( 0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
@@ -52,7 +58,7 @@ h3 {
     text-align: center;
     margin-top: 70px;
     color: #fff !important;
-    text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8);
+    /*text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8);*/
 }
 
 header h1 {
@@ -73,7 +79,7 @@ header nav {
     color: gray;
 }
 
-header>div {
+header > div {
     //        padding: 15px;
     max-width: 800px;
     margin-left: auto;
@@ -84,13 +90,14 @@ header>div {
     border-radius: 50%;
 }
 
-nav>a {
+nav > a {
     color: #fff;
     font-family: $font-stack;
     transition: all .2s ease;
     padding: 5px;
     text-decoration: none;
     line-height: 35px;
+    text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 //        nav>a::before {
@@ -100,14 +107,12 @@ nav>a {
 //    nav>a:first-child::before {
 //        content: '';
 //    }
-nav>a:hover {
+nav > a:hover {
     color: dimgray;
     background-color: aliceblue;
     background-blend-mode: hard-light;
-    border-radius: 5px;
-    //   text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8);
-    text-decoration: none;
-    //        -webkit-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
+    border-radius: 5px; //   text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8);
+    text-decoration: none; //        -webkit-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
     //        -moz-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
     //        box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
 }
@@ -120,12 +125,10 @@ nav>a:hover {
     background-color: antiquewhite;
     background-image: url('../assets/img/profil.png');
     background-position: center;
-    background-size: cover;
-    //    -webkit-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
+    background-size: cover; //    -webkit-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
     //    -moz-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
     //    box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
-    border: 10px #fff solid;
-    //  box-shadow: 0 0 0 1px #ccc;
+    border: 10px #fff solid; //  box-shadow: 0 0 0 1px #ccc;
     margin-top: -180px;
     z-index: 999;
     position: relative;
@@ -134,10 +137,59 @@ nav>a:hover {
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s;
+    box-shadow: 0 0 1px rgba(0,
+    0,
+    0,
+    0);
 }
 
+$radiusCard: 5px;
+
 .profilimg:hover {
-    border: 5px #fff solid;
+    border: $radiusCard #fff solid;
+}
+
+.aboutImg {
+    width: 100%;
+    border-top-left-radius: $radiusCard;
+    border-top-right-radius: $radiusCard;
+}
+
+.card-body {
+    padding: 10px;
+    color: gray !important;
+}
+
+.card {
+    border: solid 1px $colordarkblue;
+    border-radius: $radiusCard;
+    float: left;
+    max-width: 220px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}
+
+$shadowX: 0px;
+$shadowY: 5px;
+$shadowBlur: 10px;
+$shadowOp: 0.2;
+
+.circleShadow {
+    box-shadow: $shadowX $shadowY $shadowBlur rgba(0, 0, 0, $shadowOp);
+    -moz-box-shadow: $shadowX $shadowY $shadowBlur rgba(0, 0, 0, $shadowOp);
+    -webkit-box-shadow: $shadowX $shadowY $shadowBlur rgba(0, 0, 0, $shadowOp);
+    -o-box-shadow: $shadowX $shadowY $shadowBlur rgba(0, 0, 0, $shadowOp);
+}
+
+.newsContainer > div:nth-child(1) {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.newsContainer > div:last-child {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 main {
@@ -212,11 +264,11 @@ main {
     margin-top: 100px;
 }
 
-#AboutMe>h1 {
+#AboutMe > h1 {
     margin-top: 120px;
 }
 
-main>article:first-child {
+main > article:first-child {
     margin-top: -80px;
 }
 
@@ -391,7 +443,7 @@ form input[type="submit"]:hover {
     color: black !important;
 }
 
-.newsContainer>div {
+.newsContainer > div {
     min-height: 250px;
     transition: all 0.2s;
     overflow: hidden;
@@ -399,7 +451,7 @@ form input[type="submit"]:hover {
     display: inline;
 }
 
-.newsContainer>div>div:first-child {
+.newsContainer > div > div:first-child {
     white-space: nowrap;
     float: left;
     width: 50px;
@@ -416,30 +468,30 @@ form input[type="submit"]:hover {
     padding: 10px;
 }
 
-.newsContainer>div>div:first-child h2 {
+.newsContainer > div > div:first-child h2 {
     transform: rotate(-90deg);
     transform-origin: bottom right;
     margin-left: -135px;
     text-align: left;
 }
 
-.newsContainer>div:nth-child(1) {
+.newsContainer > div:nth-child(1) {
     background-image: url('../assets/img/pattern%20(5).svg');
 }
 
-.newsContainer>div:nth-child(2) {
+.newsContainer > div:nth-child(2) {
     background-image: url('../assets/img/pattern%20(6).svg');
     color: black !important;
 }
 
-.newsContainer>div:nth-child(2) img {
+.newsContainer > div:nth-child(2) img {
     width: 100%;
     text-align: center;
     margin-right: -40px;
     max-height: 180px;
 }
 
-.newsContainer>div:nth-child(3) {
+.newsContainer > div:nth-child(3) {
     background-image: url('../assets/img/pattern%20(9).svg');
     width: 100%;
 }
@@ -578,8 +630,7 @@ form input[type="submit"]:hover {
 }
 
 #titel {
-    font-family: 'Gloria Hallelujah', cursive;
-    //    font-family: 'Poiret One', cursive;
+    font-family: 'Gloria Hallelujah', cursive; //    font-family: 'Poiret One', cursive;
     //    font-family: 'Alfa Slab One', cursive;
 }
 
@@ -598,6 +649,9 @@ form input[type="submit"]:hover {
     color: aliceblue;
     text-decoration: underline;
 }
+
+
+
 
 
 /*------------------------------------------
@@ -691,7 +745,7 @@ form input[type="submit"]:hover {
         left: 20px;
         bottom: -0px;
     }
-    .somedia>i {
+    .somedia > i {
         transform: rotate(0deg);
     }
     .fixedMenu {
@@ -724,11 +778,14 @@ form input[type="submit"]:hover {
         left: 20px;
         bottom: -10px;
     }
-    .somedia>i {
+    .somedia > i {
         transform: rotate(0deg);
     }
     .fixedMenu {
         height: 60px;
+    }
+    .card {
+        max-width: 190px;
     }
 }
 
@@ -749,7 +806,6 @@ form input[type="submit"]:hover {
 
 /* CSS for iPhone, iPad, and Retina Displays */
 
-
 /* Non-Retina */
 
 @media screen and (-webkit-max-device-pixel-ratio: 1) {}
@@ -768,6 +824,10 @@ only screen and (min-device-pixel-ratio: 1.5) {}
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
     header {
         clip-path: none;
+    }
+
+    .card {
+        max-width: 100%;
     }
 }
 
@@ -789,3 +849,153 @@ only screen and (min-device-pixel-ratio: 1.5) {}
 /* iPad Landscape */
 
 @media screen and (min-device-width: 481px) and (orientation:landscape) {}
+
+
+/* timeline */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Set a background color */
+
+body {
+    background-color: #474e5d;
+    font-family: Helvetica, sans-serif;
+}
+
+
+/* Place the container to the left */
+
+.left {
+    left: 0;
+}
+
+/* Place the container to the right */
+
+.right {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+
+.right::after {
+    left: -16px;
+}
+
+/* The actual content */
+
+.content {
+    padding: 20px 30px;
+    /* background-color: white;*/
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+
+@media screen and (max-width: 600px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containers */
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after,
+    .right::after {
+        left: 15px;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0%;
+    }
+}
+
+
+
+
+.Skillscontainer {
+    width: calc(100% -100px);
+    background-color: #ddd;
+    padding: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+
+.skills {
+    text-align: right;
+    padding-right: 20px;
+    margin-left: 0px;
+    line-height: 30px;
+    color: white;
+    border-radius: 5px;
+}
+
+.html {
+    width: 90%;
+    background-color: #4CAF50;
+}
+
+.css {
+    width: 80%;
+    background-color: #2196F3;
+}
+
+.js {
+    width: 65%;
+    background-color: #f44336;
+}
+
+.php {
+    width: 60%;
+    background-color: #808080;
+}

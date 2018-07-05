@@ -8,7 +8,7 @@ function AutoMenuUpdate(Htag, des, aniTime) {
         // create menu
         name = $(this).text().replace(" ", "");
 
-        var aTag = '<a data="' + name + '"  class="' + name + 'Link" href="#' + name + '">' + $(this).text() + '</a>';
+        var aTag = '<a data="' + name + '"  class="' + name + 'Link hvr-hang" href="#' + name + '">' + $(this).text() + '</a>';
 
         $('#' + des).append(aTag);
 
@@ -111,6 +111,7 @@ $(document).ready(function () {
 
     $(window).resize(function () {
         viewportWidth = $(window).width();
+        menuPX = $('header').height();
 
         if (viewportWidth > 1280) {
             headerheigt = 500 + $('.somedia').height() * pro;
