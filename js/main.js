@@ -169,6 +169,9 @@ $(document).ready(function () {
 
         }
 
+        ActiveLinksUpdate();
+
+        /*
 
         if ($('#aboutMe').visible()) {
             $('.abouteMeLink').addClass('activeLink');
@@ -182,7 +185,78 @@ $(document).ready(function () {
             $('.projectsLink').removeClass('activeLink');
         }
 
-
+*/
 
     });
 });
+
+
+function ActiveLinksUpdate() {
+
+    /* update aktiv linkes */
+
+    mostVisible = getMostVisible($("article"));
+
+    mostVisibleH1 = mostVisible.find("h1:first");
+
+    nameH1 = mostVisibleH1.text().replace(" ", "");
+
+    console.log(nameH1);
+
+    $('nav a').each(function () {
+        if (!$('.' + nameH1 + 'Link').is($(this))) {
+            $(this).removeClass('activeLink');
+        }
+    })
+
+    if (!$('.' + nameH1 + 'Link').hasClass('activeLink')) {
+        $('.' + nameH1 + 'Link').addClass('activeLink');
+    }
+
+
+}
+
+function getMostVisible($elements) {
+    var $element = $(),
+        viewportHeight = $(window).height(),
+        max = 0;
+
+    $elements.each(function () {
+        var visiblePx = getVisibleHeightPx($(this), viewportHeight);
+
+        if (visiblePx > max) {
+            max = visiblePx;
+            $element = $(this);
+        }
+    });
+
+    return $element;
+}
+
+function getVisibleHeightPx($element, viewportHeight) {
+    var rect = $element.get(0).getBoundingClientRect(),
+        height = rect.bottom - rect.top,
+        visible = {
+            top: rect.top >= 0 && rect.top < viewportHeight,
+            bottom: rect.bottom > 0 && rect.bottom < viewportHeight
+        },
+        visiblePx = 0;
+
+    if (visible.top && visible.bottom) {
+        // Whole element is visible
+        visiblePx = height;
+    } else if (visible.top) {
+        visiblePx = viewportHeight - rect.top;
+    } else if (visible.bottom) {
+        visiblePx = rect.bottom;
+    } else if (height > viewportHeight && rect.top < 0) {
+        var absTop = Math.abs(rect.top);
+
+        if (absTop < height) {
+            // Part of the element is visible
+            visiblePx = height - absTop;
+        }
+    }
+
+    return visiblePx;
+}

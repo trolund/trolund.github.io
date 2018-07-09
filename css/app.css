@@ -13,8 +13,7 @@ body {
 header {
   width: 100%;
   height: 500px;
-  /* background-image: url("/assets/img/pattern%20(1).png");
-    background-image: url("/assets/img/pattern%20(1).svg");*/
+  background-image: url("/assets/img/bg.png");
   background-color: #1C3144;
   background-position: center;
   background-size: cover;
@@ -37,7 +36,7 @@ header {
   /* Non-prefixed version, currently
                                   supported by Chrome and Opera */ }
 
-/* line 53, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 52, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 header h1,
 h3 {
   font-family: Helvetica, sans-serif;
@@ -48,15 +47,15 @@ h3 {
   color: #fff !important;
   /*text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8);*/ }
 
-/* line 64, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 63, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 header h1 {
   font-size: 4em; }
 
-/* line 68, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 67, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 header h3 {
   font-size: 2em; }
 
-/* line 72, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 71, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 header nav {
   width: auto;
   margin-left: auto;
@@ -66,17 +65,17 @@ header nav {
   text-align: center;
   color: gray; }
 
-/* line 82, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 81, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 header > div {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto; }
 
-/* line 89, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 88, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .round {
   border-radius: 50%; }
 
-/* line 93, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 92, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 nav > a {
   color: #fff;
   font-family: Helvetica, sans-serif;
@@ -86,7 +85,7 @@ nav > a {
   line-height: 35px;
   text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5); }
 
-/* line 110, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 109, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 nav > a:hover {
   color: dimgray;
   background-color: aliceblue;
@@ -94,7 +93,7 @@ nav > a:hover {
   border-radius: 5px;
   text-decoration: none; }
 
-/* line 120, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 119, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .profilimg {
   height: 200px;
   width: 200px;
@@ -115,22 +114,22 @@ nav > a:hover {
   transition: all 0.2s;
   box-shadow: 0 0 1px transparent; }
 
-/* line 148, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 147, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .profilimg:hover {
   border: 5px #fff solid; }
 
-/* line 152, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 151, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .aboutImg {
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
 
-/* line 158, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 157, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .card-body {
   padding: 10px;
   color: gray !important; }
 
-/* line 163, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 162, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .card {
   border: solid 1px #1C3144;
   border-radius: 5px;
@@ -139,29 +138,29 @@ nav > a:hover {
   margin-right: 10px;
   margin-bottom: 10px; }
 
-/* line 178, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 177, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .circleShadow {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   -o-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); }
 
-/* line 185, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 184, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div:nth-child(1) {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px; }
 
-/* line 190, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 189, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div:last-child {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px; }
 
-/* line 195, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 194, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 main {
   height: auto;
   width: 100%; }
 
-/* line 200, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 199, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .somedia {
   margin-left: auto;
   margin-right: auto;
@@ -189,7 +188,7 @@ main {
   /* Non-prefixed version, currently
                                   supported by Chrome and Opera */ }
 
-/* line 228, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 227, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .somedia i {
   transform: rotate(4deg);
   height: 29px;
@@ -197,50 +196,50 @@ main {
   z-index: 800;
   transition: all 0.3s; }
 
-/* line 236, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 235, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .somedia i:hover {
   cursor: pointer; }
 
-/* line 240, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 239, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .somedia i[class*="facebook"]:hover {
   color: #3B5998; }
 
-/* line 244, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 243, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .somedia i[class*="github"]:hover {
   color: #6e5494; }
 
-/* line 248, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 247, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .somedia i[class*="youtube"]:hover {
   color: #c4302b; }
 
-/* line 252, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 251, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .somedia i[class*="insta"]:hover {
   color: #d6249f; }
 
-/* line 256, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 255, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 main article {
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
   max-width: 800px; }
 
-/* line 263, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 262, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 main {
   margin-top: 100px; }
 
-/* line 267, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 266, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 #AboutMe > h1 {
   margin-top: 120px; }
 
-/* line 271, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 270, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 main > article:first-child {
   margin-top: -80px; }
 
-/* line 275, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 274, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerbuffer {
   height: 200px; }
 
-/* line 279, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 278, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 footer {
   margin-top: 50px;
   min-height: 100px;
@@ -249,11 +248,10 @@ footer {
   left: 0px;
   bottom: 0px;
   height: 200px;
-  background: #000;
-  width: 100%;
-  background-image: url(../assets/img/ep_naturalblack.png); }
+  background: #1C3144;
+  width: 100%; }
 
-/* line 292, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 290, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerMedia {
   color: #fff;
   margin-left: auto;
@@ -264,41 +262,32 @@ footer {
   font-size: 2.2em;
   transition: all 0.3s; }
 
-/* line 303, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 301, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerMedia i:hover {
   cursor: pointer; }
 
-/* line 307, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 305, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerMedia i[class*="facebook"]:hover {
   color: #3B5998; }
 
-/* line 311, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 309, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerMedia i[class*="github"]:hover {
   color: #6e5494; }
 
-/* line 315, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 313, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerMedia i[class*="youtube"]:hover {
   color: #c4302b; }
 
-/* line 319, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 317, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerMedia i[class*="insta"]:hover {
   color: #d6249f; }
 
-/* line 323, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 321, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .footerFooter {
   bottom: -110px;
   position: relative;
   height: 50px;
   width: 100%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,000000+100&0+0,1+100 */
-  background: -moz-linear-gradient(top, rgba(125, 185, 232, 0) 0%, black 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(125, 185, 232, 0) 0%, black 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(125, 185, 232, 0) 0%, black 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#000000', GradientType=0);
-  /* IE6-9 */
   font-family: Helvetica, sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -306,12 +295,12 @@ footer {
   text-align: center;
   line-height: 50px; }
 
-/* line 345, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 334, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .center {
   margin-left: auto;
   margin-right: auto; }
 
-/* line 350, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 339, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .farvebg {
   background-color: black;
   clip-path: polygon(0 100% calc(100% - 5vw), 100% 0, 100% calc(100% - 5vw), 0 100%);
@@ -321,35 +310,37 @@ footer {
   margin-top: 80px;
   min-height: 400; }
 
-/* line 360, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 349, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .fixedMenu {
   position: fixed;
   top: 0px;
   opacity: 1;
-  height: 90px;
+  height: 65px;
   transition: .2 all ease;
   animation-name: mobilMenu;
   animation-duration: 0.2s;
-  z-index: 9999; }
+  z-index: 9999;
+  background-image: none;
+  clip-path: none; }
 
-/* line 371, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 362, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 #projects {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 376, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 367, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 form p {
   margin-bottom: -15px;
   margin-top: 10px; }
 
-/* line 381, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 372, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 form input[type="text"] {
   border-radius: 5px;
   border: 1px solid lightblue;
   padding: 5px;
   background-color: ghostwhite; }
 
-/* line 388, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 379, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 form textarea {
   border-radius: 5px;
   border: 1px solid lightblue;
@@ -360,7 +351,7 @@ form textarea {
   max-height: 300px;
   max-width: 700px; }
 
-/* line 399, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 390, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 form input[type="submit"] {
   border-radius: 5px;
   border: 1px solid lightblue;
@@ -368,18 +359,18 @@ form input[type="submit"] {
   background-color: ghostwhite;
   transition: all 0.3s; }
 
-/* line 407, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 398, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 form input[type="submit"]:hover {
   border-radius: 5px;
   border: 1px solid darkblue;
   padding: 5px;
   background-color: darkgray; }
 
-/* line 414, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 405, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .borderRadius {
   border-radius: 5px; }
 
-/* line 418, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 409, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 #goToTopBut {
   width: 50px;
   height: 50px;
@@ -392,22 +383,22 @@ form input[type="submit"]:hover {
   padding: 10px;
   cursor: pointer; }
 
-/* line 431, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 422, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 #goToTopBut img {
   width: 30px;
   height: 30px; }
 
-/* line 436, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 427, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer {
   display: flex;
   width: 100%;
   max-width: 800px; }
 
-/* line 442, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 433, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer h3 {
   color: black !important; }
 
-/* line 446, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 437, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div {
   min-height: 250px;
   transition: all 0.2s;
@@ -415,7 +406,7 @@ form input[type="submit"]:hover {
   max-height: 250px;
   display: inline; }
 
-/* line 454, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 445, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div > div:first-child {
   white-space: nowrap;
   float: left;
@@ -425,37 +416,37 @@ form input[type="submit"]:hover {
   vertical-align: middle;
   padding: 15px; }
 
-/* line 464, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 455, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .content {
   float: right;
   position: relative;
   width: calc(100% - 60px) !important;
   padding: 10px; }
 
-/* line 471, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 462, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div > div:first-child h2 {
   transform: rotate(-90deg);
   transform-origin: bottom right;
   margin-left: -135px;
   text-align: left; }
 
-/* line 478, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 469, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div:nth-child(1) {
   background-image: url("../assets/img/pattern%20(5).svg"); }
 
-/* line 482, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 473, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div:nth-child(2) {
   background-image: url("../assets/img/pattern%20(6).svg");
   color: black !important; }
 
-/* line 487, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 478, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div:nth-child(2) img {
   width: 100%;
   text-align: center;
   margin-right: -40px;
   max-height: 180px; }
 
-/* line 494, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 485, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .newsContainer > div:nth-child(3) {
   background-image: url("../assets/img/pattern%20(9).svg");
   width: 100%; }
@@ -494,71 +485,72 @@ form input[type="submit"]:hover {
     opacity: 1;
     border: 10px #fff solid; } }
 
-/* line 579, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 570, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .ani {
   animation-name: ani;
   animation-duration: 0.9s; }
 
-/* line 584, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 575, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .ani2 {
   animation-name: ani2;
   animation-duration: 1.4s; }
 
-/* line 589, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 580, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .ani3 {
   animation-name: ani;
   animation-duration: 0.2s; }
 
-/* line 594, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 585, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .ani4 {
   animation-name: spin;
   animation-duration: 0.8s; }
 
-/* line 599, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 590, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .fixedMenu h1 {
   display: none; }
 
-/* line 603, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 594, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .fixedMenu h3 {
   display: none; }
 
-/* line 607, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 598, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .displayNone {
   opacity: 0;
   display: none; }
 
-/* line 612, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 603, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .list {
   list-style: circle;
   list-style-type: armenian;
   list-style-position: outside; }
 
-/* line 618, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 609, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .notransition {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important; }
 
-/* line 625, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 616, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .space {
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s;
   transition-delay: 0.1; }
 
-/* line 632, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 623, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 #titel {
   font-family: 'Gloria Hallelujah', cursive; }
 
-/* line 638, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 629, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 #name {
   font-family: 'Paytone One', sans-serif; }
 
-/* line 648, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 639, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .activeLink {
-  color: aliceblue;
-  text-decoration: underline; }
+  color: orange;
+  transition: 0.2 all;
+  font-size: 1.5em; }
 
 /*------------------------------------------
   Responsive Grid Media Queries - 1280, 1024, 768, 480
@@ -568,121 +560,121 @@ form input[type="submit"]:hover {
    480-less    - phone landscape & smaller
 --------------------------------------------*/
 @media all and (min-width: 1024px) and (max-width: 1280px) {
-  /* line 667, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 660, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header {
     height: 400px; }
-  /* line 670, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 663, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1,
   h3 {
     margin-top: 50px; }
-  /* line 674, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 667, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1 {
     font-size: 3em; }
-  /* line 677, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 670, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h3 {
     font-size: 2em; }
-  /* line 680, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 673, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 685, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 678, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .somedia {
     left: 160px;
     bottom: 50px; }
-  /* line 689, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 682, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .fixedMenu {
     height: 75px; } }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
-  /* line 696, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 689, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header {
     height: 300px; }
-  /* line 699, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 692, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1,
   h3 {
     margin-top: 30px; }
-  /* line 703, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 696, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 706, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 699, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 709, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 702, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 714, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 707, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .somedia {
     left: 160px;
     bottom: 50px; }
-  /* line 718, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 711, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .fixedMenu {
     height: 70px; } }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-  /* line 725, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 718, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header {
     height: 260px; }
-  /* line 728, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 721, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 732, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 725, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 735, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 728, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 738, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 731, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 743, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 736, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .somedia {
     transform: rotate(0deg);
     left: 20px;
     bottom: -0px; }
-  /* line 748, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 741, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .somedia > i {
     transform: rotate(0deg); }
-  /* line 751, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 744, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .fixedMenu {
     height: 65px; } }
 
 @media all and (max-width: 480px) {
-  /* line 758, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 752, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header {
     height: 260px; }
-  /* line 761, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 755, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 765, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 759, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 768, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 762, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 771, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 765, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 776, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 770, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .somedia {
     transform: rotate(0deg);
     left: 20px;
     bottom: -10px; }
-  /* line 781, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 775, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .somedia > i {
     transform: rotate(0deg); }
-  /* line 784, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 778, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .fixedMenu {
     height: 60px; }
-  /* line 787, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 783, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .card {
     max-width: 190px; } }
 
@@ -699,44 +691,44 @@ form input[type="submit"]:hover {
 /* Retina */
 /* iPhone Portrait */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
-  /* line 825, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 821, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header {
     clip-path: none; }
-  /* line 829, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 825, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .card {
     max-width: 100%; } }
 
 /* iPhone Landscape */
 @media screen and (max-device-width: 480px) and (orientation: landscape) {
-  /* line 838, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 834, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   header {
     clip-path: none; } }
 
 /* iPad Portrait */
 /* iPad Landscape */
 /* timeline */
-/* line 856, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 852, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 * {
   box-sizing: border-box; }
 
 /* Set a background color */
-/* line 862, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 858, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 body {
   background-color: #474e5d;
   font-family: Helvetica, sans-serif; }
 
 /* Place the container to the left */
-/* line 870, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 866, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .left {
   left: 0; }
 
 /* Place the container to the right */
-/* line 876, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 872, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .right {
   left: 50%; }
 
 /* Add arrows to the left container (pointing right) */
-/* line 882, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 878, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .left::before {
   content: " ";
   height: 0;
@@ -750,7 +742,7 @@ body {
   border-color: transparent transparent transparent white; }
 
 /* Add arrows to the right container (pointing left) */
-/* line 897, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 893, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .right::before {
   content: " ";
   height: 0;
@@ -764,12 +756,12 @@ body {
   border-color: transparent white transparent transparent; }
 
 /* Fix the circle for containers on the right side */
-/* line 912, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 908, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .right::after {
   left: -16px; }
 
 /* The actual content */
-/* line 918, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 914, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .content {
   padding: 20px 30px;
   /* background-color: white;*/
@@ -779,33 +771,33 @@ body {
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
   /* Place the timelime to the left */
-  /* line 929, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 925, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .timeline::after {
     left: 31px; }
   /* Full-width containers */
-  /* line 934, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 930, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .container {
     width: 100%;
     padding-left: 70px;
     padding-right: 25px; }
   /* Make sure that all arrows are pointing leftwards */
-  /* line 941, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 937, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .container::before {
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
     border-color: transparent white transparent transparent; }
   /* Make sure all circles are at the same spot */
-  /* line 949, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 945, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .left::after,
   .right::after {
     left: 15px; }
   /* Make all right containers behave like the left ones */
-  /* line 955, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+  /* line 951, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
   .right {
     left: 0%; } }
 
-/* line 963, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 959, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .Skillscontainer {
   width: calc(100% -100px);
   background-color: #ddd;
@@ -815,7 +807,7 @@ body {
   border-radius: 5px;
   margin-bottom: 10px; }
 
-/* line 974, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 970, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .skills {
   text-align: right;
   padding-right: 20px;
@@ -824,22 +816,22 @@ body {
   color: white;
   border-radius: 5px; }
 
-/* line 983, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 979, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .html {
   width: 90%;
   background-color: #4CAF50; }
 
-/* line 988, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 984, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .css {
   width: 80%;
   background-color: #2196F3; }
 
-/* line 993, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 989, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .js {
   width: 65%;
   background-color: #f44336; }
 
-/* line 998, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
+/* line 994, /Users/troelslund/Google Drev/DTU/work web/sass/app.scss */
 .php {
   width: 60%;
   background-color: #808080; }
