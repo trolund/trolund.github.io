@@ -1,10 +1,13 @@
 $headerheigt: 500px;
 $font-stack: Helvetica,
 sans-serif;
+$font-two: 'Gloria Hallelujah',
+cursive;
 $primary-color: #333;
 $footerheight: 200px;
 
 $colordarkblue: #1C3144;
+$colordarkblueRGB: rgba(28, 49, 68, 0.92);
 $colorcyan: #D6FFF6;
 $colortur: #4DCCBD;
 $colorAzureblue: #39A0ED;
@@ -26,7 +29,7 @@ header {
     width: 100%;
     height: $headerheigt; //    background-image: url("../assets/img/thumb-1920-467160.jpg");
     background-image: url("/assets/img/bg.png");
-    background-color: $colordarkblue;
+    background-color: $colordarkblueRGB;
     background-position: center;
     background-size: cover;
     clip-path: polygon( 0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
@@ -47,6 +50,8 @@ header {
     user-select: none;
     /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 header h1,
@@ -145,7 +150,7 @@ nav > a:hover {
 $radiusCard: 5px;
 
 .profilimg:hover {
-    border: $radiusCard #fff solid;
+    border: $radiusCard #ccc solid;
 }
 
 .aboutImg {
@@ -160,13 +165,13 @@ $radiusCard: 5px;
 }
 
 .card {
-    border: solid 1px $colordarkblue;
+    //border: solid 1px $colordarkblue;
     border-radius: $radiusCard;
     float: left;
     max-width: 220px;
     margin-right: 10px;
     margin-bottom: 10px;
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 $shadowX: 0px;
@@ -202,10 +207,11 @@ main {
     position: relative;
     width: 165px;
     font-size: 2.2em;
-    left: 190px;
-    bottom: 50px;
-    transform: rotate(-4deg);
+    transform: rotate(0deg);
     color: black;
+    transform: rotate(0deg);
+    left: 10px;
+    bottom: -0px;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s;
@@ -225,7 +231,7 @@ main {
 }
 
 .somedia i {
-    transform: rotate(+4deg);
+    transform: rotate(0deg);
     height: 29px;
     width: 29px;
     z-index: 800;
@@ -337,9 +343,7 @@ footer {
 }
 
 .farvebg {
-    background-color: black;
-    clip-path: polygon( 0 100% calc(100% - 5vw), 100% 0, 100% calc(100% - 5vw), 0 100%);
-    background-image: url(../assets/img/ep_naturalblack.png);
+    background-color: $colorsemidarkblue;
     color: #fff;
     padding: 25px;
     margin-top: 80px;
@@ -357,6 +361,11 @@ footer {
     z-index: 9999;
     background-image: none;
     clip-path: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.fixedMenu nav {
+    margin-top: 8px;
 }
 
 #projects {
@@ -639,8 +648,7 @@ form input[type="submit"]:hover {
 .activeLink {
     color: orange;
     transition: 0.2 all;
-    font-size: 1.5em;
-    // text-decoration: underline;
+    font-size: 1.5em; // text-decoration: underline;
 }
 
 
@@ -675,10 +683,12 @@ form input[type="submit"]:hover {
         width: 150px;
         margin-top: -130px;
     }
+    /*
     .somedia {
         left: 160px;
         bottom: 50px;
     }
+    */
     .fixedMenu {
         height: 75px;
     }
@@ -704,10 +714,12 @@ form input[type="submit"]:hover {
         width: 150px;
         margin-top: -130px;
     }
+    /*
     .somedia {
         left: 160px;
         bottom: 50px;
     }
+    */
     .fixedMenu {
         height: 70px;
     }
@@ -733,6 +745,7 @@ form input[type="submit"]:hover {
         width: 150px;
         margin-top: -130px;
     }
+    /*
     .somedia {
         transform: rotate(0deg);
         left: 20px;
@@ -741,6 +754,7 @@ form input[type="submit"]:hover {
     .somedia > i {
         transform: rotate(0deg);
     }
+    */
     .fixedMenu {
         height: 65px;
 
@@ -767,6 +781,7 @@ form input[type="submit"]:hover {
         width: 150px;
         margin-top: -130px;
     }
+    /*
     .somedia {
         transform: rotate(0deg);
         left: 20px;
@@ -775,6 +790,7 @@ form input[type="submit"]:hover {
     .somedia > i {
         transform: rotate(0deg);
     }
+    */
     .fixedMenu {
         height: 60px;
 
@@ -994,4 +1010,246 @@ body {
 .php {
     width: 60%;
     background-color: #808080;
+}
+
+
+// flip cards
+/* entire container, keeps perspective */
+
+.flip-container {
+    perspective: 1000px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+    width: 320px;
+    height: 320px;
+    border-radius: 5px;
+}
+
+.back > h2 {
+    font-size: 18px;
+    margin: 10px;
+    color: $colordarkblueRGB;
+    text-align: center;
+}
+
+/* flip speed goes here */
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    background-color: black;
+}
+
+
+.front > h2 {
+    text-align: center;
+    margin-top: 200px;
+    text-shadow: 0px 0px 10px rgba(150, 150, 150, 1);
+}
+
+.front > span {
+    position: relative;
+    top: 15px;
+    margin-left: 5px;
+    background-color: white;
+    color: darkslategrey;
+    border-radius: 5px;
+    padding: 7px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+
+}
+
+.front > span:first-child {
+    margin-left: 10px;
+}
+
+
+/* back, initially hidden pane */
+
+.back {
+    transform: rotateY(180deg);
+    background-color: aliceblue;
+    padding: 10px;
+    color: $colordarkblue;
+}
+
+
+article > div > div:nth-child(1) > div:nth-child(2) > div > div.front {
+    background-color: ghostwhite;
+    background-image: url(../assets/img/drone.svg);
+}
+
+article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
+    background-color: ghostwhite;
+    background-image: url(../assets/img/app.png);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul {
+    // background: #456990;
+    padding: 50px 0;
+}
+
+.timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 6px;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: $colorsemidarkblue;
+}
+
+.timeline ul li:first-child {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.timeline ul li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.timeline ul li div {
+    position: relative;
+    bottom: 0;
+    max-width: 250px;
+    min-width: 200px;
+    padding: 15px;
+    background: aliceblue;
+    border-radius: 5px;
+}
+
+.timeline ul li div::before {
+    content: '';
+    position: absolute;
+    bottom: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) div {
+    left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent aliceblue transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div {
+    left: -240px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent aliceblue;
+}
+
+time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+
+/* timeline EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul li::after {
+    transition: background .5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+    background: orange;
+}
+
+.timeline ul li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+.timeline ul li:nth-child(odd) div {
+    transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li:nth-child(even) div {
+    transform: translate3d(-200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* timeline responsive
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 600px) {
+    .timeline ul li {
+        margin-left: 20px;
+    }
+    .timeline ul li div {
+        width: calc(100vw - 91px);
+    }
+    .timeline ul li:nth-child(even) div {
+        left: 45px;
+    }
+    .timeline ul li:nth-child(even) div::before {
+        left: -15px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent aliceblue transparent transparent;
+    }
 }
