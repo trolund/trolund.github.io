@@ -92,6 +92,9 @@ function newsBox() {
 }
 
 $(document).ready(function () {
+    addAnimationTimeline();
+    AOS.init();
+
     var viewportWidth = $(window).width();
     var headerheigt = $('header').height() + $('.somedia').height() * pro;
     var smallHeader = 90;
@@ -103,6 +106,7 @@ $(document).ready(function () {
     newsBox();
     flipcardsgen();
     timelineJS();
+
 
     $('#goToTopBut').hide();
     $('#goToTopBut').click(function () {
@@ -286,4 +290,16 @@ function timelineJS() {
     window.addEventListener("scroll", callbackFunc);
 
 
+}
+
+function addAnimationTimeline() {
+    count = 0;
+    $('.timeline div').each(function () {
+        if (count % 2 == 0) {
+            $(this).attr('data-aos', 'zoom-in-right'); // data-aos="zoom-in-right"
+        } else {
+            $(this).attr('data-aos', 'zoom-in-left');
+        }
+        count++;
+    })
 }
