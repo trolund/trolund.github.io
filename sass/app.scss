@@ -346,9 +346,17 @@ footer {
     background-color: $colorsemidarkblue;
     color: #fff;
     padding: 25px;
-    margin-top: 80px;
-    min-height: 400
+    min-height: 400;
 }
+
+.farvebg2 {
+    background-color: $colorcyan;
+    color: #fff;
+    padding: 25px;
+    min-height: 400;
+}
+
+
 
 .fixedMenu {
     position: fixed;
@@ -1030,6 +1038,8 @@ body {
 .flip-container:hover .flipper,
 .flip-container.hover .flipper {
     transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 .flip-container,
@@ -1052,7 +1062,8 @@ body {
 .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
-
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
     position: relative;
 }
 
@@ -1061,7 +1072,8 @@ body {
 .front,
 .back {
     backface-visibility: hidden;
-
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -1073,6 +1085,8 @@ body {
     z-index: 2;
     /* for firefox 31 */
     transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
     background-color: black;
 }
 
@@ -1104,6 +1118,8 @@ body {
 
 .back {
     transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
     background-color: aliceblue;
     padding: 10px;
     color: $colordarkblue;
@@ -1181,6 +1197,8 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
     border-radius: 5px;
     min-height: 80px;
 }
+
+.kursusList ul {}
 
 .timeline ul li div::before {
     content: '';
