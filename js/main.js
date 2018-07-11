@@ -21,7 +21,7 @@ function AutoMenuUpdate(Htag, des, aniTime) {
 
         $("." + name + "Link").click(function () {
             id = $(this).attr('data');;
-            console.log('Go to: ' + id);
+            // console.log('Go to: ' + id);
             $('html, body').animate({
                 scrollTop: $('#' + id).offset().top - 80
             }, aniTime);
@@ -106,6 +106,7 @@ $(document).ready(function () {
     newsBox();
     flipcardsgen();
     timelineJS();
+    printAge();
 
 
     $('#goToTopBut').hide();
@@ -190,7 +191,7 @@ function ActiveLinksUpdate() {
 
     nameH1 = mostVisibleH1.text().replace(" ", "");
 
-    console.log(nameH1);
+    // console.log(nameH1);
 
     $('nav a').each(function () {
         if (!$('.' + nameH1 + 'Link').is($(this))) {
@@ -300,4 +301,23 @@ function addAnimationTimeline() {
         }
         count++;
     })
+}
+
+function printAge() {
+    var d = new Date();
+    var year = d.getFullYear();
+    var day = d.getDate();
+    var month = d.getMonth();
+
+    bithday = year - 1994;
+
+    if (month < 10) {
+        bithday--;
+    } else if (month == 10) {
+        if (day < 6) {
+            bithday--;
+        }
+    }
+
+    $('#age').prepend(bithday);
 }

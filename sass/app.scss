@@ -6,6 +6,7 @@ cursive;
 $primary-color: #333;
 $footerheight: 200px;
 
+$colorligterblue: #224c72;
 $colordarkblue: #1C3144;
 $colordarkblueRGB: rgba(28, 49, 68, 0.92);
 $colorcyan: #D6FFF6;
@@ -161,7 +162,7 @@ $radiusCard: 5px;
 
 .card-body {
     padding: 10px;
-    color: gray !important;
+    color: white !important;
 }
 
 .card {
@@ -350,7 +351,7 @@ footer {
 }
 
 .farvebg2 {
-    background-color: $colorcyan;
+    background-color: $colorligterblue;
     color: #fff;
     padding: 25px;
     min-height: 400;
@@ -1040,6 +1041,10 @@ body {
     transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
+    .front {
+        //opacity: 0;
+        z-index: 1;
+    }
 }
 
 .flip-container,
@@ -1123,6 +1128,7 @@ body {
     background-color: aliceblue;
     padding: 10px;
     color: $colordarkblue;
+    z-index: 9999999;
 }
 
 
@@ -1145,6 +1151,7 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
 .timeline ul {
     // background: #456990;
     padding: 50px 0;
+    color: black;
 }
 
 .timeline ul li {
@@ -1156,6 +1163,7 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
     background: $colorsemidarkblue;
     line-height: 1em;
     text-align: left;
+    color: black;
 }
 
 .timeline ul li p {
@@ -1289,7 +1297,7 @@ time {
         margin-left: 20px;
     }
     .timeline ul li div {
-        width: calc(100vw - 91px);
+        width: calc(100vw - 130px);
         padding-bottom: 20px;
     }
     .timeline ul li:nth-child(even) div {
