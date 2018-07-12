@@ -1237,7 +1237,9 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
     min-height: 80px;
 }
 
-.kursusList ul {}
+.kursusList ul {
+    list-style: none;
+}
 
 .timeline ul li div::before {
     content: '';
@@ -1268,12 +1270,7 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
     border-color: transparent transparent transparent aliceblue;
 }
 
-.timeline ul li:nth-child(5) div ul {
-    list-style: circle !important;
-    list-style-type: circle !important;
-    padding: 0px;
-    list-style-position: inside;
-}
+.timeline ul li:nth-child(5) div ul {}
 
 time {
     display: block;
@@ -1288,7 +1285,8 @@ time {
     float: left;
 }
 
-.firstsemester {
+.firstsemester,
+.secsemester {
     margin-bottom: 0px !important;
     margin-top: 38px;
 }
