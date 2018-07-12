@@ -158,6 +158,12 @@ $radiusCard: 5px;
     width: 100%;
     border-top-left-radius: $radiusCard;
     border-top-right-radius: $radiusCard;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
 }
 
 .card-body {
@@ -173,6 +179,25 @@ $radiusCard: 5px;
     margin-right: 10px;
     margin-bottom: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card:hover img {
+    opacity: 0.3;
+}
+
+.card:hover .middle {
+    opacity: 1;
 }
 
 $shadowX: 0px;
@@ -446,11 +471,12 @@ form input[type="submit"]:hover {
     display: flex;
     width: 100%;
     max-width: 800px;
+    color: white;
 
 }
 
 .newsContainer h3 {
-    color: black !important;
+    color: white !important;
 }
 
 .newsContainer > div {
@@ -486,12 +512,13 @@ form input[type="submit"]:hover {
 }
 
 .newsContainer > div:nth-child(1) {
-    background-image: url('../assets/img/pattern%20(5).svg');
+    //background-image: url('../assets/img/pattern%20(5).svg');
+    background-color: $colordarkblue;
 }
 
 .newsContainer > div:nth-child(2) {
-    background-image: url('../assets/img/pattern%20(6).svg');
-    color: black !important;
+    // background-image: url('../assets/img/pattern%20(6).svg');
+    background-color: $colorsemidarkblue;
 }
 
 .newsContainer > div:nth-child(2) img {
@@ -502,7 +529,8 @@ form input[type="submit"]:hover {
 }
 
 .newsContainer > div:nth-child(3) {
-    background-image: url('../assets/img/pattern%20(9).svg');
+    // background-image: url('../assets/img/pattern%20(9).svg');
+    background-color: $colorligterblue;
     width: 100%;
 }
 

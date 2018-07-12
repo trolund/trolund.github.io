@@ -92,8 +92,9 @@ function newsBox() {
 }
 
 $(document).ready(function () {
+    flipcontainerAni();
     addAnimationTimeline();
-    AOS.init();
+    AOS.init(); // all AOS animationer før dette ---------!
 
     var viewportWidth = $(window).width();
     var headerheigt = $('header').height() + $('.somedia').height() * pro;
@@ -107,6 +108,7 @@ $(document).ready(function () {
     flipcardsgen();
     timelineJS();
     printAge();
+
 
 
     $('#goToTopBut').hide();
@@ -320,4 +322,10 @@ function printAge() {
     }
 
     $('#age').prepend(bithday);
+}
+
+function flipcontainerAni() {
+    $('.flip-container').each(function () {
+        $(this).attr('data-aos', 'zoom-in-up');
+    })
 }
