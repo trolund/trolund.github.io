@@ -96,7 +96,7 @@
                         <div data-aos="zoom-in-right" class="card">
                             <img class="aboutImg" src="assets/img/profil.png">
                             <div class="middle">
-                                <button class="btn-info">Linkedin</button>
+                                <button class="btn btn-info">Linkedin</button>
                             </div>
                             <div class="card-body">
                                 <h4>Troels Lund</h4>
@@ -169,26 +169,29 @@
                         <li>
                             <div class="kursusList">
                                 <time>2017</time>
-                                <p><img src="assets/img/DTU(logo).png">Første semster færdig <br> kurser gennemført:</p>
-                                <ul style="
-                                    padding: 0px!important;
-    margin: 0px !important;
-    list-style-type: square !important;
-    list-style-position: inside !important;
-                                list-style-position: outside !important;">
-                                    <il>
+                                <p><img src="assets/img/DTU(logo).png">Første semster færdig</p>
+                                <script>
+                                    $(document).ready(function() {
+                                        $(".firstsemester").hide();
+                                        $(".kursusList").click(function() {
+                                            $(".firstsemester").toggle(200);
+                                        });
+                                    });
+                                </script>
+                                <ul class="firstsemester list-group">
+                                    <il class="list-group-item">
                                         Indledende programmering
                                     </il>
-                                    <il>
+                                    <il class="list-group-item">
                                         Udviklingsmetoder til IT-systemer
                                     </il>
-                                    <il>
-                                        Basismat - Indledende matematik for diplomingeniører
+                                    <il class="list-group-item">
+                                        Basismat - Indledende matematik
                                     </il>
-                                    <il>
+                                    <il class="list-group-item">
                                         Versionsstyring og testmetoder
                                     </il>
-                                    <il>
+                                    <il class="list-group-item">
                                         Diskret matematik
                                     </il>
                                 </ul>

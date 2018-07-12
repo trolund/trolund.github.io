@@ -169,6 +169,9 @@ $radiusCard: 5px;
 .card-body {
     padding: 10px;
     color: white !important;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .card {
@@ -1265,6 +1268,13 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
     border-color: transparent transparent transparent aliceblue;
 }
 
+.timeline ul li:nth-child(5) div ul {
+    list-style: circle !important;
+    list-style-type: circle !important;
+    padding: 0px;
+    list-style-position: inside;
+}
+
 time {
     display: block;
     font-size: 1.2rem;
@@ -1272,6 +1282,16 @@ time {
     margin-bottom: 8px;
 }
 
+#firstsemesterBtn {
+    margin-top: 5px;
+    margin-right: 5px;
+    float: left;
+}
+
+.firstsemester {
+    margin-bottom: 0px !important;
+    margin-top: 38px;
+}
 
 /* timeline EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
