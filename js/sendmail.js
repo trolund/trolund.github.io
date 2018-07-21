@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     $('#submit').click(function () {
 
-        console.log('mail send!');
+        console.log('mail send! v2');
 
         var name = $('#nameMail').val();
         var email = $('#emailMail').val();
