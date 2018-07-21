@@ -60,7 +60,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: 'php.php',
+            url: '../php/mail.php',
             data: varData,
             success: function () {
                 alert("It was a success");
