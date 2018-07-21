@@ -1281,31 +1281,19 @@ time {
     margin-bottom: 8px;
 }
 
-#firstsemesterBtn {
-    margin-top: 5px;
-    margin-right: 5px;
-    float: left;
-}
-
 .firstsemester,
-.secsemester {
-    position: sticky;
-    margin-top: 50px;
-
+.secsemester,
+.trisemester {
+    position: relative;
+    top: 30px;
 }
 
-.semsterSpace {
-    background: none !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    left: 0px !important;
-    height: 70px !important;
-}
-
-.semsterSpace::before {
-    left: 0px !important;
-    border-width: 0px 0px 0px 0 !important;
-    border-color: transparent !important;
+.firstsemester::after,
+.secsemester::after,
+.trisemester::after {
+    position: relative;
+    content: '_';
+    opacity: 0;
 }
 
 /* timeline EFFECTS

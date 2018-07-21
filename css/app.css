@@ -1095,38 +1095,27 @@ time {
   margin-bottom: 8px; }
 
 /* line 1284, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
-#firstsemesterBtn {
-  margin-top: 5px;
-  margin-right: 5px;
-  float: left; }
-
-/* line 1290, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .firstsemester,
-.secsemester {
-  position: sticky;
-  margin-top: 50px; }
+.secsemester,
+.trisemester {
+  position: relative;
+  top: 30px; }
 
-/* line 1297, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
-.semsterSpace {
-  background: none !important;
-  margin: 0px !important;
-  padding: 0px !important;
-  left: 0px !important;
-  height: 70px !important; }
-
-/* line 1305, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
-.semsterSpace::before {
-  left: 0px !important;
-  border-width: 0px 0px 0px 0 !important;
-  border-color: transparent !important; }
+/* line 1291, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+.firstsemester::after,
+.secsemester::after,
+.trisemester::after {
+  position: relative;
+  content: '_';
+  opacity: 0; }
 
 /* timeline EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* line 1314, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1302, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li::after {
   transition: background .5s ease-in-out; }
 
-/* line 1318, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1306, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li.in-view::after {
   background: orange; }
 
@@ -1156,32 +1145,32 @@ time {
 /* timeline responsive
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 800px) {
-  /* line 1350, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1338, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li div {
     width: 250px; }
-  /* line 1353, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1341, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: -290px; } }
 
 @media screen and (max-width: 600px) {
-  /* line 1359, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1347, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li {
     margin-left: 20px; }
-  /* line 1362, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1350, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li div {
     width: calc(100vw - 130px);
     padding-bottom: 20px; }
-  /* line 1366, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1354, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: 45px; }
-  /* line 1369, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1357, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li:nth-child(even) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
     border-color: transparent aliceblue transparent transparent; } }
 
 @media screen and (max-width: 400px) {
-  /* line 1377, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1365, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li div {
     padding-bottom: 10px; } }
 
