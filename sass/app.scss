@@ -1214,6 +1214,7 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
     margin-left: 5px;
 }
 
+
 .timeline ul li::after {
     content: '';
     position: absolute;
@@ -1225,6 +1226,7 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
     border-radius: 50%;
     background: inherit;
 }
+
 
 .timeline ul li div {
     position: relative;
@@ -1287,8 +1289,23 @@ time {
 
 .firstsemester,
 .secsemester {
-    margin-bottom: 0px !important;
-    margin-top: 38px;
+    position: sticky;
+    margin-top: 50px;
+
+}
+
+.semsterSpace {
+    background: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    left: 0px !important;
+    height: 70px !important;
+}
+
+.semsterSpace::before {
+    left: 0px !important;
+    border-width: 0px 0px 0px 0 !important;
+    border-color: transparent !important;
 }
 
 /* timeline EFFECTS

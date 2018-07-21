@@ -1031,7 +1031,7 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
   margin-top: -20px;
   margin-left: 5px; }
 
-/* line 1217, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1218, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li::after {
   content: '';
   position: absolute;
@@ -1043,7 +1043,7 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
   border-radius: 50%;
   background: inherit; }
 
-/* line 1229, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1231, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li div {
   position: relative;
   bottom: 0;
@@ -1054,11 +1054,11 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
   border-radius: 5px;
   min-height: 80px; }
 
-/* line 1240, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1242, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .kursusList ul {
   list-style: none; }
 
-/* line 1244, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1246, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li div::before {
   content: '';
   position: absolute;
@@ -1067,52 +1067,66 @@ article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
   height: 0;
   border-style: solid; }
 
-/* line 1253, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1255, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li:nth-child(odd) div {
   left: 45px; }
 
-/* line 1257, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1259, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li:nth-child(odd) div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
   border-color: transparent aliceblue transparent transparent; }
 
-/* line 1263, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1265, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li:nth-child(even) div {
   left: -390px; }
 
-/* line 1267, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1269, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li:nth-child(even) div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
   border-color: transparent transparent transparent aliceblue; }
 
-/* line 1275, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1277, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 time {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 8px; }
 
-/* line 1282, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1284, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 #firstsemesterBtn {
   margin-top: 5px;
   margin-right: 5px;
   float: left; }
 
-/* line 1288, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1290, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .firstsemester,
 .secsemester {
-  margin-bottom: 0px !important;
-  margin-top: 38px; }
+  position: sticky;
+  margin-top: 50px; }
+
+/* line 1297, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+.semsterSpace {
+  background: none !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  left: 0px !important;
+  height: 70px !important; }
+
+/* line 1305, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+.semsterSpace::before {
+  left: 0px !important;
+  border-width: 0px 0px 0px 0 !important;
+  border-color: transparent !important; }
 
 /* timeline EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* line 1297, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1314, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li::after {
   transition: background .5s ease-in-out; }
 
-/* line 1301, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+/* line 1318, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 .timeline ul li.in-view::after {
   background: orange; }
 
@@ -1142,32 +1156,32 @@ time {
 /* timeline responsive
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 800px) {
-  /* line 1333, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1350, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li div {
     width: 250px; }
-  /* line 1336, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1353, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: -290px; } }
 
 @media screen and (max-width: 600px) {
-  /* line 1342, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1359, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li {
     margin-left: 20px; }
-  /* line 1345, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1362, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li div {
     width: calc(100vw - 130px);
     padding-bottom: 20px; }
-  /* line 1349, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1366, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: 45px; }
-  /* line 1352, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1369, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li:nth-child(even) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
     border-color: transparent aliceblue transparent transparent; } }
 
 @media screen and (max-width: 400px) {
-  /* line 1360, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  /* line 1377, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li div {
     padding-bottom: 10px; } }
 

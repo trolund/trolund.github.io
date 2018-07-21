@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/jquery.loading.min.js"></script>
     <link href="js/jquery.loading.min.css" rel="stylesheet">
     <script>
@@ -26,10 +27,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/sendmail.js"></script>
     <script src="js/jquery.fittext.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/jquery.visible.min.js"></script>
@@ -185,7 +186,7 @@
                                     });
                                 </script>
                                 <span class="firstsemester list-group">
-                                    <span class="list-group-item">
+                                <span class="list-group-item">
                                         Indledende programmering
                                     </span>
                                 <span class="list-group-item">
@@ -272,6 +273,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front">
+                                    <!-- front content -->
+                                    <span>C</span>
+                                    <span>OpenCV</span>
+                                    <h2>Motion detection camera</h2>
+                                </div>
+                                <div class="back">
+                                    <!-- back content -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <h3>Own projects</h3>
@@ -297,14 +311,13 @@
         </div>
         <article>
             <h1>Kontakt</h1>
-            <form method="post">
-
-                <p>Navn:</p> <br /><input type="text" name="name" /><br />
-                <p>E-mail:</p> <br /><input type="text" name="email" /><br />
-                <p>Emne:</p> <br /><input type="text" name="emne" /><br />
+            <form>
+                <p>Navn:</p> <br /><input id="nameMail" type="text" name="name" /><br />
+                <p>E-mail:</p> <br /><input id="emailMail" type="text" name="email" /><br />
+                <p>Emne:</p> <br /><input id="emneMail" type="text" name="emne" /><br />
                 <p>Besked:</p>
-                <br /><textarea name="message" cols="50" rows="15"></textarea><br />
-                <input type="submit" name="submit" value="kontakt nu" />
+                <br /><textarea id="msgMail" name="message" cols="50" rows="15"></textarea><br />
+                <input id="submit" type="button" name="submit" value="kontakt nu" />
 
             </form>
 
