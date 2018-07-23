@@ -50,6 +50,8 @@ $(document).ready(function () {
 
     $('#submit').click(function () {
 
+        var url = "http://tchkajak.dk/mail.php";
+
         console.log('mail send! v2');
 
         var name = $('#nameMail').val();
@@ -60,7 +62,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: 'mail.php',
+            url: url,
             data: varData,
             success: function () {
                 alert("It was a success");
