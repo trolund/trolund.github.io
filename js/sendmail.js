@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     $('#submit').click(function () {
 
-        var url = "tchkajak.dk/mail.php";
+        var url = "http://tchkajak.dk/mail.php";
 
         console.log('mail send! v3');
 
@@ -60,17 +60,25 @@ $(document).ready(function () {
         var varData = 'name=' + name + '&email=' + email;
         console.log(varData);
 
+
+
         $.ajax({
-            type: "POST",
             url: url,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            type: "POST",
+            /* or type:"GET" or type:"PUT" */
             data: varData,
             success: function () {
                 alert("It was a success");
             }
-
         });
 
     });
+
+
+
 
 
 });
