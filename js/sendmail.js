@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     $('#submit').click(function () {
 
-        var url = "http://tchkajak.dk/mail.php";
+        var url = "https://tchkajak.dk/mail.php";
 
         console.log('mail send! v3');
 
