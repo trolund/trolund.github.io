@@ -102,6 +102,11 @@ $(document).ready(function () {
     var menuPX = $('header').height();
     var scrollcount = 0;
 
+    // set up scolllinks på side.
+    $("a[data]").click(function () {
+        scrollLinkAni($(this));
+    })
+
     AutoMenuUpdate('h1', 'nav', 800);
     //setUpRevealAni(200);
     newsBox();
@@ -328,4 +333,12 @@ function flipcontainerAni() {
     $('.flip-container').each(function () {
         $(this).attr('data-aos', 'zoom-in-up');
     })
+}
+
+function scrollLinkAni(element) {
+    id = element.attr('data');
+    console.log($(this));
+    $('html, body').animate({
+        scrollTop: $('#' + id).offset().top - 80
+    }, 500);
 }

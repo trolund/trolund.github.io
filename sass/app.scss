@@ -1290,7 +1290,8 @@ time {
 
 .firstsemester::after,
 .secsemester::after,
-.trisemester::after {
+.trisemester::after,
+.firesemester::after {
     position: relative;
     content: '_';
     opacity: 0;
