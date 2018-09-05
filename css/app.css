@@ -103,7 +103,7 @@ nav > a:hover {
   margin-left: auto;
   margin-right: auto;
   background-color: antiquewhite;
-  background-image: url("../assets/img/profil.png");
+  background-image: url("/assets/img/profil.png");
   background-position: center;
   background-size: cover;
   border: 10px #fff solid;
