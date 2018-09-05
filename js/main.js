@@ -343,7 +343,7 @@ function flipcontainerAni() {
 
 function scrollLinkAni(element) {
     id = element.attr('data');
-    console.log($(this));
+    console.log(id);
     $('html, body').animate({
         scrollTop: $('#' + id).offset().top - 80
     }, 500);
