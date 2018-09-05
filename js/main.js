@@ -149,8 +149,9 @@ $(document).ready(function () {
         menuPX = $('header').height();
     });
 
-    $(window).bind('scroll', function () {
+    AOSRefeCount = 0;
 
+    $(window).bind('scroll', function () {
         if ($(window).scrollTop() > menuPX) {
             scrollcount++;
             $('.space').css('height', headerheigt + 15);
@@ -184,6 +185,11 @@ $(document).ready(function () {
         }
 
         ActiveLinksUpdate();
+        AOSRefeCount++;
+        if (AOSRefeCount > 50) {
+            AOS.refresh();
+            AOSRefeCount = 0;
+        }
     });
 });
 
