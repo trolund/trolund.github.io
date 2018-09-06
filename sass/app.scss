@@ -904,6 +904,10 @@ form input[type="submit"]:hover {
         width: 150px;
         margin-top: -130px;
     }
+
+    #name {
+        margin-top: -12px;
+    }
     /*
     .somedia {
         transform: rotate(0deg);
@@ -1100,6 +1104,13 @@ body {
     /* Place the timelime to the left */
     .timeline::after {
         left: 31px;
+    }
+
+    #name,
+    #titel {}
+
+    #name {
+        margin-top: -12px;
     }
 
     /* Full-width containers */
