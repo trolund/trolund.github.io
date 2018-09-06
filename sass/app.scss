@@ -1187,6 +1187,19 @@ article > div > div:nth-child(2) > div:nth-child(2) > div > div.front {
     background-size: cover;
 }
 
+article > div > div:nth-child(1) > div:nth-child(4) > div > div.front {
+    background-color: ghostwhite;
+    background-image: url(../assets/img/motionD.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
+    background-color: ghostwhite;
+    background-image: url(../assets/img/ping.png);
+    background-position: center;
+    background-size: cover;
+}
 
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
