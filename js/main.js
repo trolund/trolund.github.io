@@ -191,9 +191,12 @@ $(document).ready(function () {
 
         if ($(window).scrollTop() > headerheigt - 20 && mobilmenuvis) {
             $('.mobilNav').slideDown(250);
+            $(".containerMenuIcon").addClass("change");
+
         } else {
             if (!(viewportWidth < 600)) {
                 $('.mobilNav').slideUp(150);
+                $(".containerMenuIcon").removeClass("change");
             }
         }
 
