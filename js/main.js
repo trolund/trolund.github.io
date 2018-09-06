@@ -8,24 +8,46 @@ function AutoMenuUpdate(Htag, des, aniTime) {
         // create menu
         name = $(this).text().replace(" ", "");
 
-        var aTag = '<a data="' + name + '"  class="' + name + 'Link hvr-hang" href="#' + name + '">' + $(this).text() + '</a>';
+        var aTag = '<li><a data="' + name + '"  class="' + name + 'Link" href="#' + name + '">' + $(this).text() + '</a></li>';
 
         $('#' + des).append(aTag);
 
         // give tags id's
 
         $(this).attr('id', name);
+    })
 
+    $(".mobilNav ul").html($('#' + des).html());
 
+    /*$("article " + Htag).each(function () {
         // ani
-
         $("." + name + "Link").click(function () {
             id = $(this).attr('data');;
-            // console.log('Go to: ' + id);
+            console.log('Go to: ' + id);
             $('html, body').animate({
                 scrollTop: $('#' + id).offset().top - 80
             }, aniTime);
 
+        })
+    })*/
+
+    $("#nav > ul > li > a").each(function () {
+        $(this).click(function () {
+            id = $(this).attr('data');;
+            console.log('Go to: ' + id);
+            $('html, body').animate({
+                scrollTop: $('#' + id).offset().top - 80
+            }, aniTime);
+        })
+    })
+
+    $(".mobilNav > ul > li > a").each(function () {
+        $(this).click(function () {
+            id = $(this).attr('data');;
+            console.log('Go to: ' + id);
+            $('html, body').animate({
+                scrollTop: $('#' + id).offset().top - 80
+            }, aniTime);
         })
     })
 
@@ -92,6 +114,8 @@ function newsBox() {
 }
 
 $(document).ready(function () {
+    $(".mobilNav").hide();
+
     flipcontainerAni();
     addAnimationTimeline();
     AOS.init(); // all AOS animationer før dette ---------!
@@ -107,7 +131,10 @@ $(document).ready(function () {
         scrollLinkAni($(this));
     })
 
-    AutoMenuUpdate('h1', 'nav', 800);
+
+
+
+    AutoMenuUpdate('h1', 'navUl', 800);
     //setUpRevealAni(200);
     newsBox();
     flipcardsgen();
@@ -145,45 +172,66 @@ $(document).ready(function () {
             smallHeader = 60;
         }
 
-
         menuPX = $('header').height();
+
+
+        if (viewportWidth > 590) {
+            $(".mobilNav").hide();
+            $(".containerMenuIcon").removeClass("change");
+        }
+
     });
 
     AOSRefeCount = 0;
 
+    var menuBoxh = $('.menuBox').height();
+
+
     $(window).bind('scroll', function () {
-        if ($(window).scrollTop() > menuPX) {
+
+        if ($(window).scrollTop() > headerheigt - 20 && mobilmenuvis) {
+            $('.mobilNav').slideDown(250);
+        } else {
+            if (!(viewportWidth < 600)) {
+                $('.mobilNav').slideUp(150);
+            }
+        }
+
+        /*   if ($(window).scrollTop() > menuPX + 140) {
             scrollcount++;
-            $('.space').css('height', headerheigt + 15);
+            $('.header').css('clip-path', 'none');
+            $('.space').css('height', menuBoxh);
             $('.space').css('display', 'block');
             $('.profilimg').addClass('displayNone');
-            $('.somedia').addClass('displayNone');
-            $('.header').addClass('fixedMenu');
-            $('.header').addClass('notransition');
+            $('.somedia').hide(200);
+            $('.menuBox').addClass('fixedMenu');
+            $('.menuBox').addClass('notransition');
             $('.profilimg').removeClass('ani4');
             $('.somedia').removeClass('ani');
-            $('.header').removeClass('ani');
+            $('.menuBox').removeClass('ani');
             $('#name').removeClass('ani2');
             $('#titel').removeClass('ani2');
             $('#goToTopBut').slideDown(200);
+
         } else {
             $('.space').css('display', 'none');
             $('.space').css('height', 0);
             $('.profilimg').removeClass('displayNone');
-            $('.somedia').removeClass('displayNone');
-            $('.header').removeClass('fixedMenu');
-            $('.header').removeClass('notransition');
+            $('.somedia').show(200);
+            $('.menuBox').removeClass('fixedMenu');
+            $('.menuBox').removeClass('notransition');
             $('#goToTopBut').slideUp(200);
+            $('.header').css('clip-path', 'polygon(0px 0px, 100% 0px, 100% calc(100% - 5vw), 0px 100%)');
             if (scrollcount >= 1) {
                 $('.profilimg').addClass('ani4');
                 $('.somedia').addClass('ani');
-                $('.header').addClass('ani');
+                $('.menuBox').addClass('ani');
                 $('#name').addClass('ani2');
                 $('#titel').addClass('ani2');
             }
 
         }
-
+*/
         ActiveLinksUpdate();
         AOSRefeCount++;
         if (AOSRefeCount > 50) {
@@ -347,4 +395,21 @@ function scrollLinkAni(element) {
     $('html, body').animate({
         scrollTop: $('#' + id).offset().top - 80
     }, 500);
+}
+
+var mobilmenuvis = true;
+
+// responsive menu icon
+function mobilMenu(x) {
+    //x.classList.toggle("change");
+    //$(".mobilNav").toggle(200);
+    if ($(".mobilNav").is(":visible")) {
+        $(".mobilNav").slideUp(150);
+        mobilmenuvis = false;
+        x.classList.remove("change");
+    } else {
+        $(".mobilNav").slideDown(250);
+        mobilmenuvis = true;
+        x.classList.add("change");
+    }
 }

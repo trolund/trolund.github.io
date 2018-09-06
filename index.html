@@ -38,14 +38,27 @@
 </head>
 
 <body>
-    <div class="space"></div>
+    <div class="containerMenuIcon" onclick="mobilMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+    <nav class="mobilNav">
+        <ul></ul>
+    </nav>
     <header class="header">
-        <div class="headerContainer">
-            <nav id="nav">
-            </nav>
-            <h1 id="name" class="blend">Troels Lund</h1>
-            <h3 id="titel" class="blend">Software technology student</h3>
+        <div style="height: 70px;">
+            <div class="menuBox">
+                <div class="headerContainer">
+                    <nav id="nav">
+                        <ul id="navUl"></ul>
+                    </nav>
+                </div>
+            </div>
         </div>
+        <h1 id="name" class="blend">Troels Lund</h1>
+        <h3 id="titel" class="blend">Software technology student</h3>
+
     </header>
     <div class="round profilimg circleShadow"></div>
     <div class="somedia">
@@ -389,6 +402,8 @@
                                 </div>
                                 <div class="back">
                                     <!-- back content -->
+                                    <p> Denne side er udviklet som et lille hygge projekt, til at genopfriske webdevelopment samt give mig selv et udstilingsvindu for hvad jeg laver</p>
+
                                 </div>
                             </div>
                         </div>
@@ -396,12 +411,13 @@
                             <div class="flipper">
                                 <div class="front">
                                     <!-- front content -->
-                                    <span>HTML</span>
                                     <span>Javascript</span>
                                     <h2>Simpelt ping pong spil</h2>
                                 </div>
                                 <div class="back">
                                     <!-- back content -->
+                                    Dette er et helt simplet ping pong spil for to personer, som er udviklet i javascript med biblioteket phaser.
+                                    <p>Det er muligt at prøve deomen online <a target="_blank" href="https://trolund.github.io/JSPingPongGame/">her</a>.</p>
                                 </div>
                             </div>
                         </div>

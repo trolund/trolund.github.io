@@ -10,7 +10,7 @@
                 "outputStyle": "nested"
             },
             "brackets-bower.show": false,
-            "linting.collapsed": false,
+            "linting.collapsed": true,
             "brackets-git.gitPath": "git",
             "autoSavePrefs.checkedPrefs": false,
             "mikaeljorhult.bracketsTodo.enabled": true

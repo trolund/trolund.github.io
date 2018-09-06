@@ -38,6 +38,7 @@ header {
     -moz-transition: opacity 0.5s;
     transition: opacity op 0.5s;
     transition-delay: 0.1s;
+    transition: all 0.2;
     -webkit-touch-callout: none;
     /* iOS Safari */
     -webkit-user-select: none;
@@ -53,6 +54,8 @@ header {
                                   supported by Chrome and Opera */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    top: 0px;
+    margin-top: 0px;
 }
 
 header h1,
@@ -95,7 +98,8 @@ header > div {
     border-radius: 50%;
 }
 
-nav > a {
+#nav {
+    height: 50px;
     color: #fff;
     font-family: $font-stack;
     transition: all .2s ease;
@@ -103,7 +107,32 @@ nav > a {
     text-decoration: none;
     line-height: 35px;
     text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    vertical-align: middle;
 }
+
+#navUl {
+    list-style-type: none;
+    display: inline !important;
+    z-index: 9999;
+}
+
+#navUl li {
+    display: block;
+    width: auto;
+    display: inline !important;
+}
+
+#navUl li::after {
+    padding: 10px;
+    content: "I";
+}
+
+
+#navUl li:last-child::after {
+    padding: 0px;
+    content: none;
+}
+
 
 //        nav>a::before {
 //        content: 'I ';
@@ -112,9 +141,13 @@ nav > a {
 //    nav>a:first-child::before {
 //        content: '';
 //    }
-nav > a:hover {
-    color: dimgray;
-    background-color: aliceblue;
+nav a {
+    color: aliceblue;
+    transition: all 0.2s;
+}
+
+nav a:hover {
+    color: #fff;
     background-blend-mode: hard-light;
     border-radius: 5px; //   text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8);
     text-decoration: none; //        -webkit-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
@@ -122,6 +155,86 @@ nav > a:hover {
     //        box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
 }
 
+.menuBox {}
+
+.displayMobilMenu {
+    display: block !important !important;
+}
+
+// menu icon start
+.containerMenuIcon {
+    display: inline-block;
+    cursor: pointer;
+    display: none;
+}
+
+.mobilNav {
+    position: fixed;
+    top: 0px;
+    opacity: 1;
+    height: 55px;
+    width: 100%;
+    z-index: 9998;
+    background-color: antiquewhite;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: block;
+
+}
+
+.mobilNav {
+    text-align: center;
+    display: inline-block;
+    background-color: $colordarkblueRGB;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.mobilNav ul {
+    margin-top: 10px;
+    list-style-type: none;
+    display: inline-flex;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.mobilNav ul li::after {
+    content: "I";
+    margin-left: 5px;
+    margin-right: 5px;
+    color: aliceblue;
+}
+
+.mobilNav ul li:last-child::after {
+    content: "";
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #FFF;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+// menu icon stop
 .profilimg {
     height: 200px;
     width: 200px;
@@ -689,10 +802,13 @@ form input[type="submit"]:hover {
 .activeLink {
     color: orange;
     transition: 0.2 all;
-    font-size: 1.5em; // text-decoration: underline;
+    font-size: 1.2em; // text-decoration: underline;
 }
 
+.mobilNav {
+    display: none;
 
+}
 
 
 
@@ -733,6 +849,7 @@ form input[type="submit"]:hover {
     .fixedMenu {
         height: 75px;
     }
+
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -960,6 +1077,7 @@ body {
     border-color: transparent white transparent transparent;
 }
 
+
 /* Fix the circle for containers on the right side */
 
 .right::after {
@@ -1008,6 +1126,44 @@ body {
     .right {
         left: 0%;
     }
+
+
+    .containerMenuIcon {
+        position: fixed;
+        display: block;
+        right: 15px;
+        top: 5px;
+        z-index: 9999;
+    }
+
+
+    .mobilNav {
+        display: block;
+        height: auto;
+    }
+
+    .mobilNav ul {
+        list-style-type: none;
+        display: block;
+        padding: 0px;
+    }
+
+    .mobilNav ul li::after {
+        content: "";
+        margin: 0px;
+    }
+
+
+
+
+    #navUl {
+        position: relative;
+        transition: all 0.5s;
+        display: none !important;
+    }
+
+
+
 }
 
 
