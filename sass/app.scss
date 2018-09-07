@@ -144,15 +144,13 @@ header > div {
 nav a {
     color: aliceblue;
     transition: all 0.2s;
+
 }
 
 nav a:hover {
-    color: #fff;
+    color: ivory;
     background-blend-mode: hard-light;
-    border-radius: 5px; //   text-shadow: 0px 0px 10px rgba(150, 150, 150, 0.8);
-    text-decoration: none; //        -webkit-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
-    //        -moz-box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
-    //        box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
+    text-decoration: none;
 }
 
 .menuBox {}
@@ -182,6 +180,10 @@ nav a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: block;
 
+}
+
+.mobilNav a {
+    padding: 6px;
 }
 
 .mobilNav {
@@ -374,6 +376,10 @@ main {
     user-select: none;
     /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+.somedia a {
+    color: #A9A9A9;
 }
 
 .somedia i {
