@@ -1588,6 +1588,7 @@ time {
         margin-bottom: 50px;
         width: 270px;
         height: 270px;
+        margin-right: auto;
     }
 
     .front {
@@ -1608,6 +1609,40 @@ time {
 
     .timeline ul {
         margin-left: -20px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .timeline ul li div {
+        padding: 5px;
+    }
+
+    .flip-container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 260px;
+        height: 260px;
+        margin-left: 0px
+    }
+
+    .front {
+        width: 260px;
+        height: 260px;
+    }
+
+    .front > h2 {
+        text-align: center;
+        margin-top: 40%;
+    }
+
+    .back {
+        width: 260px;
+        height: 260px;
+        overflow: scroll;
+    }
+
+    .timeline ul {
+        margin-left: auto;
     }
 }
 
