@@ -166,14 +166,16 @@ nav a:hover {
     display: inline-block;
     cursor: pointer;
     display: none;
+    opacity: 0;
     mix-blend-mode: normal;
+    transition: all 0.5s;
 }
 
 .mobilNav {
     position: fixed;
     top: 0px;
     opacity: 1;
-    height: 55px;
+    height: 45px;
     width: 100%;
     z-index: 9998;
     background-color: antiquewhite;
@@ -350,12 +352,11 @@ main {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    width: 165px;
+    width: 105px;
     font-size: 2.2em;
     transform: rotate(0deg);
     color: black;
     transform: rotate(0deg);
-    left: 10px;
     bottom: -0px;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
@@ -392,11 +393,11 @@ main {
 }
 
 .somedia i[class*="github"]:hover {
-    color: #6e5494;
+    color: #c9510c;
 }
 
-.somedia i[class*="youtube"]:hover {
-    color: #c4302b;
+.somedia i[class*="linkedin"]:hover {
+    color: #0077B5;
 }
 
 .somedia i[class*="insta"]:hover {
@@ -804,8 +805,9 @@ form input[type="submit"]:hover {
 
 .activeLink {
     color: orange;
+    font-weight: bold;
     transition: 0.2 all;
-    font-size: 1.2em; // text-decoration: underline;
+    font-size: 1.1em; // text-decoration: underline;
 }
 
 .mobilNav {
@@ -1010,6 +1012,10 @@ only screen and (min-device-pixel-ratio: 1.5) {}
         clip-path: none;
     }
 
+    article {
+        padding-left: 0px;
+    }
+
     .card {
         max-width: 100%;
     }
@@ -1152,9 +1158,11 @@ body {
     .containerMenuIcon {
         position: fixed;
         display: block;
+        opacity: 1;
         right: 15px;
         top: 5px;
         z-index: 9999;
+        transition: all 0.5s;
     }
 
 
