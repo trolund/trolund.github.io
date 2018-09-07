@@ -1386,4 +1386,32 @@ time {
   .timeline ul {
     margin-left: -20px; } }
 
+@media screen and (max-width: 320px) {
+  /* line 1615, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .timeline ul li div {
+    padding: 5px; }
+  /* line 1619, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .flip-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 230px;
+    height: 230px;
+    margin-left: -13px; }
+  /* line 1627, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .front {
+    width: 230px;
+    height: 230px; }
+  /* line 1632, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .front > h2 {
+    text-align: center;
+    margin-top: 40%; }
+  /* line 1637, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .back {
+    width: 230px;
+    height: 230px;
+    overflow: scroll; }
+  /* line 1643, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .timeline ul {
+    margin-left: -25px; } }
+
 /*# sourceMappingURL=app.css.map */
