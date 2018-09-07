@@ -175,9 +175,10 @@ $(document).ready(function () {
         menuPX = $('header').height();
 
 
-        if (viewportWidth > 590) {
+        if (viewportWidth > 599) {
             $(".mobilNav").hide();
             $(".containerMenuIcon").removeClass("change");
+            mobilmenuvis = true;
         }
 
     });
