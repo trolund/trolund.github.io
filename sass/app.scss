@@ -166,6 +166,7 @@ nav a:hover {
     display: inline-block;
     cursor: pointer;
     display: none;
+    mix-blend-mode: normal;
 }
 
 .mobilNav {
@@ -218,7 +219,8 @@ nav a:hover {
     background-color: #FFF;
     margin: 6px 0;
     transition: 0.4s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); //mix-blend-mode: darken;
+    ;
 }
 
 .change .bar1 {
@@ -943,6 +945,13 @@ form input[type="submit"]:hover {
         height: 150px;
         width: 150px;
         margin-top: -130px;
+    }
+
+    .imgdata {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
     }
     /*
     .somedia {
