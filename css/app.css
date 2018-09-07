@@ -1362,6 +1362,28 @@ time {
 @media screen and (max-width: 400px) {
   /* line 1582, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
   .timeline ul li div {
-    padding-bottom: 10px; } }
+    padding-bottom: 10px; }
+  /* line 1586, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .flip-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 270px;
+    height: 270px; }
+  /* line 1593, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .front {
+    width: 270px;
+    height: 270px; }
+  /* line 1598, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .front > h2 {
+    text-align: center;
+    margin-top: 50%; }
+  /* line 1603, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .back {
+    width: 270px;
+    height: 270px;
+    overflow: scroll; }
+  /* line 1609, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
+  .timeline ul {
+    margin-left: -20px; } }
 
 /*# sourceMappingURL=app.css.map */

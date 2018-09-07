@@ -1582,4 +1582,31 @@ time {
     .timeline ul li div {
         padding-bottom: 10px;
     }
+
+    .flip-container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 270px;
+        height: 270px;
+    }
+
+    .front {
+        width: 270px;
+        height: 270px;
+    }
+
+    .front > h2 {
+        text-align: center;
+        margin-top: 50%;
+    }
+
+    .back {
+        width: 270px;
+        height: 270px;
+        overflow: scroll;
+    }
+
+    .timeline ul {
+        margin-left: -20px;
+    }
 }
