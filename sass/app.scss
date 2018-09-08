@@ -106,8 +106,7 @@ header > div {
     transition: all .2s ease;
     padding: 5px;
     text-decoration: none;
-    line-height: 35px;
-    text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    line-height: 35px; // text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
     vertical-align: middle;
 }
 
@@ -181,10 +180,6 @@ nav a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: block;
 
-}
-
-.mobilNav a {
-    padding: 6px;
 }
 
 .mobilNav {

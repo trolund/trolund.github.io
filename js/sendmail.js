@@ -1,84 +1,59 @@
-/*
-function send() {
+// Variable to hold request
+var request;
 
-    var name = $("#nameMail").val();
-    var msg = $("#msgMail").val();
-    var email = $("#emailMail").val();
-    var emne = $("#emneMail").val();
+// Bind to the submit event of our form
+$("#foo").submit(function (event) {
 
-    var url = "https://outlook.office.com/api/v2.0/me/sendmail";
+    $('#mailBut').
 
-    var data = {
-        "Message": {
-            "Subject": emne,
-            "Body": {
-                "ContentType": "Text",
-                "Content": "Navn" + name + "\n" + "email" + email + "\n" + msg
-            },
-            "ToRecipients": [
-                {
-                    "EmailAddress": {
-                        "Address": "trolund@gmail.com"
-                    }
-      }
-    ],
-            "Attachments": [
-                {
-                    "@odata.type": "#Microsoft.OutlookServices.FileAttachment",
-                    "Name": "menu.txt",
-                    "ContentBytes": "bWFjIGFuZCBjaGVlc2UgdG9kYXk="
-      }
-    ]
-        },
-        "SaveToSentItems": "false"
-    };
+    // Prevent default posting of form - put here to work in case of errors
+    event.preventDefault();
 
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: data,
-        success: function () {
-            console.log("mail sendt!");
-        },
-        dataType: "application/json"
-    });
-}
-*/
+    // Abort any pending request
+    if (request) {
+        request.abort();
+    }
+    // setup some local variables
+    var $form = $(this);
 
-$(document).ready(function () {
+    // Let's select and cache all the fields
+    var $inputs = $form.find("input, select, button, textarea");
 
+    // Serialize the data in the form
+    var serializedData = $form.serialize();
 
-    $('#submit').click(function () {
+    // Let's disable the inputs for the duration of the Ajax request.
+    // Note: we disable elements AFTER the form data has been serialized.
+    // Disabled form elements will not be serialized.
+    $inputs.prop("disabled", true);
 
-        var url = "https://tchkajak.dk/mail.php";
-
-        console.log('mail send! v3');
-
-        var name = $('#nameMail').val();
-        var email = $('#emailMail').val();
-
-        var varData = 'name=' + name + '&email=' + email;
-        console.log(varData);
-
-
-
-        $.ajax({
-            url: url,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            type: "POST",
-            /* or type:"GET" or type:"PUT" */
-            data: varData,
-            success: function () {
-                alert("It was a success");
-            }
-        });
-
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "http://tchkajak.dk/mail.php",
+        type: "post",
+        data: serializedData
     });
 
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR) {
+        // Log a message to the console
+        console.log("Hooray, it worked!");
+    });
 
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown) {
+        // Log the error to the console
+        console.error(
+            "The following error occurred: " +
+            textStatus, errorThrown
+        );
+    });
 
-
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+        $inputs.prop("disabled", false);
+    });
 
 });

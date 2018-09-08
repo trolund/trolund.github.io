@@ -115,6 +115,13 @@ function newsBox() {
 
 $(document).ready(function () {
     $(".mobilNav").hide();
+    // tjek om det er en mobil enhed
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $(".header").css('background-attachment', 'scroll');
+        console.log('mobil enhed');
+    } else {
+        console.log('ikke en mobil enhed');
+    }
 
     flipcontainerAni();
     addAnimationTimeline();
@@ -131,8 +138,11 @@ $(document).ready(function () {
         scrollLinkAni($(this));
     })
 
+    $('#mailBut').click(function () {
+        console.log("try to sent mail");
 
 
+    })
 
     AutoMenuUpdate('h1', 'navUl', 800);
     //setUpRevealAni(200);
