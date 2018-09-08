@@ -23,6 +23,41 @@ $colorsemidarkblue: #102E4A;
 */
 
 body {
+    overflow: hidden;
+}
+
+
+/* Preloader */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    /* change if the mask should have another color then white */
+    z-index: 9999;
+    /* makes sure it stays on top */
+}
+
+#status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+    background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
+    /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px;
+    /* is width and height divided by two */
+}
+
+body {
     margin: 0px;
 }
 
@@ -251,7 +286,7 @@ nav a:hover {
     //    box-shadow: 3px 3px 30px -2px rgba(49, 50, 50, 0.75);
     border: 10px #fff solid; //  box-shadow: 0 0 0 1px #ccc;
     margin-top: -180px;
-    z-index: 999;
+    z-index: 50;
     position: relative;
     display: block;
     opacity: 1;
@@ -437,7 +472,7 @@ footer {
     left: 0px;
     bottom: 0px;
     height: $footerheight;
-    background: $colordarkblue;
+    background: #001a33;
     width: 100%;
 }
 
@@ -473,13 +508,13 @@ footer {
 }
 
 .footerFooter {
-    bottom: -110px;
-    position: relative;
+    bottom: 0px;
+    position: absolute;
     height: 50px;
     width: 100%;
     font-family: $font-stack;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 200;
     color: #fff;
     text-align: center;
     line-height: 50px;

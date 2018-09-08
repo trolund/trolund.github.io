@@ -5,12 +5,6 @@
 <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/jquery.loading.min.js"></script>
-    <link href="js/jquery.loading.min.css" rel="stylesheet">
-    <script>
-        $("body").loading();
-
-    </script>
 
     <title>Troels lund - software technology student at DTU</title>
     <meta name="description" content="Troels lund, software technology student at DTU">
@@ -39,6 +33,10 @@
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
     <div class="containerMenuIcon" onclick="mobilMenu(this)">
         <div class="bar1"></div>
         <div class="bar2"></div>
@@ -224,7 +222,6 @@
                                             $(".firstsemester").toggle(200);
                                         });
                                     });
-
                                 </script>
                                 <span class="firstsemester list-group">
                                 <span class="list-group-item">
@@ -257,7 +254,6 @@
                                             $(".secsemester").toggle(200);
                                         });
                                     });
-
                                 </script>
                                 <span class="secsemester list-group">
                                     <span class="list-group-item">
@@ -286,7 +282,6 @@
                                             $(".trisemester").toggle(200);
                                         });
                                     });
-
                                 </script>
                                 <span class="trisemester list-group">
                                     <span class="list-group-item">
@@ -318,7 +313,6 @@
                                             $(".firesemester").toggle(200);
                                         });
                                     });
-
                                 </script>
                                 <span class="firesemester list-group">
                                     <span class="list-group-item">
@@ -442,7 +436,7 @@
     </main>
     <footer class="footer">
 
-        <div class="footerFooter">Designed by Troels Lund</div>
+        <div class="footerFooter">Designed by Troels Lund - 2018</div>
     </footer>
     <div id="goToTopBut">
         <div>
