@@ -18,21 +18,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
+  background-color: #1d1d1d;
   /* change if the mask should have another color then white */
   z-index: 9999;
   /* makes sure it stays on top */ }
 
 /* line 44, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 #status {
-  width: 200px;
+  width: 250px;
   height: 200px;
   position: absolute;
   left: 50%;
   /* centers the loading animation horizontally one the screen */
   top: 50%;
   /* centers the loading animation vertically one the screen */
-  background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
+  background-image: url(/assets/img/loadinggif.gif);
   /* path to your loading animation */
   background-repeat: no-repeat;
   background-position: center;
