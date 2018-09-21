@@ -374,6 +374,7 @@ function addAnimationTimeline() {
         } else {
             $(this).attr('data-aos', 'zoom-in-left');
         }
+        $(this).attr('data-aos-once', 'true');
         count++;
     })
 }
@@ -400,6 +401,7 @@ function printAge() {
 function flipcontainerAni() {
     $('.flip-container').each(function () {
         $(this).attr('data-aos', 'zoom-in-up');
+        $(this).attr('data-aos-once', 'true');
     })
 }
 
