@@ -383,19 +383,19 @@ function printAge() {
     var d = new Date();
     var year = d.getFullYear();
     var day = d.getDate();
-    var month = d.getMonth();
+    var month = d.getMonth() +1; // for some reason +1?
 
-    bithday = year - 1994;
+    numOfyears = year - 1994;
 
-    if (month < 10) {
-        bithday--;
+    if (month < 10 ) {
+        numOfyears--;
     } else if (month == 10) {
         if (day < 6) {
-            bithday--;
+            numOfyears--;
         }
     }
 
-    $('#age').prepend(bithday);
+    $('#age').prepend(numOfyears);
 }
 
 function flipcontainerAni() {
