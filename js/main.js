@@ -1,7 +1,7 @@
 var pro = 1;
 
 function AutoMenuUpdate(Htag, des, aniTime) {
-    var name = "";
+    var name = '';
     var id = "";
     $("article " + Htag).each(function () {
 
@@ -33,23 +33,23 @@ function AutoMenuUpdate(Htag, des, aniTime) {
 
     $("#nav > ul > li > a").each(function () {
         $(this).click(function () {
-            id = $(this).attr('data');;
+            id = $(this).attr('data');
             console.log('Go to: ' + id);
             $('html, body').animate({
                 scrollTop: $('#' + id).offset().top - 80
             }, aniTime);
-        })
-    })
+        });
+    });
 
     $(".mobilNav > ul > li > a").each(function () {
         $(this).click(function () {
-            id = $(this).attr('data');;
+            id = $(this).attr('data');
             console.log('Go to: ' + id);
             $('html, body').animate({
                 scrollTop: $('#' + id).offset().top - 80
             }, aniTime);
-        })
-    })
+        });
+    });
 
     $('nav a').each(function () {
         if ($(this).is(':last-child')) {
