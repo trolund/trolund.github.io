@@ -1,0 +1,63 @@
+<form class="move">
+	<fieldset>
+		<legend>Toggle duration</legend>
+		<div>
+			<input type="radio" name="duration" id="bound" value="300" checked="">
+			<label for="bound">bound to scrollbar (duration = 300)</label>
+		</div>
+		<div>
+			<input type="radio" name="duration" id="unbound" value="0">
+			<label for="unbound">unbound from scrollbar (duration = 0)</label>
+		</div>
+	</fieldset>
+</form>
+<div class="spacer s2"></div>
+<div class="spacer s0" id="trigger"></div>
+<div id="imagesequence">
+	<img id="myimg" src="../../img/example_imagesequence_01.png"><br>
+	<a href="#" class="viewsource">view source</a>
+</div>
+<div class="spacer s2"></div>
+<script>
+	// define images
+	var images = [
+		"../../img/example_imagesequence_01.png",
+		"../../img/example_imagesequence_02.png",
+		"../../img/example_imagesequence_03.png",
+		"../../img/example_imagesequence_04.png",
+		"../../img/example_imagesequence_05.png",
+		"../../img/example_imagesequence_06.png",
+		"../../img/example_imagesequence_07.png"
+	];
+
+	// TweenMax can tween any property of any object. We use this object to cycle through the array
+	var obj = {curImg: 0};
+
+	// create tween
+	var tween = TweenMax.to(obj, 0.5,
+		{
+			curImg: images.length - 1,	// animate propery curImg to number of images
+			roundProps: "curImg",				// only integers so it can be used as an array index
+			repeat: 3,									// repeat 3 times
+			immediateRender: true,			// load first image automatically
+			ease: Linear.easeNone,			// show every image the same ammount of time
+			onUpdate: function () {
+			  $("#myimg").attr("src", images[obj.curImg]); // set the image source
+			}
+		}
+	);
+
+	// init controller
+	var controller = new ScrollMagic.Controller();
+
+	// build scene
+	var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 300})
+					.setTween(tween)
+					.addIndicators() // add indicators (requires plugin)
+					.addTo(controller);
+
+	// handle form change
+	$("form.move input[name=duration]:radio").change(function () {
+		scene.duration($(this).val());
+	});
+</script>

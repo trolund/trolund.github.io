@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/hover-min.css">
+    <link rel="stylesheet" href="css/animate.css">
 
 
     <!-- Latest compiled and minified CSS -->
@@ -29,6 +30,10 @@
     <script src="js/jquery.fittext.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/jquery.visible.min.js"></script>
+    <script src="js/TweenMax.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+    <!-- for debuging svg animation: <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script> -->
+    <script src="js/gaspANI.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Gloria+Hallelujah|Paytone+One|Poiret+One" rel="stylesheet">
 </head>
 
@@ -55,8 +60,8 @@
                 </div>
             </div>
         </div>
-        <h1 id="name" class="blend">Troels Lund</h1>
-        <h3 id="titel" class="blend">Software technology student</h3>
+        <h1 id="name" class="blend tracking-in-expand-fwd">Troels Lund</h1>
+        <h3 id="titel" class="blend rubberBand">Software technology student</h3>
 
     </header>
     <div class="round profilimg circleShadow"></div>
@@ -147,6 +152,15 @@
                             Du kan se et overblik over mine mest veludviklet kompetencer lige her nede under. De er angivet som en procent skala hvor af 100% er en maget veludviklet kompetence og 0% er total begynder.</p>
 
                         <p>Du kan finde min kontakt oplysninger under <a data="Kontakt" href="#Kontakt">kontakt</a></p>
+                        <div class="spacer s0" id="trigger"></div>
+                        <div id="imagesequence">
+                            <img id="myimg" src="assets/img/svg%20animation/Artboard%201.svg"><br>
+                            <div class="textEffect" id="revealText">
+
+                            <h2 class="centered">Jeg laver også grafiske elementer og animationer</h2>
+
+                        </div>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -224,21 +238,21 @@
                                     });
                                 </script>
                                 <span class="firstsemester list-group">
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         Indledende programmering
                                     </span>
-                                <span class="list-group-item">
-                                    Udviklingsmetoder til IT-systemer
+                                    <span class="list-group-item">
+                                        Udviklingsmetoder til IT-systemer
                                     </span>
-                                <span class="list-group-item">
-                                    Basismat - Indledende matematik
-                                </span>
-                                <span class="list-group-item">
-                                    Versionsstyring og testmetoder
-                                </span>
-                                <span class="list-group-item">
-                                    Diskret matematik
-                                </span>
+                                    <span class="list-group-item">
+                                        Basismat - Indledende matematik
+                                    </span>
+                                    <span class="list-group-item">
+                                        Versionsstyring og testmetoder
+                                    </span>
+                                    <span class="list-group-item">
+                                        Diskret matematik
+                                    </span>
                                 </span>
                             </div>
 
@@ -259,10 +273,10 @@
                                     <span class="list-group-item">
                                         Videregående programmering
                                     </span>
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         Algoritmer og datastrukturer
                                     </span>
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         Indledende databaser og databaseprogrammering
                                     </span>
                                 </span>
@@ -287,16 +301,16 @@
                                     <span class="list-group-item">
                                         Compilerteknik
                                     </span>
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         Objektorienteret analyse og design
                                     </span>
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         Introduktion til statistik
                                     </span>
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         Brugerinteraktion og udvikling på mobile enheder
                                     </span>
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         Operativsystemer
                                     </span>
                                 </span>
@@ -318,10 +332,10 @@
                                     <span class="list-group-item">
                                         Datakommunikation
                                     </span>
-                                <span class="list-group-item">
-                                         C programmering for Java programmører
+                                    <span class="list-group-item">
+                                        C programmering for Java programmører
                                     </span>
-                                <span class="list-group-item">
+                                    <span class="list-group-item">
                                         CDIO-projekt
                                     </span>
                                 </span>
@@ -351,7 +365,7 @@
                                     <p>opgaven var at lave noget softeware til en drone som skulle gøre den istand til autonomt kunne flyve gennem seks røde ringe med QR-koder under. Vi anvendte Java bibliotektet YaDrone, samt computer vision bibliotektet OpenCV til at analysere videofeeden fra droen på en computer og ud fra de data vi kunne få ud af billedet til at sende komandoer til dronen.</p>
                                     <p>Projektet er udarbjedet i en gruppe på 8.</p>
                                     <p>projektet kode kan findes <a href="https://github.com/tMascagni/CDIO_3">
-                                        her</a></p>
+                                            her</a></p>
                                 </div>
                             </div>
                         </div>
@@ -445,7 +459,6 @@
         </article>
     </main>
     <footer class="footer">
-
         <div class="footerFooter">Designed by Troels Lund - 2018</div>
     </footer>
     <div id="goToTopBut">
@@ -457,6 +470,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Animate On Scroll Library end -->
+    <script>
+
+    </script>
 
 </body>
 

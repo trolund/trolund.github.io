@@ -114,6 +114,7 @@ function newsBox() {
 }
 
 $(document).ready(function () {
+
     $(".mobilNav").hide();
     // tjek om det er en mobil enhed
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -150,7 +151,7 @@ $(document).ready(function () {
     flipcardsgen();
     timelineJS();
     printAge();
-
+    svgAnimationSetup();
 
 
     $('#goToTopBut').hide();
@@ -255,6 +256,59 @@ $(document).ready(function () {
     });
 });
 
+function svgAnimationSetup(){
+      // define images
+        var images = [
+            "assets/img/svg%20animation/Artboard%201.svg",
+            "assets/img/svg%20animation/Artboard%202.svg",
+            "assets/img/svg%20animation/Artboard%203.svg",
+            "assets/img/svg%20animation/Artboard%204.svg",
+            "assets/img/svg%20animation/Artboard%205.svg",
+            "assets/img/svg%20animation/Artboard%206.svg",
+            "assets/img/svg%20animation/Artboard%207.svg",
+            "assets/img/svg%20animation/Artboard%208.svg",
+            "assets/img/svg%20animation/Artboard%209.svg",
+            "assets/img/svg%20animation/Artboard%2010.svg"
+        ];
+
+        // TweenMax can tween any property of any object. We use this object to cycle through the array
+        var obj = {
+            curImg: 0
+        };
+
+        // create tween
+        var tween = TweenMax.to(obj, 0.5, {
+            curImg: images.length - 1, // animate propery curImg to number of images
+            roundProps: "curImg", // only integers so it can be used as an array index
+            repeat: 0, // repeat 3 times
+            immediateRender: true, // load first image automatically
+            ease: Linear.easeNone, // show every image the same ammount of time
+            onUpdate: function() {
+                $("#myimg").attr("src", images[obj.curImg]); // set the image source
+                if (obj.curImg >= 9) {
+                    $('#revealText').css('opacity', 1);
+                    console.log('text synlig');
+                } else{
+                      $('#revealText').css('opacity', 0);
+                }
+
+            }
+        });
+
+
+
+        // init controller
+        var controller = new ScrollMagic.Controller();
+
+        // build scene
+        var scene = new ScrollMagic.Scene({
+                triggerElement: "#trigger",
+                duration: 250
+            })
+            .setTween(tween)
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+}
 
 function ActiveLinksUpdate() {
 
@@ -436,4 +490,6 @@ $(window).on('load', function () { // makes sure the whole site is loaded
     $('body').delay(350).css({
         'overflow': 'visible'
     });
-})
+//    $('#name').delay(500).addClass('animated');
+//    $('#titel').delay(500).addClass('animated');
+});
