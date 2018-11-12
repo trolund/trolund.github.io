@@ -957,6 +957,9 @@ form input[type="submit"]:hover {
     .fixedMenu {
         height: 70px;
     }
+
+
+
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
@@ -997,6 +1000,11 @@ form input[type="submit"]:hover {
         height: 65px;
 
     }
+
+    .textEffect {
+    bottom: 210px;
+}
+
 }
 
 @media all and (max-width: 480px) {
@@ -1044,6 +1052,11 @@ form input[type="submit"]:hover {
     .card {
         max-width: 190px;
     }
+
+        .textEffect {
+    bottom: 120px;
+}
+
 }
 
 
