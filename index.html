@@ -26,7 +26,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/sendmail.js"></script>
     <script src="js/jquery.fittext.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/jquery.visible.min.js"></script>
@@ -153,7 +152,7 @@
 
                         <p>Du kan finde min kontakt oplysninger under <a data="Kontakt" href="#Kontakt">kontakt</a></p>
                         <div class="spacer s0" id="trigger"></div>
-                        <div id="imagesequence">
+                        <div style="display: none;" id="imagesequence">
                             <img id="myimg" src="assets/img/svg%20animation/Artboard%201.svg"><br>
                             <div class="textEffect" id="revealText">
 
@@ -459,6 +458,7 @@
         </article>
     </main>
     <footer class="footer">
+        <img src="assets/loading.svg">
         <div class="footerFooter">Designed by Troels Lund - 2018</div>
     </footer>
     <div id="goToTopBut">
@@ -470,10 +470,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Animate On Scroll Library end -->
-    <script>
-
-    </script>
-
+    <animate xlink:href="#my-circle" attributeName="cx" from="50" to="450" dur="1s" begin="click" fill="freeze" />
 </body>
 
 </html>

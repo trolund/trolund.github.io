@@ -1,0 +1,9 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114.26 75.01">
+    <title>loading</title>
+
+    <polygon id="my-circle" points="40.08 75.01 0 48.6 74.18 40 114.26 66.42 40.08 75.01" style="fill:#011e4c" />
+    <polygon points="40.08 65.01 0 38.6 74.18 30 114.26 56.42 40.08 65.01" style="fill:#00386e" />
+    <polygon points="40.08 55.01 0 28.6 74.18 20 114.26 46.42 40.08 55.01" style="fill:#005a98" />
+    <polygon points="40.08 45.01 0 18.6 74.18 10 114.26 36.42 40.08 45.01" style="fill:#6297b2" />
+    <polygon points="40.08 35.01 0 8.6 74.18 0 114.26 26.42 40.08 35.01" style="fill:#b2cde1" />
+</svg>
