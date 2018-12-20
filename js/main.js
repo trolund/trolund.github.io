@@ -287,7 +287,7 @@ function svgAnimationSetup(){
                 $("#myimg").attr("src", images[obj.curImg]); // set the image source
                 if (obj.curImg >= 9) {
                     $('#revealText').css('opacity', 1);
-                    console.log('text synlig');
+                    //console.log('text synlig');
                 } else{
                       $('#revealText').css('opacity', 0);
                 }

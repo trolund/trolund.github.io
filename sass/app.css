@@ -10,6 +10,11 @@
 body {
   margin: 0px; }
 
+.backbtn{
+    margin-right: 10px;
+}
+
+
 /* line 28, /Users/troelslund/Documents/trolund.github.io/sass/app.scss */
 header {
   width: 100%;
