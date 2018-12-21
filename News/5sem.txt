@@ -9,7 +9,7 @@ Vores projekt pitch vandt over de andre 62 projekter, og kun et enkelt point fra
 Tak til Thomas Kainø Jensen for muligheden for at arbejde med @Bocart, og tak til resten af gruppen Daniel Davidsen, Malene Gravlund Sørensen, Olga Lubbers og Jakob Mølhave for et godt samarbejde.
 </p>
 
-<img data-aos-once="true" data-aos="zoom-in" style=" margin-left: auto; margin-right: auto; width: 60%; text-align:center;" src="assets/img/Price.jpg" class="center">
+<img data-aos-once="true" data-aos="zoom-in" style=" margin-left: auto; margin-right: auto; width: 60%; text-align:center;" src="assets/img/Price.jpg" class="centerImg">
 
 <p>
 I den kommende 3-ugers periode glæder jeg mig til at have faget 02148 Introduktion til koordinering af fordelte applikationer. Hvor derforhåbeligt skal laves et multiplayer spil, så det skal nok blive sjov.
