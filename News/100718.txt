@@ -1,4 +1,5 @@
 
+<p>06/8 2018</p>
 <img data-aos-once="true" data-aos="zoom-in" class="imgdata" style="float: right; " src="assets/img/datas.png">
             <p>Femte semester er startet, dette semester har jeg to valgfag:</p>
             <ul>

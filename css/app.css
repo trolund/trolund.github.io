@@ -221,11 +221,33 @@ nav a:hover {
   margin-left: 0px;
   margin-right: 0px; }
 
-/* line 257, /Users/troels/Documents/web git/sass/app.scss */
-.backbtn {
-  margin-right: 10px; }
+/* line 258, /Users/troels/Documents/web git/sass/app.scss */
+.btnpos {
+  position: relative;
+  float: right; }
 
-/* line 261, /Users/troels/Documents/web git/sass/app.scss */
+/* line 263, /Users/troels/Documents/web git/sass/app.scss */
+.newsContent {
+  transition: ease all 0.2s; }
+
+/* line 267, /Users/troels/Documents/web git/sass/app.scss */
+#forbtn, #backbtn {
+  top: 25px;
+  float: right;
+  position: relative; }
+
+/* line 273, /Users/troels/Documents/web git/sass/app.scss */
+#forbtn {
+  margin-left: 5px; }
+
+/* line 277, /Users/troels/Documents/web git/sass/app.scss */
+.newsContent p:first-child {
+  font-family: monospace;
+  font-size: 0.8em;
+  color: gray;
+  text-align: right; }
+
+/* line 284, /Users/troels/Documents/web git/sass/app.scss */
 .bar1,
 .bar2,
 .bar3 {
@@ -236,21 +258,28 @@ nav a:hover {
   transition: 0.4s;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); }
 
-/* line 273, /Users/troels/Documents/web git/sass/app.scss */
+/* line 296, /Users/troels/Documents/web git/sass/app.scss */
 .change .bar1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
   transform: rotate(-45deg) translate(-9px, 6px); }
 
-/* line 278, /Users/troels/Documents/web git/sass/app.scss */
+/* line 301, /Users/troels/Documents/web git/sass/app.scss */
 .change .bar2 {
   opacity: 0; }
 
-/* line 282, /Users/troels/Documents/web git/sass/app.scss */
+/* line 305, /Users/troels/Documents/web git/sass/app.scss */
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px); }
 
-/* line 288, /Users/troels/Documents/web git/sass/app.scss */
+/* line 310, /Users/troels/Documents/web git/sass/app.scss */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; }
+
+/* line 318, /Users/troels/Documents/web git/sass/app.scss */
 .profilimg {
   height: 200px;
   width: 200px;
@@ -271,11 +300,11 @@ nav a:hover {
   transition: all 0.2s;
   box-shadow: 0 0 1px transparent; }
 
-/* line 316, /Users/troels/Documents/web git/sass/app.scss */
+/* line 346, /Users/troels/Documents/web git/sass/app.scss */
 .profilimg:hover {
   border: 5px #ccc solid; }
 
-/* line 320, /Users/troels/Documents/web git/sass/app.scss */
+/* line 350, /Users/troels/Documents/web git/sass/app.scss */
 .aboutImg {
   width: 100%;
   border-top-left-radius: 5px;
@@ -287,7 +316,7 @@ nav a:hover {
   transition: .5s ease;
   backface-visibility: hidden; }
 
-/* line 332, /Users/troels/Documents/web git/sass/app.scss */
+/* line 362, /Users/troels/Documents/web git/sass/app.scss */
 .card-body {
   padding: 10px;
   color: white !important;
@@ -295,7 +324,7 @@ nav a:hover {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
 
-/* line 340, /Users/troels/Documents/web git/sass/app.scss */
+/* line 370, /Users/troels/Documents/web git/sass/app.scss */
 .card {
   border-radius: 5px;
   float: left;
@@ -304,7 +333,7 @@ nav a:hover {
   margin-bottom: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
 
-/* line 350, /Users/troels/Documents/web git/sass/app.scss */
+/* line 380, /Users/troels/Documents/web git/sass/app.scss */
 .middle {
   transition: .5s ease;
   opacity: 0;
@@ -315,37 +344,37 @@ nav a:hover {
   -ms-transform: translate(-50%, -50%);
   text-align: center; }
 
-/* line 361, /Users/troels/Documents/web git/sass/app.scss */
+/* line 391, /Users/troels/Documents/web git/sass/app.scss */
 .card:hover img {
   opacity: 0.3; }
 
-/* line 365, /Users/troels/Documents/web git/sass/app.scss */
+/* line 395, /Users/troels/Documents/web git/sass/app.scss */
 .card:hover .middle {
   opacity: 1; }
 
-/* line 374, /Users/troels/Documents/web git/sass/app.scss */
+/* line 404, /Users/troels/Documents/web git/sass/app.scss */
 .circleShadow {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   -o-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); }
 
-/* line 381, /Users/troels/Documents/web git/sass/app.scss */
+/* line 411, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div:nth-child(1) {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px; }
 
-/* line 386, /Users/troels/Documents/web git/sass/app.scss */
+/* line 416, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div:last-child {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px; }
 
-/* line 391, /Users/troels/Documents/web git/sass/app.scss */
+/* line 421, /Users/troels/Documents/web git/sass/app.scss */
 main {
   height: auto;
   width: 100%; }
 
-/* line 396, /Users/troels/Documents/web git/sass/app.scss */
+/* line 426, /Users/troels/Documents/web git/sass/app.scss */
 .somedia {
   margin-left: auto;
   margin-right: auto;
@@ -373,11 +402,11 @@ main {
   /* Non-prefixed version, currently
                                   supported by Chrome and Opera */ }
 
-/* line 424, /Users/troels/Documents/web git/sass/app.scss */
+/* line 454, /Users/troels/Documents/web git/sass/app.scss */
 .somedia a {
   color: #A9A9A9; }
 
-/* line 428, /Users/troels/Documents/web git/sass/app.scss */
+/* line 458, /Users/troels/Documents/web git/sass/app.scss */
 .somedia i {
   transform: rotate(0deg);
   height: 29px;
@@ -385,39 +414,39 @@ main {
   z-index: 800;
   transition: all 0.3s; }
 
-/* line 436, /Users/troels/Documents/web git/sass/app.scss */
+/* line 466, /Users/troels/Documents/web git/sass/app.scss */
 .somedia i:hover {
   cursor: pointer; }
 
-/* line 440, /Users/troels/Documents/web git/sass/app.scss */
+/* line 470, /Users/troels/Documents/web git/sass/app.scss */
 .somedia i[class*="facebook"]:hover {
   color: #3B5998; }
 
-/* line 444, /Users/troels/Documents/web git/sass/app.scss */
+/* line 474, /Users/troels/Documents/web git/sass/app.scss */
 .somedia i[class*="github"]:hover {
   color: #c9510c; }
 
-/* line 448, /Users/troels/Documents/web git/sass/app.scss */
+/* line 478, /Users/troels/Documents/web git/sass/app.scss */
 .somedia i[class*="linkedin"]:hover {
   color: #0077B5; }
 
-/* line 452, /Users/troels/Documents/web git/sass/app.scss */
+/* line 482, /Users/troels/Documents/web git/sass/app.scss */
 .somedia i[class*="insta"]:hover {
   color: #d6249f; }
 
-/* line 456, /Users/troels/Documents/web git/sass/app.scss */
+/* line 486, /Users/troels/Documents/web git/sass/app.scss */
 main article {
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
   max-width: 800px; }
 
-/* line 463, /Users/troels/Documents/web git/sass/app.scss */
+/* line 493, /Users/troels/Documents/web git/sass/app.scss */
 .textEffect {
   width: 500px;
   height: 100px; }
 
-/* line 469, /Users/troels/Documents/web git/sass/app.scss */
+/* line 499, /Users/troels/Documents/web git/sass/app.scss */
 .line {
   position: relative;
   width: 600px;
@@ -425,23 +454,23 @@ main article {
   top: 4px;
   background-color: red; }
 
-/* line 477, /Users/troels/Documents/web git/sass/app.scss */
+/* line 507, /Users/troels/Documents/web git/sass/app.scss */
 main {
   margin-top: 100px; }
 
-/* line 481, /Users/troels/Documents/web git/sass/app.scss */
+/* line 511, /Users/troels/Documents/web git/sass/app.scss */
 #AboutMe > h1 {
   margin-top: 120px; }
 
-/* line 485, /Users/troels/Documents/web git/sass/app.scss */
+/* line 515, /Users/troels/Documents/web git/sass/app.scss */
 main > article:first-child {
   margin-top: -80px; }
 
-/* line 489, /Users/troels/Documents/web git/sass/app.scss */
+/* line 519, /Users/troels/Documents/web git/sass/app.scss */
 .footerbuffer {
   height: 200px; }
 
-/* line 493, /Users/troels/Documents/web git/sass/app.scss */
+/* line 523, /Users/troels/Documents/web git/sass/app.scss */
 footer {
   margin-top: 50px;
   min-height: 100px;
@@ -453,7 +482,7 @@ footer {
   background: #001a33;
   width: 100%; }
 
-/* line 505, /Users/troels/Documents/web git/sass/app.scss */
+/* line 535, /Users/troels/Documents/web git/sass/app.scss */
 .footerMedia {
   color: #fff;
   margin-left: auto;
@@ -464,27 +493,27 @@ footer {
   font-size: 2.2em;
   transition: all 0.3s; }
 
-/* line 516, /Users/troels/Documents/web git/sass/app.scss */
+/* line 546, /Users/troels/Documents/web git/sass/app.scss */
 .footerMedia i:hover {
   cursor: pointer; }
 
-/* line 520, /Users/troels/Documents/web git/sass/app.scss */
+/* line 550, /Users/troels/Documents/web git/sass/app.scss */
 .footerMedia i[class*="facebook"]:hover {
   color: #3B5998; }
 
-/* line 524, /Users/troels/Documents/web git/sass/app.scss */
+/* line 554, /Users/troels/Documents/web git/sass/app.scss */
 .footerMedia i[class*="github"]:hover {
   color: #6e5494; }
 
-/* line 528, /Users/troels/Documents/web git/sass/app.scss */
+/* line 558, /Users/troels/Documents/web git/sass/app.scss */
 .footerMedia i[class*="youtube"]:hover {
   color: #c4302b; }
 
-/* line 532, /Users/troels/Documents/web git/sass/app.scss */
+/* line 562, /Users/troels/Documents/web git/sass/app.scss */
 .footerMedia i[class*="insta"]:hover {
   color: #d6249f; }
 
-/* line 536, /Users/troels/Documents/web git/sass/app.scss */
+/* line 566, /Users/troels/Documents/web git/sass/app.scss */
 .footerFooter {
   bottom: 0px;
   position: absolute;
@@ -497,26 +526,26 @@ footer {
   text-align: center;
   line-height: 50px; }
 
-/* line 549, /Users/troels/Documents/web git/sass/app.scss */
+/* line 579, /Users/troels/Documents/web git/sass/app.scss */
 .center {
   margin-left: auto;
   margin-right: auto; }
 
-/* line 554, /Users/troels/Documents/web git/sass/app.scss */
+/* line 584, /Users/troels/Documents/web git/sass/app.scss */
 .farvebg {
   background-color: #102E4A;
   color: #fff;
   padding: 25px;
   min-height: 400; }
 
-/* line 561, /Users/troels/Documents/web git/sass/app.scss */
+/* line 591, /Users/troels/Documents/web git/sass/app.scss */
 .farvebg2 {
   background-color: #224c72;
   color: #fff;
   padding: 25px;
   min-height: 400; }
 
-/* line 570, /Users/troels/Documents/web git/sass/app.scss */
+/* line 600, /Users/troels/Documents/web git/sass/app.scss */
 .fixedMenu {
   position: fixed;
   top: 0px;
@@ -530,28 +559,28 @@ footer {
   clip-path: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
 
-/* line 584, /Users/troels/Documents/web git/sass/app.scss */
+/* line 614, /Users/troels/Documents/web git/sass/app.scss */
 .fixedMenu nav {
   margin-top: 8px; }
 
-/* line 588, /Users/troels/Documents/web git/sass/app.scss */
+/* line 618, /Users/troels/Documents/web git/sass/app.scss */
 #projects {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 593, /Users/troels/Documents/web git/sass/app.scss */
+/* line 623, /Users/troels/Documents/web git/sass/app.scss */
 form p {
   margin-bottom: -15px;
   margin-top: 10px; }
 
-/* line 598, /Users/troels/Documents/web git/sass/app.scss */
+/* line 628, /Users/troels/Documents/web git/sass/app.scss */
 form input[type="text"] {
   border-radius: 5px;
   border: 1px solid lightblue;
   padding: 5px;
   background-color: ghostwhite; }
 
-/* line 605, /Users/troels/Documents/web git/sass/app.scss */
+/* line 635, /Users/troels/Documents/web git/sass/app.scss */
 form textarea {
   border-radius: 5px;
   border: 1px solid lightblue;
@@ -562,7 +591,7 @@ form textarea {
   max-height: 300px;
   max-width: 700px; }
 
-/* line 616, /Users/troels/Documents/web git/sass/app.scss */
+/* line 646, /Users/troels/Documents/web git/sass/app.scss */
 form input[type="submit"] {
   border-radius: 5px;
   border: 1px solid lightblue;
@@ -570,18 +599,18 @@ form input[type="submit"] {
   background-color: ghostwhite;
   transition: all 0.3s; }
 
-/* line 624, /Users/troels/Documents/web git/sass/app.scss */
+/* line 654, /Users/troels/Documents/web git/sass/app.scss */
 form input[type="submit"]:hover {
   border-radius: 5px;
   border: 1px solid darkblue;
   padding: 5px;
   background-color: darkgray; }
 
-/* line 631, /Users/troels/Documents/web git/sass/app.scss */
+/* line 661, /Users/troels/Documents/web git/sass/app.scss */
 .borderRadius {
   border-radius: 5px; }
 
-/* line 635, /Users/troels/Documents/web git/sass/app.scss */
+/* line 665, /Users/troels/Documents/web git/sass/app.scss */
 #goToTopBut {
   width: 50px;
   height: 50px;
@@ -594,23 +623,23 @@ form input[type="submit"]:hover {
   padding: 10px;
   cursor: pointer; }
 
-/* line 648, /Users/troels/Documents/web git/sass/app.scss */
+/* line 678, /Users/troels/Documents/web git/sass/app.scss */
 #goToTopBut img {
   width: 30px;
   height: 30px; }
 
-/* line 653, /Users/troels/Documents/web git/sass/app.scss */
+/* line 683, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer {
   display: flex;
   width: 100%;
   max-width: 800px;
   color: white; }
 
-/* line 661, /Users/troels/Documents/web git/sass/app.scss */
+/* line 691, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer h3 {
   color: white !important; }
 
-/* line 665, /Users/troels/Documents/web git/sass/app.scss */
+/* line 695, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div {
   min-height: 250px;
   transition: all 0.2s;
@@ -618,7 +647,7 @@ form input[type="submit"]:hover {
   max-height: 250px;
   display: inline; }
 
-/* line 673, /Users/troels/Documents/web git/sass/app.scss */
+/* line 703, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div > div:first-child {
   white-space: nowrap;
   float: left;
@@ -628,36 +657,36 @@ form input[type="submit"]:hover {
   vertical-align: middle;
   padding: 15px; }
 
-/* line 683, /Users/troels/Documents/web git/sass/app.scss */
+/* line 713, /Users/troels/Documents/web git/sass/app.scss */
 .content {
   float: right;
   position: relative;
   width: calc(100% - 60px) !important;
   padding: 10px; }
 
-/* line 690, /Users/troels/Documents/web git/sass/app.scss */
+/* line 720, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div > div:first-child h2 {
   transform: rotate(-90deg);
   transform-origin: bottom right;
   margin-left: -135px;
   text-align: left; }
 
-/* line 697, /Users/troels/Documents/web git/sass/app.scss */
+/* line 727, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div:nth-child(1) {
   background-color: #1C3144; }
 
-/* line 702, /Users/troels/Documents/web git/sass/app.scss */
+/* line 732, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div:nth-child(2) {
   background-color: #102E4A; }
 
-/* line 707, /Users/troels/Documents/web git/sass/app.scss */
+/* line 737, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div:nth-child(2) img {
   width: 100%;
   text-align: center;
   margin-right: -40px;
   max-height: 180px; }
 
-/* line 714, /Users/troels/Documents/web git/sass/app.scss */
+/* line 744, /Users/troels/Documents/web git/sass/app.scss */
 .newsContainer > div:nth-child(3) {
   background-color: #224c72;
   width: 100%; }
@@ -696,79 +725,79 @@ form input[type="submit"]:hover {
     opacity: 1;
     border: 10px #fff solid; } }
 
-/* line 801, /Users/troels/Documents/web git/sass/app.scss */
+/* line 831, /Users/troels/Documents/web git/sass/app.scss */
 .ani {
   animation-name: ani;
   animation-duration: 0.9s; }
 
-/* line 806, /Users/troels/Documents/web git/sass/app.scss */
+/* line 836, /Users/troels/Documents/web git/sass/app.scss */
 .ani2 {
   animation-name: ani2;
   animation-duration: 1.4s; }
 
-/* line 811, /Users/troels/Documents/web git/sass/app.scss */
+/* line 841, /Users/troels/Documents/web git/sass/app.scss */
 .ani3 {
   animation-name: ani;
   animation-duration: 0.2s; }
 
-/* line 816, /Users/troels/Documents/web git/sass/app.scss */
+/* line 846, /Users/troels/Documents/web git/sass/app.scss */
 .ani4 {
   animation-name: spin;
   animation-duration: 0.8s; }
 
-/* line 821, /Users/troels/Documents/web git/sass/app.scss */
+/* line 851, /Users/troels/Documents/web git/sass/app.scss */
 .fixedMenu h1 {
   display: none; }
 
-/* line 825, /Users/troels/Documents/web git/sass/app.scss */
+/* line 855, /Users/troels/Documents/web git/sass/app.scss */
 .fixedMenu h3 {
   display: none; }
 
-/* line 829, /Users/troels/Documents/web git/sass/app.scss */
+/* line 859, /Users/troels/Documents/web git/sass/app.scss */
 .displayNone {
   opacity: 0;
   display: none; }
 
-/* line 834, /Users/troels/Documents/web git/sass/app.scss */
+/* line 864, /Users/troels/Documents/web git/sass/app.scss */
 .list {
   list-style: circle;
   list-style-type: armenian;
   list-style-position: outside; }
 
-/* line 840, /Users/troels/Documents/web git/sass/app.scss */
+/* line 870, /Users/troels/Documents/web git/sass/app.scss */
 .notransition {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important; }
 
-/* line 847, /Users/troels/Documents/web git/sass/app.scss */
+/* line 877, /Users/troels/Documents/web git/sass/app.scss */
 .space {
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s;
   transition-delay: 0.1; }
 
-/* line 854, /Users/troels/Documents/web git/sass/app.scss */
+/* line 884, /Users/troels/Documents/web git/sass/app.scss */
 #titel {
   font-family: 'Gloria Hallelujah', cursive; }
 
-/* line 860, /Users/troels/Documents/web git/sass/app.scss */
+/* line 890, /Users/troels/Documents/web git/sass/app.scss */
 #name {
   font-family: 'Paytone One', sans-serif; }
 
-/* line 870, /Users/troels/Documents/web git/sass/app.scss */
+/* line 900, /Users/troels/Documents/web git/sass/app.scss */
 .activeLink {
   color: orange;
   font-weight: bold;
   transition: 0.2 all;
   font-size: 1.1em; }
 
-/* line 877, /Users/troels/Documents/web git/sass/app.scss */
+/* line 907, /Users/troels/Documents/web git/sass/app.scss */
 .mobilNav {
   display: none; }
 
-/* line 883, /Users/troels/Documents/web git/sass/app.scss */
+/* line 913, /Users/troels/Documents/web git/sass/app.scss */
 .textEffect {
   opacity: 0;
   -webkit-transition: all 0.5s;
@@ -787,20 +816,20 @@ form input[type="submit"]:hover {
    480-less    - phone landscape & smaller
 --------------------------------------------*/
 @media all and (min-width: 1024px) and (max-width: 1280px) {
-  /* line 905, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 935, /Users/troels/Documents/web git/sass/app.scss */
   header {
     height: 400px; }
-  /* line 908, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 938, /Users/troels/Documents/web git/sass/app.scss */
   header h1,
   h3 {
     margin-top: 50px; }
-  /* line 912, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 942, /Users/troels/Documents/web git/sass/app.scss */
   header h1 {
     font-size: 3em; }
-  /* line 915, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 945, /Users/troels/Documents/web git/sass/app.scss */
   header h3 {
     font-size: 2em; }
-  /* line 918, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 948, /Users/troels/Documents/web git/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
@@ -811,25 +840,25 @@ form input[type="submit"]:hover {
         bottom: 50px;
     }
     */
-  /* line 929, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 959, /Users/troels/Documents/web git/sass/app.scss */
   .fixedMenu {
     height: 75px; } }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
-  /* line 937, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 967, /Users/troels/Documents/web git/sass/app.scss */
   header {
     height: 300px; }
-  /* line 940, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 970, /Users/troels/Documents/web git/sass/app.scss */
   header h1,
   h3 {
     margin-top: 30px; }
-  /* line 944, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 974, /Users/troels/Documents/web git/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 947, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 977, /Users/troels/Documents/web git/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 950, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 980, /Users/troels/Documents/web git/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
@@ -840,30 +869,30 @@ form input[type="submit"]:hover {
         bottom: 50px;
     }
     */
-  /* line 961, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 991, /Users/troels/Documents/web git/sass/app.scss */
   .fixedMenu {
     height: 70px; } }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-  /* line 971, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1001, /Users/troels/Documents/web git/sass/app.scss */
   header {
     height: 260px; }
-  /* line 974, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1004, /Users/troels/Documents/web git/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 978, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1008, /Users/troels/Documents/web git/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 981, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1011, /Users/troels/Documents/web git/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 984, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1014, /Users/troels/Documents/web git/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 990, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1020, /Users/troels/Documents/web git/sass/app.scss */
   #name {
     margin-top: -12px; }
   /*
@@ -876,33 +905,33 @@ form input[type="submit"]:hover {
         transform: rotate(0deg);
     }
     */
-  /* line 1003, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1033, /Users/troels/Documents/web git/sass/app.scss */
   .fixedMenu {
     height: 65px; }
-  /* line 1008, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1038, /Users/troels/Documents/web git/sass/app.scss */
   .textEffect {
     bottom: 210px; } }
 
 @media all and (max-width: 480px) {
-  /* line 1016, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1046, /Users/troels/Documents/web git/sass/app.scss */
   header {
     height: 260px; }
-  /* line 1019, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1049, /Users/troels/Documents/web git/sass/app.scss */
   header h1,
   h3 {
     margin-top: 20px; }
-  /* line 1023, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1053, /Users/troels/Documents/web git/sass/app.scss */
   header h1 {
     font-size: 2em; }
-  /* line 1026, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1056, /Users/troels/Documents/web git/sass/app.scss */
   header h3 {
     font-size: 1em; }
-  /* line 1029, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1059, /Users/troels/Documents/web git/sass/app.scss */
   .profilimg {
     height: 150px;
     width: 150px;
     margin-top: -130px; }
-  /* line 1035, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1065, /Users/troels/Documents/web git/sass/app.scss */
   .imgdata {
     float: none;
     margin-left: auto;
@@ -918,13 +947,13 @@ form input[type="submit"]:hover {
         transform: rotate(0deg);
     }
     */
-  /* line 1051, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1081, /Users/troels/Documents/web git/sass/app.scss */
   .fixedMenu {
     height: 60px; }
-  /* line 1056, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1086, /Users/troels/Documents/web git/sass/app.scss */
   .card {
     max-width: 190px; }
-  /* line 1060, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1090, /Users/troels/Documents/web git/sass/app.scss */
   .textEffect {
     bottom: 120px; } }
 
@@ -941,47 +970,47 @@ form input[type="submit"]:hover {
 /* Retina */
 /* iPhone Portrait */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
-  /* line 1099, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1129, /Users/troels/Documents/web git/sass/app.scss */
   header {
     clip-path: none; }
-  /* line 1103, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1133, /Users/troels/Documents/web git/sass/app.scss */
   article {
     padding-left: 0px; }
-  /* line 1107, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1137, /Users/troels/Documents/web git/sass/app.scss */
   .card {
     max-width: 100%; } }
 
 /* iPhone Landscape */
 @media screen and (max-device-width: 480px) and (orientation: landscape) {
-  /* line 1116, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1146, /Users/troels/Documents/web git/sass/app.scss */
   header {
     clip-path: none; } }
 
 /* iPad Portrait */
 /* iPad Landscape */
 /* timeline */
-/* line 1134, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1164, /Users/troels/Documents/web git/sass/app.scss */
 * {
   box-sizing: border-box; }
 
 /* Set a background color */
-/* line 1140, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1170, /Users/troels/Documents/web git/sass/app.scss */
 body {
   background-color: #474e5d;
   font-family: Helvetica, sans-serif; }
 
 /* Place the container to the left */
-/* line 1148, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1178, /Users/troels/Documents/web git/sass/app.scss */
 .left {
   left: 0; }
 
 /* Place the container to the right */
-/* line 1154, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1184, /Users/troels/Documents/web git/sass/app.scss */
 .right {
   left: 50%; }
 
 /* Add arrows to the left container (pointing right) */
-/* line 1160, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1190, /Users/troels/Documents/web git/sass/app.scss */
 .left::before {
   content: " ";
   height: 0;
@@ -995,7 +1024,7 @@ body {
   border-color: transparent transparent transparent white; }
 
 /* Add arrows to the right container (pointing left) */
-/* line 1175, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1205, /Users/troels/Documents/web git/sass/app.scss */
 .right::before {
   content: " ";
   height: 0;
@@ -1009,12 +1038,12 @@ body {
   border-color: transparent white transparent transparent; }
 
 /* Fix the circle for containers on the right side */
-/* line 1191, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1221, /Users/troels/Documents/web git/sass/app.scss */
 .right::after {
   left: -16px; }
 
 /* The actual content */
-/* line 1197, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1227, /Users/troels/Documents/web git/sass/app.scss */
 .content {
   padding: 20px 30px;
   /* background-color: white;*/
@@ -1022,7 +1051,7 @@ body {
   border-radius: 6px; }
 
 @media screen and (max-width: 800px) {
-  /* line 1206, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1236, /Users/troels/Documents/web git/sass/app.scss */
   .nyhedsart {
     padding-left: 40px;
     padding-right: 40px; } }
@@ -1030,48 +1059,48 @@ body {
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
   /* Place the timelime to the left */
-  /* line 1216, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1246, /Users/troels/Documents/web git/sass/app.scss */
   .timeline::after {
     left: 31px; }
-  /* line 1220, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1250, /Users/troels/Documents/web git/sass/app.scss */
   .mobilNav ul li {
     border-bottom: solid 1px rgba(0, 0, 0, 0.1);
     transition: all 0.2s; }
-  /* line 1225, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1255, /Users/troels/Documents/web git/sass/app.scss */
   .mobilNav ul li:hover {
     background-color: rgba(255, 255, 255, 0.05); }
-  /* line 1229, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1259, /Users/troels/Documents/web git/sass/app.scss */
   .mobilNav ul li:last-child {
     border-bottom: none; }
-  /* line 1233, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1263, /Users/troels/Documents/web git/sass/app.scss */
   .mobilNav a {
     width: 30%; }
-  /* line 1240, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1270, /Users/troels/Documents/web git/sass/app.scss */
   #name {
     margin-top: -12px; }
   /* Full-width containers */
-  /* line 1245, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1275, /Users/troels/Documents/web git/sass/app.scss */
   .container {
     width: 100%;
     padding-left: 70px;
     padding-right: 25px; }
   /* Make sure that all arrows are pointing leftwards */
-  /* line 1252, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1282, /Users/troels/Documents/web git/sass/app.scss */
   .container::before {
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
     border-color: transparent white transparent transparent; }
   /* Make sure all circles are at the same spot */
-  /* line 1260, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1290, /Users/troels/Documents/web git/sass/app.scss */
   .left::after,
   .right::after {
     left: 15px; }
   /* Make all right containers behave like the left ones */
-  /* line 1266, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1296, /Users/troels/Documents/web git/sass/app.scss */
   .right {
     left: 0%; }
-  /* line 1271, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1301, /Users/troels/Documents/web git/sass/app.scss */
   .containerMenuIcon {
     position: fixed;
     display: block;
@@ -1080,26 +1109,26 @@ body {
     top: 5px;
     z-index: 9999;
     transition: all 0.5s; }
-  /* line 1282, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1312, /Users/troels/Documents/web git/sass/app.scss */
   .mobilNav {
     display: block;
     height: auto; }
-  /* line 1287, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1317, /Users/troels/Documents/web git/sass/app.scss */
   .mobilNav ul {
     list-style-type: none;
     display: block;
     padding: 0px; }
-  /* line 1293, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1323, /Users/troels/Documents/web git/sass/app.scss */
   .mobilNav ul li::after {
     content: "";
     margin: 0px; }
-  /* line 1301, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1331, /Users/troels/Documents/web git/sass/app.scss */
   #navUl {
     position: relative;
     transition: all 0.5s;
     display: none !important; } }
 
-/* line 1313, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1343, /Users/troels/Documents/web git/sass/app.scss */
 .Skillscontainer {
   width: calc(100% -100px);
   background-color: #ddd;
@@ -1109,7 +1138,7 @@ body {
   border-radius: 5px;
   margin-bottom: 10px; }
 
-/* line 1324, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1354, /Users/troels/Documents/web git/sass/app.scss */
 .skills {
   text-align: right;
   padding-right: 20px;
@@ -1118,33 +1147,33 @@ body {
   color: white;
   border-radius: 5px; }
 
-/* line 1333, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1363, /Users/troels/Documents/web git/sass/app.scss */
 .html {
   width: 90%;
   background-color: #4CAF50; }
 
-/* line 1338, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1368, /Users/troels/Documents/web git/sass/app.scss */
 .css {
   width: 80%;
   background-color: #2196F3; }
 
-/* line 1343, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1373, /Users/troels/Documents/web git/sass/app.scss */
 .js {
   width: 65%;
   background-color: #f44336; }
 
-/* line 1348, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1378, /Users/troels/Documents/web git/sass/app.scss */
 .java {
   width: 80%;
   background-color: #808080; }
 
-/* line 1353, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1383, /Users/troels/Documents/web git/sass/app.scss */
 .python {
   width: 20%;
   background-color: orange; }
 
 /* entire container, keeps perspective */
-/* line 1362, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1392, /Users/troels/Documents/web git/sass/app.scss */
 .flip-container {
   perspective: 1000px;
   margin-top: 20px;
@@ -1153,18 +1182,18 @@ body {
   margin-right: auto; }
 
 /* flip the pane when hovered */
-/* line 1372, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1402, /Users/troels/Documents/web git/sass/app.scss */
 .flip-container:hover .flipper,
 .flip-container.hover .flipper {
   transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg); }
-  /* line 1377, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1407, /Users/troels/Documents/web git/sass/app.scss */
   .flip-container:hover .flipper .front,
   .flip-container.hover .flipper .front {
     z-index: 1; }
 
-/* line 1383, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1413, /Users/troels/Documents/web git/sass/app.scss */
 .flip-container,
 .front,
 .back {
@@ -1172,7 +1201,7 @@ body {
   height: 320px;
   border-radius: 5px; }
 
-/* line 1391, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1421, /Users/troels/Documents/web git/sass/app.scss */
 .back > h2 {
   font-size: 18px;
   margin: 10px;
@@ -1180,7 +1209,7 @@ body {
   text-align: center; }
 
 /* flip speed goes here */
-/* line 1400, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1430, /Users/troels/Documents/web git/sass/app.scss */
 .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
@@ -1189,7 +1218,7 @@ body {
   position: relative; }
 
 /* hide back of pane during swap */
-/* line 1410, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1440, /Users/troels/Documents/web git/sass/app.scss */
 .front,
 .back {
   backface-visibility: hidden;
@@ -1200,7 +1229,7 @@ body {
   left: 0; }
 
 /* front pane, placed above back */
-/* line 1422, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1452, /Users/troels/Documents/web git/sass/app.scss */
 .front {
   z-index: 2;
   /* for firefox 31 */
@@ -1209,13 +1238,13 @@ body {
   -webkit-transform: rotateY(0deg);
   background-color: black; }
 
-/* line 1432, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1462, /Users/troels/Documents/web git/sass/app.scss */
 .front > h2 {
   text-align: center;
   margin-top: 200px;
   text-shadow: 0px 0px 10px #969696; }
 
-/* line 1438, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1468, /Users/troels/Documents/web git/sass/app.scss */
 .front > span {
   position: relative;
   top: 15px;
@@ -1226,12 +1255,12 @@ body {
   padding: 7px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1); }
 
-/* line 1450, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1480, /Users/troels/Documents/web git/sass/app.scss */
 .front > span:first-child {
   margin-left: 10px; }
 
 /* back, initially hidden pane */
-/* line 1457, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1487, /Users/troels/Documents/web git/sass/app.scss */
 .back {
   transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
@@ -1241,33 +1270,33 @@ body {
   color: #1C3144;
   z-index: 9999999; }
 
-/* line 1468, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1498, /Users/troels/Documents/web git/sass/app.scss */
 article > div > div:nth-child(1) > div:nth-child(2) > div > div.front {
   background-color: ghostwhite;
   background-image: url(../assets/img/drone.svg); }
 
-/* line 1473, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1503, /Users/troels/Documents/web git/sass/app.scss */
 article > div > div:nth-child(1) > div:nth-child(3) > div > div.front {
   background-color: ghostwhite;
   background-image: url(../assets/img/app.png);
   background-size: cover;
   background-position: center; }
 
-/* line 1480, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1510, /Users/troels/Documents/web git/sass/app.scss */
 article > div > div:nth-child(2) > div:nth-child(2) > div > div.front {
   background-color: ghostwhite;
   background-image: url(../assets/img/webside.png);
   background-position: center;
   background-size: cover; }
 
-/* line 1487, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1517, /Users/troels/Documents/web git/sass/app.scss */
 article > div > div:nth-child(1) > div:nth-child(4) > div > div.front {
   background-color: ghostwhite;
   background-image: url(../assets/img/motionD.jpg);
   background-position: center;
   background-size: cover; }
 
-/* line 1494, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1524, /Users/troels/Documents/web git/sass/app.scss */
 article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   background-color: ghostwhite;
   background-image: url(../assets/img/ping.png);
@@ -1276,12 +1305,12 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
 
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* line 1504, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1534, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul {
   padding: 50px 0;
   color: black; }
 
-/* line 1510, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1540, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li {
   list-style-type: none;
   position: relative;
@@ -1293,16 +1322,16 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   text-align: left;
   color: black; }
 
-/* line 1522, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1552, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li p {
   margin-bottom: 0px; }
 
-/* line 1526, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1556, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:first-child {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
 
-/* line 1531, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1561, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li img {
   height: 60px;
   border-radius: 5px;
@@ -1310,7 +1339,7 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   margin-top: -20px;
   margin-left: 5px; }
 
-/* line 1540, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1570, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li::after {
   content: '';
   position: absolute;
@@ -1322,7 +1351,7 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   border-radius: 50%;
   background: inherit; }
 
-/* line 1553, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1583, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li div {
   position: relative;
   bottom: 0;
@@ -1333,11 +1362,11 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   border-radius: 5px;
   min-height: 80px; }
 
-/* line 1564, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1594, /Users/troels/Documents/web git/sass/app.scss */
 .kursusList ul {
   list-style: none; }
 
-/* line 1568, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1598, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li div::before {
   content: '';
   position: absolute;
@@ -1346,41 +1375,41 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   height: 0;
   border-style: solid; }
 
-/* line 1577, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1607, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(odd) div {
   left: 45px; }
 
-/* line 1581, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1611, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(odd) div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
   border-color: transparent aliceblue transparent transparent; }
 
-/* line 1587, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1617, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(even) div {
   left: -390px; }
 
-/* line 1591, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1621, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(even) div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
   border-color: transparent transparent transparent aliceblue; }
 
-/* line 1599, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1629, /Users/troels/Documents/web git/sass/app.scss */
 time {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 8px; }
 
-/* line 1606, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1636, /Users/troels/Documents/web git/sass/app.scss */
 .firstsemester,
 .secsemester,
 .trisemester {
   position: relative;
   top: 30px; }
 
-/* line 1613, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1643, /Users/troels/Documents/web git/sass/app.scss */
 .firstsemester::after,
 .secsemester::after,
 .trisemester::after,
@@ -1391,11 +1420,11 @@ time {
 
 /* timeline EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* line 1625, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1655, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li::after {
   transition: background .5s ease-in-out; }
 
-/* line 1629, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1659, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li.in-view::after {
   background: orange; }
 
@@ -1425,111 +1454,111 @@ time {
 /* timeline responsive
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 800px) {
-  /* line 1661, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1691, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     width: 250px; }
-  /* line 1664, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1694, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: -290px; } }
 
 @media screen and (max-width: 600px) {
-  /* line 1670, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1700, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li {
     margin-left: 20px; }
-  /* line 1673, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1703, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     width: calc(100vw - 130px);
     padding-bottom: 20px; }
-  /* line 1677, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1707, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: 45px; }
-  /* line 1680, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1710, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li:nth-child(even) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
     border-color: transparent aliceblue transparent transparent; } }
 
 @media screen and (max-width: 400px) {
-  /* line 1688, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1718, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     padding-bottom: 10px; }
-  /* line 1692, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1722, /Users/troels/Documents/web git/sass/app.scss */
   .flip-container {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 270px;
     height: 270px;
     margin-right: auto; }
-  /* line 1700, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1730, /Users/troels/Documents/web git/sass/app.scss */
   .front {
     width: 270px;
     height: 270px; }
-  /* line 1705, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1735, /Users/troels/Documents/web git/sass/app.scss */
   .front > h2 {
     text-align: center;
     margin-top: 50%; }
-  /* line 1710, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1740, /Users/troels/Documents/web git/sass/app.scss */
   .back {
     width: 270px;
     height: 270px;
     overflow: scroll; }
-  /* line 1716, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1746, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul {
     margin-left: -20px; } }
 
 @media screen and (max-width: 350px) {
-  /* line 1722, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1752, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     padding: 5px; }
-  /* line 1726, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1756, /Users/troels/Documents/web git/sass/app.scss */
   .flip-container {
     margin-top: 30px;
     margin-bottom: 30px;
     width: 260px;
     height: 260px;
     margin-left: 0px; }
-  /* line 1734, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1764, /Users/troels/Documents/web git/sass/app.scss */
   .front {
     width: 260px;
     height: 260px; }
-  /* line 1739, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1769, /Users/troels/Documents/web git/sass/app.scss */
   .front > h2 {
     text-align: center;
     margin-top: 40%; }
-  /* line 1744, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1774, /Users/troels/Documents/web git/sass/app.scss */
   .back {
     width: 260px;
     height: 260px;
     overflow: scroll; }
-  /* line 1750, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1780, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul {
     margin-left: auto; } }
 
 @media screen and (max-width: 320px) {
-  /* line 1756, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1786, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     padding: 5px; }
-  /* line 1760, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1790, /Users/troels/Documents/web git/sass/app.scss */
   .flip-container {
     margin-top: 30px;
     margin-bottom: 30px;
     width: 230px;
     height: 230px;
     margin-left: -13px; }
-  /* line 1768, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1798, /Users/troels/Documents/web git/sass/app.scss */
   .front {
     width: 230px;
     height: 230px; }
-  /* line 1773, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1803, /Users/troels/Documents/web git/sass/app.scss */
   .front > h2 {
     text-align: center;
     margin-top: 40%; }
-  /* line 1778, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1808, /Users/troels/Documents/web git/sass/app.scss */
   .back {
     width: 230px;
     height: 230px;
     overflow: scroll; }
-  /* line 1784, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1814, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul {
     margin-left: -25px; } }
 
@@ -1542,7 +1571,7 @@ time {
  * animation tracking-in-expand-fwd
  * ----------------------------------------
  */
-/* line 1801, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1831, /Users/troels/Documents/web git/sass/app.scss */
 .tracking-in-expand-fwd {
   -webkit-animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both; }

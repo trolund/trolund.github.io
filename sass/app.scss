@@ -254,8 +254,31 @@ nav a:hover {
     margin-right: 0px;
 }
 
-.backbtn{
-    margin-right: 10px;
+
+.btnpos{
+    position: relative;
+    float: right;
+}
+
+.newsContent{
+    transition: ease all 0.2s;
+}
+
+#forbtn, #backbtn {
+    top: 25px;
+    float: right;
+    position: relative;
+}
+
+#forbtn{
+    margin-left: 5px;
+}
+
+.newsContent p:first-child{
+    font-family: monospace;
+    font-size: 0.8em;
+    color: gray;
+    text-align: right;
 }
 
 .bar1,
@@ -282,6 +305,13 @@ nav a:hover {
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 // menu icon stop

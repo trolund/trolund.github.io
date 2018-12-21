@@ -14,7 +14,7 @@ $(document).ready(function (e) {
             url: "../News/" + result.newsFiles[result.newsFiles.length - 1],
             success: function (data) {
                 $(".newsContent").html(data);
-                $(".newsContent").append("<button class='btn btn-info' id='backbtn'>Tidligere</button");
+                $(".btnpos").prepend("<button class='btn btn-info' id='backbtn'>Tidligere</button");
                 setLis();
             }
         });
@@ -22,13 +22,16 @@ $(document).ready(function (e) {
 });
 
 function getbtn() {
+
+    $(".btnpos").empty();
+
     if (newsIndex == fileList.newsFiles.length-1) {
-        $(".newsContent").append("<button class='btn btn-info' id='backbtn'>Tidligere</button");
+        $(".btnpos").prepend("<button class='btn btn-info' id='backbtn'>Tidligere</button");
     } else if (newsIndex == 0) {
-        $(".newsContent").append("<button class='btn btn-info' id='forbtn'>Næste</button");
+        $(".btnpos").prepend("<button class='btn btn-info' id='forbtn'>Næste</button");
     } else {
-        $(".newsContent").append("<button class='btn btn-info' id='backbtn'>Tidligere</button");
-        $(".newsContent").append("<button class='btn btn-info' id='forbtn'>Næste</button");
+        $(".btnpos").prepend("<button class='btn btn-info' id='backbtn'>Tidligere</button");
+        $(".btnpos").prepend("<button class='btn btn-info' id='forbtn'>Næste</button");
     }
     setLis();
 }
