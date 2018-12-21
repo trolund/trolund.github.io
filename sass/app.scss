@@ -274,6 +274,18 @@ nav a:hover {
     margin-left: 5px;
 }
 
+.newsContent {
+    height: auto;
+    overflow: hidden;
+  transition: height 0.2s ease;
+    transition: max-height 0.2s ease;
+}
+
+.expand {
+    height: auto;
+    max-height: auto;
+}
+
 .newsContent p:first-child{
     font-family: monospace;
     font-size: 0.8em;

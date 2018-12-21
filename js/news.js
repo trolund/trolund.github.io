@@ -46,11 +46,11 @@ function setLis() {
             async: true,
             url: "../News/" + fileList.newsFiles[newsIndex - 1],
             success: function (data) {
-                $(".newsContent").empty()
                 $(".newsContent").html(data);
                 newsIndex--;
                 getbtn();
                 setLis();
+                $(".newsContent").show(400);
             }
         });
 
@@ -62,11 +62,11 @@ function setLis() {
             async: true,
             url: "../News/" + fileList.newsFiles[newsIndex + 1],
             success: function (data) {
-                $(".newsContent").empty()
                 $(".newsContent").html(data);
                 newsIndex++;
                 getbtn();
                 setLis();
+                $(".newsContent").show(200);
             }
         });
 
