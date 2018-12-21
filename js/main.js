@@ -450,6 +450,8 @@ function printAge() {
     }
 
     $('#age').prepend(numOfyears);
+    $('#textage').prepend(numOfyears);
+
 }
 
 function flipcontainerAni() {
