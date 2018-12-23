@@ -42,6 +42,7 @@ function setLis() {
     $("#forbtn").unbind("click");
 
     $('#backbtn').click(function () {
+        $(".newsContent").css('opacity', 0);
         $.ajax({
             async: true,
             url: "../News/" + fileList.newsFiles[newsIndex - 1],
@@ -50,7 +51,7 @@ function setLis() {
                 newsIndex--;
                 getbtn();
                 setLis();
-                $(".newsContent").show(400);
+                $(".newsContent").css('opacity', 1);
             }
         });
 
@@ -58,6 +59,7 @@ function setLis() {
 
 
     $('#forbtn').click(function () {
+        $(".newsContent").css('opacity', 0);
         $.ajax({
             async: true,
             url: "../News/" + fileList.newsFiles[newsIndex + 1],
@@ -66,7 +68,7 @@ function setLis() {
                 newsIndex++;
                 getbtn();
                 setLis();
-                $(".newsContent").show(200);
+                $(".newsContent").css('opacity', 1);
             }
         });
 

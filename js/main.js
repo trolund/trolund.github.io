@@ -256,9 +256,9 @@ $(document).ready(function () {
     });
 });
 
-function svgAnimationSetup(){
-      // define images
-        var images = [
+function svgAnimationSetup() {
+    // define images
+    var images = [
             "assets/img/svg%20animation/Artboard%201.svg",
             "assets/img/svg%20animation/Artboard%202.svg",
             "assets/img/svg%20animation/Artboard%203.svg",
@@ -271,43 +271,43 @@ function svgAnimationSetup(){
             "assets/img/svg%20animation/Artboard%2010.svg"
         ];
 
-        // TweenMax can tween any property of any object. We use this object to cycle through the array
-        var obj = {
-            curImg: 0
-        };
+    // TweenMax can tween any property of any object. We use this object to cycle through the array
+    var obj = {
+        curImg: 0
+    };
 
-        // create tween
-        var tween = TweenMax.to(obj, 0.5, {
-            curImg: images.length - 1, // animate propery curImg to number of images
-            roundProps: "curImg", // only integers so it can be used as an array index
-            repeat: 0, // repeat 3 times
-            immediateRender: true, // load first image automatically
-            ease: Linear.easeNone, // show every image the same ammount of time
-            onUpdate: function() {
-                $("#myimg").attr("src", images[obj.curImg]); // set the image source
-                if (obj.curImg >= 9) {
-                    $('#revealText').css('opacity', 1);
-                    //console.log('text synlig');
-                } else{
-                      $('#revealText').css('opacity', 0);
-                }
-
+    // create tween
+    var tween = TweenMax.to(obj, 0.5, {
+        curImg: images.length - 1, // animate propery curImg to number of images
+        roundProps: "curImg", // only integers so it can be used as an array index
+        repeat: 0, // repeat 3 times
+        immediateRender: true, // load first image automatically
+        ease: Linear.easeNone, // show every image the same ammount of time
+        onUpdate: function () {
+            $("#myimg").attr("src", images[obj.curImg]); // set the image source
+            if (obj.curImg >= 9) {
+                $('#revealText').css('opacity', 1);
+                //console.log('text synlig');
+            } else {
+                $('#revealText').css('opacity', 0);
             }
-        });
+
+        }
+    });
 
 
 
-        // init controller
-        var controller = new ScrollMagic.Controller();
+    // init controller
+    var controller = new ScrollMagic.Controller();
 
-        // build scene
-        var scene = new ScrollMagic.Scene({
-                triggerElement: "#trigger",
-                duration: 250
-            })
-            .setTween(tween)
-            .addIndicators() // add indicators (requires plugin)
-            .addTo(controller);
+    // build scene
+    var scene = new ScrollMagic.Scene({
+            triggerElement: "#trigger",
+            duration: 250
+        })
+        .setTween(tween)
+        .addIndicators() // add indicators (requires plugin)
+        .addTo(controller);
 }
 
 function ActiveLinksUpdate() {
@@ -392,7 +392,7 @@ function flipcardsgen() {
 function timelineJS() {
 
     // define variables
-    var items = document.querySelectorAll(".timeline li");
+    var items = $(".timeline li");
 
     function isElementInViewport(el) {
         var rect = el.getBoundingClientRect();
@@ -417,7 +417,14 @@ function timelineJS() {
     window.addEventListener("resize", callbackFunc);
     window.addEventListener("scroll", callbackFunc);
 
+    console.log(items);
 
+    items.each(function(){
+         $(".kurser", this).hide();
+         $(this).click(function () {
+             $(".kurser", this).toggle(200);
+        });
+    });
 }
 
 function addAnimationTimeline() {
@@ -437,11 +444,11 @@ function printAge() {
     var d = new Date();
     var year = d.getFullYear();
     var day = d.getDate();
-    var month = d.getMonth() +1; // for some reason +1?
+    var month = d.getMonth() + 1; // for some reason +1?
 
     numOfyears = year - 1994;
 
-    if (month < 10 ) {
+    if (month < 10) {
         numOfyears--;
     } else if (month == 10) {
         if (day < 6) {
@@ -492,6 +499,6 @@ $(window).on('load', function () { // makes sure the whole site is loaded
     $('body').delay(350).css({
         'overflow': 'visible'
     });
-//    $('#name').delay(500).addClass('animated');
-//    $('#titel').delay(500).addClass('animated');
+    //    $('#name').delay(500).addClass('animated');
+    //    $('#titel').delay(500).addClass('animated');
 });

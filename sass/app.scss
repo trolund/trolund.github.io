@@ -61,6 +61,19 @@ body {
     margin: 0px;
 }
 
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+    opacity: 0;
+    filter: blur(15px);
+  }
+  to {
+    background-position: 0 100;
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
 header {
     width: 100%;
     height: $headerheigt; //    background-image: url("../assets/img/thumb-1920-467160.jpg");
@@ -92,6 +105,7 @@ header {
     top: 0px;
     margin-top: 0px;
     background-attachment: fixed;
+    //animation: animatedBackground 1s ease;
 }
 
 header h1,
@@ -261,6 +275,7 @@ nav a:hover {
 }
 
 .newsContent{
+    opacity: 1;
     transition: ease all 0.2s;
 }
 
@@ -359,6 +374,8 @@ $radiusCard: 5px;
     border: $radiusCard #ccc solid;
 }
 
+
+
 .aboutImg {
     width: 100%;
     border-top-left-radius: $radiusCard;
@@ -412,6 +429,8 @@ $shadowX: 0px;
 $shadowY: 5px;
 $shadowBlur: 10px;
 $shadowOp: 0.2;
+
+
 
 .circleShadow {
     box-shadow: $shadowX $shadowY $shadowBlur rgba(0, 0, 0, $shadowOp);
@@ -1173,6 +1192,7 @@ only screen and (min-device-pixel-ratio: 1.5) {}
 
 /* timeline */
 
+
 * {
     box-sizing: border-box;
 }
@@ -1542,6 +1562,11 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
 
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.list-group-item:first-child{
+    margin-top: 30px;
+}
+
 
 .timeline ul {
     // background: #456990;
