@@ -18,7 +18,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #1d1d1d;
+  background-color: #FFF;
   /* change if the mask should have another color then white */
   z-index: 9999;
   /* makes sure it stays on top */ }
@@ -32,11 +32,11 @@ body {
   /* centers the loading animation horizontally one the screen */
   top: 50%;
   /* centers the loading animation vertically one the screen */
-  background-image: url(/assets/img/loadinggif.gif);
+  background-image: url(/assets/img/loading-animation.gif);
   /* path to your loading animation */
   background-repeat: no-repeat;
   background-position: center;
-  margin: -100px 0 0 -100px;
+  margin: -100px 0 0 -118px;
   /* is width and height divided by two */ }
 
 /* line 60, /Users/troels/Documents/web git/sass/app.scss */
