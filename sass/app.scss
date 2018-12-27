@@ -652,10 +652,6 @@ footer {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.fixedMenu nav {
-    margin-top: 8px;
-}
-
 #projects {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -1299,6 +1295,10 @@ body {
 /* Media queries - Responsive timeline on screens less than 600px wide */
 
 @media screen and (max-width: 600px) {
+
+
+    $menuitemheigt: 3em;
+
     /* Place the timelime to the left */
     .timeline::after {
         left: 31px;
@@ -1307,6 +1307,7 @@ body {
     .mobilNav ul li {
         border-bottom: solid 1px rgba(0, 0, 0, 0.1);
         transition: all 0.2s;
+        height: $menuitemheigt;
     }
 
     .mobilNav ul li:hover {
@@ -1318,7 +1319,14 @@ body {
     }
 
     .mobilNav a {
-        width: 30%;
+        width: 100%;
+        height: $menuitemheigt;
+        line-height: $menuitemheigt;
+        vertical-align: middle;
+        text-align: center;
+
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     #name,
