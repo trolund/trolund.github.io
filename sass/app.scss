@@ -49,13 +49,15 @@ body {
     /* centers the loading animation horizontally one the screen */
     top: 50%;
     /* centers the loading animation vertically one the screen */
-    background-image: url(/assets/img/loading-animation.gif);
+   // background-image: url(/assets/img/loading-animation.gif);
     /* path to your loading animation */
     background-repeat: no-repeat;
     background-position: center;
     margin: -100px 0 0 -118px;
     /* is width and height divided by two */
 }
+
+
 
 body {
     margin: 0px;
@@ -552,15 +554,23 @@ main > article:first-child {
 }
 
 footer {
+    padding-top: 20px;
     margin-top: 50px;
     min-height: 100px;
     background-color: #ccc;
     position: relative;
     left: 0px;
     bottom: 0px;
-    height: $footerheight;
+    //height: $footerheight;
     background: #001a33;
     width: 100%;
+}
+
+#vectorfooter {
+    background-image: url(../assets/img/footersvg.svg);
+    background-size: cover;
+    width: 100%;
+    height: 800px;
 }
 
 .footerMedia {
@@ -994,6 +1004,11 @@ form input[type="submit"]:hover {
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
+
+        #vectorfooter {
+    height: 500px;
+}
+
     $headerheigt: 300px;
     header {
         height: $headerheigt;
@@ -1028,6 +1043,11 @@ form input[type="submit"]:hover {
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
+
+    #vectorfooter {
+    height: 350px;
+}
+
     $headerheigt: 260px;
     header {
         height: $headerheigt;
@@ -1073,6 +1093,11 @@ form input[type="submit"]:hover {
 }
 
 @media all and (max-width: 480px) {
+
+        #vectorfooter {
+    height: 260px;
+}
+
     $headerheigt: 260px;
     header {
         height: $headerheigt;
@@ -1415,6 +1440,11 @@ body {
 .python {
     width: 20%;
     background-color: orange;
+}
+
+.gra {
+    width: 40%;
+    background-color: skyblue;
 }
 
 

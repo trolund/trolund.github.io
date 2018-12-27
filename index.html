@@ -33,15 +33,88 @@
     <script src="js/news.js"></script>
     <script src="js/parallax.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+
+    <!-- loading animation -->
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="assets/img/loading%20animation.js"></script>
+
+    <script>
+        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+
+        function init() {
+            canvas = document.getElementById("canvas");
+            anim_container = document.getElementById("animation_container");
+            dom_overlay_container = document.getElementById("dom_overlay_container");
+            handleComplete();
+        }
+
+        function handleComplete() {
+            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+            exportRoot = new lib.loadinganimation();
+            stage = new createjs.Stage(canvas);
+            stage.addChild(exportRoot);
+            //Registers the "tick" event listener.
+            fnStartAnimation = function() {
+                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.addEventListener("tick", stage);
+            }
+            //Code to support hidpi screens and responsive scaling.
+            function makeResponsive(isResp, respDim, isScale, scaleType) {
+                var lastW, lastH, lastS = 1;
+                window.addEventListener('resize', resizeCanvas);
+                resizeCanvas();
+
+                function resizeCanvas() {
+                    var w = lib.properties.width,
+                        h = lib.properties.height;
+                    var iw = window.innerWidth,
+                        ih = window.innerHeight;
+                    var pRatio = window.devicePixelRatio || 1,
+                        xRatio = iw / w,
+                        yRatio = ih / h,
+                        sRatio = 1;
+                    if (isResp) {
+                        if ((respDim == 'width' && lastW == iw) || (respDim == 'height' && lastH == ih)) {
+                            sRatio = lastS;
+                        } else if (!isScale) {
+                            if (iw < w || ih < h)
+                                sRatio = Math.min(xRatio, yRatio);
+                        } else if (scaleType == 1) {
+                            sRatio = Math.min(xRatio, yRatio);
+                        } else if (scaleType == 2) {
+                            sRatio = Math.max(xRatio, yRatio);
+                        }
+                    }
+                    canvas.width = w * pRatio * sRatio;
+                    canvas.height = h * pRatio * sRatio;
+                    canvas.style.width = dom_overlay_container.style.width = anim_container.style.width = w * sRatio + 'px';
+                    canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h * sRatio + 'px';
+                    stage.scaleX = pRatio * sRatio;
+                    stage.scaleY = pRatio * sRatio;
+                    lastW = iw;
+                    lastH = ih;
+                    lastS = sRatio;
+                }
+            }
+            makeResponsive(false, 'both', false, 1);
+            fnStartAnimation();
+        }
+    </script>
     <!-- for debuging svg animation: <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script> -->
     <script src="js/gaspANI.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Gloria+Hallelujah|Paytone+One|Poiret+One" rel="stylesheet">
 </head>
 
-<body>
+<body onload="init();">
     <!-- Preloader -->
     <div id="preloader">
-        <div id="status">&nbsp;</div>
+        <div id="status">
+            <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:175px; height:198px">
+                <canvas id="canvas" width="175" height="198" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+                <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:175px; height:198px; position: absolute; left: 0px; top: 0px; display: block;">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="containerMenuIcon" onclick="mobilMenu(this)">
         <div class="bar1"></div>
@@ -149,6 +222,11 @@
                         <p>Python</p>
                         <div class="Skillscontainer">
                             <div data-aos-once="true" data-aos="fade-right" class="skills python">20%</div>
+                        </div>
+
+                        <p>Grafisk design og animation</p>
+                        <div class="Skillscontainer">
+                            <div data-aos-once="true" data-aos="fade-right" class="skills gra">40%</div>
                         </div>
                     </div>
                 </div>
@@ -392,12 +470,12 @@
         </div>
         <article>
             <h1>Kontakt</h1>
-            <img data-aos-once="true" data-aos="fade-up-right" style="float: right; width: 35%; margin-top: -70px;" src="assets/img/iconmonstr-paper-plane-1.svg"><br><br>
+            <img data-aos-once="true" data-aos="fade-up-right" style="float: right; width: 35%; margin-top: -70px; opacity: 0.9;" src="assets/img/iconmonstr-paper-plane-1.svg"><br><br>
             <p><b><img style="width: 20px; margin-right: 8px;" src="assets/img/mobil.svg">Mobil: 29456660</b></p>
             <p><b><img style="width: 20px; margin-right: 8px;" src="assets/img/email.svg">Email: Trolund@gmail.com</b></p>
             <br>
             <p>Du er altid altid velkomen til at kontakte mig.</p>
-<!--
+            <!--
             <form id="mailForm">
                 <p>Navn</p><br>
                 <input type="text" name="name">
@@ -425,8 +503,10 @@
         </article>
     </main>
     <footer class="footer">
+        <div id="vectorfooter"></div>
         <div class="footerFooter">Designed by Troels Lund - 2018</div>
     </footer>
+
     <div id="goToTopBut">
         <div>
             <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDQ0NC44MTkgNDQ0LjgxOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDQ0LjgxOSA0NDQuODE5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTQzMy45NjgsMjc4LjY1N0wyNDguMzg3LDkyLjc5Yy03LjQxOS03LjA0NC0xNi4wOC0xMC41NjYtMjUuOTc3LTEwLjU2NmMtMTAuMDg4LDAtMTguNjUyLDMuNTIxLTI1LjY5NywxMC41NjYgICBMMTAuODQ4LDI3OC42NTdDMy42MTUsMjg1Ljg4NywwLDI5NC41NDksMCwzMDQuNjM3YzAsMTAuMjgsMy42MTksMTguODQzLDEwLjg0OCwyNS42OTNsMjEuNDExLDIxLjQxMyAgIGM2Ljg1NCw3LjIzLDE1LjQyLDEwLjg1MiwyNS42OTcsMTAuODUyYzEwLjI3OCwwLDE4Ljg0Mi0zLjYyMSwyNS42OTctMTAuODUyTDIyMi40MSwyMTMuMjcxTDM2MS4xNjgsMzUxLjc0ICAgYzYuODQ4LDcuMjI4LDE1LjQxMywxMC44NTIsMjUuNywxMC44NTJjMTAuMDgyLDAsMTguNzQ3LTMuNjI0LDI1Ljk3NS0xMC44NTJsMjEuNDA5LTIxLjQxMiAgIGM3LjA0My03LjA0MywxMC41NjctMTUuNjA4LDEwLjU2Ny0yNS42OTNDNDQ0LjgxOSwyOTQuNTQ1LDQ0MS4yMDUsMjg1Ljg4NCw0MzMuOTY4LDI3OC42NTd6IiBmaWxsPSIjRkZGRkZGIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" alt="" />
