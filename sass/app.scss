@@ -278,7 +278,7 @@ nav a:hover {
 
 .newsContent{
     opacity: 1;
-    transition: ease all 0.2s;
+    transition: background .5s ease-in-out;
 }
 
 #forbtn, #backbtn {
@@ -1627,6 +1627,7 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
     line-height: 1em;
     text-align: left;
     color: black;
+    transition: all .5s ease-in-out;
 }
 
 .timeline ul li p {
@@ -1669,6 +1670,20 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
     background: aliceblue;
     border-radius: 5px;
     min-height: 80px;
+}
+
+.timelinehover {
+    box-shadow: 0px 0px 0px #000;
+    -webkit-transition: all 0.3s !important; /* For Safari 3.1 to 6.0 */
+    transition: all 0.3s !important;
+}
+.timelinehover:hover {
+    box-shadow: 0px 0px 10px #000;
+    background-color: #f8fcff;
+}
+
+.timeline ul li.in-view:hover::after {
+    background: #ffddb3  !important;
 }
 
 .kursusList ul {

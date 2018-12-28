@@ -238,7 +238,7 @@ nav a:hover {
 /* line 279, /Users/troels/Documents/web git/sass/app.scss */
 .newsContent {
   opacity: 1;
-  transition: ease all 0.2s; }
+  transition: background .5s ease-in-out; }
 
 /* line 284, /Users/troels/Documents/web git/sass/app.scss */
 #forbtn, #backbtn {
@@ -1375,18 +1375,19 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   background: #102E4A;
   line-height: 1em;
   text-align: left;
-  color: black; }
+  color: black;
+  transition: all .5s ease-in-out; }
 
-/* line 1632, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1633, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li p {
   margin-bottom: 0px; }
 
-/* line 1636, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1637, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:first-child {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
 
-/* line 1641, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1642, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li img {
   height: 60px;
   border-radius: 5px;
@@ -1394,7 +1395,7 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   margin-top: -20px;
   margin-left: 5px; }
 
-/* line 1650, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1651, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li::after {
   content: '';
   position: absolute;
@@ -1406,7 +1407,7 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   border-radius: 50%;
   background: inherit; }
 
-/* line 1663, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1664, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li div {
   position: relative;
   bottom: 0;
@@ -1417,11 +1418,27 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   border-radius: 5px;
   min-height: 80px; }
 
-/* line 1674, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1675, /Users/troels/Documents/web git/sass/app.scss */
+.timelinehover {
+  box-shadow: 0px 0px 0px #000;
+  -webkit-transition: all 0.3s !important;
+  /* For Safari 3.1 to 6.0 */
+  transition: all 0.3s !important; }
+
+/* line 1680, /Users/troels/Documents/web git/sass/app.scss */
+.timelinehover:hover {
+  box-shadow: 0px 0px 10px #000;
+  background-color: #f8fcff; }
+
+/* line 1685, /Users/troels/Documents/web git/sass/app.scss */
+.timeline ul li.in-view:hover::after {
+  background: #ffddb3  !important; }
+
+/* line 1689, /Users/troels/Documents/web git/sass/app.scss */
 .kursusList ul {
   list-style: none; }
 
-/* line 1678, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1693, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li div::before {
   content: '';
   position: absolute;
@@ -1430,41 +1447,41 @@ article > div > div:nth-child(2) > div:nth-child(3) > div > div.front {
   height: 0;
   border-style: solid; }
 
-/* line 1687, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1702, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(odd) div {
   left: 45px; }
 
-/* line 1691, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1706, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(odd) div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
   border-color: transparent aliceblue transparent transparent; }
 
-/* line 1697, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1712, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(even) div {
   left: -390px; }
 
-/* line 1701, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1716, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li:nth-child(even) div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
   border-color: transparent transparent transparent aliceblue; }
 
-/* line 1709, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1724, /Users/troels/Documents/web git/sass/app.scss */
 time {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 8px; }
 
-/* line 1716, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1731, /Users/troels/Documents/web git/sass/app.scss */
 .firstsemester,
 .secsemester,
 .trisemester {
   position: relative;
   top: 30px; }
 
-/* line 1723, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1738, /Users/troels/Documents/web git/sass/app.scss */
 .firstsemester::after,
 .secsemester::after,
 .trisemester::after,
@@ -1475,11 +1492,11 @@ time {
 
 /* timeline EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* line 1735, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1750, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li::after {
   transition: background .5s ease-in-out; }
 
-/* line 1739, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1754, /Users/troels/Documents/web git/sass/app.scss */
 .timeline ul li.in-view::after {
   background: orange; }
 
@@ -1509,111 +1526,111 @@ time {
 /* timeline responsive
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 800px) {
-  /* line 1771, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1786, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     width: 250px; }
-  /* line 1774, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1789, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: -290px; } }
 
 @media screen and (max-width: 600px) {
-  /* line 1780, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1795, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li {
     margin-left: 20px; }
-  /* line 1783, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1798, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     width: calc(100vw - 130px);
     padding-bottom: 20px; }
-  /* line 1787, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1802, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li:nth-child(even) div {
     left: 45px; }
-  /* line 1790, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1805, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li:nth-child(even) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
     border-color: transparent aliceblue transparent transparent; } }
 
 @media screen and (max-width: 400px) {
-  /* line 1798, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1813, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     padding-bottom: 10px; }
-  /* line 1802, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1817, /Users/troels/Documents/web git/sass/app.scss */
   .flip-container {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 270px;
     height: 270px;
     margin-right: auto; }
-  /* line 1810, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1825, /Users/troels/Documents/web git/sass/app.scss */
   .front {
     width: 270px;
     height: 270px; }
-  /* line 1815, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1830, /Users/troels/Documents/web git/sass/app.scss */
   .front > h2 {
     text-align: center;
     margin-top: 50%; }
-  /* line 1820, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1835, /Users/troels/Documents/web git/sass/app.scss */
   .back {
     width: 270px;
     height: 270px;
     overflow: scroll; }
-  /* line 1826, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1841, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul {
     margin-left: -20px; } }
 
 @media screen and (max-width: 350px) {
-  /* line 1832, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1847, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     padding: 5px; }
-  /* line 1836, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1851, /Users/troels/Documents/web git/sass/app.scss */
   .flip-container {
     margin-top: 30px;
     margin-bottom: 30px;
     width: 260px;
     height: 260px;
     margin-left: 0px; }
-  /* line 1844, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1859, /Users/troels/Documents/web git/sass/app.scss */
   .front {
     width: 260px;
     height: 260px; }
-  /* line 1849, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1864, /Users/troels/Documents/web git/sass/app.scss */
   .front > h2 {
     text-align: center;
     margin-top: 40%; }
-  /* line 1854, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1869, /Users/troels/Documents/web git/sass/app.scss */
   .back {
     width: 260px;
     height: 260px;
     overflow: scroll; }
-  /* line 1860, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1875, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul {
     margin-left: auto; } }
 
 @media screen and (max-width: 320px) {
-  /* line 1866, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1881, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul li div {
     padding: 5px; }
-  /* line 1870, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1885, /Users/troels/Documents/web git/sass/app.scss */
   .flip-container {
     margin-top: 30px;
     margin-bottom: 30px;
     width: 230px;
     height: 230px;
     margin-left: -13px; }
-  /* line 1878, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1893, /Users/troels/Documents/web git/sass/app.scss */
   .front {
     width: 230px;
     height: 230px; }
-  /* line 1883, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1898, /Users/troels/Documents/web git/sass/app.scss */
   .front > h2 {
     text-align: center;
     margin-top: 40%; }
-  /* line 1888, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1903, /Users/troels/Documents/web git/sass/app.scss */
   .back {
     width: 230px;
     height: 230px;
     overflow: scroll; }
-  /* line 1894, /Users/troels/Documents/web git/sass/app.scss */
+  /* line 1909, /Users/troels/Documents/web git/sass/app.scss */
   .timeline ul {
     margin-left: -25px; } }
 
@@ -1626,7 +1643,7 @@ time {
  * animation tracking-in-expand-fwd
  * ----------------------------------------
  */
-/* line 1911, /Users/troels/Documents/web git/sass/app.scss */
+/* line 1926, /Users/troels/Documents/web git/sass/app.scss */
 .tracking-in-expand-fwd {
   -webkit-animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both; }

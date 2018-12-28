@@ -1,4 +1,5 @@
 var pro = 1;
+var viewportWidth;
 
 function AutoMenuUpdate(Htag, des, aniTime) {
     var name = '';
@@ -128,7 +129,7 @@ $(document).ready(function () {
     addAnimationTimeline();
     AOS.init(); // all AOS animationer før dette ---------!
 
-    var viewportWidth = $(window).width();
+    viewportWidth = $(window).width();
     var headerheigt = $('header').height() + $('.somedia').height() * pro;
     var smallHeader = 90;
     var menuPX = $('header').height();
@@ -417,12 +418,14 @@ function timelineJS() {
     window.addEventListener("resize", callbackFunc);
     window.addEventListener("scroll", callbackFunc);
 
-    console.log(items);
+    items.each(function () {
+        $(".kurser", this).hide();
+        $(this).click(function () {
+            $(".kurser", this).toggle(200);
 
-    items.each(function(){
-         $(".kurser", this).hide();
-         $(this).click(function () {
-             $(".kurser", this).toggle(200);
+
+
+
         });
     });
 }
@@ -432,12 +435,64 @@ function addAnimationTimeline() {
     $('.timeline div').each(function () {
         if (count % 2 == 0) {
             $(this).attr('data-aos', 'zoom-in-right'); // data-aos="zoom-in-right"
+            hovertimeline($(this), true);
         } else {
             $(this).attr('data-aos', 'zoom-in-left');
+            hovertimeline($(this), false);
         }
         $(this).attr('data-aos-once', 'true');
         count++;
     })
+}
+
+function hovertimeline(element, even) {
+    // add hover til elementer som kan klikkes på.
+    if (element.find(".kurser").length > 0) {
+        element.css('cursor', 'pointer');
+        element.addClass('timelinehover');
+
+        /*
+        elementer.mouseenter(function () {
+
+            if ($(".kurser", this).is(":hidden")) {
+                if (even) {
+                    elementer.css("border-right", "0px solid orange").animate({
+                        'borderWidth': '5px',
+                        'borderColor': 'orange'
+                    }, 200);
+                } else {
+                    if (viewportWidth <= 600) {
+                        elementer.css("border-right", "0px solid orange").animate({
+                            'borderWidth': '5px',
+                            'borderColor': 'orange'
+                        }, 200);
+                    } else {
+                        elementer.css("border-left", "0px solid orange").animate({
+                            'borderWidth': '5px',
+                            'borderColor': 'orange'
+                        }, 200);
+                    }
+                }
+                elementer.css('box-shadow', 'none').animate({
+                    'boxShadow' : '0px 0px 10px #000'
+                }, 200);
+            }
+
+            elementer.css('box-shadow', 'none').animate({
+                    'boxShadow' : '0px 0px 10px #000'
+                }, 200);
+        }).mouseleave(function () {
+
+            elementer.animate({
+                'borderWidth': '0px',
+                'borderColor': 'orange',
+            }, 200);
+
+            elementer.css('box-shadow', 'none');
+        });*/
+
+    }
+
 }
 
 function printAge() {
