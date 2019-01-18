@@ -11,7 +11,7 @@
             },
             "brackets-bower.show": false,
             "linting.collapsed": true,
-            "brackets-git.gitPath": "git",
+            "brackets-git.gitPath": "/usr/local/bin/git",
             "autoSavePrefs.checkedPrefs": false,
             "mikaeljorhult.bracketsTodo.enabled": true,
             "bb.beautify.hideDialog": false
