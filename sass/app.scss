@@ -1782,6 +1782,14 @@ time {
     opacity: 0;
 }
 
+.leftfloatContent{
+    float: left; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;
+}
+
+.rightfloatContent{
+    float: right; margin-left: 10px; margin-bottom: 10px; margin-top: 10px;
+}
+
 /* timeline EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -1879,6 +1887,14 @@ time {
     .timeline ul {
         margin-left: -20px;
     }
+
+    .leftfloatContent{
+    float: left; margin-right: 0px; margin-top: 10px; margin-bottom: 10px; width: 100% !important;
+    }
+
+    .rightfloatContent{
+    float: right; margin-left: 0px; margin-bottom: 10px; margin-top: 10px; width: 100% !important;
+    }
 }
 
 @media screen and (max-width: 350px) {
@@ -1912,6 +1928,14 @@ time {
 
     .timeline ul {
         margin-left: auto;
+    }
+
+    .leftfloatContent{
+    float: left; margin-right: 0px; margin-top: 10px; margin-bottom: 10px; width: 100%;
+    }
+
+    .rightfloatContent{
+    float: right; margin-left: 0px; margin-bottom: 10px; margin-top: 10px; width: 100%;
     }
 }
 
