@@ -1,6 +1,6 @@
 <p>18/2 2019</p>
 <p>
-<img class="rightfloatContent" src="https://media.giphy.com/media/NsGzVYDnoWQd1FtjqG/giphy.gif" style="width: 180px;">
+<img data-aos-once="true" data-aos="zoom-in" class="rightfloatContent" src="https://media.giphy.com/media/NsGzVYDnoWQd1FtjqG/giphy.gif" style="width: 180px;">
 <h2>Swift IOS app</h2>
 Appen gør det muligt at se sinde Karaktere givet på en Udannelse ved Danmarks Tekniske Universitet på en nem både. Derudover kan man se hvorvidt karakteren er bekræftet ECTS points og udregning af et vægtet gennemsnit ud fra kursernes omfang (ECTS).<br><br>
 
@@ -12,7 +12,7 @@ koden kan finde <a target="_blank" href="https://github.com/trolund/DTUGradViewe
 <h2>Multiplayer Tankspil</h2>
 <br><br>
 I tre-ugers perioden udviklet et lille team og jeg et multiplayer tank spil i java. Det var rigtig sjov og lærerigt at lave! 
-<img class="leftfloatContent" src="assets/img/TankGame.png" style="width: 250px;">
+<img data-aos-once="true" data-aos="zoom-in" class="leftfloatContent" src="assets/img/TankGame.png" style="width: 250px;">
 Spillet er udviklet i forbindelse med Introduktion til koordinering af fordelte applikationer.<br>
 Multiplayer delen samt tilhørende koordination mellem spillere skulle implamenteres ved hjælp af <i>Tuple Spaces.</i><br><br>
 Dette er opnået med et Client-server mønster.<br><br>
