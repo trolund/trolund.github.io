@@ -17,7 +17,9 @@ Spillet er udviklet i forbindelse med Introduktion til koordinering af fordelte 
 Multiplayer delen samt tilhørende koordination mellem spillere skulle implamenteres ved hjælp af <i>Tuple Spaces.</i><br><br>
 Dette er opnået med et Client-server mønster.<br><br>
 
+Koden kan findes <a target="_blank" href="https://github.com/STAMP-Team19/BattleTank">her</a>.
+<br><br>
 <a href="https://youtu.be/AF3yki_jiNg">En demo video kan findes her.</a>
-
 </p>
+
 
