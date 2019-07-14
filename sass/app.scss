@@ -456,6 +456,20 @@ main {
     width: 100%;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flex-container > div {
+  width: 172px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
 .somedia {
     margin-left: auto;
     margin-right: auto;
