@@ -9,7 +9,7 @@ function AutoMenuUpdate(Htag, des, aniTime) {
         // create menu
         name = $(this).text().replace(" ", "");
 
-        var aTag = '<li><a data="' + name + '"  class="' + name + 'Link hvr-underline-from-center" href="#' + name + '">' + $(this).text() + '</a></li>';
+        var aTag = '<li><a data="' + name + '"  class="' + name + 'Link " href="#' + name + '">' + $(this).text() + '</a></li>';
 
         $('#' + des).append(aTag);
 

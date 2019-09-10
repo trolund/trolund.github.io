@@ -36,11 +36,6 @@ For at fjender skal kunne navigere igennem en bane fra start til slut, anvender 
 </p>
 
 <style>
-* {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
-.mySlides {display: none;}
-img {vertical-align: middle;}
-
 /* Slideshow container */
 .slideshow-container {
   max-width: 200px;
