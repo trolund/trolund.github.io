@@ -1,0 +1,12 @@
+.container {
+    width: 280px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: var(--footer);
+    padding: 20px;
+}
+
+.img {
+    border-radius: 10%;
+}

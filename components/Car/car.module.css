@@ -1,0 +1,84 @@
+@keyframes wheels {
+    from { transform: rotateZ(0deg);}
+    to {transform: rotateZ(360deg);}
+  }
+
+.wheel {
+    animation-name: wheels;
+    animation-timing-function: linear;
+    animation-duration: 2.3s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes car {
+    from { transform: translateX(calc((100vw + 400px) * -1))}
+    to {transform: translateX(calc((100vw + 400px)))}
+}
+
+.car {
+    animation-name: car;
+    animation-timing-function: linear;
+    animation-duration: 20s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes carbody {
+    0% { transform: translateY(0px)}
+    25% { transform: translateY(1px)}
+    50% {transform: translateY(-1px)}
+    70% { transform: translateY(2px)}
+    100% {transform: translateY(0px)}
+}
+
+.carbody {
+    animation-name: carbody;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* trees */
+
+
+@keyframes treeOne {
+    0% { 
+        transform: translateX(150%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+    25% { 
+        transform: translateX(100%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+    50% { 
+        transform: translateX(50%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 1;
+        }
+    70% { 
+        transform: translateX(0%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+    100% { 
+        transform: translateX(-50%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+}
+
+
+.treeOne {
+    --tree-one: 0.5;
+    --tree-one-height: -50%;
+    animation-name: treeOne;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}

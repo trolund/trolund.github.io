@@ -1,0 +1,30 @@
+.color {
+    background-color: whitesmoke;
+    width: 100vw;
+}
+
+.container {
+    height: 400px;
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .main {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    max-width: 800px;
+    color: rgb(34, 34, 34);
+    padding: 10px;
+  }
+

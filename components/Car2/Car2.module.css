@@ -1,0 +1,107 @@
+@keyframes wheels {
+    from { transform: rotateZ(0deg);}
+    to {transform: rotateZ(360deg);}
+  }
+
+.wheel {
+    animation-name: wheels;
+    animation-timing-function: linear;
+    animation-duration: 2.3s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes car {
+    from { transform: translateX(calc((100vw + 400px) * -1))}
+    to {transform: translateX(calc((100vw + 400px)))}
+}
+
+.car {
+    animation-name: car;
+    animation-timing-function: linear;
+    animation-duration: 20s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes carbody {
+    0% { transform: translateY(0px)}
+    25% { transform: translateY(1px)}
+    50% {transform: translateY(-1px)}
+    70% { transform: translateY(2px)}
+    100% {transform: translateY(0px)}
+}
+
+.carbody {
+    animation-name: carbody;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* trees */
+
+
+@keyframes cloud-one {
+    0% { 
+        transform: translateX(100%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+    25% { 
+        transform: translateX(65%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+    35% { 
+        transform: translateX(50%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: var(--max-op);
+        }
+    70% { 
+        transform: translateX(-0%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+    100% { 
+        transform: translateX(-50%) scale(var(--tree-one)) translateY(var(--tree-one-height));
+        opacity: 0;
+        }
+}
+
+
+.cloudOne {
+    --tree-one: 0.6;
+    --tree-one-height: 0;
+    --max-op: 0.5;
+    animation-name: cloud-one;
+    animation-timing-function: linear;
+    animation-duration: 4.5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+
+.cloudTwo {
+    --tree-one: 0.7;
+    --tree-one-height: 0;
+    --max-op: 0.4;
+    animation-name: cloud-one;
+    animation-timing-function: linear;
+    animation-duration: 6s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+
+.cloudthree {
+    --tree-one: 1;
+    --tree-one-height: 0;
+    --max-op: 0.8;
+    animation-name: cloud-one;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}

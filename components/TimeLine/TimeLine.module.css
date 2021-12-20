@@ -1,0 +1,126 @@
+
+
+@keyframes unfoldTimeline {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes unfoldTimelineSmall {
+  0%{
+    background: rgb(0, 255, 21);
+    transform: scaleY(0);
+  }
+  50% {
+    background: red;
+    transform: scaleY(0);
+    /* transform: translateY(calc(var(--scroll) *- 1%)); */
+  }
+  80% {
+    background: blue;
+    transform: scaleY(1);
+
+        
+  }
+  100% {
+    background: rgb(195, 0, 255);
+    transform: scaleY(1);
+
+  }
+}
+
+
+/* @media only screen and (max-width: 680px) {
+
+  .line { 
+    transform: translateY(-250px);
+    position: absolute;
+    height: 400px !important;
+    width: 5px !important;
+    left: 10px !important;
+    animation: unfoldTimelineSmall 1s linear infinite !important;
+    animation-play-state: paused !important;
+    animation-delay: calc(var(--scroll) * -1s) !important;
+   }
+} */
+
+@media only screen and (max-width: 680px) {
+
+   .bg{
+
+   }
+
+   .title{
+     display: none;
+   }
+
+   .paragraph {
+     display: none;
+   }
+
+   .line{
+     display: none;
+   }
+
+   .container {
+     position: relative;
+     display: inline-block;
+     /* min-width: fit-content !important; */
+     height: fit-content !important;
+     margin-left: auto !important;
+     margin-right: auto !important;
+     /* transform: translateX(calc(50% + 30px)); */
+   }
+
+   .infocontainer {
+     height: 0px;
+     display: none;
+   }
+
+} 
+
+
+.line {
+  background: black;
+  width: 101%;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  animation: unfoldTimeline 1s linear infinite;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -0.99999s);
+  background-size: cover;
+  background-image: var(--bg-img);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.paragraph {
+  font-style: italic;
+  float: left;
+}
+
+.container {
+  position: relative;
+  height: 400px;
+  padding: 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(34, 34, 34);
+  min-width: 100vw;
+}
+
+.infocontainer {
+  padding: 25px;
+  padding-bottom: 350px;
+  width: 90vw;
+  max-width: 800px;
+}

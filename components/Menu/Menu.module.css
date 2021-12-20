@@ -1,0 +1,258 @@
+.menubg {
+  backdrop-filter: blur(10px);
+  background-color: var(--bg-color);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.089); */
+  color: var(--content-text) !important;
+  transition: ease-in-out 0.3s all;
+}
+
+.menu {
+  position: fixed;
+  height: 100vh;
+  width: var(--menu-width);
+  left: 0;
+  top: 0;
+  z-index: 99998;
+  padding: 40px;
+  padding-top: 85px;
+  color: var(--text);
+  font-weight: 200;
+}
+
+.init {
+  width: 0px;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.menuButton {
+  z-index: 99999;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  padding: 12px 10px 8px 10px;
+  outline: none !important;
+  background-color: rgba(0, 0, 0, 0.178);
+  border-radius: 5px;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(calc(var(--menu-width) * -1));
+  }
+}
+
+@keyframes hided {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.hide {
+  opacity: 0;
+  animation-timing-function: ease-in-out;
+  animation-name: hide;
+  animation-duration: 0.2s;
+}
+
+.hidedesktop {
+  animation-name: hided;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.4s;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--menu-width) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.show {
+  animation-name: show;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.4s;
+}
+
+.showdesktop {
+  animation-name: showd;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.4s;
+}
+
+@keyframes showd {
+  from {
+    opacity: 0;
+    height: 0px;
+    transform: translateY(calc(var(--menu-height) * -1));
+  }
+  to {
+    opacity: 1;
+    height: var(--menu-height);
+    transform: translateY(0);
+  }
+}
+
+.menuContainer {
+  padding: 5px 25px 5px 25px;
+  margin: auto;
+}
+
+.menuContainer ul li {
+  /* background-color: rgba(51, 51, 51, 0.05);
+  border: solid 1px rgba(0, 0, 0, 0.04); */
+  width: fit-content;
+  padding: 12px 18px 12px 18px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-bottom: rgba(255, 255, 255, 0) solid 2px;
+}
+
+.menubg ul li {
+  /* background-color: rgba(51, 51, 51, 0.178) !important;
+  border: solid 1px rgba(0, 0, 0, 0.274) !important; */
+  transition: all 0.2s;
+  border-bottom: rgba(255, 255, 255, 0) solid 2px;
+  width: 100%;
+}
+
+
+.menubg ul li:hover {
+  /* background-color: rgba(35, 109, 206, 0.151) !important;
+  border: solid 1px rgba(35, 109, 206, 0.171) !important; */
+  border-bottom: rgba(255, 255, 255, 0.459) solid 2px;
+}
+
+.menuContainer ul {
+  display: block;
+}
+
+
+.showdesktop ul li {
+  /* background-color: rgba(219, 219, 219, 0.192);
+  border: solid 1px rgba(247, 247, 247, 0.404);  */
+  border-bottom: rgba(255, 255, 255, 0) solid 2px;
+}
+
+.showdesktop ul li:hover {
+  border-bottom: rgba(255, 255, 255, 0.459) solid 2px;
+}
+
+.menubg.showdesktop ul li:hover {
+  border-bottom: rgba(0, 0, 0, 0.459) solid 2px !important;
+}
+
+.menubg .active {
+  border-bottom: var(--content-text) solid 2px !important;
+}
+
+
+.active {
+  font-weight: 500;
+  border-bottom: var(--text) solid 2px !important;
+}
+
+@media only screen and (max-width: 780px) and (min-width: 600px) {
+  .icons {
+    display: none !important;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .menu {
+    height: var(--menu-height);
+    width: 100vw;
+    padding: 15px;
+  }
+
+  .menuContainer ul li {
+    display: inline;
+    margin: 15px;
+  }
+
+
+
+  .menuContainer ul li:first-child {
+    margin-left: 0px;
+  }
+
+  .icons {
+    display: inline;
+    float: right;
+    margin: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .menuContainer {
+    width: 125%;
+    margin-top: 25px;
+    margin-left: -30px;
+  }
+
+  .icons {
+    bottom: 20px;
+    position: absolute;
+    margin-left: 40px;
+  }
+
+}
+
+.menubg .icons svg {
+  color: var(--content-text) !important;
+}
+
+.icons svg {
+  margin-top: -5px;
+  display: inline;
+  margin-left: 15px;
+  animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  color: var(--text);
+  opacity: 0.8 !important;
+  transition: opacity ease-in-out 0.2s;
+  padding: none;
+}
+
+.icons svg:hover{
+  opacity: 1 !important;
+}
+
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes text-hover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(2);
+  }
+}

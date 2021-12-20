@@ -1,0 +1,14 @@
+.svg {
+    height: 150px;
+    width: 150px;
+    margin: 15px;
+    clip-path: url(#my-clip-path);
+    background-size: cover;
+    background-image: var(--bg-img);
+} 
+
+.footer {
+    background-color: var(--footer);
+    height: var(--footer-height);
+    border: 0px;
+}

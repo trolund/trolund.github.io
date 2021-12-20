@@ -1,0 +1,38 @@
+{
+  "name": "PersonalSiteTroelsLund",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export"
+  },
+  "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
+    "@react-pdf/renderer": "^2.0.20",
+    "classnames": "2.2.6",
+    "date-fns": "2.10.0",
+    "gray-matter": "4.0.2",
+    "next": "latest",
+    "react": "latest",
+    "react-animated-css": "^1.2.1",
+    "react-circular-progressbar": "^2.0.4",
+    "react-dom": "latest",
+    "react-gradient-progress": "^1.0.3",
+    "react-icons": "^4.3.1",
+    "react-responsive": "^9.0.0-beta.5",
+    "react-reveal": "^1.2.2",
+    "react-spring": "latest",
+    "remark": "11.0.2",
+    "remark-html": "10.0.0",
+    "sass": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "latest",
+    "typescript": "^4.4.4"
+  },
+  "license": "MIT"
+}
