@@ -24,7 +24,7 @@
     "react-reveal": "^1.2.2",
     "react-spring": "latest",
     "remark": "11.0.2",
-    "remark-html": "10.0.0",
+    "remark-html": "13.0.2",
     "sass": "latest"
   },
   "devDependencies": {
