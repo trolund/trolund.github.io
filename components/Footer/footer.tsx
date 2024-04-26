@@ -5,8 +5,6 @@ import { VscGithubInverted } from 'react-icons/vsc'
 import { SiLinkedin } from 'react-icons/si'
 import menu from '../../constants/menu'
 import Link from 'next/link'
-import Text from '../text/text'
-import Highlight from 'react-highlight'
 import Prompt from '../prompt/prompt'
 
 export default function Footer() {

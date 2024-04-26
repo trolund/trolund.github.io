@@ -1,6 +1,5 @@
 import Footer from './footer/footer'
 import Meta from './meta'
-import { motion } from "framer-motion";
 
 interface LayoutProps {
   children: React.ReactNode
