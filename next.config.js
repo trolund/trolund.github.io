@@ -3,6 +3,7 @@ const withImages = require("next-images");
 
 module.exports = withImages(
   withPWA({
+    distDir: 'build',
     reactStrictMode: true,
     swcMinify: true,
     pwa: {
