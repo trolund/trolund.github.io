@@ -1,5 +1,5 @@
-import Footer from './footer'
 import Meta from './meta'
+import Footer from './footer'
 
 interface LayoutProps {
   children: React.ReactNode
