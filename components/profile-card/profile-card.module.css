@@ -1,0 +1,26 @@
+.container {
+    width: 280px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.img {
+    border-radius: 10%;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 425px) {
+    .container {
+        width: 50vw;
+        max-width: 300px;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .container {
+        width: 100%;
+        height: auto;
+        margin-right: 0px;
+    }
+}

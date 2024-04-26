@@ -1,22 +1,20 @@
 import Container from '../components/container'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import TimeLine from '../components/TimeLine'
-import Event from '../components/TimeLine/Event'
-import { MdSchool, MdWork } from 'react-icons/md'
 import menu from '../constants/menu'
 import Menu from '../components/Menu'
-import ProjectItem from '../components/ProjectItem/ProjectItem'
 import PostTitle from '../components/post-title'
-import { getAllProjects } from '../lib/api'
+import { getAllProjects, getContent } from '../lib/api'
 import { BlogPost } from '../types/blogPost'
 import ProjectsView from '../components/projects'
+import PostBody from '../components/post-body'
 
 interface IndexProps {
     projects: BlogPost[];
+    project: BlogPost;
 }
 
-export default function Projects({ projects }: IndexProps) {
+export default function Projects({ projects, project }: IndexProps) {
     return (
         <>
             <Menu items={menu} disableScroll spacing />
@@ -26,6 +24,7 @@ export default function Projects({ projects }: IndexProps) {
                 </Head>
                 <Container>
                     <PostTitle>Projects</PostTitle>
+                    <PostBody className='mx-auto' content={project.content} />
                     <ProjectsView posts={projects} />
                 </Container>
             </Layout>
@@ -42,9 +41,12 @@ export async function getStaticProps() {
         'coverImage',
         'excerpt',
         'tags',
-        'technologies'])
+        'technologies',
+        'language'])
+
+    const project = getContent("project", ["title", "content"])
 
     return {
-        props: { projects },
+        props: { projects, project },
     }
 }

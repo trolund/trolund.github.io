@@ -1,0 +1,61 @@
+.ds {
+    position: relative;
+    border-radius: "var(--border-radius)";
+    cursor: pointer;
+}
+
+.ds:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url('../../public/assets/dansk-standard.jpeg');
+    opacity: .2;
+    content: "";
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1) blur(5px);
+    transition: all 0.2s ease-in-out;
+    border-radius: var(--border-radius);
+    transform: scale(1);
+}
+
+.ds:hover:before {
+    filter: grayscale(0) blur(0px);
+    opacity: .6;
+    transform: scale(.8);
+}
+
+.ds:hover {
+    background-color: white;
+}
+
+.ux{
+    background-image: var(--bg-img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 150px;
+    font-weight: 700;
+    font-size: 300%;
+    color: white;
+}
+
+.ux:hover {
+    filter: brightness(1.5);
+}
+
+.skillsList ul {
+}
+
+.skillsList li {
+    margin: 30px;
+}
+
+.skillsList li span {
+}
+
+.skillsList img{
+    margin-right: 5px;
+}

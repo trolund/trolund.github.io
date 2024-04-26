@@ -2,8 +2,9 @@ import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import PostTitle from './post-title'
+import Image from 'next/image'
 
-export default function PostHeader({ title, coverImage, date, author }) {
+export default function PostHeader({ title, coverImage, date, author, language }) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -17,8 +18,15 @@ export default function PostHeader({ title, coverImage, date, author }) {
         <div className="block md:hidden mb-6">
           <Avatar name={author.name} picture={author.picture} />
         </div>
-        <div className="mb-6 text-lg">
-          <DateFormatter dateString={date} />
+        <div className="mb-4" style={{height: "20px"}}>
+          <div className="mb-4 font-extralight text-base italic float-left">
+            <DateFormatter dateString={date} />
+          </div>
+          <div className="mb-4 font-extralight text-base italic float-right">
+            {language === "da" ? 
+                      <Image src="/assets/flags/da.svg" height={15} width={30}  alt="dansk" /> 
+                      : <Image src="/assets/flags/en.svg" height={15} width={30} alt="english"/>}
+          </div>
         </div>
       </div>
     </>

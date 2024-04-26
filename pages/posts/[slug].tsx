@@ -8,8 +8,6 @@ import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
 import Menu from '../../components/Menu'
 import menu from '../../constants/menu'
 
@@ -22,7 +20,6 @@ export default function Post({ post, morePosts, preview }) {
     <Layout>
       <Container>
         <Menu items={menu} disableScroll spacing />
-
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -30,7 +27,7 @@ export default function Post({ post, morePosts, preview }) {
             <article className="mb-32">
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  Troels Lund | {post.title}
                 </title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
@@ -39,6 +36,7 @@ export default function Post({ post, morePosts, preview }) {
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
+                language={post.language}
               />
               <PostBody content={post.content} />
             </article>
@@ -58,8 +56,10 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
+    'language'
   ])
-  const content = await markdownToHtml(post.content || '')
+
+  const content = post.content || ''
 
   return {
     props: {

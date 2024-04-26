@@ -10,6 +10,7 @@ ogImage:
   url: '/assets/blog/5-semester/datas.png'
 tags: ["post", "Inovation"]
 technologies: ["Machine learning", "Python"]
+language: "da"
 ---
 
 Femte semester er startet, dette semester har jeg to valgfag:

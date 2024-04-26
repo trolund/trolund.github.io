@@ -1,0 +1,27 @@
+.box {
+    --padding: 20px;
+    --margin: 10px;
+    --width: 800px;
+    --height: 400px;
+    background: var(--gradient);
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    display: flex;
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+
+.box div {
+    margin: var(--margin);
+    padding: var(--padding);
+    flex: auto;
+    height: calc(var(--height) - var(--padding));
+    border-radius: calc(var(--border-radius) - 5px);
+    color: var(--dark-text);
+}
+
+.box div:first-child {
+    background-color: rgba(240, 255, 255, 0.850);
+    border: solid whitesmoke 1px;
+}

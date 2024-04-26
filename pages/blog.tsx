@@ -2,15 +2,16 @@ import Container from '../components/container'
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
+import { getAllPosts, getContent } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME, TITLE } from '../lib/constants'
-import One from '../components/One'
 import Menu from '../components/Menu'
 import menu from '../constants/menu'
 import PostTitle from '../components/post-title'
+import ProjectsView from '../components/projects'
+import PostBody from '../components/post-body'
 
-export default function Index({ allPosts }) {
+export default function Index({ allPosts, blog }) {
     const heroPost = allPosts[0]
     const morePosts = allPosts.slice(1)
     return (
@@ -22,7 +23,8 @@ export default function Index({ allPosts }) {
                 </Head>
                 <Container>
                     <PostTitle>Blog</PostTitle>
-                    {heroPost && (
+                    <PostBody className='mx-auto' content={blog.content} />
+                    {/* {heroPost && (
                         <HeroPost
                             title={heroPost.title}
                             coverImage={heroPost.coverImage}
@@ -31,8 +33,8 @@ export default function Index({ allPosts }) {
                             slug={heroPost.slug}
                             excerpt={heroPost.excerpt}
                         />
-                    )}
-                    {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+                    )} */}
+                    {morePosts.length > 0 &&  <ProjectsView posts={morePosts} />}
                 </Container>
             </Layout>
         </>
@@ -47,9 +49,14 @@ export async function getStaticProps() {
         'author',
         'coverImage',
         'excerpt',
+        'tags',
+        'technologies',
+        'language'
     ])
 
+    const blog = getContent("blog", ["title", "content"])
+
     return {
-        props: { allPosts },
+        props: { allPosts, blog },
     }
 }

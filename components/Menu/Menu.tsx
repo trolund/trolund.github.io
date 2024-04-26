@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
 import { SiLinkedin } from 'react-icons/si';
 import { VscGithubInverted } from 'react-icons/vsc';
@@ -28,27 +28,35 @@ const breakpoint = 600;
 
 function Menu({ items, disableScroll, spacing }: MenuProps) {
 
-    const key = "isDark";
+    const key = "isDark"
 
-    const [menuState, setMenuState] = useState(ResponsiveMode.DESKTOP);
-    const [SideMenuState, setSideMenuState] = useState(MenuState.INIT);
-    const [showbg, setShowbg] = useState(false);
-    const [isDark, setIsDark] = useState(false);
+    const [menuState, setMenuState] = useState(ResponsiveMode.DESKTOP)
+    const [SideMenuState, setSideMenuState] = useState(MenuState.INIT)
+    const [showbg, setShowbg] = useState(false)
+    const [isDark, setIsDark] = useState(false)
 
-    const router = useRouter();
+    const router = useRouter()
+
+    const scrollControl = useCallback(() => {
+        if (window.scrollY > 5 || disableScroll) {
+            setShowbg(true)
+        } else {
+            setShowbg(false)
+        }
+      }, [setShowbg, disableScroll]);
 
     useEffect(() => {
         state()
         if (disableScroll) {
             setShowbg(true)
         }
-        window.addEventListener('resize', state, false);
-        window.addEventListener('scroll', scrollControl, false);
+        window.addEventListener('resize', state, false)
+        window.addEventListener('scroll', scrollControl, false)
         return () => {
-            window.removeEventListener('resize', state, false);
-            window.removeEventListener('scroll', scrollControl, false);
+            window.removeEventListener('resize', state, false)
+            window.removeEventListener('scroll', scrollControl, false)
         }
-    }, []);
+    }, [disableScroll, scrollControl]);
 
     useEffect(() => {
         let isDark = localStorage.getItem(key) === 'true'
@@ -59,14 +67,6 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
     useEffect(() => {
         updateColors(isDark)
     }, [isDark]);
-
-    const scrollControl = () => {
-        if (window.scrollY > 5 || disableScroll) {
-            setShowbg(true)
-        } else {
-            setShowbg(false)
-        }
-    }
 
     const state = () => {
         if (window.innerWidth < breakpoint) {
@@ -129,14 +129,15 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
 
     return (
         <>
-            {menuState === ResponsiveMode.MOBILE && <button className={(SideMenuState == MenuState.SHOW ? "is-active " : "") + "hamburger hamburger--collapse " + styles.menuButton} type="button" onClick={toggleMenu}>
+            {menuState === ResponsiveMode.MOBILE && 
+            <button className={(SideMenuState == MenuState.SHOW ? "is-active " : "") + "hamburger hamburger--collapse " + styles.menuButton} type="button" onClick={toggleMenu}>
                 <span className="hamburger-box">
                     <span className="hamburger-inner"></span>
                 </span>
             </button>}
             {menuState !== ResponsiveMode.DESKTOP && <div onClick={() => setSideMenuState(MenuState.HIDE)} style={{ left: "var(--menu-width)", height: "100vh", width: "calc(100vw - var(--menu-width))", position: "fixed", zIndex: 99999, top: 0 }} />}
             <div className={styles.menu + " " + getMenuClass(SideMenuState, menuState, showbg)}>
-                <div className={styles.menuContainer + " container"}>
+                <div style={{maxWidth: "1024px" }} className={styles.menuContainer + " container"}>
                     <ul>
                         {items?.map(i => <Link key={i.link} href={i.link}><li key={i.link} className={router.pathname == i.link ? styles.active : ""} style={i.styles}>{i.itemName}</li></Link>)}
                         <div className={styles.icons}>

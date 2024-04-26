@@ -4,6 +4,22 @@
   /* border-bottom: 1px solid rgba(0, 0, 0, 0.089); */
   color: var(--content-text) !important;
   transition: ease-in-out 0.3s all;
+  border-bottom: var(--border-color) solid 1px;
+}
+
+.menubg::after {
+  content: "";
+  width: 100vw;
+  height: 2px;
+  background: var(--gradient);
+  left: 0;
+  margin-top: 4px;
+  opacity: 1;
+  filter: blur(9px);
+
+  /* create a new stacking context */
+  position: absolute;
+  z-index: -1; 
 }
 
 .menu {
@@ -87,9 +103,11 @@
 }
 
 .showdesktop {
+  /* 
+  Remove comment to add back animation of menu in desktop mode
   animation-name: showd;
   animation-timing-function: ease-in-out;
-  animation-duration: 0.4s;
+  animation-duration: 0.4s; */
 }
 
 @keyframes showd {
@@ -123,7 +141,7 @@
 .menubg ul li {
   /* background-color: rgba(51, 51, 51, 0.178) !important;
   border: solid 1px rgba(0, 0, 0, 0.274) !important; */
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
   border-bottom: rgba(255, 255, 255, 0) solid 2px;
   width: 100%;
 }

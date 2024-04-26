@@ -1,14 +1,18 @@
+import Language from "./languages";
+
 interface BlogPost {
     title: string;
     coverImage: string;
     date: Date;
-    excerpt: string;
+    excerpt?: string;
     author: Author;
     ogImage?: OgImage;
     slug: string;
     tags?: string[];
     technologies?: string[];
-    content: string;
+    language?: Language;
+    content?: string;
+    isDraft?: boolean;
 }
 
 interface Author {
