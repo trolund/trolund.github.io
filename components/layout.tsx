@@ -1,4 +1,4 @@
-import Footer from './footer/footer'
+import Footer from './footer'
 import Meta from './meta'
 
 interface LayoutProps {
