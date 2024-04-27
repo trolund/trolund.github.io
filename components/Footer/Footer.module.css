@@ -5,10 +5,7 @@
     clip-path: url(#my-clip-path);
     background-size: cover;
     background-image: var(--bg-img);
-} 
-
-
-
+}
 
 .svg2 {
     height: 150px;

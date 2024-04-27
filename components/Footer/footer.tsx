@@ -8,10 +8,6 @@ import Link from 'next/link'
 import Prompt from '../prompt/prompt'
 
 export default function Footer() {
-
-  const d = new Date();
-  let year = d.getFullYear();
-
   return (
     <footer className={"bg-accent-1 border-t border-accent-2 " + styles.footer}>
       <Container>
@@ -54,7 +50,7 @@ export default function Footer() {
           </div>
         </div>
       </Container>
-      <div className={styles.bottom}>© {year} | Troels Lund</div>
+      <div className={styles.bottom}>© {(new Date()).getFullYear()} | Troels Lund</div>
       <Prompt disableOverlay={true} />
     </footer >
   )
