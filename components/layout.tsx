@@ -1,5 +1,5 @@
 import Meta from './meta'
-// import Footer from './footer'
+import Footer from './footer'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps) {
         >
         <main>{children}</main>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
