@@ -1,5 +1,5 @@
 import Container from '../container'
-import styles from './footer.module.css'
+import styles from './Footer.module.css'
 import { MdMail, MdPhone } from 'react-icons/md'
 import { VscGithubInverted } from 'react-icons/vsc'
 import { SiLinkedin } from 'react-icons/si'
