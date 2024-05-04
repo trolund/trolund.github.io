@@ -10,7 +10,7 @@ ogImage:
   url: '/assets/blog/ga-path-finding/UI.png'
 tags: ["post", "project"]
 technologies: ["Blazor", "Genetic algorithms", "C#", "JavaScript", "CSS", "HTML"]
-language: "da"
+language: "en"
 isDraft: false
 ---
 
