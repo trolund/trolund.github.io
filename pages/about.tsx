@@ -109,7 +109,7 @@ export default function About({ page }) {
 
                 <Container>
                     <SubPostTitle>Certifications</SubPostTitle>
-                    <div className="flex flex-row sm:flex-wrap">
+                    <div className="flex flex-row flex-wrap">
                         {/* <Card className={`w-2/5 p-5 flex flex-col ${styles.ds}`} style={{minHeight: "15rem"}} href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015">
                             <div style={{ marginTop: "auto" }}>
                                 <h3 style={{color: "var(--text)"}}>ISO 21500 and ISO 21502</h3>
