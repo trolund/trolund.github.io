@@ -3,7 +3,7 @@ module.exports = {
     reactStrictMode: true,
     // Add basePath
     // basePath: '/github-pages',
-    distDir: 'build',
+    // distDir: 'build',
     reactStrictMode: true,
     swcMinify: true,
     // pwa: {
