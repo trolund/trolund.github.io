@@ -24,12 +24,16 @@ The mutation rate determines how frequently these movements will undergo changes
 
 The top candidate solutions from the population are chosen through Tournament or Rank selection methods.
 
-[Demo link](https://trolund.github.io/Genetic-algorithm-path-finding/)
-
 ## First generation
+
+Initially, the candidate solutions move somewhat randomly, with a tendency towards upward movement. This deliberate choice accelerates the demonstration, showcasing the improvement of candidate solutions more rapidly.
 
 ![alt text](/assets/blog/ga-path-finding/gif1.gif)
 
 ## After multiple generations
 
+Typically, after 12-15 generations, a stable solution is commonly reached. At this point, several candidate solutions successfully navigate around obstacles and reach the goal.
+
 ![alt text](/assets/blog/ga-path-finding/gif2.gif)
+
+The project is developed as a Blazor WebAssembly application, with visualization rendered on an HTML5 canvas. A demonstration of the project can be accessed [here](https://trolund.github.io/Genetic-algorithm-path-finding/).
