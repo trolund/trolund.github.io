@@ -2,7 +2,7 @@
 title: 'Genetic algorithm used for path-finding'
 excerpt: 'The project employs a genetic algorithm to discover a path from a starting point to a goal, both identified by black spots.'
 coverImage: '/assets/blog/ga-path-finding/UI.png'
-date: '2024-04-05T05:35:07.322Z'
+date: '2024-05-04T05:35:07.322Z'
 author:
   name: 'Troels Lund'
   picture: '/assets/blog/authors/troels.png'
