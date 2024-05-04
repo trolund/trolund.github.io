@@ -2,9 +2,13 @@
     position: relative;
     border-radius: "var(--border-radius)";
     cursor: pointer;
+    color: var(--dark-text);
+    background-size: contain;
+    background-blend-mode: screen;
+    background-repeat: no-repeat;
 }
 
-.ds:before {
+/* .ds:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,17 +24,17 @@
     transition: all 0.2s ease-in-out;
     border-radius: var(--border-radius);
     transform: scale(1);
-}
+} */ 
 
-.ds:hover:before {
+/* .ds:hover:before {
     filter: grayscale(0) blur(0px);
-    opacity: .6;
+    opacity: .4;
     transform: scale(.8);
 }
 
 .ds:hover {
-    background-color: white;
-}
+    background-color: var(--bg-color);
+} */
 
 .ux{
     background-image: var(--bg-img);

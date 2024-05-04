@@ -13,6 +13,9 @@ import Card from '../components/Card/Card'
 import styles from "../pages/css/about.module.css"
 import Experience from '../components/experience/experience'
 import SubPostTitle from '../components/sub-post-title'
+import CertificationItem from '../components/certificationItem/certificationItem'
+// import sdImage from '../public/assets/dansk-standard.jpeg';
+// import dtuImage from '../public/assets/logos/dtu.png';
 
 export default function About({ page }) {
 
@@ -106,15 +109,22 @@ export default function About({ page }) {
 
                 <Container>
                     <SubPostTitle>Certifications</SubPostTitle>
-                    <div className="flex flex-row md:flex-wrap">
-                        <Card className={`w-2/5 p-5 flex flex-col ${styles.ds}`} style={{minHeight: "15rem"}} href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015">
+                    <div className="flex flex-row sm:flex-wrap">
+                        {/* <Card className={`w-2/5 p-5 flex flex-col ${styles.ds}`} style={{minHeight: "15rem"}} href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015">
                             <div style={{ marginTop: "auto" }}>
-                                <h3>ISO 21500 and ISO 21502</h3>
-                                <h2>Project Management</h2>
+                                <h3 style={{color: "var(--text)"}}>ISO 21500 and ISO 21502</h3>
+                                <h2 style={{color: "var(--text)"}}>Project Management</h2>
                             </div>
                         </Card>
+                        <Card className={`w-2/5 p-5 flex flex-col ${styles.ds}`} style={{minHeight: "15rem"}} href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering">
+                            <div style={{ marginTop: "auto" }}>
+                                <h3 style={{color: "var(--text)"}}>Computer science and engineering </h3>
+                                <h2 style={{color: "var(--text)"}}>Master of Science in Engineering</h2>
+                            </div>
+                        </Card> */}
+                        <CertificationItem image="/assets/dansk-standard.jpeg" imgCss={{width: "110px"}} title='Project Management' subtitel='ISO 21500 and ISO 21502' href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015" />
+                        <CertificationItem image="/assets/logos/dtu.png" title='Master of Science in Engineering' subtitel='Computer science and engineering' href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering" />
                     </div>
-                    
                 </Container>
             </Layout>
         </>
