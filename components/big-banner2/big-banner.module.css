@@ -1,11 +1,11 @@
 .container {
-    min-height: 100vh;
+    height: calc(100vh - calc(var(--menu-height) + 20px));
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--text);
+    color: var(--content-text);
   }
 
 .textfocusin {
@@ -187,25 +187,26 @@
 
   .shadowFilter {
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+    height: calc(100vh - calc(var(--menu-height) + 20px));
   }
 
   .colorOne {
     user-select: none;
     max-width: 100vw;
-    height: calc(100vh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+    /* height: calc(100vh + env(safe-area-inset-top) + env(safe-area-inset-bottom)); */
     /* animation: bg-ani 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     animation-delay: 0.0s; */
     /* background-color: rgb(22, 22, 22); */
     /* background: rgb(0,16,22);
     background: linear-gradient(157deg, rgba(0,16,22,1) 0%, rgba(17,26,52,1) 69%, rgba(0,44,52,1) 100%); */
     /* clip-path: polygon(50% 100%, 100% 90%, 100% 0, 0 0, 0 90%); */
-    background-color: #002034;
-    background-image: var(--bg-img);
+    /* background-color: #002034; */
+    /* background-image: var(--bg-img); */
     background-attachment: fixed;
     background-size: cover;
     /* animation: animatedBackground .2s linear infinite alternate; */
 
-    background: var(--gradient);
+    /* background: var(--gradient); */
     /* background-blend-mode: overlay; */
 
     animation: hue-ani 20s ease-out both;

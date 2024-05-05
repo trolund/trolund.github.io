@@ -13,6 +13,11 @@ technologies: [""]
 language: "en"
 ---
 
+* **Software Engineer**
+  IT consultant.
+  
+  ***Key skills**: C#, .NET, Azure*
+
 * **Development Engineer**   
   Logos Payment Solutions   
   Worked as a full-stack developer for an average of 25 hours per week while pursuing an Industry master of science in engineering.  

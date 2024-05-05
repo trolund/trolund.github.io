@@ -1,9 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
 const ParticalBanner = () => {
+    const [isDark, setIsDark] = useState(false)
     const particlesInit = useCallback(async (engine: Engine) => {
         await loadFull(engine);
     }, []);
@@ -11,6 +12,13 @@ const ParticalBanner = () => {
     const particlesLoaded = useCallback(async (container: Container | undefined) => {
         await console.log(container);
     }, []);
+
+    useEffect(() => {
+        window.addEventListener('isDarkStorage', () => {
+            setIsDark(localStorage.getItem("isDark") === 'true')
+        })
+    }, []);
+
     return (
         <Particles
             id="tsparticles"
@@ -47,10 +55,10 @@ const ParticalBanner = () => {
                 },
                 particles: {
                     color: {
-                        value: "#ffffff",
+                        value: isDark ? "#000" : "#FFF",
                     },
                     links: {
-                        color: "#ffffff",
+                        color: isDark ? "#000" : "#FFF",
                         distance: 150,
                         enable: true,
                         opacity: 0.2,
@@ -93,3 +101,4 @@ const ParticalBanner = () => {
 };
 
 export default ParticalBanner;
+

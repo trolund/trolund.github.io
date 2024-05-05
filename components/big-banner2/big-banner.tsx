@@ -29,17 +29,10 @@ function BigBanner2({ }: OneProps) {
                 <div className={styles.container}>
                     <main className={styles.main}>
                         {!isMobile && <ParticalBanner />}
-                        <motion.div 
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{
-                            scale: 0.9
-                          }}
-                        drag
-                        dragConstraints={constraintsRef}
-                        >
+                        <div>
                             <div className={styles.profile + " " + styles.bounceintop} />
                             <div className={styles.shadow} />
-                        </motion.div>
+                        </div>
                         <h1 className={styles.title + " " + styles.textfocusin}>
                             Hi <span className={styles.wave}>👋</span>, I&apos;m <b>Troels Lund</b>
                         </h1>

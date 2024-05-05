@@ -114,6 +114,7 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
 
     const switchTheme = (e) => {
         setIsDark(!isDark)
+        window.dispatchEvent(new Event("isDarkStorage"));
     }
 
     const updateColors = (isDark: boolean) => {

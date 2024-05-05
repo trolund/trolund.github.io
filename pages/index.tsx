@@ -31,7 +31,7 @@ export default function Index({ allPosts, projects }: IndexProps) {
 
   return (
     <>
-      <Menu items={menu} />
+      <Menu items={menu} disableScroll spacing />
       {/* <Layout> */}
         <Head>
           <title>{TITLE}</title>
