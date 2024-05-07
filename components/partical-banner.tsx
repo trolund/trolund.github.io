@@ -57,10 +57,10 @@ const ParticalBanner = () => {
                 },
                 particles: {
                     color: {
-                        value: !isDark ? "#000" : "#FFF",
+                        value: isDark ? "#FFF" : "#000",
                     },
                     links: {
-                        color: !isDark ? "#000" : "#FFF",
+                        color: isDark ? "#FFF" : "#000",
                         distance: 150,
                         enable: true,
                         opacity: 0.2,

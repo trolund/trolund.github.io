@@ -20,6 +20,7 @@ function BigBanner2({ }: OneProps) {
     })
 
     return <>
+        <div className={styles.overLay}></div>
         <div className={styles.shadowFilter}>
             <div 
                 className={styles.colorOne} 

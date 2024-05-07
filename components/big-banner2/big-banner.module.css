@@ -18,6 +18,15 @@
   animation-delay: 2.1s;
 }
 
+.overLay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--gradient);
+  mix-blend-mode: color;
+}
 
 .bounceintop {
 	    animation: bounce-in-top 1.1s both;
@@ -184,6 +193,7 @@
     opacity: 1;
   }
 }
+
 
   .shadowFilter {
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
