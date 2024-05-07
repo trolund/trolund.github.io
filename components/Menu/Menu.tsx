@@ -61,11 +61,13 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
     useEffect(() => {
         let isDark = localStorage.getItem(key) === 'true'
         setIsDark(isDark)
+        
     }, []);
 
 
     useEffect(() => {
         updateColors(isDark)
+        window.dispatchEvent(new CustomEvent("setIsDarkStorage", { detail: isDark } as object));
     }, [isDark]);
 
     const state = () => {
@@ -113,8 +115,9 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
     }
 
     const switchTheme = (e) => {
-        setIsDark(!isDark)
-        window.dispatchEvent(new Event("isDarkStorage"));
+        let newValue = !isDark;
+        setIsDark(newValue)
+        window.dispatchEvent(new CustomEvent("isDarkStorage", { detail: newValue } as object));
     }
 
     const updateColors = (isDark: boolean) => {
