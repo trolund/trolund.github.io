@@ -2,7 +2,7 @@
 title: 'Introducing HyggeWasm: A New Compiler for Generating WebAssembly (WAT) from the Hygge programing language'
 excerpt: 'I recently completed my master thesis. This article gives a short overview of the thesis.'
 coverImage: '/assets/blog/front1.jpeg'
-date: '2024-25-02T05:35:07.322Z'
+date: '2024-02-25T05:35:07.322Z'
 author:
   name: Troels Lund
   picture: '/assets/blog/authors/troels.png'
