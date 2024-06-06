@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/front1.jpeg'
-tags: ["post"]
+tags: ["post", "project", "DTU"]
 technologies: ["F#", "Compilers"]
 language: "en"
 ---

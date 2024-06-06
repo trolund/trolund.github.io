@@ -16,7 +16,7 @@ isDraft: false
 
 The project employs a genetic algorithm to discover a path from a starting point to a goal, both identified by black spots.
 
-    A genetic algorithm is a computational technique inspired by the process of natural selection and evolution. It's often used to solve optimization and search problems. In this case optimizing for the correct set of movement that will lead to the goal. Another example could be to find a sequence of characters as seen in this very simple example: [demo link](https://trolund.github.io/Simple-Genetic-algorithm/).
+A genetic algorithm is a computational technique inspired by the process of natural selection and evolution. It's often used to solve optimization and search problems. In this case optimizing for the correct set of movement that will lead to the goal. Another example could be to find a sequence of characters as seen in this precursor to this project: [demo link](https://trolund.github.io/Simple-Genetic-algorithm/).
 
 The candidate solutions, represented by colored circles, begin by moving somewhat randomly. In each generation, a fitness function evaluates their performance, rewarding progress towards the goal while penalizing deviations or collisions with obstacles.
 
