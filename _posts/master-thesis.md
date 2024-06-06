@@ -25,10 +25,30 @@ The implemented compiler supports a wide range of language features, making it v
 - Pattern matching
 - Recursive functions
 - Anonymous functions
-- Closures
+- Closures (Supports shared mutable variables)
 - Various types of loops
 
 Additionally, the compiler allows for the use of advanced data types such as strings, arrays, and structs, on top of the primitive types like integers, floating points, and booleans.
+
+##### An example of a Hygge program
+
+Below can a Hygge program that reads an integer input from the console and then computes the nth term of the Fibonacci sequence by using the function *fibRec*. The result is printed in the console.
+
+```hyg
+let n: int = readInt(); // read the input
+// define a recursive function to calculate the nth term of the Fibonacci sequence
+fun fibRec(n: int): int = { 
+    if (n <= 1) then {
+        n
+    } 
+    else {
+        fibRec(n - 1) + fibRec(n - 2)
+    }
+};
+// print the result
+println("The term of the Fibonacci sequence is:");
+println(fibRec(n))
+```
 
 #### Innovative Memory Management
 
@@ -67,4 +87,8 @@ These techniques were carefully examined to determine their effectiveness in imp
 
 The HyggeWasm compiler represents a significant advancement in the field of WebAssembly code generation. By supporting a comprehensive set of language features, offering innovative memory management modes, providing flexible system interfaces, and implementing effective optimization techniques, HyggeWasm paves the way for more efficient and versatile WebAssembly applications.
 
-The entire thesis can be found [here.](/assets/docs/thesis.pdf)
+### Links
+
+The entire thesis can be found [here.](/assets/docs/thesis.pdf) The source code of the *HyggeWasm* compiler can be found [here.](https://github.com/trolund/hyggeWasm)
+
+The *Learning and Development tool* can be used to debug Wasm programs and implement the HyggeWasm runtime. The source code can be found [here.](https://github.com/trolund/Wasm-Debugger) and the tool it self can be found [here.](https://trolund.github.io/Wasm-Debugger)
