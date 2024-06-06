@@ -1,0 +1,70 @@
+---
+title: 'Introducing HyggeWasm: A New Compiler for Generating WebAssembly (WAT) from the Hygge programing language'
+excerpt: 'I recently completed my master thesis. This article gives a short overview of the thesis.'
+coverImage: '/assets/blog/front1.jpeg'
+date: '2018-08-06T05:35:07.322Z'
+author:
+  name: Troels Lund
+  picture: '/assets/blog/authors/troels.png'
+ogImage:
+  url: '/assets/blog/front1.jpeg'
+tags: ["post"]
+technologies: ["F#", "Compilers"]
+language: "en"
+---
+
+I recently completed my master thesis. This article gives a short overview of the thesis.
+
+The primary goal of the thesis was to design and implement a compiler capable of generating valid WebAssembly (Wasm) code from the source language Hygge. Hygge is a statically and strongly typed language that offers a straightforward typing system with subtyping.
+
+#### Comprehensive Language Features
+
+The implemented compiler supports a wide range of language features, making it versatile and powerful. These features include:
+
+- Conditional statements
+- Pattern matching
+- Recursive functions
+- Anonymous functions
+- Closures
+- Various types of loops
+
+Additionally, the compiler allows for the use of advanced data types such as strings, arrays, and structs, on top of the primitive types like integers, floating points, and booleans.
+
+#### Innovative Memory Management
+
+A significant part of the thesis was dedicated to exploring multiple ways of handling memory, resulting in several memory modes:
+
+1. **Embedded Memory Management:** This mode embeds memory management code directly in the executable.
+2. **External Runtime Memory Management:** This mode implements memory management logic in an external runtime.
+3. **WasmGC Extension:** This mode uses the WasmGC extension to enable garbage collection in modern WebAssembly VM implementations.
+
+#### Flexible System Interfaces
+
+The compiler also introduces two system interfaces to facilitate I/O operations between the running program and the host system:
+
+1. **WASI (WebAssembly System Interface):** Enables universally executable binaries.
+2. **Custom Interface:** A simpler, custom-built interface.
+
+#### Diverse WebAssembly Writing Styles
+
+The compiler supports two different writing styles of WebAssembly:
+
+- **Simple Linear Style:** A straightforward, linear approach to writing WebAssembly.
+- **Nested Style:** A more complex, nested approach.
+
+#### Optimization Techniques for Efficient Executables
+
+To ensure the generated executables are small and efficient, the thesis investigated and implemented various optimization techniques:
+
+1. **Local Variable Read-and-Write Optimization**
+2. **Dead-Code Elimination**
+3. **Constant Folding**
+4. **Branch-Level Tree Shaking**
+
+These techniques were carefully examined to determine their effectiveness in improving the performance and size of the executables.
+
+### Conclusion
+
+The HyggeWasm compiler represents a significant advancement in the field of WebAssembly code generation. By supporting a comprehensive set of language features, offering innovative memory management modes, providing flexible system interfaces, and implementing effective optimization techniques, HyggeWasm paves the way for more efficient and versatile WebAssembly applications.
+
+The entire thesis can be found [here.](/assets/docs/thesis.pdf)
