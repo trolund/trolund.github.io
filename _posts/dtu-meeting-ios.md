@@ -8,7 +8,7 @@ author:
 ogImage:
   url: '/assets/blog/old/feedback.png'
 tags: ["project", "DTU"]
-technologies: ["Swift"]
+technologies: ["Swift", "Firebase"]
 language: "da"
 ---
 
