@@ -22,6 +22,8 @@ Cellular automata, introduced by John von Neumann and Stanislaw Ulam, have been 
 
 Utilization of Blazor, a web framework by Microsoft, facilitates the development of interactive web applications using C# and HTML. The implementation allows users to adjust the size of the grid representing the world of the Game of Life, providing flexibility for experimentation. Random population of cells is achieved using pseudorandom number generation techniques, ensuring a dynamic and unpredictable starting configuration. Start and stop functionality enables users to control the progression of generations, facilitating observation and analysis. Customization features empower users to interactively modify the world by clicking on individual cells, influencing the evolution of patterns and structures. The rendering can be greatly improved by utilizing a HTML canvas. This may be done in a future update.
 
+![alt text](/assets/blog/game-of-life-blazor/gofl-ezgif.com-optimize.gif)
+
 ## Conclusion
 
 The Blazor implementation of the Game of Life serves as a platform for academic exploration and experimentation in the realm of cellular automata. By leveraging the capabilities of Blazor, the implementation provides an intuitive and accessible interface for studying emergent behaviors and patterns within cellular automata systems.
