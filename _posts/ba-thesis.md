@@ -17,7 +17,7 @@ I recently completed my bachelor and handed-in by bachelor thesis. This post giv
 
 Spinoff, a consulting firm specializing in organizational, leadership, employee, and team development, has commissioned a project to create a performance evaluation tool for public speaking. This tool allows spectators to provide immediate feedback to speakers after events, aiding Spinoff consultants in offering improved advice and guidance.
 
-<img src="/assets/blog/ba-thesis/1675346501495.pdf-image-078.jpg" alt="give-feedback" style="maxWidth:200px;"/>
+<img style="float:inline-end;margin-left: 25px;" src="/assets/blog/ba-thesis/1675346501495.pdf-image-078.jpg" alt="give-feedback" style="maxWidth:200px;"/>
 
 The project delivered a prototype system comprising a .NET Core REST API backend and a Next.js (React) frontend, utilizing progressive web application (PWA) technology for a near-native mobile application experience. The system focuses on managing events, collecting feedback, and presenting it concisely to speakers. Key features include a login system with user privileges, user administration, real-time feedback using SignalR, and a feedback dashboard.
 
