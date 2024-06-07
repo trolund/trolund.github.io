@@ -1,6 +1,6 @@
 ---
-title: 'Introducing HyggeWasm: A New Compiler for Generating WebAssembly (WAT) from the Hygge programing language'
-excerpt: 'I recently completed my master thesis. This article gives a short overview of the thesis.'
+title: 'A Compiler for Generating WebAssembly (WAT) from the Hygge programing language'
+excerpt: 'This article gives a short overview of my master thesis. The primary goal of the thesis was to design and implement a compiler capable of generating valid WebAssembly (Wasm) code from the source language Hygge.'
 coverImage: '/assets/blog/front1.jpeg'
 date: '2024-02-25T05:35:07.322Z'
 author:
