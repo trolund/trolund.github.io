@@ -1,5 +1,5 @@
 ---
-title: 'Earner point on Recast.tv automatically'
+title: 'Earner points on Recast.tv automatically'
 excerpt: 'A small Python script using Selenium to automatically "watch" the ads for you.'
 coverImage: '/assets/blog/recast-earner/front.png'
 date: '2023-08-06T05:35:07.322Z'
