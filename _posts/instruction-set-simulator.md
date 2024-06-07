@@ -8,7 +8,7 @@ author:
 ogImage:
   url: '/assets/blog/dtupay/commenications.png'
 excerpt: 'Leaning about Computer Architecture by implementing a basic RISC-V Instruction Set Simulator.'
-tags: ["project", "DTU", "post"]
+tags: ["project", "DTU"]
 technologies: ["Java", "RISC-V", "Assembly language"]
 language: "en"
 ---

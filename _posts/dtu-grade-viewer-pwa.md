@@ -7,7 +7,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/grade-dtu-pwa/main.jpg'
-tags: ["post", "project", "DTU"]
+tags: ["project", "DTU"]
 technologies: ["TypeScript"]
 language: "en"
 ---

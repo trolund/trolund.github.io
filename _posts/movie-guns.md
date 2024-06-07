@@ -7,7 +7,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/old/app.png'
-tags: ["post", "project", "DTU"]
+tags: ["project", "DTU"]
 technologies: ["Java", "Kotlin", "C"]
 language: "da"
 ---

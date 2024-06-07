@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/ga-path-finding/UI.png'
-tags: ["post", "project"]
+tags: ["project"]
 technologies: ["Blazor", "Genetic algorithms", "C#", "JavaScript", "CSS", "HTML"]
 language: "en"
 isDraft: true

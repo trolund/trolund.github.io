@@ -7,7 +7,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/old/drone.svg'
-tags: ["post", "project", "DTU"]
+tags: ["project", "DTU"]
 technologies: ["OpenCV", "Java"]
 language: "da"
 ---

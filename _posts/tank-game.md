@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/old/TankGame.png'
-tags: ["post", "project"]
+tags: ["project"]
 technologies: ["Java", "Tuple Spaces"]
 language: "en"
 ---

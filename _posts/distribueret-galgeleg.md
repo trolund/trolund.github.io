@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/chess/board1.png'
-tags: ["post", "project"]
+tags: ["project"]
 technologies: ["SOAP", "REST", "JQuery", "JavaScript", "CSS", "HTML", "Java"]
 language: "da"
 isDraft: false

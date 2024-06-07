@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/ga-path-finding/UI.png'
-tags: ["post", "project"]
+tags: ["project"]
 technologies: ["Blazor", "Genetic algorithms", "C#", "JavaScript", "CSS", "HTML"]
 language: "en"
 isDraft: false
@@ -17,6 +17,8 @@ isDraft: false
 The project employs a genetic algorithm to discover a path from a starting point to a goal, both identified by black spots.
 
 A genetic algorithm is a computational technique inspired by the process of natural selection and evolution. It's often used to solve optimization and search problems. In this case optimizing for the correct set of movement that will lead to the goal. Another example could be to find a sequence of characters as seen in this precursor to this project: [demo link](https://trolund.github.io/Simple-Genetic-algorithm/).
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/38oO85zJPkc?si=yB_aELC8mHzC3bXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The candidate solutions, represented by colored circles, begin by moving somewhat randomly. In each generation, a fitness function evaluates their performance, rewarding progress towards the goal while penalizing deviations or collisions with obstacles.
 

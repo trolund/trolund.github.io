@@ -8,7 +8,7 @@ author:
 ogImage:
   url: '/assets/blog/dtupay/commenications.png'
 excerpt: 'Leaning about Microservice architecture by implementing a Payment-service.'
-tags: ["post", "project", "DTU"]
+tags: ["project", "DTU"]
 technologies: ["Java", "Docker", "RabbitMQ", "REST"]
 language: "en"
 ---

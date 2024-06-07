@@ -8,7 +8,7 @@ author:
   picture: "/assets/blog/authors/troels.png"
 ogImage:
   url: "/assets/blog/5-semester/datas.png"
-tags: ["post"]
+tags: ["project"]
 technologies: ["C", "OpenMP"]
 language: "da"
 isDraft: false
