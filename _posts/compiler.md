@@ -19,7 +19,7 @@ A skeleton of a compiler was supplied at the start of the course, the objective 
 
 The project was done in a group of three. In this Blog post i will write about some of the features i implemented as part of the weekly assignments. Code to handel both lexing, parsing, typechecking, code generation and optimisation was implemented, in this blog post i will focus on the code generation phase.
 
-## Arrays 
+## Arrays
 
 This section describes an extension of Hygge, that will allow Hygge programmers to use arrays. This includes an array constructor that will allocate the specified memory at run-time and fill the memory space allocated with an initialization value inputted by the programmer. Furthermore, operators for receiving the length of an array, reading from an index in the array as well as writing into a specific position have been added. 
 

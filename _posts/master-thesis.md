@@ -83,6 +83,14 @@ To ensure the generated executables are small and efficient, the thesis investig
 
 These techniques were carefully examined to determine their effectiveness in improving the performance and size of the executables.
 
+## Running and debugging HyggeWasm programs
+
+To allow me to debug the produced wasm programs a small web application that allows for loading executables into the browser was made. This integrates with the browsers development tools so the user can step trough lines and debug code. The application was given the name *The Learning and Development tool*.
+
+### Video showing the experience of using the tool
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/JA5gnlhKDXc?si=tr-jklkYn1kAyo8t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Conclusion
 
 The HyggeWasm compiler represents a significant advancement in the field of WebAssembly code generation. By supporting a comprehensive set of language features, offering innovative memory management modes, providing flexible system interfaces, and implementing effective optimization techniques, HyggeWasm paves the way for more efficient and versatile WebAssembly applications.
