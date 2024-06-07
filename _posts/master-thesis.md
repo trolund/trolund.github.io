@@ -1,5 +1,5 @@
 ---
-title: 'A Compiler for Generating WebAssembly (WAT) from the Hygge programing language'
+title: 'A Compiler for Generating WebAssembly (WAT) from the Hygge programming language'
 excerpt: 'This article gives a short overview of my master thesis. The primary goal of the thesis was to design and implement a compiler capable of generating valid WebAssembly (Wasm) code from the source language Hygge.'
 coverImage: '/assets/blog/front1.jpeg'
 date: '2024-02-25T05:35:07.322Z'
@@ -15,7 +15,7 @@ language: "en"
 
 I recently completed my master thesis. This article gives a short overview of the thesis.
 
-The primary goal of the thesis was to design and implement a compiler capable of generating valid WebAssembly (Wasm) code from the source language Hygge. Hygge is a statically and strongly typed language that offers a straightforward typing system with subtyping.
+The primary goal of the thesis was to design and implement a compiler capable of generating valid WebAssembly (Wasm) code from the source language Hygge. Hygge is a statically and strongly typed language that offers a straightforward typing system with subtyping. The Hygge programming language was created by Alceste Scalas at DTU.
 
 #### Comprehensive Language Features
 
@@ -34,7 +34,7 @@ Additionally, the compiler allows for the use of advanced data types such as str
 
 Below can a Hygge program that reads an integer input from the console and then computes the nth term of the Fibonacci sequence by using the function *fibRec*. The result is printed in the console.
 
-```hyg
+```c
 let n: int = readInt(); // read the input
 // define a recursive function to calculate the nth term of the Fibonacci sequence
 fun fibRec(n: int): int = { 
