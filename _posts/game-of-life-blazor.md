@@ -1,13 +1,13 @@
 ---
 title: 'Exploring Cellular Automata: A Blazor Implementation of the Game of Life'
 excerpt: 'This post explores the technical implementation of the Game of Life in Blazor, featuring adjustable world sizes, random cell population, start-stop functionality, and interactive customization. It discusses design decisions, challenges, and insights, offering a platform for academic exploration of cellular automata.'
-coverImage: '/assets/blog/game-of-life-blazor/screen-1.png'
+coverImage: '/assets/blog/game-of-life-blazor/gofl.png'
 date: '2024-02-15T05:35:07.322Z'
 author:
   name: 'Troels Lund'
   picture: '/assets/blog/authors/troels.png'
 ogImage:
-  url: '/assets/blog/game-of-life-blazor/screen-1.png'
+  url: '/assets/blog/game-of-life-blazor/gofl.png'
 tags: ["project"]
 technologies: ["Blazor", "Genetic algorithms", "C#", "JavaScript", "CSS", "HTML"]
 language: "en"
@@ -17,6 +17,8 @@ isDraft: false
 ## Introduction
 
 Cellular automata, introduced by John von Neumann and Stanislaw Ulam, have been a subject of extensive study in various fields including mathematics, biology, and computer science. The Game of Life, a cellular automaton devised by John Conway in 1970, is particularly renowned for its simplicity and emergent complexity. This blog post presents a Blazor implementation of the Game of Life, offering a platform for experimentation and analysis of cellular automata dynamics.
+
+![alt text](/assets/blog/game-of-life-blazor/screen-1.png)
 
 ## Implementation Details
 
