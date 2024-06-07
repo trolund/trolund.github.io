@@ -26,6 +26,15 @@
   border: solid 2px;
   cursor: pointer;
   font-weight: 600;
+  transition: all ease-in-out 0.2s;
+  transform: scale(1);
+}
+
+.actionbtn:hover {
+  transform: scale(1.1);
+  background-size: 150%;
+  background-blend-mode: lighten;
+
 }
 
 .overLay {
@@ -43,11 +52,11 @@
 }
 
 .wave {
-      filter: grayscale(1) contrast(200%);
-      transform-origin: 70% 70%;
-      display: inline-block;
-      animation: wave 1.5s ease-out both;
-      animation-delay: 2.1s;
+  filter: grayscale(1) contrast(200%);
+  transform-origin: 70% 70%;
+  display: inline-block;
+  animation: wave 1.5s ease-out both;
+  animation-delay: 2.1s;
 }
 
 @keyframes wave {
