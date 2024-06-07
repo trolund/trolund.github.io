@@ -1,17 +1,17 @@
 ---
 title: 'Exploring Cellular Automata: A Blazor Implementation of the Game of Life'
 excerpt: 'This post explores the technical implementation of the Game of Life in Blazor, featuring adjustable world sizes, random cell population, start-stop functionality, and interactive customization. It discusses design decisions, challenges, and insights, offering a platform for academic exploration of cellular automata.'
-coverImage: '/assets/blog/ga-path-finding/UI.png'
-date: '2024-05-04T05:35:07.322Z'
+coverImage: '/assets/blog/game-of-life-blazor/screen-1.png'
+date: '2024-02-15T05:35:07.322Z'
 author:
   name: 'Troels Lund'
   picture: '/assets/blog/authors/troels.png'
 ogImage:
-  url: '/assets/blog/ga-path-finding/UI.png'
+  url: '/assets/blog/game-of-life-blazor/screen-1.png'
 tags: ["project"]
 technologies: ["Blazor", "Genetic algorithms", "C#", "JavaScript", "CSS", "HTML"]
 language: "en"
-isDraft: true
+isDraft: false
 ---
 
 ## Introduction
@@ -26,9 +26,14 @@ Utilization of Blazor, a web framework by Microsoft, facilitates the development
 
 The Blazor implementation of the Game of Life serves as a platform for academic exploration and experimentation in the realm of cellular automata. By leveraging the capabilities of Blazor, the implementation provides an intuitive and accessible interface for studying emergent behaviors and patterns within cellular automata systems.
 
+See a running demo here: https://trolund.github.io/Game-of-life-blazor/
+
 <hr>
 
 ### References
 
+The source code: https://github.com/trolund/Game-of-life-blazor
+
 Conway, J. H. (1970). The game of life. Scientific American, 223(4), 4-15.
+
 Microsoft. (n.d.). Blazor. Retrieved from https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor
