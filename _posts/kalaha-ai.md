@@ -1,6 +1,6 @@
 ---
 title: 'Exploring AI Strategies in Kalaha'
-excerpt: 'The focus of their work was on the classic board game Kalaha, also known as Mancala in some regions. This project delved into the game rules, state space, game elements, methods and algorithms, heuristics, parameter adjustments, and benchmarking results.'
+excerpt: 'A AI for the classic board game Kalaha, also known as Mancala in some regions. This project delved into the game rules, state space, game elements, methods and algorithms, heuristics, parameter adjustments, and benchmarking results.'
 coverImage: '/assets/blog/kalaha-ai/Board_Game_Assignment_Kalaha.pdf-image-003.png'
 date: '2020-04-28T05:35:07.322Z'
 author:
@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/kalaha-ai/Board_Game_Assignment_Kalaha.pdf-image-003.png'
-tags: ["post", "Inovation"]
+tags: ["project"]
 technologies: ["Machine learning", "Python"]
 language: "da"
 ---
