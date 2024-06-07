@@ -14,8 +14,8 @@ language: "en"
 ---
 
 * **Software Engineer**
-  IT consultant.
-  
+  cVation   
+  Working IT consultant focused on the Azure cloud solutions.
   ***Key skills**: C#, .NET, Azure*
 
 * **Development Engineer**   
