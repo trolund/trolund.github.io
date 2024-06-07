@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/recast-earner/front.png'
-tags: ["post", "project"]
+tags: ["project"]
 technologies: ["Selenium", "Python"]
 language: "en"
 ---

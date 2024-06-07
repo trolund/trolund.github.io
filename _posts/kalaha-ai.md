@@ -9,7 +9,7 @@ author:
 ogImage:
   url: '/assets/blog/kalaha-ai/Board_Game_Assignment_Kalaha.pdf-image-003.png'
 tags: ["project"]
-technologies: ["Machine learning", "Python"]
+technologies: ["Java", "AI"]
 language: "da"
 ---
 
