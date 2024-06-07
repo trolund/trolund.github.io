@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/ba-thesis/1675346501495.pdf-image-001.png'
-tags: ["post", "project", "DTU"]
+tags: ["project", "DTU"]
 technologies: ["C#", ".NET", "Azure", "SignalR", "Next.js", "CI/CD", "PWA"]
 language: "en"
 ---
