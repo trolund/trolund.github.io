@@ -1,14 +1,14 @@
 ---
 title: 'Design of high-level programming language'
 excerpt: 'This project consist of designing a high-level programming language and implement a compiler implemented in F#.'
-coverImage: '/assets/blog/compiler/basic-compiler-phases.png'
+coverImage: '/assets/blog/compiler/front.jpg'
 date: '2023-06-06T05:35:07.322Z'
 author:
   name: Troels Lund
   picture: '/assets/blog/authors/troels.png'
 ogImage:
-  url: '/assets/blog/compiler/basic-compiler-phases.png'
-tags: ["post", "project"]
+  url: '/assets/blog/compiler/front.jpg'
+tags: ["project"]
 technologies: ["Compiler", "RISC-V", "F#", "Assembly language"]
 language: "en"
 ---
