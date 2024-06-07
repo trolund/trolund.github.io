@@ -5,6 +5,7 @@ import { motion, useTransform, useScroll } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import ParticalBanner from '../partical-banner'
 import { isMobile } from 'react-device-detect'
+import Link from 'next/link'
 
 export interface OneProps { }
 
@@ -37,9 +38,12 @@ function BigBanner2({ }: OneProps) {
                         <h1 className={styles.title + " " + styles.textfocusin}>
                             Hi <span className={styles.wave}>👋</span>, I&apos;m <b>Troels Lund</b>
                         </h1>
-                        <h3 className={styles.description + " " + styles.textfocusin2}>
+                        <h3 className={styles.description + " mb-10 " + styles.textfocusin2}>
                             <Text initDelay={15} containerStyles={{ display: "inline-block", fontSize: "1.3rem" }} input='I am a software engineer' onlyWhenVisible keepUnderscore writeSpeed={200} />
                         </h3>
+                        <Link href="about">
+                        <div className={styles.actionbtn + " p-5"}>Learn more about me</div>          
+                        </Link>              
                     </main>
 
                 </div>

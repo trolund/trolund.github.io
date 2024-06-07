@@ -18,6 +18,16 @@
   animation-delay: 2.1s;
 }
 
+.actionbtn {
+  border-radius: var(--border-radius);
+  background: var(--gradient);
+  border-color: var(--border-color);
+  color: whitesmoke;
+  border: solid 2px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 .overLay {
   width: 100vw;
   height: 100vh;
