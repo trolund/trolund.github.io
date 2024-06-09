@@ -10,8 +10,15 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import Menu from '../../components/Menu'
 import menu from '../../constants/menu'
+import { BlogPost } from '../../types/blogPost'
 
-export default function Post({ post, morePosts, preview }) {
+type postOptions = {
+  post: BlogPost,
+  morePosts: BlogPost[],
+  preview: any
+}
+
+export default function Post({ post, morePosts, preview }: postOptions) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -37,6 +44,7 @@ export default function Post({ post, morePosts, preview }) {
                 date={post.date}
                 author={post.author}
                 language={post.language}
+                technologies={post.technologies}
               />
               <PostBody content={post.content} />
             </article>
@@ -56,7 +64,8 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
-    'language'
+    'language',
+    'technologies'
   ])
 
   const content = post.content || ''

@@ -13,7 +13,8 @@ export default function ProjectsView({ posts }) {
             author={post.author}
             slug={post.slug}
             excerpt={post.excerpt}
-            technologies={post.technologies} content={''}
+            technologies={post.technologies} 
+            content={''}
             language={post.language}
              />
         ))}

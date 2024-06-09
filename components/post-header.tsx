@@ -3,8 +3,19 @@ import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import PostTitle from './post-title'
 import Image from 'next/image'
+import { Author } from '../types/blogPost'
+import Language from '../types/languages'
 
-export default function PostHeader({ title, coverImage, date, author, language }) {
+type postHeaderOptions = {
+  title: string,
+  coverImage: string,
+  date: Date,
+  author: Author,
+  language: Language
+  technologies: string[]
+}
+
+export default function PostHeader({ title, coverImage, date, author, language, technologies }: postHeaderOptions) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -28,6 +39,9 @@ export default function PostHeader({ title, coverImage, date, author, language }
                       : <Image src="/assets/flags/en.svg" height={15} width={30} alt="english"/>}
           </div>
         </div>
+        <div className="mb-4 flex flex-wrap" style={{width: "100%"}}>
+                {technologies && technologies.map((t, i) => <span key={i} style={{ backgroundColor: "var(--footer)", height: "45px" }} className="px-3 py-2 mb-1 border-solid border-2 border-gray-800 border-opacity-25 rounded-full mr-2 grow-0">{t}</span>)}
+        </div> 
       </div>
     </>
   )
