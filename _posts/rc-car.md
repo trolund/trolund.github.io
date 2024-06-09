@@ -8,7 +8,7 @@ author:
 ogImage:
   url: '/assets/blog/rc-car/car.jpg'
 tags: ["project"]
-technologies: ["C", "Arduino"]
+technologies: ["C", "Arduino", "Android", "Java"]
 language: "en"
 ---
 
