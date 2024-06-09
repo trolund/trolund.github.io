@@ -36,7 +36,8 @@ export default function ProfileCard() {
                         <li><b>Software Engineer</b></li>
                         <li><b>MSc Eng. Computer Science</b></li>
                         <li><i>{calculateAge('1994-10-06')} years old</i></li>
-                        <li>Denmark</li>
+                        {/* <li><i>{calculateAge('2022-01-01')} years of experience</i></li> */}
+                        <li>Copenhagen, Denmark</li>
                     </ol>
                     </div>
                 </figcaption>

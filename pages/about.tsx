@@ -14,6 +14,7 @@ import styles from "../pages/css/about.module.css"
 import Experience from '../components/experience/experience'
 import SubPostTitle from '../components/sub-post-title'
 import CertificationItem from '../components/certificationItem/certificationItem'
+import Education from '../components/education/education'
 // import sdImage from '../public/assets/dansk-standard.jpeg';
 // import dtuImage from '../public/assets/logos/dtu.png';
 
@@ -43,7 +44,7 @@ export default function About({ page }) {
 
                 <Container className={styles.skillsList}>
                     <SubPostTitle>Education</SubPostTitle>
-                    <Experience mdcontent={page.education.content} />  
+                    <Education mdcontent={page.education.content} />  
                 </Container>
 
                 {/* <TimeLine title="TimeLine" paragraph="Timeline of jobs and education">
@@ -58,7 +59,6 @@ export default function About({ page }) {
                     <SubPostTitle>Skills</SubPostTitle>
                     <div>
                         <div style={{ marginTop: "30px", marginBottom: "30px", }} className="lg:grid md:grid grid-cols-3 grid-rows-3 gap-3 md:grid-flow-row">
-                      
                                 <div className="box row-span-2 text-center card-low lg:m-0 md:m-0 m-3" style={{ backgroundColor: "var(--footer)", backgroundPositionX: "center", backgroundPositionY: "center", backgroundImage: "url(assets/ERD.svg)", backgroundRepeat: "no-repeat", backgroundSize: "40rem", minHeight: "150px", fontWeight: 700, fontSize: "300%", color: "var(--dark-text)", filter: "invert(var(--is-dark))" }}>
                                     <h1 style={textStyles}>Data modelling</h1>
                                 </div>
@@ -91,15 +91,12 @@ export default function About({ page }) {
                                             />
                                         </div>
                                 </div>
-               
                                 <div className={`${styles.ux} text-center card-low lg:m-0 md:m-0 m-3`}>
                                     <h1 style={textStyles}>UX design</h1>
                                 </div>
-        
                                 <div className="box col-start-1 col-span-2 text-center card-low lg:m-0 md:m-0 m-3" style={{ backgroundColor: "var(--footer)", backgroundPositionX: "center", backgroundPositionY: "center", backgroundImage: "url(assets/webservices.png)", backgroundRepeat: "no-repeat", backgroundSize: "140%", minHeight: "150px", fontWeight: 200, fontSize: "300%", color: "var(--dark-text)", textShadow: "rgb(255, 255, 255) 2px 0px 0px, rgb(255, 255, 255) 1.75517px 0.958851px 0px, rgb(255, 255, 255) 1.0806px 1.68294px 0px, rgb(255, 255, 255) 0.141474px 1.99499px 0px, rgb(255, 255, 255) -0.832294px 1.81859px 0px, rgb(255, 255, 255) -1.60229px 1.19694px 0px, rgb(255, 255, 255) -1.97998px 0.28224px 0px, rgb(255, 255, 255) -1.87291px -0.701566px 0px, rgb(255, 255, 255) -1.30729px -1.5136px 0px, rgb(255, 255, 255) -0.421592px -1.95506px 0px, rgb(255, 255, 255) 0.567324px -1.91785px 0px, rgb(255, 255, 255) 1.41734px -1.41108px 0px, rgb(255, 255, 255) 1.92034px -0.558831px 0px", filter: "invert(var(--is-dark))" }}>
                                     <h1 style={textStyles}>Web Services</h1>
                                 </div>
-                     
                                 <div className="box text-center card-low lg:m-0 md:m-0 m-3" style={{ backgroundColor: "var(--bg-color)", textShadow: "2px 2px var(--dark-text)", backgroundPositionX: "center", backgroundPositionY: "center", backgroundImage: "url(assets/legos.png)", backgroundRepeat: "no-repeat", backgroundSize: "50%", minHeight: "150px", fontWeight: 700, fontSize: "300%", color: "white" }}>
                                     <h1 style={textStyles}>Design Patterns</h1>
                                 </div>

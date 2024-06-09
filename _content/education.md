@@ -13,9 +13,20 @@ technologies: [""]
 language: "en"
 ---
 
-* **MSc Eng.** from DTU - Computer Science and Engineering   
-  * Danish title: Civilingeniør, cand.polyt
-  * Focus on theoretical computer science. 
+<ul>
+  <li data-url="/assets/logos/dtu.png" data-w="50px" data-h="70px">
+    <h2><b>MSc Eng.</b> - Computer Science and Engineering</h2>
+    <h3><i>Technical University of Denmark (DTU)</i></h3>
+    <p>Danish title: Civilingeniør, cand.polyt</p>
+    <p>Focus on theoretical computer science.</p>
+  <li>
+  <li data-url="/assets/logos/dtu.png"  data-w="50px" data-h="70px">
+    <h2><b>B.Eng</b> - Software Technology</h2>
+    <h3><i>Technical University of Denmark (DTU)</i></h3>
+    <p>Danish title: Diplomingeniør</p>
+    <p>Focus on computer science and applied software Engineering.</p>
+  <li>
+</ul>
 
   <!--- 
   * Systems optimization (grade: 12 (A), ECTS: 7.5)
@@ -30,8 +41,3 @@ language: "en"
   * Functional Programming (grade: 7 (C), ECTS: 5)
   * Software development of web services (grade: 12 (A), ECTS: 5)
   --->
-  
-* **B.Eng** from DTU - Software Technology
-  * Danish title: Diplomingeniør
-  * Focus on computer science and applied software Engineering.
-  
