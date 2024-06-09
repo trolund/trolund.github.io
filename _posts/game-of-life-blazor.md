@@ -9,7 +9,7 @@ author:
 ogImage:
   url: '/assets/blog/game-of-life-blazor/gofl.png'
 tags: ["project"]
-technologies: ["Blazor", "Genetic algorithms", "C#", "JavaScript", "CSS", "HTML"]
+technologies: ["Blazor", "C#", "JavaScript", "CSS", "HTML"]
 language: "en"
 isDraft: false
 ---
