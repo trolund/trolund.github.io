@@ -9,7 +9,7 @@ author:
 ogImage:
   url: '/assets/blog/front1.jpeg'
 tags: ["post", "project", "DTU"]
-technologies: ["F#", "Compilers"]
+technologies: ["F#", "Compilers, "WebAssembly", "WAT"]
 language: "en"
 ---
 
