@@ -22,17 +22,19 @@ const renderers: Markdown.Components = {
 
       if(imageUrl){
         return (
-          <div className="flex flex-row">
-            <div className='mr-10 mt-4' style={{width: width, height: height}}>
-              <Image 
-                src={imageUrl ?? ""} 
-                width={width}
-                height={height} 
-                alt="logo" 
-              />
+          <li>
+            <div className="flex flex-row">
+              <div className='mt-4 mr-6'>
+                <Image 
+                  src={imageUrl ?? ""} 
+                  width={width}
+                  height={height} 
+                  alt="logo" 
+                />
+              </div>
+              <div style={{width: "100%"}}>{children}</div>
             </div>
-            <div>{children}</div>
-          </div>
+          </li>
         )
       }else {
         return <li>{children}</li>
