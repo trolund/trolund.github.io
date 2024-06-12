@@ -13,25 +13,25 @@ technologies: [""]
 language: "en"
 ---
 <ul>
-  <li data-url="/assets/logos/cvation_logo.jpeg" data-w="50px" data-h="50px">
+  <li data-url="/assets/logos/cvation_logo.jpeg" data-w="50px" data-h="50px" data-r="10px">
     <h2><b>Software Engineer</b></h2>
     <h3><i>cVation</i></h3>
     <p>Working IT consultant focused on the Azure cloud solutions.</p>
     <p><b>Key skills</b>: C#, .NET, Azure</p>
   </li>
-  <li data-url="/assets/logos/logos2.jpeg" data-w="50px" data-h="50px">
+  <li data-url="/assets/logos/logos2.jpeg" data-w="50px" data-h="50px" data-r="100%">
     <h2><b>Development Engineer</b></h2>
     <h3><i>Logos Payment Solutions</i></h3>
     <p>Worked as a full-stack developer for an average of 25 hours per week while pursuing an Industry master of science in engineering.</p>
     <p><b>Key skills</b>: C#, .NET, React.js, TypeScript, JavaScript, CSS, Databases</p>
   </li>
-  <li data-url="/assets/logos/itminds.avif" data-w="50px" data-h="50px">
+  <li data-url="/assets/logos/itminds.avif" data-w="50px" data-h="50px" data-r="100%">
     <h2><b>Software Developer</b></h2>
     <h3><i>IT Minds</i></h3>
     <p>Worked as a consultant for an average of 25 hours per week while pursuing an Industry master of science in engineering.</p>
     <p><b>Key skills</b>: C#, .NET, React.js, TypeScript, JavaScript, CSS, Databases</p>
   </li>
-  <li data-url="/assets/logos/itminds.avif" data-w="50px" data-h="50px">
+  <li data-url="/assets/logos/itminds.avif" data-w="50px" data-h="50px" data-r="100%">
     <h2><b>Software Developer (internship)</b></h2>
     <h3><i>IT Minds</i></h3>
     <p>Developed and tested in-house projects and had customer dialogue to ensure the best possible solution for customers.</p>
