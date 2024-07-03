@@ -28,12 +28,12 @@ export default function CoverImage({ title, src, slug, style, className, tags }:
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link as={`/posts/${slug}`} href="/posts/[slug]" legacyBehavior>
           {image}
         </Link>
       ) : (
         image
       )}
     </div>
-  )
+  );
 }

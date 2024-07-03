@@ -49,7 +49,7 @@ const renderers: Markdown.Components = {
       <code className={className} {...props}>
         {children}
       </code>
-    )
+    );
   },
   h1: (props) => HeadingRenderer(props),
   h2: (props) => HeadingRenderer(props),

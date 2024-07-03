@@ -42,7 +42,7 @@ export default function Footer() {
               {menu.map((l, i) =>
                 <li key={i}>
                   <Link href={l.link}>
-                    <a>{l.itemName}</a>
+                    {l.itemName}
                   </Link>
                 </li>
               )}
@@ -53,5 +53,5 @@ export default function Footer() {
       <div className={styles.bottom}>© {(new Date()).getFullYear()} | Troels Lund</div>
       <Prompt disableOverlay={true} />
     </footer >
-  )
+  );
 }

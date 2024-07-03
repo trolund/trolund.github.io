@@ -60,7 +60,7 @@ const Prompt = ({ background, overlay, disableOverlay }: PromptProps) => {
 
   const isIos = (): boolean => {
     const userAgent = window.navigator.userAgent.toLowerCase()
-    return /iphone|ipad|ipod/.test(userAgent)
+    return /iphone|ipad|ipod/.test(userAgent);
   }
 
   const isInStandaloneMode = (): boolean =>

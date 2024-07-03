@@ -41,7 +41,7 @@ function BigBanner2({ }: OneProps) {
                         <h3 className={styles.description + " mb-10 " + styles.textfocusin2}>
                             <Text initDelay={15} containerStyles={{ display: "inline-block", fontSize: "1.3rem" }} input='I am a software engineer' onlyWhenVisible keepUnderscore writeSpeed={200} />
                         </h3>
-                        <Link href="about">
+                        <Link href="about" legacyBehavior>
                         <div className={styles.actionbtn + " p-5"}>Learn more about me</div>          
                         </Link>              
                     </main>
