@@ -25,7 +25,7 @@ export default function ProfileCard() {
     return (
         <figure className={"rounded-xl float-left card p-5 " + styles.container}>
             <div className={styles.img}>
-                <Image style={{borderTopLeftRadius: "5px", borderTopRightRadius: "5px"}} src="/profil.webp" alt="me" width="100%" height="100%" layout="responsive" objectFit="contain" />
+                <Image style={{borderTopLeftRadius: "5px", borderTopRightRadius: "5px"}} src="/profil.webp" alt="me" width={100} height={100} layout="responsive" objectFit="contain" />
             </div>
             <div className="pt-6 space-y-4">
                 <figcaption>

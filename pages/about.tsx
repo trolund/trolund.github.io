@@ -9,7 +9,6 @@ import { getContent } from '../lib/api'
 import PostBody from '../components/post-body'
 import Text from '../components/text/text'
 import CSSProperties from 'react';
-import Card from '../components/Card/Card'
 import styles from "../pages/css/about.module.css"
 import Experience from '../components/experience/experience'
 import SubPostTitle from '../components/sub-post-title'

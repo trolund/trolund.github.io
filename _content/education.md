@@ -14,13 +14,13 @@ language: "en"
 ---
 
 <ul>
-  <li data-url="/assets/logos/dtu.png" data-w="50px" data-h="70px">
+  <li data-url="/assets/logos/dtu.png" data-w="50" data-h="70">
     <h2><b>MSc Eng.</b> - Computer Science and Engineering</h2>
     <h3><i>Technical University of Denmark (DTU)</i></h3>
     <p>Danish title: Civilingeniør, cand.polyt</p>
     <p>Focus on theoretical computer science.</p>
   <li>
-  <li data-url="/assets/logos/dtu.png"  data-w="50px" data-h="70px">
+  <li data-url="/assets/logos/dtu.png"  data-w="50" data-h="70">
     <h2><b>B.Eng</b> - Software Technology</h2>
     <h3><i>Technical University of Denmark (DTU)</i></h3>
     <p>Danish title: Diplomingeniør</p>
