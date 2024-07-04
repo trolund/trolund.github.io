@@ -10,8 +10,6 @@
     "buildIndex": "ts-node search/indexBuilder.ts"
   },
   "dependencies": {
-    "@next/mdx": "^12.1.0",
-    "@react-icons/all-files": "^4.1.0",
     "@types/react-syntax-highlighter": "^13.5.2",
     "classnames": "2.2.6",
     "date-fns": "2.10.0",
@@ -19,7 +17,6 @@
     "gray-matter": "4.0.2",
     "keyword-extractor": "^0.0.23",
     "next": "^14.2.4",
-    "next-images": "^1.8.4",
     "react": "^18.3.1",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
@@ -30,7 +27,6 @@
     "react-responsive": "^9.0.0-beta.5",
     "react-select": "^5.7.0",
     "react-syntax-highlighter": "^15.4.5",
-    "react-tsparticles": "^2.9.3",
     "rehype-katex": "^6.0.2",
     "rehype-meta": "^3.2.1",
     "rehype-raw": "^6.1.1",
