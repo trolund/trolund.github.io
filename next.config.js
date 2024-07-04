@@ -1,5 +1,5 @@
 module.exports = {
-    output: 'export',
+    // output: 'export',
     reactStrictMode: true,
     // Add basePath
     // basePath: '/github-pages',
