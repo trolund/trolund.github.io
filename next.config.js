@@ -4,7 +4,6 @@ module.exports = {
     // Add basePath
     // basePath: '/github-pages',
     // distDir: 'build',
-    reactStrictMode: true,
     swcMinify: true,
     // pwa: {
     //   dest: "public",
