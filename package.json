@@ -10,6 +10,7 @@
     "buildIndex": "ts-node search/indexBuilder.ts"
   },
   "dependencies": {
+    "@codaworks/react-glow": "^1.0.6",
     "@types/react-syntax-highlighter": "^13.5.2",
     "classnames": "2.2.6",
     "date-fns": "2.10.0",

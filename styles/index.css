@@ -89,7 +89,6 @@ body {
 
 .card-low:hover {
     box-shadow: var(--shadow);
-    transform: scale(1.01);
 }
 
 h2 {

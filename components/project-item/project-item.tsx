@@ -20,7 +20,7 @@ export default function ProjectItem({
             <div className="mb-5">
                 <div className={cn('shadow-small', {
                     'hover:shadow-medium transition-shadow duration-200': slug,
-                })} style={{ backgroundImage: `url(${coverImage})`, height: "200px", width: "100%", backgroundSize: "cover", backgroundPosition: "center", overflow: "hidden" }}>
+                })} style={{ backgroundImage: `url(${coverImage})`, height: "200px", width: "100%", backgroundSize: "cover", backgroundPosition: "center", overflow: "hidden", borderRadius: "var(--border-radius)" }}>
                 </div>
             </div>
             <h3 className="text-3xl mb-3 leading-snug">
