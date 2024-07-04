@@ -1,15 +1,14 @@
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
 import { getAllPosts, getContent } from '../lib/api'
 import Head from 'next/head'
-import { CMS_NAME, TITLE } from '../lib/constants'
+import { TITLE } from '../lib/constants'
 import Menu from '../components/Menu'
 import menu from '../constants/menu'
 import PostTitle from '../components/post-title'
 import ProjectsView from '../components/projects'
 import PostBody from '../components/post-body'
+import { Glow, GlowCapture } from '@codaworks/react-glow'
 
 export default function Index({ allPosts, blog }) {
     const heroPost = allPosts[0]
@@ -34,7 +33,12 @@ export default function Index({ allPosts, blog }) {
                             excerpt={heroPost.excerpt}
                         />
                     )} */}
-                    {morePosts.length > 0 &&  <ProjectsView posts={morePosts} />}
+                    <GlowCapture>
+                        <Glow color='purple'>
+                            {morePosts.length > 0 && <ProjectsView className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900' posts={morePosts} />}
+                        </Glow>
+                    </GlowCapture>
+
                 </Container>
             </Layout>
         </>

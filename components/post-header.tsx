@@ -5,6 +5,7 @@ import PostTitle from './post-title'
 import Image from 'next/image'
 import { Author } from '../types/blogPost'
 import Language from '../types/languages'
+import Ship from './ship'
 
 type postHeaderOptions = {
   title: string,
@@ -23,7 +24,7 @@ export default function PostHeader({ title, coverImage, date, author, language, 
         <Avatar name={author.name} picture={author.picture} />
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage slug="" title={title} src={coverImage} />
+        <CoverImage style={{borderRadius: "var(--border-radius)"}} slug="" title={title} src={coverImage} />
       </div>
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">
@@ -40,7 +41,7 @@ export default function PostHeader({ title, coverImage, date, author, language, 
           </div>
         </div>
         <div className="mb-4 flex flex-wrap" style={{width: "100%"}}>
-                {technologies && technologies.map((t, i) => <span key={i} style={{ backgroundColor: "var(--footer)", height: "45px" }} className="px-3 py-2 mb-1 border-solid border-2 border-gray-800 border-opacity-25 rounded-full mr-2 grow-0">{t}</span>)}
+                {technologies && technologies.map((t, i) => <Ship key={i} value={t} />)}
         </div> 
       </div>
     </>

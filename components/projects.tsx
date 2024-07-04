@@ -1,6 +1,11 @@
 import ProjectItem from './project-item/project-item'
 
-export default function ProjectsView({ posts }) {
+interface ProjectsViewProps {
+  posts: any[];
+  className?: string;
+}
+
+export default function ProjectsView({ posts, className }: ProjectsViewProps) {
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
@@ -16,6 +21,7 @@ export default function ProjectsView({ posts }) {
             technologies={post.technologies} 
             content={''}
             language={post.language}
+            className={className}
              />
         ))}
       </div>

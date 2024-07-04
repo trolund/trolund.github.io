@@ -8,6 +8,7 @@ import { getAllProjects, getContent } from '../lib/api'
 import { BlogPost } from '../types/blogPost'
 import ProjectsView from '../components/projects'
 import PostBody from '../components/post-body'
+import { Glow, GlowCapture } from '@codaworks/react-glow'
 
 interface IndexProps {
     projects: BlogPost[];
@@ -25,7 +26,11 @@ export default function Projects({ projects, project }: IndexProps) {
                 <Container>
                     <PostTitle>Projects</PostTitle>
                     <PostBody className='mx-auto' content={project.content} />
-                    <ProjectsView posts={projects} />
+                    <GlowCapture>
+                        <Glow color='purple'>
+                            <ProjectsView className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900' posts={projects} />
+                        </Glow>
+                    </GlowCapture>
                 </Container>
             </Layout>
         </>
