@@ -38,7 +38,7 @@ export function getContent(name: string, fields: BlogFields = []) {
       items[field] = data[field]
     }
   })
-  
+
 
   return items as BlogPost
 }
@@ -74,24 +74,56 @@ export function getAllPosts(fields: BlogFields = []) {
     .map((slug) => getPostBySlug(slug, [...fields, 'tags', 'isDraft']))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 
-    // filter out drafts
-    if(fields.includes('tags')){
-      return posts.filter(i => i.tags.includes("post") && !i.isDraft)
-    }
-    
+  // filter out drafts
+  if (fields.includes('tags')) {
+    return posts.filter(i => i.tags.includes("post") && !i.isDraft)
+  }
+
   return posts
 }
 
 export function getAllProjects(fields: BlogFields = []) {
   const slugs = getPostSlugs()
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, [...fields, 'tags', 'isDraft']))    
+    .map((slug) => getPostBySlug(slug, [...fields, 'tags', 'isDraft']))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 
-    // filter out drafts
-    if(fields.includes('tags')){
-      return posts.filter(i => i.tags.includes("project") && !i.isDraft)
-    }
+  // filter out drafts
+  if (fields.includes('tags')) {
+    return posts.filter(i => i.tags.includes("project") && !i.isDraft)
+  }
 
   return posts
+}
+
+function paginate(array, pageSize, pageNumber) {
+  const start = (pageNumber - 1) * pageSize;
+  const end = start + pageSize;
+  return array.slice(start, end);
+}
+
+export function getProjects(fields: BlogFields = [], pageSize: number = 6, pageNumber: number = 1) {
+  if (pageNumber < 1) {
+    pageNumber = 1;
+  }
+  
+  const slugs = getPostSlugs()
+
+  var projects = slugs
+    .map((slug) => getPostBySlug(slug, [...fields, 'tags', 'isDraft']))
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+
+  // filter out drafts
+  if (fields.includes('tags')) {
+    projects = projects.filter(i => i.tags.includes("project") && !i.isDraft)
+  }
+
+  const totalPages = Math.ceil(projects.length / pageSize);
+  if (pageNumber > totalPages) {
+    pageNumber = totalPages;
+  }
+
+  projects = paginate(projects, pageSize, pageNumber)
+
+  return projects
 }

@@ -1,3 +1,75 @@
+/* Apply the animation to the .rotate element */
+.rotate {
+  mix-blend-mode: saturation;
+  position: absolute;
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  opacity: 0.3;
+  margin: 50px auto;
+  display: block;
+  animation-name: rotate;
+  animation-duration: 32s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+.rotate3 {  
+  mix-blend-mode: saturation;
+  position: absolute;
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  opacity: 0.2;
+  margin: 50px auto;
+  display: block;
+  animation-name: rotate;
+  animation-duration: 25s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+.rotate2 {
+  mix-blend-mode: saturation;
+  position: absolute;
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  opacity: 0.5;
+  margin: 50px auto;
+  display: block;
+  animation-name: rotate;
+  animation-duration: 16s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.background {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .container {
     height: calc(100vh - calc(var(--menu-height) + 20px));
     padding: 0 0.5rem;
@@ -7,6 +79,25 @@
     align-items: center;
     color: var(--content-text);
   }
+
+  .gradient-background {
+    background: linear-gradient(300deg,deepskyblue,darkviolet,blue);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
 
 .textfocusin {
       animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
