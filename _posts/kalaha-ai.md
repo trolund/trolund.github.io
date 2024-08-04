@@ -75,7 +75,7 @@ Benchmarks showed that alpha-beta pruning drastically reduced computation time a
 
 This project demonstrated the application of AI techniques in solving a deterministic, turn-based game like Kalaha. The combination of Minimax with alpha-beta pruning and effective heuristics resulted in a highly competent AI capable of making optimal moves. These findings not only contribute to the understanding of game theory and AI but also provide a solid foundation for further research and development in AI-based game strategies.
 
-For more details and to view the complete project, visit the [GitHub Repository](https://github.com/trolund/KalahaAI).
+For more details and to view the complete project, visit the [GitHub Repository](https://github.com/trolund/kalaha-ai).
 
 The full report can be found [here.](/assets/blog/kalaha-ai/Board_Game_Assignment_Kalaha.pdf)
 

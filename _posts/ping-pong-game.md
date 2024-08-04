@@ -15,4 +15,4 @@ language: "da"
   
 Dette er et helt simplet ping pong spil for to personer samt et singleplayer mode hvor man kan spille mod computeren på fire forskelige niveauer. Spillet er udviklet i javascript med biblioteket Phaser 3.
 
-Det er muligt at prøve en deomen online [her](https://trolund.github.io/JSPingPongGame/).  
+Det er muligt at prøve en deomen online [her](https://trolund.github.io/ping-pong-js-game/).  

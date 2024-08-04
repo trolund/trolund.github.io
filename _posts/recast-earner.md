@@ -15,6 +15,6 @@ language: "en"
 
 Recast.tv offers paid content, but I prefer not to spend too much. They have a program where you can earn points by watching ads, which you can then use to purchase the content you want. To make this process easier, I created a small Python script using Selenium to automatically "watch" the ads for you. This way, you can get on with your life while earning points.
 
-You can use the script yourself by running it from here: [RecastEarner on GitHub](https://github.com/trolund/RecastEarner/blob/master/main.py).
+You can use the script yourself by running it from here: [RecastEarner on GitHub](https://github.com/trolund/recast-earner/blob/master/main.py).
 
 Simply enter your Recast.tv credentials in the code where indicated by the comments.

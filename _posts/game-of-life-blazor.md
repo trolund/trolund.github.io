@@ -30,13 +30,13 @@ Utilization of Blazor, a web framework by Microsoft, facilitates the development
 
 The Blazor implementation of the Game of Life serves as a platform for academic exploration and experimentation in the realm of cellular automata. By leveraging the capabilities of Blazor, the implementation provides an intuitive and accessible interface for studying emergent behaviors and patterns within cellular automata systems.
 
-See a running demo here: https://trolund.github.io/Game-of-life-blazor/
+See a running demo here: https://trolund.github.io/game-of-life-blazor/
 
 <hr>
 
 ### References
 
-The source code: https://github.com/trolund/Game-of-life-blazor
+The source code: https://github.com/trolund/game-of-life-blazor
 
 Conway, J. H. (1970). The game of life. Scientific American, 223(4), 4-15.
 

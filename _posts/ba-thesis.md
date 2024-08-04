@@ -29,4 +29,4 @@ Continuous integration and deployment (CI/CD) techniques were employed to simpli
 
 ### Links
 
-The entire thesis can be found [here.](/assets/docs/beng-thesis.pdf) The source code of the back-end can be found [here](https://github.com/trolund/Feedback-Backendv2) and the front-end [here.](https://github.com/trolund/Feedback-PWA)
+The entire thesis can be found [here.](/assets/docs/beng-thesis.pdf) The source code of the back-end can be found [here](https://github.com/trolund/feedback-backend) and the front-end [here.](https://github.com/trolund/feedback-frontend)

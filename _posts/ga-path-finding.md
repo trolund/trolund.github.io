@@ -16,7 +16,7 @@ isDraft: false
 
 The project employs a genetic algorithm to discover a path from a starting point to a goal, both identified by black spots.
 
-A genetic algorithm is a computational technique inspired by the process of natural selection and evolution. It's often used to solve optimization and search problems. In this case optimizing for the correct set of movement that will lead to the goal. Another example could be to find a sequence of characters as seen in this precursor to this project: [demo link](https://trolund.github.io/Simple-Genetic-algorithm/).
+A genetic algorithm is a computational technique inspired by the process of natural selection and evolution. It's often used to solve optimization and search problems. In this case optimizing for the correct set of movement that will lead to the goal. Another example could be to find a sequence of characters as seen in this precursor to this project: [demo link](https://trolund.github.io/simple-genetic-algorithm/).
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/38oO85zJPkc?si=yB_aELC8mHzC3bXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -40,4 +40,4 @@ Typically, after 12-15 generations, a stable solution is commonly reached. At th
 
 ![alt text](/assets/blog/ga-path-finding/gif2.gif)
 
-The project is developed as a Blazor WebAssembly application, with visualization rendered on an HTML5 canvas. A demonstration of the project can be accessed [here](https://trolund.github.io/Genetic-algorithm-path-finding/).
+The project is developed as a Blazor WebAssembly application, with visualization rendered on an HTML5 canvas. A demonstration of the project can be accessed [here](https://trolund.github.io/genetic-path-finding-algorithm/).
