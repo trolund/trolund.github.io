@@ -3,6 +3,8 @@ import DateFormatter from './date-formatter'
 import Link from 'next/link'
 import { Author } from '../types/blogPost'
 import cn from 'classnames'
+import Card from './Card/Card'
+import Ship from './ship'
 
 interface HeroPostProps {
   title: string;
@@ -12,6 +14,8 @@ interface HeroPostProps {
   author: Author;
   slug: string;
   tags?: string[];
+  technologies?: string[];
+  className?: string;
 }
 
 export default function HeroPost({
@@ -21,33 +25,42 @@ export default function HeroPost({
   excerpt,
   author,
   slug,
-  tags
+  tags,
+  className,
+  technologies
 }: HeroPostProps) {
   return (
     <section>
-      <div className="mb-8 md:mb-16">
-        <div className={cn('shadow-small', {
-          'hover:shadow-medium transition-shadow duration-200': slug,
-        }) + " " + "pt-4 pl-2"} style={{ backgroundImage: `url(${coverImage})`, height: "30rem", width: "100%", backgroundSize: "cover" }}>
-          {tags && tags.map((t, i) => <span key={i} className="px-3 py-2 bg-accent-1 border-solid border-2 border-gray-800 border-opacity-25 rounded-full mr-2">{t}</span>)}
-        </div>
-      </div>
-      <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-            <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover:underline">
-              {title}
-            </Link>
-          </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <DateFormatter dateString={date} />
+      <Card className={className}>
+        <div className="px-3.5 py-2.5">
+          <div className="mb-5">
+            <div className={cn('shadow-small', {
+              'hover:shadow-medium transition-shadow duration-200': slug,
+            })} style={{ backgroundImage: `url(${coverImage})`, height: "300px", width: "100%", backgroundSize: "cover", backgroundPosition: "center", overflow: "hidden", borderRadius: "var(--border-radius)" }}>
+            </div>
           </div>
-        </div>
-        <div>
+          <div>
+            <div>
+              <h3 className="md:text-6xl md:leading-tight text-3xl mb-3 leading-snug">
+                <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover:underline">
+                  {title}
+                </Link>
+              </h3>
+              <div className="mb-4 md:mb-0 text-lg">
+                <div className="mb-4 font-extralight text-base italic basis-1/2"><DateFormatter dateString={date} /></div>
+              </div>
+              <div className="flex flex-wrap">
+                {technologies && technologies.map((t, i) => <Ship key={i} value={t} />)}
+              </div>
+            </div>
+            <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+            {/* <div>
           {excerpt && <p className="text-lg leading-relaxed mb-4">{excerpt}</p>}
           <Avatar name={author.name} picture={author.picture} />
+        </div> */}
+          </div>
         </div>
-      </div>
+      </Card>
     </section>
   );
 }

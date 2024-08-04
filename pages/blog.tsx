@@ -9,6 +9,7 @@ import PostTitle from '../components/post-title'
 import ProjectsView from '../components/projects'
 import PostBody from '../components/post-body'
 import { Glow, GlowCapture } from '@codaworks/react-glow'
+import HeroPost from '../components/hero-post'
 
 export default function Index({ allPosts, blog }) {
     const heroPost = allPosts[0]
@@ -23,18 +24,20 @@ export default function Index({ allPosts, blog }) {
                 <Container>
                     <PostTitle>Blog</PostTitle>
                     <PostBody className='mx-auto' content={blog.content} />
-                    {/* {heroPost && (
-                        <HeroPost
-                            title={heroPost.title}
-                            coverImage={heroPost.coverImage}
-                            date={heroPost.date}
-                            author={heroPost.author}
-                            slug={heroPost.slug}
-                            excerpt={heroPost.excerpt}
-                        />
-                    )} */}
                     <GlowCapture>
                         <Glow color='purple'>
+                            {heroPost && (
+                                <HeroPost
+                                    title={heroPost.title}
+                                    coverImage={heroPost.coverImage}
+                                    date={heroPost.date}
+                                    author={heroPost.author}
+                                    slug={heroPost.slug}
+                                    excerpt={heroPost.excerpt}
+                                    className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900'
+                                    technologies={heroPost.technologies}
+                                />
+                            )}
                             {morePosts.length > 0 && <ProjectsView className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900' posts={morePosts} />}
                         </Glow>
                     </GlowCapture>

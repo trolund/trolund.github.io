@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/front1.jpeg'
-tags: ["post", "project", "DTU"]
+tags: ["project", "DTU"]
 technologies: ["F#", "Compilers", "WebAssembly", "WAT"]
 language: "en"
 ---

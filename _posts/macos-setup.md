@@ -1,6 +1,6 @@
 ---
-title: 'Automating Your macOS Setup'
-excerpt: 'Streamline your macOS setup process with automation scripts for system customization and enhanced productivity.'
+title: 'Automating my macOS Setup'
+excerpt: 'A walk trough of how i have streamlined my macOS setup process with automation scripts for system customization and enhanced productivity.'
 coverImage: '/assets/blog/macos-setup/macos-setup-guide-cover.png'
 date: '2024-08-03T05:35:07.322Z'
 author:
@@ -134,4 +134,6 @@ After running the scripts and completing manual steps, verify that everything is
 
 ## Conclusion 🏁
 
-Congratulations! You've successfully automated your macOS setup, creating a customized environment tailored to your needs. By leveraging the power of scripting, you can now enjoy a seamless experience every time you set up a new machine or refresh your existing one. Happy computing! 👨‍💻
+Congratulations! You've successfully automated your macOS setup, creating a customized environment tailored to your needs. By leveraging the power of scripting, you can now enjoy a seamless experience every time you set up a new machine or refresh your existing one.
+
+To learn more go to the [Github repo](https://github.com/trolund/macos-setup-scripts). Happy computing! 👨‍💻
