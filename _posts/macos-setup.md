@@ -1,13 +1,13 @@
 ---
 title: 'Automating my macOS Setup'
 excerpt: 'A walk trough of how i have streamlined my macOS setup process with automation scripts for system customization and enhanced productivity.'
-coverImage: '/assets/blog/macos-setup/macos-setup-guide-cover.png'
+coverImage: '/assets/blog/macos-setup/automation.jpg'
 date: '2024-08-03T05:35:07.322Z'
 author:
   name: Troels Lund
   picture: '/assets/blog/authors/troels.png'
 ogImage:
-  url: '/assets/blog/macos-setup/macos-setup-guide-cover.png'
+  url: '/assets/blog/macos-setup/automation.jpg'
 tags: ["automation", "macOS", "productivity", "post"]
 technologies: ["Bash", "Shell Scripting", "Zsh", "macOS"]
 language: "en"
