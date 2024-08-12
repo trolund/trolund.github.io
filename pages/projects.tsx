@@ -21,7 +21,7 @@ export default function Projects({ projects, project }: IndexProps) {
             <Menu items={menu} disableScroll spacing />
             <Layout>
                 <Head>
-                    <title>Projects</title>
+                    <title>Troels Lund | Projects</title>
                 </Head>
                 <Container>
                     <PostTitle>Projects</PostTitle>

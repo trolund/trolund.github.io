@@ -15,7 +15,7 @@ export default function HireMe({ page }) {
             <Menu items={menu} disableScroll spacing />
             <Layout>
                 <Head>
-                    <title>Hire me</title>
+                    <title>Troels Lund | Hire me</title>
                 </Head>
                 <Container>
                     <PostTitle>Not yet.....</PostTitle>

@@ -29,7 +29,7 @@ export default function About({ page }) {
             <Menu items={menu} disableScroll spacing />
             <Layout>
                 <Head>
-                    <title>About</title>
+                    <title>Troels Lund | About</title>
                 </Head>
                 <Container>
                     <PostTitle>About me</PostTitle>

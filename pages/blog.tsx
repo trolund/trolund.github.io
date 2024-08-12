@@ -19,7 +19,7 @@ export default function Index({ allPosts, blog }) {
             <Menu items={menu} disableScroll spacing />
             <Layout>
                 <Head>
-                    <title>{TITLE}</title>
+                    <title>Troels Lund | Blog</title>
                 </Head>
                 <Container>
                     <PostTitle>Blog</PostTitle>
