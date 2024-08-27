@@ -1,6 +1,6 @@
 ---
 title: 'Animated SVG Car Component'
-excerpt: 'This project provides a **very simple example** of how SVG animation can be done in React.'
+excerpt: 'This project provides a very simple example of how SVG animation can be done in React.'
 coverImage: '/assets/blog/svg-car-animation/img.png'
 date: '2023-08-06T05:35:07.322Z'
 author:
