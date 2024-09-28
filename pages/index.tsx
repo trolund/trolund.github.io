@@ -1,6 +1,6 @@
 import { getAllPosts, getAllProjects } from '../lib/api'
 import Head from 'next/head'
-import One from '../components/big-banner2'
+import One from '../components/front-banner'
 import Menu from '../components/Menu'
 import menu from '../constants/menu'
 import { BlogPost } from '../types/blogPost'

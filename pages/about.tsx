@@ -4,7 +4,7 @@ import Head from 'next/head'
 import menu from '../constants/menu'
 import Menu from '../components/Menu'
 import PostTitle from '../components/post-title';
-import ProfileCard from '../components/profile-card/profile-card'
+import ProfileCard from '../components/profile-card'
 import { getContent } from '../lib/api'
 import PostBody from '../components/post-body'
 import Text from '../components/text/text'

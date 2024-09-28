@@ -43,7 +43,7 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
         } else {
             setShowbg(false)
         }
-      }, [setShowbg, disableScroll]);
+    }, [setShowbg, disableScroll]);
 
     useEffect(() => {
         state()
@@ -61,7 +61,7 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
     useEffect(() => {
         let isDark = localStorage.getItem(key) === 'true'
         setIsDark(isDark)
-        
+
     }, []);
 
 
@@ -132,21 +132,22 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
     }
 
     return <>
-        {menuState === ResponsiveMode.MOBILE && 
-        <button className={(SideMenuState == MenuState.SHOW ? "is-active " : "") + "hamburger hamburger--collapse " + styles.menuButton} type="button" onClick={toggleMenu}>
-            <span className="hamburger-box">
-                <span className="hamburger-inner"></span>
-            </span>
-        </button>}
+        {menuState === ResponsiveMode.MOBILE &&
+            <button title='menu-button' className={(SideMenuState == MenuState.SHOW ? "is-active " : "") + "hamburger hamburger--collapse " + styles.menuButton} type="button" onClick={toggleMenu}>
+                <span className="hamburger-box">
+                    <span className="hamburger-inner"></span>
+                </span>
+            </button>}
         {menuState !== ResponsiveMode.DESKTOP && <div onClick={() => setSideMenuState(MenuState.HIDE)} style={{ left: "var(--menu-width)", height: "100vh", width: "calc(100vw - var(--menu-width))", position: "fixed", zIndex: 99999, top: 0 }} />}
         <div className={styles.menu + " " + getMenuClass(SideMenuState, menuState, showbg)}>
-            <div style={{maxWidth: "1024px" }} className={styles.menuContainer + " container"}>
+            <div style={{ maxWidth: "1024px" }} className={styles.menuContainer + " container"}>
                 <ul>
                     {items?.map(i => <Link key={i.link} href={i.link} legacyBehavior><li key={i.link} className={router.pathname == i.link ? styles.active : ""} style={i.styles}>{i.itemName}</li></Link>)}
                     <div className={styles.icons}>
                         <a href="https://github.com/trolund">
                             <VscGithubInverted size={30} style={{ animationDelay: "0.2s" }} />
-                        </a><a href="https://www.linkedin.com/in/trolund/">
+                        </a>
+                        <a href="https://www.linkedin.com/in/trolund/">
                             <SiLinkedin size={30} style={{ animationDelay: "0.5s" }} />
                         </a>
                         <div onClick={switchTheme} style={{ display: "inline", float: "right", cursor: "pointer" }}>

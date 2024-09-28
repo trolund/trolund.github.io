@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './big-banner.module.css'
+import styles from './front-banner.module.css'
 import Text from '../text/text'
 import Link from 'next/link'
 
-function BigBanner2() {
+function FrontBanner() {
     return <>
         <div className={styles.overLay}></div>
         <div className={styles.shadowFilter}>
@@ -32,4 +32,4 @@ function BigBanner2() {
     </>;
 };
 
-export default BigBanner2;
+export default FrontBanner;
