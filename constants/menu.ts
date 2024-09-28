@@ -1,4 +1,4 @@
-import { MenuItem } from "../components/Menu/MenuItem";
+import { MenuItem } from "../types/MenuItem";
 
 const menu: MenuItem[] = [
     { itemName: "Home", link: "/" },

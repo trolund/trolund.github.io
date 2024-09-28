@@ -1,4 +1,3 @@
-import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import Link from 'next/link'
 import { Author } from '../types/blogPost'
@@ -23,9 +22,7 @@ export default function HeroPost({
   coverImage,
   date,
   excerpt,
-  author,
   slug,
-  tags,
   className,
   technologies
 }: HeroPostProps) {
@@ -47,7 +44,7 @@ export default function HeroPost({
                 </Link>
               </h3>
               <div className="mb-4 md:mb-0 text-lg">
-                <div className="mb-4 font-extralight text-base italic basis-1/2"><DateFormatter dateString={date} /></div>
+                <div className="mb-4 font-extralight text-base italic basis-1/2"><DateFormatter date={date} /></div>
               </div>
               <div className="flex flex-wrap">
                 {technologies && technologies.map((t, i) => <Ship key={i} value={t} />)}

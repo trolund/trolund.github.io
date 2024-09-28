@@ -1,4 +1,3 @@
-import styles from "../../pages/css/about.module.css";
 import Image from 'next/image'
 import { CSSProperties } from 'react';
 import Card from "./card";

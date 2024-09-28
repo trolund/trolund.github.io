@@ -1,9 +1,13 @@
 import "../styles/index.css";
 import "../styles/hamburgers.css";
-import { AnimatePresence } from "framer-motion";
 import Head from 'next/head'
 
-export default function MyApp({ Component, pageProps }) {
+type AppProps = {
+  Component: any;
+  pageProps: any;
+};
+
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>

@@ -16,13 +16,13 @@ type postBodyTypes = {
 
 }
 
-function flatten(text, child) {
+function flatten(text: string, child: any) {
   return typeof child === 'string'
     ? text + child
     : React.Children.toArray(child.props.children).reduce(flatten, text)
 }
 
-function HeadingRenderer(props) {
+function HeadingRenderer(props: any) {
   var children = React.Children.toArray(props.children)
   var text = children.reduce(flatten, '')
   var slug = text.toLowerCase().replace(/\W/g, '-')
@@ -34,10 +34,10 @@ const renderers: Markdown.Components = {
     const i: HTMLImageElement = node as any
     return <Image src={i.src ?? ""} alt={i.alt ?? ""} height={i.height ?? 50} width={i.width ?? 50} />
   }, 
-  pre: ({ node, ...props }) => {
+  pre: ({ ...props }) => {
     return <pre style={{maxWidth: "100%", padding: "10px", overflowWrap: "break-word"}}>{props.children}</pre>
   },
-  code: ({node, inline, className, children, ...props}) => {
+  code: ({ inline, className, children, ...props}) => {
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
       <SyntaxHighlighter

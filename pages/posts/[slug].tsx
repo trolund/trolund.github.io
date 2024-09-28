@@ -17,7 +17,7 @@ type postOptions = {
   preview: any
 }
 
-export default function Post({ post, morePosts, preview }: postOptions) {
+export default function Post({ post }: postOptions) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />

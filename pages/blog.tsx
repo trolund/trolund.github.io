@@ -8,8 +8,14 @@ import PostTitle from '../components/post-title'
 import ProjectsView from '../components/projects'
 import PostBody from '../components/post-body'
 import HeroPost from '../components/hero-post'
+import { BlogPost } from '../types/blogPost'
 
-export default function Index({ allPosts, blog }) {
+type IndexProps = {
+    allPosts: BlogPost[]
+    blog: BlogPost
+}
+
+export default function Index({ allPosts, blog }: IndexProps) {
     const heroPost = allPosts[0]
     const morePosts = allPosts.slice(1)
     return (
@@ -57,6 +63,6 @@ export async function getStaticProps() {
     const blog = getContent("blog", ["title", "content"])
 
     return {
-        props: { allPosts, blog },
+        props: { allPosts, blog } as IndexProps,
     }
 }

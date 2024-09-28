@@ -14,7 +14,7 @@ interface EducationProp {
 }
 
 const renderers: Markdown.Components = {
-  li: ({ node, className, children }) => {
+  li: ({ node, children }) => {
     const element: HTMLLIElement = node as any;
     const imageUrl = (element as any).properties["dataUrl"]
     const height = (element as any).properties["dataH"]

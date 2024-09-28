@@ -46,6 +46,7 @@
     "@types/react": "latest",
     "eslint": "^8.5.0",
     "eslint-config-next": "^14.2.4",
+    "eslint-plugin-react": "^7.37.0",
     "next-unused": "^0.0.6",
     "postcss-preset-env": "^9.5.15",
     "prettier": "^3.3.3",

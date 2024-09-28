@@ -12,7 +12,7 @@ interface TextProps {
     color?: string;
     underscoreAnimationDuration?: number;
     writeSpeed?: number;
-    wordBreakTime?: number; // writeSpeed * wordBreakTime
+    wordBreakTime?: number;
     initDelay?: number;
     keepUnderscore?: boolean;
 }
@@ -48,8 +48,6 @@ const Text: FunctionComponent<TextProps> = ({ input: initInput, infinity, onlyWh
 
             if (onlyWhenVisible === undefined || (onlyWhenVisible && isInViewport(0))) {
                 const wordLength = input[wordIndex].length
-
-                // console.debug('wIndex: ' + wordIndex, "cIndex: " + charIndex, wordLength);
 
                 if (charIndex >= wordLength) {
                     if (wordIndex < input.length - 1) {

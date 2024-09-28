@@ -28,9 +28,7 @@ export default function ProjectItem({
     coverImage,
     date,
     excerpt,
-    author,
     slug,
-    tags,
     technologies,
     language,
     className
@@ -53,7 +51,7 @@ export default function ProjectItem({
                 {technologies && technologies.map((t, i) => <Ship key={i} value={t} />)}
             </div>
             <div className="flex flex-row mb-2" style={{height: "15px"}}>
-                <div className="mb-4 font-extralight text-base italic basis-1/2"><DateFormatter dateString={date} /></div>
+                <div className="mb-4 font-extralight text-base italic basis-1/2"><DateFormatter date={date} /></div>
                 <div className="basis-1/2">
                     <span className="float-right">{language === "da" ?
                         <Image src="/assets/flags/da.svg" height={15} width={30} alt="dansk" />

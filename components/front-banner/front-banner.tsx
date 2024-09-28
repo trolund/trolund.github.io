@@ -30,6 +30,6 @@ function FrontBanner() {
             </div>
         </div>
     </>;
-};
+}
 
 export default FrontBanner;

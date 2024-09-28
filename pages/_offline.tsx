@@ -1,4 +1,4 @@
-export default function Offline({ Component, pageProps }) {
+export default function Offline() {
   return (
       <p>You are offline.</p>
   );

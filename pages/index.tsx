@@ -3,15 +3,9 @@ import Head from 'next/head'
 import One from '../components/front-banner'
 import Menu from '../components/Menu'
 import menu from '../constants/menu'
-import { BlogPost } from '../types/blogPost'
 import { TITLE } from '../lib/constants'
 
-interface IndexProps {
-  allPosts: BlogPost[];
-  projects: BlogPost[];
-}
-
-export default function Index({ allPosts, projects }: IndexProps) {
+export default function Index() {
   return (
     <>
       <Menu items={menu} disableScroll spacing />

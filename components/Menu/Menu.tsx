@@ -5,23 +5,14 @@ import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
 import { SiLinkedin } from 'react-icons/si';
 import { VscGithubInverted } from 'react-icons/vsc';
 import styles from "./Menu.module.css";
-import { MenuItem } from './MenuItem';
+import { MenuItem } from '../../types/MenuItem';
+import { MenuState } from '../../types/menu-state';
+import { ResponsiveMode } from '../../types/responsive-mode';
 
 export interface MenuProps {
     items: MenuItem[],
     spacing?: boolean,
     disableScroll?: boolean
-}
-
-enum ResponsiveMode {
-    DESKTOP = 0,
-    MOBILE = 1
-}
-
-enum MenuState {
-    INIT = 0,
-    SHOW = 1,
-    HIDE = 2
 }
 
 const breakpoint = 600;
@@ -114,7 +105,7 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
 
     }
 
-    const switchTheme = (e) => {
+    const switchTheme = () => {
         let newValue = !isDark;
         setIsDark(newValue)
         window.dispatchEvent(new CustomEvent("isDarkStorage", { detail: newValue } as object));
@@ -160,6 +151,6 @@ function Menu({ items, disableScroll, spacing }: MenuProps) {
         </div>
         {spacing && <div style={{ height: "calc(var(--menu-height) + 20px)" }}></div>}
     </>;
-};
+}
 
 export default Menu;

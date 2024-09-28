@@ -32,7 +32,7 @@ export default function PostHeader({ title, coverImage, date, author, language, 
         </div>
         <div className="mb-4" style={{height: "20px"}}>
           <div className="mb-4 font-extralight text-base italic float-left">
-            <DateFormatter dateString={date} />
+            <DateFormatter date={date} />
           </div>
           <div className="mb-4 font-extralight text-base italic float-right">
             {language === "da" ? 

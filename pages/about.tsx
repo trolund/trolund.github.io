@@ -14,10 +14,26 @@ import Experience from '../components/experience'
 import SubPostTitle from '../components/sub-post-title'
 import Education from '../components/education'
 import CertificationItem from '../components/certification-item'
-export default function About({ page }) {
 
+type AboutProps = {
+    page: {
+        about: {
+            title: string
+            content: string
+        }
+        experience: {
+            title: string
+            content: string
+        }
+        education: {
+            title: string
+            content: string
+        }
+    }
+}
+
+export default function About({ page }: AboutProps) {
     const textStyles: CSSProperties.CSSProperties = { transform: "translateY(-50%)", top: "50%", position: "absolute", width: "100%" }
-
     const animatedTextStyles: CSSProperties.CSSProperties = { textAlign: "center", verticalAlign: "baseline", fontSize: "3rem", background: "var(--gradient)", WebkitBackgroundClip: "text", backgroundClip: "text", fontWeight: 700, ...textStyles, minHeight: "150px" }
 
     return (
@@ -108,7 +124,7 @@ export async function getStaticProps() {
     const education = getContent("education", ["title", "content"])
 
     return {
-        props: { page: { about, experience, education } },
+        props: { page: { about, experience, education } } as AboutProps,
     }
 }
 
