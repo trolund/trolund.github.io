@@ -1,4 +1,5 @@
-import ProjectItem from './project-item/project-item'
+import ProjectItem from "./project-item";
+
 
 interface ProjectsViewProps {
   posts: any[];

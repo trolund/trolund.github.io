@@ -7,7 +7,8 @@
     "start": "next start",
     "export": "next build && next export",
     "lint": "next lint",
-    "buildIndex": "ts-node search/indexBuilder.ts"
+    "buildIndex": "ts-node search/indexBuilder.ts",
+    "find:unused": "next-unused"
   },
   "dependencies": {
     "@codaworks/react-glow": "^1.0.6",
@@ -45,9 +46,26 @@
     "@types/react": "latest",
     "eslint": "^8.5.0",
     "eslint-config-next": "^14.2.4",
+    "next-unused": "^0.0.6",
     "postcss-preset-env": "^9.5.15",
     "tailwindcss": "latest",
     "typescript": "^4.4.4"
+  },
+  "next-unused": {
+    "alias": {},
+    "include": [
+      "components",
+      "pages",
+      "styles",
+      "lib",
+      "search",
+      "utils",
+      "types",
+      "hooks",
+      "constants"
+    ],
+    "exclude": [],
+    "entrypoints": []
   },
   "license": "MIT",
   "engines": {

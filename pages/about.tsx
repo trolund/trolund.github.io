@@ -12,9 +12,9 @@ import CSSProperties from 'react';
 import styles from "../pages/css/about.module.css"
 import Experience from '../components/experience/experience'
 import SubPostTitle from '../components/sub-post-title'
-import CertificationItem from '../components/certificationItem/certificationItem'
 import Education from '../components/education/education'
 import { Glow, GlowCapture } from '@codaworks/react-glow'
+import CertificationItem from '../components/certification-item'
 // import sdImage from '../public/assets/dansk-standard.jpeg';
 // import dtuImage from '../public/assets/logos/dtu.png';
 
@@ -57,8 +57,6 @@ export default function About({ page }) {
                 </TimeLine> */}
                 <Container>
                     <SubPostTitle>Skills</SubPostTitle>
-                    <GlowCapture>
-                        <Glow color='purple'>
                             <div>
                                 <div style={{ marginTop: "30px", marginBottom: "30px", }} className="lg:grid md:grid grid-cols-3 grid-rows-3 gap-3 md:grid-flow-row">
                                     <div className="box row-span-2 text-center card-low lg:m-0 md:m-0 m-3 glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900" style={{ backgroundColor: "var(--footer)", backgroundPositionX: "center", backgroundPositionY: "center", backgroundImage: "url(assets/ERD.svg)", backgroundRepeat: "no-repeat", backgroundSize: "40rem", minHeight: "150px", fontWeight: 700, fontSize: "300%", color: "var(--dark-text)" }}>
@@ -104,32 +102,14 @@ export default function About({ page }) {
                                     </div>
                                 </div>
                             </div>
-                        </Glow>
-                    </GlowCapture>
                 </Container>
 
                 <Container>
                     <SubPostTitle>Certifications</SubPostTitle>
-                    <GlowCapture>
-                    <Glow color='purple'>
                     <div className="flex flex-row flex-wrap">
-                        {/* <Card className={`w-2/5 p-5 flex flex-col ${styles.ds}`} style={{minHeight: "15rem"}} href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015">
-                            <div style={{ marginTop: "auto" }}>
-                                <h3 style={{color: "var(--text)"}}>ISO 21500 and ISO 21502</h3>
-                                <h2 style={{color: "var(--text)"}}>Project Management</h2>
-                            </div>
-                        </Card>
-                        <Card className={`w-2/5 p-5 flex flex-col ${styles.ds}`} style={{minHeight: "15rem"}} href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering">
-                            <div style={{ marginTop: "auto" }}>
-                                <h3 style={{color: "var(--text)"}}>Computer science and engineering </h3>
-                                <h2 style={{color: "var(--text)"}}>Master of Science in Engineering</h2>
-                            </div>
-                        </Card> */}
                         <CertificationItem className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900' image="/assets/dansk-standard.jpeg" imgCss={{ width: "110px" }} title='Project Management' subtitel='ISO 21500 and ISO 21502' href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015" />
                         <CertificationItem className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900' image="/assets/logos/dtu.png" title='Master of Science in Engineering' subtitel='Computer science and engineering' href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering" />
                     </div>
-                    </Glow>
-                    </GlowCapture>
                 </Container>
             </Layout>
         </>

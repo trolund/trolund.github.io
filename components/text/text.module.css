@@ -1,10 +1,5 @@
 .textContainer {
-    /* background-image: var(--bg-img);
-    background-size: cover; */
     font-size: 1rem;
-    /* font-weight: 800; */
-   /* background-clip: text; 
-    color: transparent;  */
     white-space: pre-line;
 }
 

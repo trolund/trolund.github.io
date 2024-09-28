@@ -1,32 +1,16 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styles from './big-banner.module.css'
 import Text from '../text/text'
-import { motion, useTransform, useScroll } from 'framer-motion'
-import { useMediaQuery } from 'react-responsive'
 import ParticalBanner from '../partical-banner'
 import { isMobile } from 'react-device-detect'
 import Link from 'next/link'
 
-export interface OneProps { }
-
-function BigBanner2({ }: OneProps) {
-
-    const constraintsRef = useRef(null)
-
-    const { scrollYProgress } = useScroll()
-    const height = useTransform(scrollYProgress, [0, 1], [1, 0.8]);  
-
-    const isSmallScreen = useMediaQuery({
-        query: '(max-width: 720px)'
-    })
-
+function BigBanner2() {
     return <>
         <div className={styles.overLay}></div>
         <div className={styles.shadowFilter}>
             <div 
-                className={styles.colorOne} 
-                ref={constraintsRef}
-                // style={{ scale: isSmallScreen ? 1 : height }}
+                className={styles.colorOne}
                 >
                 <div className={styles.container}>
                     <main className={styles.main}>
@@ -45,7 +29,6 @@ function BigBanner2({ }: OneProps) {
                         <div className={styles.actionbtn + " p-5"}>Learn more about me</div>          
                         </Link>              
                     </main>
-
                 </div>
             </div>
         </div>

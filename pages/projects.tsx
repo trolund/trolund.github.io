@@ -8,7 +8,7 @@ import { getAllProjects, getContent } from '../lib/api'
 import { BlogPost } from '../types/blogPost'
 import ProjectsView from '../components/projects'
 import PostBody from '../components/post-body'
-import { Glow, GlowCapture } from '@codaworks/react-glow'
+import { TITLE } from '../lib/constants'
 
 interface IndexProps {
     projects: BlogPost[];
@@ -21,16 +21,12 @@ export default function Projects({ projects, project }: IndexProps) {
             <Menu items={menu} disableScroll spacing />
             <Layout>
                 <Head>
-                    <title>Troels Lund | Projects</title>
+                    <title>{TITLE} | Projects</title>
                 </Head>
                 <Container>
                     <PostTitle>Projects</PostTitle>
                     <PostBody className='mx-auto' content={project.content} />
-                    <GlowCapture>
-                        <Glow color='purple'>
-                            <ProjectsView className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900' posts={projects} />
-                        </Glow>
-                    </GlowCapture>
+                    <ProjectsView className='glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900' posts={projects} />
                 </Container>
             </Layout>
         </>

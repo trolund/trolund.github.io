@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Author, OgImage } from "../../types/blogPost";
-import DateFormatter from "../date-formatter";
+import { Author, OgImage } from "../types/blogPost";
 import cn from 'classnames'
 import Image from 'next/image'
-import Ship from "../ship";
-import Card from "../Card/Card";
-import Language from "../../types/languages";
+import Language from "../types/languages";
+import DateFormatter from "./date-formatter";
+import Card from "./card";
+import Ship from "./ship";
 
 interface ProjectItemProps {
     title: string;

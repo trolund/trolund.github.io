@@ -3,7 +3,7 @@ import DateFormatter from './date-formatter'
 import Link from 'next/link'
 import { Author } from '../types/blogPost'
 import cn from 'classnames'
-import Card from './Card/Card'
+import Card from './card'
 import Ship from './ship'
 
 interface HeroPostProps {
