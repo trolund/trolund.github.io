@@ -10,14 +10,10 @@ import PostBody from '../components/post-body'
 import Text from '../components/text/text'
 import CSSProperties from 'react';
 import styles from "../pages/css/about.module.css"
-import Experience from '../components/experience/experience'
+import Experience from '../components/experience'
 import SubPostTitle from '../components/sub-post-title'
-import Education from '../components/education/education'
-import { Glow, GlowCapture } from '@codaworks/react-glow'
+import Education from '../components/education'
 import CertificationItem from '../components/certification-item'
-// import sdImage from '../public/assets/dansk-standard.jpeg';
-// import dtuImage from '../public/assets/logos/dtu.png';
-
 export default function About({ page }) {
 
     const textStyles: CSSProperties.CSSProperties = { transform: "translateY(-50%)", top: "50%", position: "absolute", width: "100%" }

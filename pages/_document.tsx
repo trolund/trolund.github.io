@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import Prompt from '../components/prompt/prompt'
 
 export default class MyDocument extends Document {
   render() {
@@ -54,7 +53,6 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <Main />
-          <Prompt />
           <NextScript />
         </body>
       </Html>

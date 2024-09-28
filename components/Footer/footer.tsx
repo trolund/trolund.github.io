@@ -5,7 +5,6 @@ import { VscGithubInverted } from 'react-icons/vsc'
 import { SiLinkedin } from 'react-icons/si'
 import menu from '../../constants/menu'
 import Link from 'next/link'
-import Prompt from '../prompt/prompt'
 
 export default function Footer() {
   return (
@@ -51,7 +50,6 @@ export default function Footer() {
         </div>
       </Container>
       <div className={styles.bottom}>© {(new Date()).getFullYear()} | Troels Lund</div>
-      <Prompt disableOverlay={true} />
     </footer >
   );
 }
