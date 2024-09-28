@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './big-banner.module.css'
 import Text from '../text/text'
-import ParticalBanner from '../partical-banner'
-import { isMobile } from 'react-device-detect'
 import Link from 'next/link'
 
 function BigBanner2() {
@@ -14,7 +12,6 @@ function BigBanner2() {
                 >
                 <div className={styles.container}>
                     <main className={styles.main}>
-                        {!isMobile && <ParticalBanner />}
                         <div>
                             <div className={styles.profile + " " + styles.bounceintop} />
                             <div className={styles.shadow} />
