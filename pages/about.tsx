@@ -7,8 +7,6 @@ import PostTitle from "../components/post-title";
 import ProfileCard from "../components/profile-card";
 import { getContent } from "../lib/api";
 import PostBody from "../components/post-body";
-import Text from "../components/text/text";
-import CSSProperties from "react";
 import styles from "../pages/css/about.module.css";
 import Experience from "../components/experience";
 import SubPostTitle from "../components/sub-post-title";
@@ -34,24 +32,6 @@ type AboutProps = {
 };
 
 export default function About({ page }: AboutProps) {
-  const textStyles: CSSProperties.CSSProperties = {
-    transform: "translateY(-50%)",
-    top: "50%",
-    position: "absolute",
-    width: "100%",
-  };
-  const animatedTextStyles: CSSProperties.CSSProperties = {
-    textAlign: "center",
-    verticalAlign: "baseline",
-    fontSize: "3rem",
-    background: "var(--gradient)",
-    WebkitBackgroundClip: "text",
-    backgroundClip: "text",
-    fontWeight: 700,
-    ...textStyles,
-    minHeight: "150px",
-  };
-
   return (
     <>
       <NavBar items={menu} />

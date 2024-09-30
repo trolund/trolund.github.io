@@ -1,5 +1,4 @@
 import cn from "classnames";
-import Image from "next/image";
 import Link from "next/link";
 
 interface coverImageProps {
@@ -15,8 +14,6 @@ export default function CoverImage({
   title,
   src,
   slug,
-  style,
-  className,
   tags,
 }: coverImageProps) {
   const image = (
