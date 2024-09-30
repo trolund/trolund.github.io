@@ -14,6 +14,7 @@ import Experience from "../components/experience";
 import SubPostTitle from "../components/sub-post-title";
 import Education from "../components/education";
 import CertificationItem from "../components/certification-item";
+import { TITLE } from "../lib/constants";
 
 type AboutProps = {
   page: {
@@ -56,7 +57,7 @@ export default function About({ page }: AboutProps) {
       <NavBar items={menu} />
       <Layout>
         <Head>
-          <title>Troels Lund | About</title>
+          <title>{TITLE} | About</title>
         </Head>
         <Container>
           <PostTitle>About me</PostTitle>
@@ -73,7 +74,7 @@ export default function About({ page }: AboutProps) {
           <SubPostTitle>Education</SubPostTitle>
           <Education mdcontent={page.education.content} />
         </Container>
-        <Container>
+        {/* <Container>
           <SubPostTitle>Skills</SubPostTitle>
           <div>
             <div
@@ -196,12 +197,11 @@ export default function About({ page }: AboutProps) {
               </div>
             </div>
           </div>
-        </Container>
+        </Container> */}
         <Container>
           <SubPostTitle>Certifications</SubPostTitle>
           <div className="flex flex-row flex-wrap">
             <CertificationItem
-              className="glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900"
               image="/assets/dansk-standard.jpeg"
               imgCss={{ width: "110px" }}
               title="Project Management"
@@ -209,7 +209,6 @@ export default function About({ page }: AboutProps) {
               href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015"
             />
             <CertificationItem
-              className="glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900"
               image="/assets/logos/dtu.png"
               title="Master of Science in Engineering"
               subtitel="Computer science and engineering"

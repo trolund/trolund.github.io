@@ -9,6 +9,7 @@ import ProjectsView from "../components/projects";
 import PostBody from "../components/post-body";
 import HeroPost from "../components/hero-post";
 import { BlogPost } from "../types/blogPost";
+import { TITLE } from "../lib/constants";
 
 type IndexProps = {
   allPosts: BlogPost[];
@@ -23,7 +24,7 @@ export default function Index({ allPosts, blog }: IndexProps) {
       <NavBar items={menu} />
       <Layout>
         <Head>
-          <title>Troels Lund | Blog</title>
+          <title>{TITLE} | Blog</title>
         </Head>
         <Container>
           <PostTitle>Blog</PostTitle>

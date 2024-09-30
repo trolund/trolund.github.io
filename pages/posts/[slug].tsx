@@ -10,6 +10,7 @@ import Head from "next/head";
 import NavBar from "../../components/nav-bar";
 import menu from "../../constants/menu";
 import { BlogPost } from "../../types/blogPost";
+import { TITLE } from "../../lib/constants";
 
 type postOptions = {
   post: BlogPost;
@@ -33,7 +34,9 @@ export default function Post({ post }: postOptions) {
             <>
               <article className="mb-32">
                 <Head>
-                  <title>Troels Lund | {post.title}</title>
+                  <title>
+                    {TITLE} | {post.title}
+                  </title>
                   <meta property="og:image" content={post.ogImage.url} />
                 </Head>
                 <PostHeader
