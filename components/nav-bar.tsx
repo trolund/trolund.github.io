@@ -91,7 +91,7 @@ const NavBar = ({ items }: MenuProps) => {
       </ul>
       {isOpen && (
         <div
-          className="md:w-0 md:h-0 fixed z-50 h-screen w-screen"
+          className="md:w-0 md:h-0 fixed z-[49] h-screen w-screen"
           onClick={() => setIsOpen(!isOpen)}
         ></div>
       )}
