@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { MdDarkMode, MdOutlineDarkMode, MdLightMode } from "react-icons/md";
 import { MenuItem } from "../types/MenuItem";
 import useTheme from "../hooks/useTheme";
 import Link from "next/link";
@@ -44,11 +44,7 @@ const NavBar = ({ items }: MenuProps) => {
               onClick={switchTheme}
               className="p-4 m-2 cursor-pointer duration-300 hover:scale-125"
             >
-              {isDark ? (
-                <MdDarkMode size={30} />
-              ) : (
-                <MdOutlineDarkMode size={30} />
-              )}
+              {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
             </li>
           </ul>
 
@@ -63,45 +59,42 @@ const NavBar = ({ items }: MenuProps) => {
         </div>
       </div>
       {/* Mobile Navigation Menu */}
-      <div
-        className="fixed z-50 h-screen w-screen"
-        onClick={() => setIsOpen(!isOpen)}
+      <ul
+        className={cn(
+          "fixed z-50 border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]",
+          isOpen
+            ? "left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden"
+            : "top-0 bottom-0 left-[-100%] w-[60%] duration-500 ease-in-out",
+        )}
       >
-        <ul
-          className={cn(
-            "fixed border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]",
-            isOpen
-              ? "left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden"
-              : "top-0 bottom-0 left-[-100%] w-[60%] duration-500 ease-in-out",
-          )}
-        >
-          {/* Mobile Navigation Items */}
-          {items.map((item) => (
-            <li
-              key={item.link}
-              className="p-4 cursor-pointer border-b border-gray-600 text-[var(--content-text)] duration-300 hover:text-[var(--content-)]"
+        {/* Mobile Navigation Items */}
+        {items.map((item) => (
+          <li
+            key={item.link}
+            className="p-4 cursor-pointer border-b border-gray-600 text-[var(--content-text)] duration-300 hover:text-[var(--content-)]"
+          >
+            <Link
+              href={item.link}
+              className={
+                router.pathname === item.link
+                  ? "border-[var(--content-text)] font-bold"
+                  : "border-transparent hover:scale-105 hover:border-[var(--content-text)]"
+              }
             >
-              <Link
-                href={item.link}
-                className={
-                  router.pathname === item.link
-                    ? "border-[var(--content-text)] font-bold"
-                    : "border-transparent hover:scale-105 hover:border-[var(--content-text)]"
-                }
-              >
-                {item.itemName}
-              </Link>
-            </li>
-          ))}
-          <li onClick={switchTheme} className="p-4 m-2 cursor-pointer">
-            {isDark ? (
-              <MdDarkMode size={30} />
-            ) : (
-              <MdOutlineDarkMode size={30} />
-            )}
+              {item.itemName}
+            </Link>
           </li>
-        </ul>
-      </div>
+        ))}
+        <li onClick={switchTheme} className="p-4 m-2 cursor-pointer">
+          {isDark ? <MdDarkMode size={30} /> : <MdOutlineDarkMode size={30} />}
+        </li>
+      </ul>
+      {isOpen && (
+        <div
+          className="md:w-0 md:h-0 fixed z-50 h-screen w-screen"
+          onClick={() => setIsOpen(!isOpen)}
+        ></div>
+      )}
     </>
   );
 };

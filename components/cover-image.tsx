@@ -21,7 +21,7 @@ export default function CoverImage({
 }: coverImageProps) {
   const image = (
     <div>
-      <Image
+      <img
         style={{ maxHeight: "32rem", ...style }}
         src={src}
         alt={`Cover Image for ${title}`}
