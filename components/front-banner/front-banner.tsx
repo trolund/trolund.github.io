@@ -17,7 +17,7 @@ function FrontBanner() {
                             <div className={styles.shadow} />
                         </div>
                         <h1 className={styles.title + " " + styles.textfocusin}>
-                            Hi <span className={styles.wave}>👋</span>, I&apos;m <b>Troels Lund</b>
+                            Hi <span className={styles.wave}>👋</span>, I&apos;m <strong>Troels Lund</strong>
                         </h1>
                         <h3 className={styles.description + " mb-10 " + styles.textfocusin2}>
                             <Text initDelay={15} containerStyles={{ display: "inline-block", fontSize: "1.3rem" }} input='I am a software engineer' onlyWhenVisible keepUnderscore writeSpeed={200} />
