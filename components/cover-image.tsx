@@ -22,16 +22,11 @@ export default function CoverImage({
   const image = (
     <div>
       <img
-        style={{ maxHeight: "32rem", ...style }}
         src={src}
         alt={`Cover Image for ${title}`}
-        className={
-          cn("shadow-small", {
-            "transition-shadow duration-200 hover:shadow-medium": slug,
-          }) +
-          " mx-auto" +
-          className
-        }
+        className={cn("mx-auto shadow-small", {
+          "transition-shadow duration-200 hover:shadow-medium": slug,
+        })}
       />
       {tags &&
         tags.map((t, i) => (
