@@ -25,7 +25,7 @@ export default function Post({ post }: postOptions) {
   return (
     <Layout>
       <Container>
-        <NavBar items={menu} disableScroll spacing />
+        <NavBar items={menu} />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (

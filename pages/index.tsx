@@ -8,7 +8,7 @@ import { TITLE } from "../lib/constants";
 export default function Index() {
   return (
     <>
-      <NavBar items={menu} disableScroll spacing />
+      <NavBar items={menu} />
       <Head>
         <title>{TITLE}</title>
         <link

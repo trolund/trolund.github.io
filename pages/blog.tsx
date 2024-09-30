@@ -20,7 +20,7 @@ export default function Index({ allPosts, blog }: IndexProps) {
   const morePosts = allPosts.slice(1);
   return (
     <>
-      <NavBar items={menu} disableScroll spacing />
+      <NavBar items={menu} />
       <Layout>
         <Head>
           <title>Troels Lund | Blog</title>

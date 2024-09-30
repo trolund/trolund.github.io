@@ -53,7 +53,7 @@ export default function About({ page }: AboutProps) {
 
   return (
     <>
-      <NavBar items={menu} disableScroll spacing />
+      <NavBar items={menu} />
       <Layout>
         <Head>
           <title>Troels Lund | About</title>

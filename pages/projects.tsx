@@ -18,7 +18,7 @@ interface IndexProps {
 export default function Projects({ projects, project }: IndexProps) {
   return (
     <>
-      <NavBar items={menu} disableScroll spacing />
+      <NavBar items={menu} />
       <Layout>
         <Head>
           <title>{TITLE} | Projects</title>
