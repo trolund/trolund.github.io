@@ -19,7 +19,7 @@ export default function CertificationItem({
 }: CertificationItemProp) {
   return (
     <Card
-      className={`flex min-h-[230px] w-2/5 cursor-pointer flex-col p-5 hover:scale-105`}
+      className={`p-5 flex min-h-[230px] w-2/5 cursor-pointer flex-col hover:scale-105`}
       href={href}
     >
       <div
@@ -32,7 +32,7 @@ export default function CertificationItem({
           ...imgCss,
         }}
       >
-        <Image alt="" src={image} layout="fill" />
+        <Image alt="" src={image ?? ''} layout="fill" />
       </div>
       <div style={{ marginTop: 'auto' }}>
         <h3 style={{ color: 'var(--content-text)' }}>{subtitel}</h3>

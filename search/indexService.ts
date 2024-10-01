@@ -9,7 +9,7 @@ const indexPath = join(process.cwd(), 'index.json');
 export type Index = { [key: string]: { keywords: string[]; name: string } };
 export type SearchResult = { slug: string; name: string };
 
-let index: Index = null;
+let index: Index;
 
 function getData() {
   const fields: BlogFields = ['title', 'slug', 'excerpt', 'tags', 'content'];
@@ -23,15 +23,14 @@ function getData() {
 }
 
 function loadIndex() {
-  let raw: string;
+  let raw: string = '';
   try {
     raw = fs.readFileSync(indexPath, 'utf8');
   } catch (err) {
     console.log(err);
   }
 
-  index = raw.length > 2 ? JSON.parse(raw) : {};
-  return index;
+  return raw.length > 2 ? JSON.parse(raw) : {};
 }
 
 export function buildIndex() {
@@ -56,13 +55,13 @@ export function buildIndex() {
     });
 
     // write keywords to index. combine tags with keywords from content
-    index[key] = { keywords: [...keywords, ...post.tags], name: post.title };
+    index[key] = { keywords: [...keywords, ...post.tags ?? []], name: post.title };
   }
 
   writeIndex(index);
 }
 
-function writeIndex(data) {
+function writeIndex(data: Index) {
   fs.writeFile(indexPath, JSON.stringify(data), function writeJSON(err) {
     if (err) return console.log(err);
   });

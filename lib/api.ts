@@ -23,7 +23,7 @@ export function getContent(name: string, fields: BlogFields = []) {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const items = {};
+  const items: { [key: string]: any } = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -42,13 +42,13 @@ export function getContent(name: string, fields: BlogFields = []) {
   return items as BlogPost;
 }
 
-export function getPostBySlug(slug, fields: BlogFields = []) {
+export function getPostBySlug(slug: string, fields: BlogFields = []) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const items = {};
+  const items: { [key: string]: any } = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -58,7 +58,6 @@ export function getPostBySlug(slug, fields: BlogFields = []) {
     if (field === 'content') {
       items[field] = content;
     }
-
     if (data[field]) {
       items[field] = data[field];
     }
@@ -75,7 +74,7 @@ export function getAllPosts(fields: BlogFields = []) {
 
   // filter out drafts
   if (fields.includes('tags')) {
-    return posts.filter((i) => i.tags.includes('post') && !i.isDraft);
+    return posts.filter((i) => i.tags?.includes('post') && !i.isDraft);
   }
 
   return posts;
@@ -89,7 +88,7 @@ export function getAllProjects(fields: BlogFields = []) {
 
   // filter out drafts
   if (fields.includes('tags')) {
-    return posts.filter((i) => i.tags.includes('project') && !i.isDraft);
+    return posts.filter((i) => i.tags?.includes('project') && !i.isDraft);
   }
 
   return posts;
