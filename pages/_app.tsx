@@ -1,5 +1,5 @@
-import "../styles/index.css";
-import Head from "next/head";
+import '../styles/index.css';
+import Head from 'next/head';
 
 type AppProps = {
   Component: any;

@@ -1,6 +1,6 @@
-import Link from "next/link";
-import React from "react";
-import cn from "classnames";
+import Link from 'next/link';
+import React from 'react';
+import cn from 'classnames';
 
 interface CardProp {
   style?: React.CSSProperties;
@@ -9,17 +9,9 @@ interface CardProp {
   href?: URL | string;
 }
 
-const Card: React.FC<CardProp> = ({
-  children,
-  style,
-  className,
-  href,
-}: CardProp) => {
+const Card: React.FC<CardProp> = ({ children, style, className, href }: CardProp) => {
   var container = (
-    <div
-      style={style}
-      className={cn("card-low lg:m-3 md:m-2 sm:m-1 m-1 p-3", className)}
-    >
+    <div style={style} className={cn('card-low m-1 p-3 sm:m-1 md:m-2 lg:m-3', className)}>
       {children}
     </div>
   );

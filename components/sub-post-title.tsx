@@ -1,13 +1,13 @@
 type SubPostTitleProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function SubPostTitle({ children }: SubPostTitleProps) {
   return (
     <div>
-      <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+      <h2 className="mb-12 text-center text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl">
         {children}
       </h2>
     </div>
-  )
+  );
 }

@@ -1,16 +1,16 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import Container from "../../components/container";
-import PostBody from "../../components/post-body";
-import PostHeader from "../../components/post-header";
-import Layout from "../../components/layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
-import PostTitle from "../../components/post-title";
-import Head from "next/head";
-import NavBar from "../../components/nav-bar";
-import menu from "../../constants/menu";
-import { BlogPost } from "../../types/blogPost";
-import { TITLE } from "../../lib/constants";
+import { useRouter } from 'next/router';
+import ErrorPage from 'next/error';
+import Container from '../../components/container';
+import PostBody from '../../components/post-body';
+import PostHeader from '../../components/post-header';
+import Layout from '../../components/layout';
+import { getPostBySlug, getAllPosts } from '../../lib/api';
+import PostTitle from '../../components/post-title';
+import Head from 'next/head';
+import NavBar from '../../components/nav-bar';
+import menu from '../../constants/menu';
+import { BlogPost } from '../../types/blogPost';
+import { TITLE } from '../../lib/constants';
 
 type postOptions = {
   post: BlogPost;
@@ -59,18 +59,18 @@ export default function Post({ post }: postOptions) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "author",
-    "content",
-    "ogImage",
-    "coverImage",
-    "language",
-    "technologies",
+    'title',
+    'date',
+    'slug',
+    'author',
+    'content',
+    'ogImage',
+    'coverImage',
+    'language',
+    'technologies',
   ]);
 
-  const content = post.content || "";
+  const content = post.content || '';
 
   return {
     props: {
@@ -83,7 +83,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
+  const posts = getAllPosts(['slug']);
 
   return {
     paths: posts.map((post) => {

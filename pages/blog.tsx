@@ -1,15 +1,15 @@
-import Container from "../components/container";
-import Layout from "../components/layout";
-import { getAllPosts, getContent } from "../lib/api";
-import Head from "next/head";
-import NavBar from "../components/nav-bar";
-import menu from "../constants/menu";
-import PostTitle from "../components/post-title";
-import ProjectsView from "../components/projects";
-import PostBody from "../components/post-body";
-import HeroPost from "../components/hero-post";
-import { BlogPost } from "../types/blogPost";
-import { TITLE } from "../lib/constants";
+import Container from '../components/container';
+import Layout from '../components/layout';
+import { getAllPosts, getContent } from '../lib/api';
+import Head from 'next/head';
+import NavBar from '../components/nav-bar';
+import menu from '../constants/menu';
+import PostTitle from '../components/post-title';
+import ProjectsView from '../components/projects';
+import PostBody from '../components/post-body';
+import HeroPost from '../components/hero-post';
+import { BlogPost } from '../types/blogPost';
+import { TITLE } from '../lib/constants';
 
 type IndexProps = {
   allPosts: BlogPost[];
@@ -55,18 +55,18 @@ export default function Index({ allPosts, blog }: IndexProps) {
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([
-    "title",
-    "date",
-    "slug",
-    "author",
-    "coverImage",
-    "excerpt",
-    "tags",
-    "technologies",
-    "language",
+    'title',
+    'date',
+    'slug',
+    'author',
+    'coverImage',
+    'excerpt',
+    'tags',
+    'technologies',
+    'language',
   ]);
 
-  const blog = getContent("blog", ["title", "content"]);
+  const blog = getContent('blog', ['title', 'content']);
 
   return {
     props: { allPosts, blog } as IndexProps,

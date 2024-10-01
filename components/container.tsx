@@ -5,5 +5,12 @@ interface ContainerType {
 }
 
 export default function Container({ className, style, children }: ContainerType) {
-  return <div style={{...style, maxWidth: "1024px" }} className={"sm:container mx-auto px-5 main-content " + className}>{children}</div>
+  return (
+    <div
+      style={{ ...style, maxWidth: '1024px' }}
+      className={'main-content mx-auto px-5 sm:container ' + className}
+    >
+      {children}
+    </div>
+  );
 }

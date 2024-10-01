@@ -1,18 +1,18 @@
-import Container from "../components/container";
-import Layout from "../components/layout";
-import Head from "next/head";
-import menu from "../constants/menu";
-import NavBar from "../components/nav-bar";
-import PostTitle from "../components/post-title";
-import ProfileCard from "../components/profile-card";
-import { getContent } from "../lib/api";
-import PostBody from "../components/post-body";
-import styles from "../pages/css/about.module.css";
-import Experience from "../components/experience";
-import SubPostTitle from "../components/sub-post-title";
-import Education from "../components/education";
-import CertificationItem from "../components/certification-item";
-import { TITLE } from "../lib/constants";
+import Container from '../components/container';
+import Layout from '../components/layout';
+import Head from 'next/head';
+import menu from '../constants/menu';
+import NavBar from '../components/nav-bar';
+import PostTitle from '../components/post-title';
+import ProfileCard from '../components/profile-card';
+import { getContent } from '../lib/api';
+import PostBody from '../components/post-body';
+import styles from '../pages/css/about.module.css';
+import Experience from '../components/experience';
+import SubPostTitle from '../components/sub-post-title';
+import Education from '../components/education';
+import CertificationItem from '../components/certification-item';
+import { TITLE } from '../lib/constants';
 
 type AboutProps = {
   page: {
@@ -183,7 +183,7 @@ export default function About({ page }: AboutProps) {
           <div className="flex flex-row flex-wrap">
             <CertificationItem
               image="/assets/dansk-standard.jpeg"
-              imgCss={{ width: "110px" }}
+              imgCss={{ width: '110px' }}
               title="Project Management"
               subtitel="ISO 21500 and ISO 21502"
               href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015"
@@ -202,9 +202,9 @@ export default function About({ page }: AboutProps) {
 }
 
 export async function getStaticProps() {
-  const about = getContent("about", ["title", "content"]);
-  const experience = getContent("experience", ["title", "content"]);
-  const education = getContent("education", ["title", "content"]);
+  const about = getContent('about', ['title', 'content']);
+  const experience = getContent('experience', ['title', 'content']);
+  const education = getContent('education', ['title', 'content']);
 
   return {
     props: { page: { about, experience, education } } as AboutProps,

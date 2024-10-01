@@ -1,5 +1,4 @@
-import ProjectItem from "./project-item";
-
+import ProjectItem from './project-item';
 
 interface ProjectsViewProps {
   posts: any[];
@@ -9,7 +8,7 @@ interface ProjectsViewProps {
 export default function ProjectsView({ posts, className }: ProjectsViewProps) {
   return (
     <section>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
+      <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32 grid grid-cols-1 md:grid-cols-2">
         {posts.map((post) => (
           <ProjectItem
             key={post.slug}
@@ -19,13 +18,13 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
             author={post.author}
             slug={post.slug}
             excerpt={post.excerpt}
-            technologies={post.technologies} 
+            technologies={post.technologies}
             content={''}
             language={post.language}
             className={className}
-             />
+          />
         ))}
       </div>
     </section>
-  )
+  );
 }

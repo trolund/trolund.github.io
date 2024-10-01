@@ -1,6 +1,5 @@
+import { buildIndex } from './indexService';
 
-import { buildIndex } from "./indexService";
-
-console.log("Starting indexing! 🚀");
+console.log('Starting indexing! 🚀');
 buildIndex();
-console.log("Indexing done. ✅");
+console.log('Indexing done. ✅');

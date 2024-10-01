@@ -1,5 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { TITLE } from "../lib/constants";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { TITLE } from '../lib/constants';
 
 export default class MyDocument extends Document {
   render() {

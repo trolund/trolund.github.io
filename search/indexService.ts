@@ -1,68 +1,62 @@
-import { BlogFields, getPostBySlug, getPostSlugs } from "../lib/api"
-import fs from "fs";
-import keyword_extractor from "keyword-extractor"
-import { join } from "path"
+import { BlogFields, getPostBySlug, getPostSlugs } from '../lib/api';
+import fs from 'fs';
+import keyword_extractor from 'keyword-extractor';
+import { join } from 'path';
 
-const indexPath = join(process.cwd(), 'index.json')
+const indexPath = join(process.cwd(), 'index.json');
 
 // key is the slug
-export type Index = { [key: string]: { keywords: string[], name: string } }
-export type SearchResult = { slug: string, name: string }
+export type Index = { [key: string]: { keywords: string[]; name: string } };
+export type SearchResult = { slug: string; name: string };
 
-let index: Index = null
+let index: Index = null;
 
 function getData() {
-  const fields: BlogFields = [
-    "title",
-    "slug",
-    "excerpt",
-    "tags",
-    "content"
-  ];
+  const fields: BlogFields = ['title', 'slug', 'excerpt', 'tags', 'content'];
 
   // get slugs
   const slugs = getPostSlugs();
 
   // get content of posts
-  const posts = slugs.map((slug) => getPostBySlug(slug, fields))
+  const posts = slugs.map((slug) => getPostBySlug(slug, fields));
   return posts;
 }
 
-function loadIndex(){
-  let raw: string
+function loadIndex() {
+  let raw: string;
   try {
-    raw = fs.readFileSync(indexPath, "utf8")
+    raw = fs.readFileSync(indexPath, 'utf8');
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
-  index = raw.length > 2 ? JSON.parse(raw) : {}
-  return index
+
+  index = raw.length > 2 ? JSON.parse(raw) : {};
+  return index;
 }
 
 export function buildIndex() {
-  const postsData = getData()
-  const index = loadIndex()
+  const postsData = getData();
+  const index = loadIndex();
 
   for (const post of postsData) {
     const key = post.slug;
 
-    // post is already indexed? Continue if post is already indexed.    
+    // post is already indexed? Continue if post is already indexed.
     if (key in index) {
-       continue;
+      continue;
     }
 
-    const data = post.content ?? "" + " " + post.title ?? "" + " " + post.excerpt ?? "";
+    const data = post.content ?? '' + ' ' + post.title ?? '' + ' ' + post.excerpt ?? '';
 
     const keywords = keyword_extractor.extract(data, {
-      language: post.language === "da" ? "danish" : "english",
+      language: post.language === 'da' ? 'danish' : 'english',
       remove_digits: true,
       return_changed_case: true,
       remove_duplicates: true,
     });
 
     // write keywords to index. combine tags with keywords from content
-    index[key] = { keywords: [...keywords, ...post.tags], name: post.title }
+    index[key] = { keywords: [...keywords, ...post.tags], name: post.title };
   }
 
   writeIndex(index);
@@ -75,16 +69,14 @@ function writeIndex(data) {
 }
 
 export function search(term: string): SearchResult[] {
-    // load if index is not in memory.
-    if(index === null){
-      loadIndex()
-    }
+  // load if index is not in memory.
+  if (index === null) {
+    loadIndex();
+  }
 
-    const results: SearchResult[] = Object.entries(index)
-      .filter(([_, value]) => value.keywords.includes(term))
-      .map(([key, value]) => ({ slug: key, name: value.name } as SearchResult))
+  const results: SearchResult[] = Object.entries(index)
+    .filter(([_, value]) => value.keywords.includes(term))
+    .map(([key, value]) => ({ slug: key, name: value.name }) as SearchResult);
 
-    return results
+  return results;
 }
-
-

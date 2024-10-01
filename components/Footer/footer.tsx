@@ -1,38 +1,38 @@
-import Container from "../container";
-import styles from "./Footer.module.css";
-import { MdMail, MdPhone } from "react-icons/md";
-import { VscGithubInverted } from "react-icons/vsc";
-import { SiLinkedin } from "react-icons/si";
-import menu from "../../constants/menu";
-import Link from "next/link";
+import Container from '../container';
+import styles from './Footer.module.css';
+import { MdMail, MdPhone } from 'react-icons/md';
+import { VscGithubInverted } from 'react-icons/vsc';
+import { SiLinkedin } from 'react-icons/si';
+import menu from '../../constants/menu';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className={"bg-accent-1 border-accent-2 border-t " + styles.footer}>
+    <footer className={'border-t border-accent-2 bg-accent-1 ' + styles.footer}>
       <Container>
         <div
           className={
-            "xs:justify-center grid grid-cols-1 justify-between md:grid-cols-2 md:justify-center lg:grid-cols-2"
+            'xs:justify-center grid grid-cols-1 justify-between md:grid-cols-2 md:justify-center lg:grid-cols-2'
           }
         >
-          <div className={"xs:p-3 md:p-8 " + styles.box}>
+          <div className={'xs:p-3 md:p-8 ' + styles.box}>
             <h4>Contact details</h4>
             <div
               style={{
-                height: "5px",
-                backgroundImage: "var(--bg-img)",
-                backgroundSize: "cover",
-                borderRadius: "8px",
-                marginBottom: "1rem",
+                height: '5px',
+                backgroundImage: 'var(--bg-img)',
+                backgroundSize: 'cover',
+                borderRadius: '8px',
+                marginBottom: '1rem',
               }}
             />
             <ul className={styles.list}>
               <li>
-                <MdPhone size={25} className="float-left" />{" "}
+                <MdPhone size={25} className="float-left" />{' '}
                 <p className="float-right">+45 29 45 66 60</p>
               </li>
               <li>
-                <MdMail size={25} className="float-left" />{" "}
+                <MdMail size={25} className="float-left" />{' '}
                 <p className="float-right">Trolund@gmail.com</p>
               </li>
               <li>
@@ -41,25 +41,22 @@ export default function Footer() {
             </ul>
             <div className={styles.icons}>
               <a href="https://github.com/trolund">
-                <VscGithubInverted
-                  size={40}
-                  style={{ animationDelay: "0.2s" }}
-                />
+                <VscGithubInverted size={40} style={{ animationDelay: '0.2s' }} />
               </a>
               <a href="https://www.linkedin.com/in/trolund/">
-                <SiLinkedin size={40} style={{ animationDelay: "0.5s" }} />
+                <SiLinkedin size={40} style={{ animationDelay: '0.5s' }} />
               </a>
             </div>
           </div>
-          <div className={"xs:p-3 md:p-8 " + styles.box}>
+          <div className={'xs:p-3 md:p-8 ' + styles.box}>
             <h4>Site map</h4>
             <div
               style={{
-                height: "5px",
-                backgroundImage: "var(--bg-img)",
-                backgroundSize: "cover",
-                borderRadius: "8px",
-                marginBottom: "1rem",
+                height: '5px',
+                backgroundImage: 'var(--bg-img)',
+                backgroundSize: 'cover',
+                borderRadius: '8px',
+                marginBottom: '1rem',
               }}
             />
             <ul className={styles.links}>
@@ -72,9 +69,7 @@ export default function Footer() {
           </div>
         </div>
       </Container>
-      <div className={styles.bottom}>
-        © {new Date().getFullYear()} | Troels Lund
-      </div>
+      <div className={styles.bottom}>© {new Date().getFullYear()} | Troels Lund</div>
     </footer>
   );
 }

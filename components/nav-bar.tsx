@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
-import { MenuItem } from "../types/MenuItem";
-import useTheme from "../hooks/useTheme";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import cn from "classnames";
+import React, { useState } from 'react';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import { MenuItem } from '../types/MenuItem';
+import useTheme from '../hooks/useTheme';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import cn from 'classnames';
 
 export interface MenuProps {
   items: MenuItem[];
@@ -20,10 +20,10 @@ const NavBar = ({ items }: MenuProps) => {
     <>
       <div
         className={cn(
-          "top-0 sticky z-40 w-full border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]",
+          'sticky top-0 z-40 w-full border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]',
         )}
       >
-        <div className="h-16 px-4 mx-auto flex max-w-5xl items-center justify-end">
+        <div className="mx-auto flex h-16 max-w-5xl items-center justify-end px-4">
           {/* Desktop Navigation */}
           <ul className="hidden md:flex">
             {items.map((item) => (
@@ -31,10 +31,10 @@ const NavBar = ({ items }: MenuProps) => {
                 key={item.link}
                 href={item.link}
                 className={cn(
-                  "p-4 pt-5 m-2 cursor-pointer border-b-2 duration-300",
+                  'm-2 cursor-pointer border-b-2 p-4 pt-5 duration-300',
                   router.pathname === item.link
-                    ? "border-b-4 border-[var(--content-text)] font-bold"
-                    : "border-transparent hover:scale-105 hover:border-[var(--content-text)]",
+                    ? 'border-b-4 border-[var(--content-text)] font-bold'
+                    : 'border-transparent hover:scale-105 hover:border-[var(--content-text)]',
                 )}
               >
                 <li>{item.itemName}</li>
@@ -42,7 +42,7 @@ const NavBar = ({ items }: MenuProps) => {
             ))}
             <li
               onClick={switchTheme}
-              className="p-4 m-2 cursor-pointer duration-300 hover:scale-125"
+              className="m-2 cursor-pointer p-4 duration-300 hover:scale-125"
             >
               {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
             </li>
@@ -50,48 +50,44 @@ const NavBar = ({ items }: MenuProps) => {
 
           {/* Mobile Navigation Icon */}
           <div onClick={() => setIsOpen(!isOpen)} className="block md:hidden">
-            {isOpen ? (
-              <AiOutlineClose size={20} />
-            ) : (
-              <AiOutlineMenu size={20} />
-            )}
+            {isOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
           </div>
         </div>
       </div>
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
-          "fixed z-50 border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]",
+          'fixed z-50 border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]',
           isOpen
-            ? "left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden"
-            : "top-0 bottom-0 left-[-100%] w-[60%] duration-500 ease-in-out",
+            ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
+            : 'top-0 bottom-0 left-[-100%] w-[60%] duration-500 ease-in-out',
         )}
       >
         {/* Mobile Navigation Items */}
         {items.map((item) => (
           <li
             key={item.link}
-            className="p-4 cursor-pointer border-b border-gray-600 text-[var(--content-text)] duration-300 hover:text-[var(--content-)]"
+            className="cursor-pointer border-b border-gray-600 p-4 text-[var(--content-text)] duration-300 hover:text-[var(--content-)]"
           >
             <Link
               href={item.link}
               className={
                 router.pathname === item.link
-                  ? "border-[var(--content-text)] font-bold"
-                  : "border-transparent hover:scale-105 hover:border-[var(--content-text)]"
+                  ? 'border-[var(--content-text)] font-bold'
+                  : 'border-transparent hover:scale-105 hover:border-[var(--content-text)]'
               }
             >
               {item.itemName}
             </Link>
           </li>
         ))}
-        <li onClick={switchTheme} className="p-4 m-2 cursor-pointer">
+        <li onClick={switchTheme} className="m-2 cursor-pointer p-4">
           {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
         </li>
       </ul>
       {isOpen && (
         <div
-          className="md:w-0 md:h-0 fixed z-[49] h-screen w-screen"
+          className="fixed z-[49] h-screen w-screen md:h-0 md:w-0"
           onClick={() => setIsOpen(!isOpen)}
         ></div>
       )}

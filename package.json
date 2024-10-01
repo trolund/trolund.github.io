@@ -9,7 +9,8 @@
     "lint": "next lint",
     "buildIndex": "ts-node search/indexBuilder.ts",
     "find:unused": "next-unused",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
     "@codaworks/react-glow": "^1.0.6",

@@ -1,5 +1,5 @@
-import cn from "classnames";
-import Link from "next/link";
+import cn from 'classnames';
+import Link from 'next/link';
 
 interface coverImageProps {
   title: string;
@@ -10,26 +10,21 @@ interface coverImageProps {
   tags?: string[];
 }
 
-export default function CoverImage({
-  title,
-  src,
-  slug,
-  tags,
-}: coverImageProps) {
+export default function CoverImage({ title, src, slug, tags }: coverImageProps) {
   const image = (
     <div>
       <img
         src={src}
         alt={`Cover Image for ${title}`}
-        className={cn("mx-auto shadow-small", {
-          "transition-shadow duration-200 hover:shadow-medium": slug,
+        className={cn('mx-auto shadow-small', {
+          'transition-shadow duration-200 hover:shadow-medium': slug,
         })}
       />
       {tags &&
         tags.map((t, i) => (
           <span
             key={i}
-            className="p-4 bg-accent-2 rounded-full border-transparent border-gray-200 transition-shadow duration-200 hover:shadow-medium"
+            className="rounded-full border-transparent border-gray-200 bg-accent-2 p-4 transition-shadow duration-200 hover:shadow-medium"
           >
             {t}
           </span>

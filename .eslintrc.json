@@ -4,7 +4,8 @@
     "next",
     "next/core-web-vitals",
     "plugin:react/jsx-runtime",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "prettier"
   ],
   "env": {
     "browser": true,

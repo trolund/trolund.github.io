@@ -1,5 +1,5 @@
-import { CSSProperties, FunctionComponent, useEffect, useState } from "react";
-import styles from "./text.module.css";
+import { CSSProperties, FunctionComponent, useEffect, useState } from 'react';
+import styles from './text.module.css';
 
 interface TextProps {
   input: string | string[];
@@ -59,10 +59,7 @@ const Text: FunctionComponent<TextProps> = ({
         return;
       }
 
-      if (
-        onlyWhenVisible === undefined ||
-        (onlyWhenVisible && isInViewport(0))
-      ) {
+      if (onlyWhenVisible === undefined || (onlyWhenVisible && isInViewport(0))) {
         const wordLength = input[wordIndex].length;
 
         if (charIndex >= wordLength) {
@@ -107,24 +104,20 @@ const Text: FunctionComponent<TextProps> = ({
       ref={(el) => (element = el)}
       style={{ ...textContainerStyles, color: color }}
       className={
-        styles.textContainer +
-        (textContainerClassName ? " " + textContainerClassName : "")
+        styles.textContainer + (textContainerClassName ? ' ' + textContainerClassName : '')
       }
     >
       {word(wordIndex, charIndex)}
       <b
         style={{
-          display: showUnderScore ? "inline-block" : "none",
+          display: showUnderScore ? 'inline-block' : 'none',
           color: color,
           ...underscoreStyles,
           ...(underscoreAnimationDuration
-            ? { animationDuration: String(underscoreAnimationDuration) + "s" }
+            ? { animationDuration: String(underscoreAnimationDuration) + 's' }
             : {}),
         }}
-        className={
-          styles.underscore +
-          (underscoreClassName ? " " + underscoreClassName : "")
-        }
+        className={styles.underscore + (underscoreClassName ? ' ' + underscoreClassName : '')}
       >
         _
       </b>

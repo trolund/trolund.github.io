@@ -1,2 +1,2 @@
-type Language = 'da' | 'en'
+type Language = 'da' | 'en';
 export default Language;
