@@ -20,10 +20,10 @@ const NavBar = ({ items }: MenuProps) => {
     <>
       <div
         className={cn(
-          'sticky top-0 z-40 w-full border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]',
+          'top-0 sticky z-40 w-full border-b-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
         )}
       >
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-end px-4">
+        <div className="h-16 px-4 mx-auto flex max-w-5xl items-center justify-end">
           {/* Desktop Navigation */}
           <ul className="hidden md:flex">
             {items.map((item) => (
@@ -31,10 +31,10 @@ const NavBar = ({ items }: MenuProps) => {
                 key={item.link}
                 href={item.link}
                 className={cn(
-                  'm-2 cursor-pointer border-b-2 p-4 pt-5 duration-300',
+                  'm-2 p-4 pt-5 cursor-pointer border-b-2 duration-300',
                   router.pathname === item.link
-                    ? 'border-b-4 border-[var(--content-text)] font-bold'
-                    : 'border-transparent hover:scale-105 hover:border-[var(--content-text)]',
+                    ? 'border-b-4 border-content-text font-bold'
+                    : 'border-transparent hover:scale-105 hover:border-content-text',
                 )}
               >
                 <li>{item.itemName}</li>
@@ -42,7 +42,7 @@ const NavBar = ({ items }: MenuProps) => {
             ))}
             <li
               onClick={switchTheme}
-              className="m-2 cursor-pointer p-4 duration-300 hover:scale-125"
+              className="m-2 p-4 cursor-pointer duration-300 hover:scale-125"
             >
               {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
             </li>
@@ -57,7 +57,7 @@ const NavBar = ({ items }: MenuProps) => {
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
-          'fixed z-50 border-b-[1px] border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--content-text)] backdrop-blur-[10px]',
+          'fixed z-50 border-b-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
           isOpen
             ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
             : 'top-0 bottom-0 left-[-100%] w-[60%] duration-500 ease-in-out',
@@ -67,27 +67,27 @@ const NavBar = ({ items }: MenuProps) => {
         {items.map((item) => (
           <li
             key={item.link}
-            className="cursor-pointer border-b border-gray-600 p-4 text-[var(--content-text)] duration-300 hover:text-[var(--content-)]"
+            className="p-4 cursor-pointer border-b border-gray-600 text-content-text duration-300 hover:bg-slate-100"
           >
             <Link
               href={item.link}
               className={
                 router.pathname === item.link
-                  ? 'border-[var(--content-text)] font-bold'
-                  : 'border-transparent hover:scale-105 hover:border-[var(--content-text)]'
+                  ? 'border-content-text font-bold'
+                  : 'border-transparent hover:scale-105 hover:border-content-text'
               }
             >
               {item.itemName}
             </Link>
           </li>
         ))}
-        <li onClick={switchTheme} className="m-2 cursor-pointer p-4">
+        <li onClick={switchTheme} className="m-2 p-4 cursor-pointer">
           {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
         </li>
       </ul>
       {isOpen && (
         <div
-          className="fixed z-[49] h-screen w-screen md:h-0 md:w-0"
+          className="md:h-0 md:w-0 fixed z-[49] h-screen w-screen"
           onClick={() => setIsOpen(!isOpen)}
         ></div>
       )}
