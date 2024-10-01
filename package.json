@@ -12,6 +12,15 @@
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{js,ts,tsx}\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
+  },
+  "lint-staged": {
+    "*.ts,*.jsx": "eslint --cache --fix"
+  },
   "dependencies": {
     "@codaworks/react-glow": "^1.0.6",
     "classnames": "2.2.6",
@@ -80,8 +89,5 @@
   "engines": {
     "npm": ">=6.0.0",
     "node": ">=10.0.0"
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix"
   }
 }
