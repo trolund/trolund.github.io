@@ -3,15 +3,6 @@
     "development"
   ],
   "hints": {
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "width: fit-content",
-          "backdrop-filter"
-        ]
-      }
-    ],
-    "no-inline-styles": "off"
+    "no-inline-styles": "true"
   }
 }

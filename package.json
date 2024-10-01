@@ -8,11 +8,11 @@
     "export": "next build && next export",
     "lint": "next lint",
     "buildIndex": "ts-node search/indexBuilder.ts",
-    "find:unused": "next-unused"
+    "find:unused": "next-unused",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@codaworks/react-glow": "^1.0.6",
-    "@types/react-syntax-highlighter": "^13.5.2",
     "classnames": "2.2.6",
     "date-fns": "2.10.0",
     "framer-motion": "^6.5.1",
@@ -24,18 +24,18 @@
     "react-dom": "^18.3.1",
     "react-icons": "^4.12.0",
     "react-intersection-observer": "^8.33.1",
-    "react-markdown": "^8.0.0",
+    "react-markdown": "^9.0.1",
     "react-particles": "^2.9.3",
     "react-responsive": "^9.0.0-beta.5",
     "react-select": "^5.7.0",
     "react-syntax-highlighter": "^15.4.5",
-    "rehype-katex": "^6.0.2",
-    "rehype-meta": "^3.2.1",
-    "rehype-raw": "^6.1.1",
+    "rehype-katex": "^7.0.1",
+    "rehype-meta": "^4.0.1",
+    "rehype-raw": "^7.0.0",
     "remark": "^15.0.1",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
-    "remark-math": "^5.1.1",
+    "remark-math": "^6.0.0",
     "sass": "latest",
     "ts-node": "^10.9.1",
     "tsparticles": "^2.9.3"
@@ -44,15 +44,20 @@
     "@types/classnames": "^2.3.1",
     "@types/node": "latest",
     "@types/react": "latest",
+    "@types/react-syntax-highlighter": "^13.5.2",
     "eslint": "^8.5.0",
     "eslint-config-next": "^14.2.13",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "next-unused": "^0.0.6",
     "postcss-preset-env": "^9.5.15",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "latest",
-    "typescript": "^4.4.4"
+    "typescript": "^5.6.2"
   },
   "next-unused": {
     "alias": {},
@@ -74,5 +79,8 @@
   "engines": {
     "npm": ">=6.0.0",
     "node": ">=10.0.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }

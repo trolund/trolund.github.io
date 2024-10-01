@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { MdDarkMode, MdOutlineDarkMode, MdLightMode } from "react-icons/md";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { MenuItem } from "../types/MenuItem";
 import useTheme from "../hooks/useTheme";
 import Link from "next/link";
@@ -86,7 +86,7 @@ const NavBar = ({ items }: MenuProps) => {
           </li>
         ))}
         <li onClick={switchTheme} className="p-4 m-2 cursor-pointer">
-          {isDark ? <MdDarkMode size={30} /> : <MdOutlineDarkMode size={30} />}
+          {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
         </li>
       </ul>
       {isOpen && (
