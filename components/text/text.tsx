@@ -20,6 +20,7 @@ interface TextProps {
 const Text: FunctionComponent<TextProps> = ({
   input: initInput,
   infinity,
+  onlyWhenVisible,
   containerClassName: textContainerClassName,
   underscoreClassName,
   containerStyles: textContainerStyles,
@@ -75,7 +76,17 @@ const Text: FunctionComponent<TextProps> = ({
       }
     }, writeSpeed ?? 1000);
     return () => clearInterval(interval);
-  }, [wordIndex, charIndex, input, wordBreakTime, writeSpeed, wait, infinity, keepUnderscore]);
+  }, [
+    wordIndex,
+    charIndex,
+    input,
+    onlyWhenVisible,
+    wordBreakTime,
+    writeSpeed,
+    wait,
+    infinity,
+    keepUnderscore,
+  ]);
 
   return (
     <div

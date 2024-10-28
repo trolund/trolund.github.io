@@ -29,11 +29,10 @@
     "gray-matter": "4.0.2",
     "keyword-extractor": "^0.0.23",
     "next": "15.0.1",
-    "react": "19.0.0-rc-69d4b800-20241021",
+    "react": "18.3.1",
     "react-device-detect": "^2.2.3",
-    "react-dom": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "18.3.1",
     "react-icons": "^4.12.0",
-    "react-intersection-observer": "^8.33.1",
     "react-markdown": "^9.0.1",
     "react-particles": "^2.9.3",
     "react-responsive": "^9.0.0-beta.5",
@@ -52,7 +51,7 @@
   },
   "devDependencies": {
     "@types/node": "latest",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react": "18.3.12",
     "@types/react-syntax-highlighter": "^13.5.2",
     "eslint": "^8.5.0",
     "eslint-config-next": "15.0.1",
@@ -90,6 +89,6 @@
     "node": ">=10.0.0"
   },
   "overrides": {
-    "@types/react": "npm:types-react@19.0.0-rc.1"
+    "@types/react": "18.3.12"
   }
 }
