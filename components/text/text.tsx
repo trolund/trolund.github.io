@@ -37,15 +37,7 @@ const Text: FunctionComponent<TextProps> = ({
   const [showUnderScore, setShowUnderScore] = useState<boolean>(true);
   const [wait, setWait] = useState(initDelay ?? 0);
 
-  let element: HTMLDivElement;
-
   const input: string[] = Array.isArray(initInput) ? initInput : [initInput];
-
-  const isInViewport = (offset = 0) => {
-    if (!element) return false;
-    const top = element.getBoundingClientRect().top;
-    return top + offset >= 0 && top - offset <= window.innerHeight;
-  };
 
   const word = (wordIndex: number, charIndex: number): string => {
     return input[wordIndex].substring(0, charIndex);
@@ -59,29 +51,27 @@ const Text: FunctionComponent<TextProps> = ({
         return;
       }
 
-      if (onlyWhenVisible === undefined || (onlyWhenVisible && isInViewport(0))) {
-        const wordLength = input[wordIndex].length;
+      const wordLength = input[wordIndex].length;
 
-        if (charIndex >= wordLength) {
-          if (wordIndex < input.length - 1) {
-            setWordIndex(wordIndex + 1);
+      if (charIndex >= wordLength) {
+        if (wordIndex < input.length - 1) {
+          setWordIndex(wordIndex + 1);
+          setCharIndex(0);
+        } else {
+          if (infinity) {
+            setWordIndex(0);
             setCharIndex(0);
           } else {
-            if (infinity) {
-              setWordIndex(0);
-              setCharIndex(0);
-            } else {
-              if (!keepUnderscore) setShowUnderScore(false);
-              clearInterval(interval);
-            }
+            if (!keepUnderscore) setShowUnderScore(false);
+            clearInterval(interval);
           }
-        } else {
-          setCharIndex(charIndex + 1);
+        }
+      } else {
+        setCharIndex(charIndex + 1);
 
-          // make a break
-          if (wordBreakTime && charIndex + 1 === input[wordIndex].length) {
-            setWait(wordBreakTime);
-          }
+        // make a break
+        if (wordBreakTime && charIndex + 1 === input[wordIndex].length) {
+          setWait(wordBreakTime);
         }
       }
     }, writeSpeed ?? 1000);
@@ -95,13 +85,11 @@ const Text: FunctionComponent<TextProps> = ({
     writeSpeed,
     wait,
     infinity,
-    isInViewport,
     keepUnderscore,
   ]);
 
   return (
     <div
-      ref={(el) => (element = el)}
       style={{ ...textContainerStyles, color: color }}
       className={
         styles.textContainer + (textContainerClassName ? ' ' + textContainerClassName : '')
