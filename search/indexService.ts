@@ -55,7 +55,7 @@ export function buildIndex() {
     });
 
     // write keywords to index. combine tags with keywords from content
-    index[key] = { keywords: [...keywords, ...post.tags ?? []], name: post.title };
+    index[key] = { keywords: [...keywords, ...(post.tags ?? [])], name: post.title };
   }
 
   writeIndex(index);
@@ -75,7 +75,10 @@ export function search(term: string): SearchResult[] {
 
   const results: SearchResult[] = Object.entries(index)
     .filter(([_, value]) => value.keywords.includes(term))
-    .map(([key, value]) => ({ slug: key, name: value.name }) as SearchResult);
+    .map(([key, value]) => (({
+    slug: key,
+    name: value.name
+  }) as SearchResult));
 
   return results;
 }
