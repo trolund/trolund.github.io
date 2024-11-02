@@ -21,7 +21,7 @@ export default function ProfileCard() {
   }
 
   return (
-    <figure className={'card float-left mr-5 mb-2 h-auto w-[280px] rounded-xl p-5'}>
+    <figure className="card float-left mr-5 mb-2 h-auto w-full rounded-xl p-5 sm:w-[280px]">
       <div className="rounded-[10%]">
         <Image
           style={{ borderTopLeftRadius: '5px', borderTopRightRadius: '5px' }}

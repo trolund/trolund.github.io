@@ -34,7 +34,7 @@ type AboutProps = {
 export default function About({ page }: AboutProps) {
   return (
     <>
-      <NavBar items={menu} />
+      <NavBar items={menu} spacing />
       <Layout>
         <Head>
           <title>{TITLE} | About</title>

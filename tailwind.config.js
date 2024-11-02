@@ -17,6 +17,7 @@ module.exports = {
         'content-text': 'var(--content-text)',
         footer: 'var(--footer)',
         'border-color': 'var(--border-color)',
+        'border-color-muted': 'var(--border-color-muted)',
       },
       spacing: {
         28: '7rem',

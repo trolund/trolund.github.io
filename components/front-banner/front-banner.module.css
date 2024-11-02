@@ -41,8 +41,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: var(--gradient);
-  mix-blend-mode: color;
+  /* background: var(--gradient);
+  mix-blend-mode: color; */
 }
 
 .bounceintop {
@@ -305,6 +305,7 @@
   .title,
   .description {
     text-align: center;
+    color: var(--content-text)
   }
 
 @media only screen and (max-width: 600px) {

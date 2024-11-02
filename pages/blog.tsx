@@ -21,7 +21,7 @@ export default function Index({ allPosts, blog }: IndexProps) {
   const morePosts = allPosts.slice(1);
   return (
     <>
-      <NavBar items={menu} />
+      <NavBar items={menu} spacing />
       <Layout>
         <Head>
           <title>{TITLE} | Blog</title>

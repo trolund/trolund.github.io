@@ -25,7 +25,7 @@ export default function Post({ post }: postOptions) {
   }
   return (
     <>
-      <NavBar items={menu} />
+      <NavBar items={menu} spacing />
       <Layout>
         <Container>
           {router.isFallback ? (
