@@ -1,4 +1,6 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
+import { SiLinkedin } from 'react-icons/si';
+import { VscGithubInverted } from 'react-icons/vsc';
 
 export default function ProfileCard() {
   function calculateAge(birthdate) {
@@ -48,6 +50,18 @@ export default function ProfileCard() {
                 <i>{calculateAge('1994-10-06')} years old</i>
               </li>
               <li>Copenhagen, Denmark</li>
+              <li className="m-2 border-t-2"></li>
+              <li className="ml-auto mr-auto flex justify-end gap-4">
+                <a className="transition-all hover:scale-110" href="https://github.com/trolund">
+                  <VscGithubInverted color="var(--content-text)" size={25} />
+                </a>
+                <a
+                  className="transition-all hover:scale-110"
+                  href="https://www.linkedin.com/in/trolund/"
+                >
+                  <SiLinkedin color="var(--content-text)" size={25} />
+                </a>
+              </li>
             </ol>
           </div>
         </figcaption>
