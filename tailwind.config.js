@@ -18,6 +18,13 @@ module.exports = {
         footer: 'var(--footer)',
         'border-color': 'var(--border-color)',
         'border-color-muted': 'var(--border-color-muted)',
+        'surface-0': 'var(--surface-0)',
+        'surface-1': 'var(--surface-1)',
+        'surface-2': 'var(--surface-2)',
+        'surface-3': 'var(--surface-3)',
+        'surface-4': 'var(--surface-4)',
+        'surface-5': 'var(--surface-5)',
+        'surface-6': 'var(--surface-6)',
       },
       spacing: {
         28: '7rem',
