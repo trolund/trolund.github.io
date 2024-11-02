@@ -6,6 +6,8 @@ import Text from '../text/text';
 import { motion } from 'framer-motion';
 import GradientSVG from '../gradient';
 import Image from 'next/image';
+import { VscGithubInverted } from 'react-icons/vsc';
+import { SiLinkedin } from 'react-icons/si';
 
 function FrontBanner() {
   return (
@@ -19,10 +21,10 @@ function FrontBanner() {
           width={200}
           height={200}
         />
-        <h1 className="text-7xl text-content-text">
+        <h1 className="text-4xl text-content-text sm:text-6xl md:text-7xl">
           Hi <span className={styles.wave}>👋</span>, I&apos;m <strong>Troels Lund</strong>
         </h1>
-        <h3 className="mb-10 text-2xl text-content-text">
+        <h3 className="mb-10 text-content-text">
           <motion.div
             height="40px"
             width="40px"
@@ -41,15 +43,14 @@ function FrontBanner() {
             writeSpeed={200}
           />
         </h3>
-        {/* <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          animate={{ scale: [1, 1.1, 1.1, 1] }}
-        >
-          <Link href="about" legacyBehavior>
-            <div className={styles.actionbtn + ' p-5'}>Learn more about me</div>
-          </Link>
-        </motion.div> */}
+        <div className="ml-auto mr-auto flex gap-4">
+          <a className="transition-all hover:scale-110" href="https://github.com/trolund">
+            <VscGithubInverted color="var(--content-text)" size={40} />
+          </a>
+          <a className="transition-all hover:scale-110" href="https://www.linkedin.com/in/trolund/">
+            <SiLinkedin color="var(--content-text)" size={40} />
+          </a>
+        </div>
       </main>
     </div>
   );
