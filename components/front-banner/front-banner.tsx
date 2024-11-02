@@ -11,7 +11,7 @@ import { SiLinkedin } from 'react-icons/si';
 
 function FrontBanner() {
   return (
-    <div className="flex h-screen justify-center text-center align-middle">
+    <div className="h-dvh flex justify-center text-center align-middle">
       <GradientSVG />
       <main className="z-10 inline-flex flex-col justify-center gap-4 text-center align-middle">
         <Image
