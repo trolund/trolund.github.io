@@ -47,7 +47,7 @@ export default function About({ page }: AboutProps) {
 
         <Container className={styles.skillsList}>
           <SubPostTitle>Experience</SubPostTitle>
-          <Experience mdcontent={page.experience.content} />
+          <Experience mdContent={page.experience.content} />
         </Container>
 
         <Container className={styles.skillsList}>
@@ -179,7 +179,7 @@ export default function About({ page }: AboutProps) {
           </div>
         </Container> */}
         <Container>
-          <SubPostTitle>Certifications</SubPostTitle>
+          <SubPostTitle>Certifications & Diplomas</SubPostTitle>
           <div className="flex flex-row flex-wrap">
             <CertificationItem
               image="/assets/dansk-standard.jpeg"

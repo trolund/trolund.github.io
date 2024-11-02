@@ -9,7 +9,7 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
 interface ExperienceProp {
-  mdcontent?: any;
+  mdContent?: any;
 }
 
 const renderers: Markdown.Components = {
@@ -57,14 +57,14 @@ const renderers: Markdown.Components = {
   },
 };
 
-const Experience: React.FC<ExperienceProp> = ({ mdcontent }: ExperienceProp) => {
+const Experience: React.FC<ExperienceProp> = ({ mdContent }: ExperienceProp) => {
   return (
     <ReactMarkdown
       components={renderers}
       remarkPlugins={[remarkGfm, remarkMath]}
       rehypePlugins={[rehypeKatex, rehypeMeta, rehypeRaw]}
     >
-      {mdcontent}
+      {mdContent}
     </ReactMarkdown>
   );
 };
