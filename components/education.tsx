@@ -40,6 +40,14 @@ const renderers: Markdown.Components = {
       <Image src={i.src ?? ''} alt={i.alt ?? ''} height={i.height ?? 50} width={i.width ?? 50} />
     );
   },
+  h2: ({ node, children }) => {
+    const element: HTMLHeadingElement = node as any;
+    return (
+      <h2 className="mt-4 mb-2 text-2xl font-bold" id={element.id}>
+        {children}
+      </h2>
+    );
+  },
 };
 
 const Education: React.FC<EducationProp> = ({ mdcontent }: EducationProp) => {
