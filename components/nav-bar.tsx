@@ -59,7 +59,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
-          'border-border-color-muted fixed z-50 border-b-[1px] bg-bg-color text-content-text backdrop-blur-[10px]',
+          'fixed z-50 border-r-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
           isOpen
             ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
             : 'top-0 bottom-0 left-[-100%] w-[60%] duration-500 ease-in-out',
@@ -69,7 +69,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
         {items.map((item) => (
           <li
             key={item.link}
-            className="cursor-pointer border-b border-gray-600 p-4 text-content-text duration-300 hover:bg-slate-100"
+            className="cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-100"
           >
             <Link
               href={item.link}
