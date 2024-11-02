@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Author, OgImage } from '../types/blogPost';
 import cn from 'classnames';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import Language from '../types/languages';
 import DateFormatter from './date-formatter';
 import Card from './card';
@@ -58,7 +58,7 @@ export default function ProjectItem({
           </Link>
         </h3>
         <div className="flex flex-wrap">
-          {technologies && technologies.map((t, i) => <Ship key={i} value={t} />)}
+          {technologies && technologies.map((t, i) => <Ship key={`${i}-${slug}`} value={t} />)}
         </div>
         <div className="mb-2 flex flex-row" style={{ height: '15px' }}>
           <div className="mb-4 basis-1/2 text-base font-extralight italic">

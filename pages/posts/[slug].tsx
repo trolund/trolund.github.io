@@ -44,6 +44,7 @@ export default function Post({ post }: postOptions) {
                   author={post.author}
                   language={post.language}
                   technologies={post.technologies}
+                  slug={post.slug}
                 />
                 <PostBody content={post.content} />
               </article>

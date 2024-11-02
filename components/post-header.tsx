@@ -2,7 +2,7 @@ import Avatar from './avatar';
 import DateFormatter from './date-formatter';
 import CoverImage from './cover-image';
 import PostTitle from './post-title';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { Author } from '../types/blogPost';
 import Language from '../types/languages';
 import Ship from './ship';
@@ -14,6 +14,7 @@ type postHeaderOptions = {
   author: Author;
   language: Language;
   technologies: string[];
+  slug: string;
 };
 
 export default function PostHeader({
@@ -23,6 +24,7 @@ export default function PostHeader({
   author,
   language,
   technologies,
+  slug,
 }: postHeaderOptions) {
   return (
     <>
@@ -55,7 +57,7 @@ export default function PostHeader({
           </div>
         </div>
         <div className="mb-4 flex flex-wrap" style={{ width: '100%' }}>
-          {technologies && technologies.map((t, i) => <Ship key={i} value={t} />)}
+          {technologies && technologies.map((t, i) => <Ship key={`${i}-${slug}`} value={t} />)}
         </div>
       </div>
     </>

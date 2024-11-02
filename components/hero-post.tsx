@@ -59,14 +59,11 @@ export default function HeroPost({
                 </div>
               </div>
               <div className="flex flex-wrap">
-                {technologies && technologies.map((t, i) => <Ship key={i} value={t} />)}
+                {technologies &&
+                  technologies.map((t, i) => <Ship key={`${i}-${slug}`} value={t} />)}
               </div>
             </div>
             <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-            {/* <div>
-          {excerpt && <p className="text-lg leading-relaxed mb-4">{excerpt}</p>}
-          <Avatar name={author.name} picture={author.picture} />
-        </div> */}
           </div>
         </div>
       </Card>
