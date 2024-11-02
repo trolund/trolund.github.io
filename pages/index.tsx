@@ -1,9 +1,9 @@
 import { getAllPosts, getAllProjects } from '../lib/api';
 import Head from 'next/head';
-import One from '../components/front-banner';
 import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
+import FrontBanner from '../components/front-banner';
 
 export default function Index() {
   return (
@@ -12,7 +12,7 @@ export default function Index() {
       <Head>
         <title>{TITLE}</title>
       </Head>
-      <One />
+      <FrontBanner />
     </>
   );
 }

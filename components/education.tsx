@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import * as Markdown from 'react-markdown';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeMeta from 'rehype-meta';

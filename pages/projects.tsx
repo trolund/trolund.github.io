@@ -21,7 +21,7 @@ export default function Projects({ projects, project }: IndexProps) {
       <NavBar items={menu} spacing />
       <Layout>
         <Head>
-          <title>{TITLE} | Projects</title>
+          <title>{`${TITLE} | Projects`}</title>
         </Head>
         <Container>
           <PostTitle>Projects</PostTitle>

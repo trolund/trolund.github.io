@@ -37,7 +37,7 @@ export default function About({ page }: AboutProps) {
       <NavBar items={menu} spacing />
       <Layout>
         <Head>
-          <title>{TITLE} | About</title>
+          <title>{`${TITLE} | About`}</title>
         </Head>
         <Container>
           <PostTitle>About me</PostTitle>

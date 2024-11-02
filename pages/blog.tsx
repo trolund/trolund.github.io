@@ -24,7 +24,7 @@ export default function Index({ allPosts, blog }: IndexProps) {
       <NavBar items={menu} spacing />
       <Layout>
         <Head>
-          <title>{TITLE} | Blog</title>
+          <title>{`${TITLE} | Blog`}</title>
         </Head>
         <Container>
           <PostTitle>Blog</PostTitle>

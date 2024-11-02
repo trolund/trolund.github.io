@@ -34,9 +34,7 @@ export default function Post({ post }: postOptions) {
             <>
               <article className="mb-32">
                 <Head>
-                  <title>
-                    {TITLE} | {post.title}
-                  </title>
+                  <title>{`${TITLE} | ${post.title}`}</title>
                   <meta property="og:image" content={post.ogImage.url} />
                 </Head>
                 <PostHeader
