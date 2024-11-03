@@ -1,15 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const GradientSVG = () => {
-  const i = 0.15;
+type GradientSVGProps = {
+  speed?: number;
+  size?: number;
+};
+
+const GradientSVG = ({ speed, size }: GradientSVGProps) => {
+  const animationSpeed: number = speed ?? 0.15;
+  const svgSize: number = size ?? 60;
   return (
     <>
       <motion.svg
         viewBox="0 720 400 1"
         xmlns="http://www.w3.org/2000/svg"
-        width="max(110vw, 110vh)"
-        height="max(110vw, 110vh)"
+        width={`max(${svgSize}vw, ${svgSize}vh)`}
+        height={`max(${svgSize}vw, ${svgSize}vh)`}
         style={{
           position: 'fixed',
           top: 0,
@@ -23,7 +29,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller and transparent
             animate={{ opacity: 1, scale: 1 }} // Pulse in to full size and opacity
             transition={{
-              delay: i * 7,
+              delay: animationSpeed * 7,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -35,7 +41,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller and transparent
             animate={{ opacity: 1, scale: 1 }} // Pulse in to full size and opacity
             transition={{
-              delay: i * 6,
+              delay: animationSpeed * 6,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -46,7 +52,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller and transparent
             animate={{ opacity: 1, scale: 1 }} // Pulse in to full size and opacity
             transition={{
-              delay: i * 5,
+              delay: animationSpeed * 5,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -57,7 +63,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller and transparent
             animate={{ opacity: 1, scale: 1 }} // Pulse in to full size and opacity
             transition={{
-              delay: i * 4,
+              delay: animationSpeed * 4,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -68,7 +74,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller and transparent
             animate={{ opacity: 1, scale: 1 }} // Pulse in to full size and opacity
             transition={{
-              delay: i * 3,
+              delay: animationSpeed * 3,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -79,7 +85,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller and transparent
             animate={{ opacity: 1, scale: 1 }} // Pulse in to full size and opacity
             transition={{
-              delay: i * 2,
+              delay: animationSpeed * 2,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -90,7 +96,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller and transparent
             animate={{ opacity: 1, scale: 1 }} // Pulse in to full size and opacity
             transition={{
-              delay: i * 1,
+              delay: animationSpeed * 1,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -101,8 +107,8 @@ const GradientSVG = () => {
       <motion.svg
         viewBox="100 0 500 400"
         xmlns="http://www.w3.org/2000/svg"
-        width="max(100vw, 100vh)"
-        height="max(100vw, 100vh)"
+        width={`max(${svgSize}vw, ${svgSize}vh)`}
+        height={`max(${svgSize}vw, ${svgSize}vh)`}
         style={{
           position: 'fixed',
           bottom: 0,
@@ -117,7 +123,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: i * 7,
+              delay: animationSpeed * 7,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -128,7 +134,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: i * 6,
+              delay: animationSpeed * 6,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -139,7 +145,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: i * 5,
+              delay: animationSpeed * 5,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -150,7 +156,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: i * 4,
+              delay: animationSpeed * 4,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -161,7 +167,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: i * 3,
+              delay: animationSpeed * 3,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -172,7 +178,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: i * 2,
+              delay: animationSpeed * 2,
               duration: 1.5,
               ease: 'easeInOut',
             }}
@@ -183,7 +189,7 @@ const GradientSVG = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: i * 1,
+              delay: animationSpeed * 1,
               duration: 1.5,
               ease: 'easeInOut',
             }}
