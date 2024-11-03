@@ -13,10 +13,10 @@ function FrontBanner() {
   return (
     <div className="h-dvh flex justify-center text-center align-middle">
       <GradientSVG />
-      <main className="z-10 inline-flex flex-col justify-center gap-4 text-center align-middle">
+      <main className="z-10 inline-flex flex-col justify-center gap-4 text-center align-middle sm:gap-8 md:gap-12">
         <Image
           className="ml-auto mr-auto rounded-full border-4 border-content-text"
-          src="/profil.webp"
+          src="/profil2.webp"
           alt="me"
           width={200}
           height={200}
@@ -25,15 +25,6 @@ function FrontBanner() {
           Hi <span className={styles.wave}>👋</span>, I&apos;m <strong>Troels Lund</strong>
         </h1>
         <h3 className="mb-10 text-content-text">
-          <motion.div
-            height="40px"
-            width="40px"
-            animate={{
-              scale: [1, 2, 2, 1, 1],
-              rotate: [0, 0, 270, 270, 0],
-              borderRadius: ['20%', '20%', '50%', '50%', '20%'],
-            }}
-          />
           <Text
             initDelay={15}
             containerStyles={{ display: 'inline-block', fontSize: '1.3rem' }}
