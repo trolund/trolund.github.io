@@ -17,6 +17,7 @@ function FrontBanner() {
         <Image
           className="ml-auto mr-auto rounded-full border-4 border-content-text"
           src="/profil2.webp"
+          priority
           alt="me"
           width={200}
           height={200}
