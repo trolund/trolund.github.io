@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import * as Markdown from 'react-markdown';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeMeta from 'rehype-meta';
@@ -26,7 +26,7 @@ const renderers: Markdown.Components = {
             <div className="mt-4 mr-6">
               <Image src={imageUrl ?? ''} width={width} height={height} alt="logo" />
             </div>
-            <div style={{ width: '100%' }}>{children}</div>
+            <div className="w-full">{children}</div>
           </div>
         </li>
       );
