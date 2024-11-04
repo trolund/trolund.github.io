@@ -40,15 +40,15 @@ export default function PostHeader({
           src={coverImage}
         />
       </div>
-      <div className="mx-auto max-w-2xl">
-        <div className="mb-6 block md:hidden">
+      <div className="mx-auto flex max-w-2xl flex-col gap-8">
+        <div className="block md:hidden">
           <Avatar name={author.name} picture={author.picture} />
         </div>
-        <div className="mb-4" style={{ height: '20px' }}>
-          <div className="float-left mb-4 text-base font-extralight italic">
+        <div style={{ height: '20px' }}>
+          <div className="float-left text-base font-extralight italic">
             <DateFormatter date={date} />
           </div>
-          <div className="float-right mb-4 text-base font-extralight italic">
+          <div className="float-right text-base font-extralight italic">
             {language === 'da' ? (
               <Image src="/assets/flags/da.svg" height={15} width={30} alt="dansk" />
             ) : (
@@ -56,7 +56,7 @@ export default function PostHeader({
             )}
           </div>
         </div>
-        <div className="mb-4 flex flex-wrap" style={{ width: '100%' }}>
+        <div className="mb-4 flex w-full flex-wrap">
           {technologies && technologies.map((t, i) => <Ship key={`${i}-${slug}`} value={t} />)}
         </div>
       </div>

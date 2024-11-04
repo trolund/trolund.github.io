@@ -14,7 +14,7 @@ const GradientSVG = ({ speed, size, hideRight, hideLeft, opacity }: GradientSVGP
   const svgSize: number = size ?? 60;
   const growFrom = 0.8;
   const duration = 1.2;
-  const zIndex = -0;
+  const zIndex = -1;
   return (
     <>
       {!hideRight && (

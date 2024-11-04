@@ -7,8 +7,8 @@ interface ContainerType {
 export default function Container({ className, style, children }: ContainerType) {
   return (
     <div
-      style={{ ...style, maxWidth: '1024px' }}
-      className={'main-content mx-auto px-5 sm:container ' + className}
+      style={{ ...style }}
+      className={'main-content container mx-auto max-w-5xl px-5 ' + className}
     >
       {children}
     </div>
