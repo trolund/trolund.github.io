@@ -24,14 +24,8 @@ const renderers: Markdown.Components = {
       return (
         <li>
           <div className="flex flex-row">
-            <div className="mt-4 mr-6">
-              <Image
-                src={imageUrl ?? ''}
-                width={width}
-                height={height}
-                alt="logo"
-                style={{ borderRadius: radius }}
-              />
+            <div className="mr-6 mt-4">
+              <Image src={imageUrl ?? ''} width={width} height={height} alt="logo" />
             </div>
             <div className="w-full">{children}</div>
           </div>
@@ -50,7 +44,7 @@ const renderers: Markdown.Components = {
   h2: ({ node, children }) => {
     const element: HTMLHeadingElement = node as any;
     return (
-      <h2 className="mt-4 mb-2 text-2xl font-bold" id={element.id}>
+      <h2 className="mb-2 mt-4 text-2xl font-bold" id={element.id}>
         {children}
       </h2>
     );

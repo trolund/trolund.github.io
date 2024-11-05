@@ -1,16 +1,12 @@
+import cn from 'classnames';
+
 interface ContainerType {
-  style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
 }
 
-export default function Container({ className, style, children }: ContainerType) {
+export default function Container({ className, children }: ContainerType) {
   return (
-    <div
-      style={{ ...style }}
-      className={'main-content container mx-auto max-w-5xl px-5 ' + className}
-    >
-      {children}
-    </div>
+    <div className={cn('main-content container mx-auto max-w-5xl px-5', className)}>{children}</div>
   );
 }

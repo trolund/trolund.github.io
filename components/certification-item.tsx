@@ -1,40 +1,26 @@
-import Image from 'next/legacy/image';
-import { CSSProperties } from 'react';
+import Image from 'next/image';
 import Card from './card';
 
 interface CertificationItemProp {
   href?: URL | string;
   title: string;
-  subtitel: string;
+  subTitle: string;
   image?: string;
-  imgCss?: CSSProperties;
 }
 
-export default function CertificationItem({
-  href,
-  title,
-  subtitel,
-  imgCss,
-  image,
-}: CertificationItemProp) {
+export default function CertificationItem({ href, title, subTitle, image }: CertificationItemProp) {
   return (
     <Card
-      className={`flex min-h-[230px] w-2/5 cursor-pointer flex-col p-5 hover:scale-105`}
+      className="flex w-2/5 cursor-pointer flex-col justify-between gap-6 p-5 hover:scale-105"
       href={href}
     >
-      <div
-        style={{
-          position: 'absolute',
-          display: 'block',
-          width: '50px',
-          height: '70px',
-          ...imgCss,
-        }}
-      >
-        <Image alt="" src={image ?? ''} layout="fill" />
-      </div>
-      <div className="mt-auto">
-        <h3 className="text-content-text">{subtitel}</h3>
+      {image && (
+        <div>
+          <Image alt="institution" src={image} width={50} height={50} />
+        </div>
+      )}
+      <div>
+        <h3 className="text-content-text">{subTitle}</h3>
         <h2 className="text-content-text">{title}</h2>
       </div>
     </Card>

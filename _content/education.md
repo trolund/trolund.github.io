@@ -27,17 +27,3 @@ language: "en"
     <p>Focus on computer science and applied software Engineering.</p>
   <li>
 </ul>
-
-  <!--- 
-  * Systems optimization (grade: 12 (A), ECTS: 7.5)
-  * Ethical hacking (grade: 12 (A), ECTS: 5)
-  * Network security (grade: 12 (A), ECTS: 5)
-  * Data security (grade: 10 (B), ECTS: 7.5)
-  * Programming in C++ (grade: BE (P), ECTS: 5)
-  * Project Management (grade: 12 (A), ECTS: 5)
-  * Foundations of distributed systems (grade: 12 (A), ECTS: 5)
-  * Applied functional programming (grade: 12 (A), ECTS: 5)
-  * System integration (grade: 10 (B), ECTS: 5)
-  * Functional Programming (grade: 7 (C), ECTS: 5)
-  * Software development of web services (grade: 12 (A), ECTS: 5)
-  --->
