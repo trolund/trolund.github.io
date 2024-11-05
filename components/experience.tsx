@@ -18,7 +18,6 @@ const renderers: Markdown.Components = {
     const imageUrl = (element as any).properties['dataUrl'];
     const height = (element as any).properties['dataH'];
     const width = (element as any).properties['dataW'];
-    const radius = (element as any).properties['dataR'];
 
     if (imageUrl) {
       return (
