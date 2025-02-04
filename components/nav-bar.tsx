@@ -6,6 +6,7 @@ import useTheme from '../hooks/useTheme';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
+import LinkTransition from './link-transition';
 
 export interface MenuProps {
   items: MenuItem[];
@@ -21,6 +22,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
     <>
       {spacing && <div className="mb-5 h-16" />}
       <div
+        style={{ viewTransitionName: 'nav-bar' }}
         className={cn(
           'fixed top-0 z-40 w-full border-b-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
         )}
@@ -29,7 +31,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex">
             {items.map((item) => (
-              <Link
+              <LinkTransition
                 key={item.link}
                 href={item.link}
                 className={cn(
@@ -40,7 +42,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
                 )}
               >
                 <li>{item.itemName}</li>
-              </Link>
+              </LinkTransition>
             ))}
             <li
               onClick={switchTheme}
@@ -62,7 +64,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
           'fixed z-50 border-r-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
           isOpen
             ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
-            : 'top-0 bottom-0 left-[-100%] w-[60%] duration-500 ease-in-out',
+            : 'bottom-0 left-[-100%] top-0 w-[60%] duration-500 ease-in-out',
         )}
       >
         {/* Mobile Navigation Items */}
@@ -71,7 +73,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
             key={item.link}
             className="cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-100"
           >
-            <Link
+            <LinkTransition
               href={item.link}
               className={
                 router.pathname === item.link
@@ -80,7 +82,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
               }
             >
               {item.itemName}
-            </Link>
+            </LinkTransition>
           </li>
         ))}
         <li onClick={switchTheme} className="m-2 cursor-pointer p-4">
