@@ -129,6 +129,13 @@ button:hover {
   border: solid rgba(255, 255, 255, 0.545) 1px;
 }
 
+.page-transition {
+  opacity: 0;
+  background: black;
+  transform: translateY(40px);
+  filter: blur(12px);
+}
+
 ::view-transition-old(nav-bar) {
   animation-duration: 0s;
   animation-fill-mode: inherit;
