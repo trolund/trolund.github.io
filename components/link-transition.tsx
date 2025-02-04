@@ -6,7 +6,6 @@ function LinkTransition(props: any) {
   const handleClick = async (e: Event) => {
     if (!document.startViewTransition) {
       // browser does not support view transition. Continue the default behavior.
-      router.push(props.href as any);
       return;
     } else {
       // browser supports view transition. Animate the transition.
