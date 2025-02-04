@@ -18,8 +18,6 @@ function LinkTransition(props: any) {
         const body = document.querySelector('body');
 
         body?.classList.add('page-transition');
-
-        await sleep(500);
         router.push(props.href as any);
         await sleep(500);
 
