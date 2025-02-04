@@ -1,5 +1,7 @@
 import Meta from './meta';
 import Footer from './Footer';
+import transStyles from '../styles/view-trans.module.css';
+import classNames from 'classnames';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,9 +14,7 @@ export default function Layout({ children }: LayoutProps) {
       <div
         style={{ minHeight: 'calc(100vh - (var(--footer-height) + var(--menu-height) + 20px))' }}
       >
-        <main style={{ viewTransitionName: 'main' }} className="z-30">
-          {children}
-        </main>
+        <main className={classNames('z-30', transStyles.main)}>{children}</main>
       </div>
       <Footer />
     </>

@@ -1,11 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-function LinkTransition(props) {
-  const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
+function LinkTransition(props: any) {
   const router = useRouter();
-  const handleClick = (e) => {
+  const handleClick = (e: Event) => {
     if (!document.startViewTransition) {
       // browser does not support view transition. Continue the default behavior.
       return;
@@ -13,7 +11,7 @@ function LinkTransition(props) {
       // browser supports view transition. Animate the transtion.
       e.preventDefault();
       document.startViewTransition(async () => {
-        router.push(props.href);
+        router.push(props.href as any);
       });
     }
   };

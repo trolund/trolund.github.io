@@ -3,10 +3,10 @@ import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { MenuItem } from '../types/MenuItem';
 import useTheme from '../hooks/useTheme';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import LinkTransition from './link-transition';
+import transStyles from '../styles/view-trans.module.css';
 
 export interface MenuProps {
   items: MenuItem[];
@@ -22,9 +22,9 @@ const NavBar = ({ items, spacing }: MenuProps) => {
     <>
       {spacing && <div className="mb-5 h-16" />}
       <div
-        style={{ viewTransitionName: 'nav-bar' }}
         className={cn(
           'fixed top-0 z-40 w-full border-b-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
+          transStyles.nav,
         )}
       >
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-end px-4">
