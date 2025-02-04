@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps) {
       <div
         style={{ minHeight: 'calc(100vh - (var(--footer-height) + var(--menu-height) + 20px))' }}
       >
-        <main className={classNames('z-30', transStyles.main)}>{children}</main>
+        <main className={classNames('z-30 transition-all', transStyles.main)}>{children}</main>
       </div>
       <Footer />
     </>

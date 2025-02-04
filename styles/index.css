@@ -129,25 +129,26 @@ button:hover {
   border: solid rgba(255, 255, 255, 0.545) 1px;
 }
 
+main {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
 .page-transition {
   opacity: 0;
-  background: black;
   transform: translateY(40px);
   filter: blur(12px);
 }
 
 ::view-transition-old(nav-bar) {
-  animation-duration: 0s;
-  animation-fill-mode: inherit;
-  animation-delay: 0s;
-  animation-name: -ua-view-transition-fade-in;
+  animation-duration: 20000s;
+  animation-delay: 20000s;
 }
 
 ::view-transition-new(nav-bar) {
-  animation-duration: 0s;
-  animation-fill-mode: inherit;
-  animation-delay: 0s;
-  animation-name: -ua-mix-blend-mode-plus-lighter;
+  animation-duration: 20000s;
+  animation-delay: 20000s;
 }
 
 /* Keyframes for blending when there are 2 images */
