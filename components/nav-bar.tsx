@@ -5,8 +5,8 @@ import { MenuItem } from '../types/MenuItem';
 import useTheme from '../hooks/useTheme';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
-import LinkTransition from './link-transition';
 import transStyles from '../styles/view-trans.module.css';
+import Link from 'next/link';
 
 export interface MenuProps {
   items: MenuItem[];
@@ -31,7 +31,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex">
             {items.map((item) => (
-              <LinkTransition
+              <Link
                 key={item.link}
                 href={item.link}
                 className={cn(
@@ -42,7 +42,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
                 )}
               >
                 <li>{item.itemName}</li>
-              </LinkTransition>
+              </Link>
             ))}
             <li
               onClick={switchTheme}
@@ -73,7 +73,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
             key={item.link}
             className="cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-100"
           >
-            <LinkTransition
+            <Link
               href={item.link}
               className={
                 router.pathname === item.link
@@ -82,7 +82,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
               }
             >
               {item.itemName}
-            </LinkTransition>
+            </Link>
           </li>
         ))}
         <li onClick={switchTheme} className="m-2 cursor-pointer p-4">
