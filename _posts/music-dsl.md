@@ -51,3 +51,5 @@ playSound songName
 With just a few lines, you can define melodies using **note names and durations** while the DSL takes care of the rest. 🚀  
 
 I'm considering extending it with **chords, loops, and instrument variations**.
+
+The source code can be found [here.](https://github.com/trolund/music-dsl)
