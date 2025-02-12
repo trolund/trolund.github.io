@@ -8,10 +8,10 @@ import cn from 'classnames';
 import transStyles from '../styles/view-trans.module.css';
 import Link from 'next/link';
 
-export interface MenuProps {
+export type MenuProps = {
   items: MenuItem[];
   spacing?: boolean;
-}
+};
 
 const NavBar = ({ items, spacing }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
