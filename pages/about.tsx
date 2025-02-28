@@ -44,7 +44,7 @@ export default function About({ page }: AboutProps) {
           <ProfileCard />
           <PostBody className="mx-auto" content={page.about.content} />
         </Container>
-
+        <div className="h-10 w-full"></div>
         <Container className={styles.skillsList}>
           <SubPostTitle>Experience</SubPostTitle>
           <Experience mdContent={page.experience.content} />
