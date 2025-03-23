@@ -1,7 +1,6 @@
-
-
 # Personal portfolio website
 
+[![Deploy Next.js site to Pages](https://github.com/trolund/trolund.github.io/actions/workflows/nextjs.yml/badge.svg?branch=master)](https://github.com/trolund/trolund.github.io/actions/workflows/nextjs.yml)
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 
 My Personal portfolio website including a statically generated blog using Markdown.
