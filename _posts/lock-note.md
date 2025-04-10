@@ -61,4 +61,4 @@ No big reason — just wanted to do something fun and small to stay sharp while 
 
 - Making the UI a bit more mobile-friendly
 
-That’s it! Just a cozy little project I had fun putting together. 🪩
+That’s it! Just a cozy little project I had fun putting together. 🪩 The code can be found [here.](https://github.com/trolund/lock-note)
