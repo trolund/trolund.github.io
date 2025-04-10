@@ -17,7 +17,7 @@ While I was on parental leave, I wanted to keep my coding brain somewhat active 
 
 It’s a simple app where you can write a note, get a unique link, and share it securely. The twist? The note can only be read once (or an predefine number of times), and then it’s gone forever. You can also add a password for extra security if you want.
 
-## 🧪 What It Can Do
+# 🧪 What It Can Do
 
 Write a note → Get a link → Share it
 
@@ -27,9 +27,9 @@ Optional password protection - In this case is the note also encrypted so no one
 
 Notes expire automatically after 30 days if not read the note will self-destruct.
 
-![alt text](../public/assets/blog/lock-note/createNote.png)
+![alt text](/assets/blog/lock-note/createNote.png)
 
-## 🧰 Tech Stack
+# 🧰 Tech Stack
 
 - React 18 for the frontend (simple and minimal) and tailwind for styling.
 
@@ -41,7 +41,7 @@ Notes expire automatically after 30 days if not read the note will self-destruct
 
 - GitHub Actions for CI/CD pipelines.
 
-## ⚙️ How It Works
+# ⚙️ How It Works
 
 You create a note, and the backend stores it, and encrypts if a password is provided. It generates you a unique link.
 
@@ -49,13 +49,13 @@ The recipient opens the link — the backend decrypts the note, shows it once, a
 
 If the link has already been used or the note is expired, it just shows an error.
 
-![alt text](../public/assets/blog/lock-note/created.png)
+![alt text](/assets/blog/lock-note/created.png)
 
 ## 💡 Why I Made It
 
 No big reason — just wanted to do something fun and small to stay sharp while being off work. It’s the kind of tool I’ve wished existed a few times, so I figured I’d just build it.
 
-## 🛠 Maybe Later…
+# 🛠 Maybe Later…
 
 - A browser extension for quick note creation
 
