@@ -6,12 +6,12 @@ interface BlogPost {
   date: Date;
   excerpt?: string;
   author: Author;
-  ogImage?: OgImage;
+  ogImage: OgImage;
   slug: string;
-  tags?: string[];
-  technologies?: string[];
-  language?: Language;
-  content?: string;
+  tags: string[];
+  technologies: string[];
+  language: Language;
+  content: string;
   isDraft?: boolean;
 }
 
