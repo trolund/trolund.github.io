@@ -20,6 +20,7 @@ const useTheme = () => {
 
   // Update the data-theme attribute on the document and localStorage
   const updateColors = (isDarkMode: boolean) => {
+    document.documentElement.classList.toggle('dark', isDarkMode);
     if (isDarkMode) {
       document.documentElement.setAttribute('data-theme', 'dark');
     } else {

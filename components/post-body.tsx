@@ -61,7 +61,7 @@ const renderers: Markdown.Components = {
 };
 
 export default function PostBody({ className, content }: postBodyTypes) {
-  const defClassNames = 'max-w-3xl mx-auto prose';
+  const defClassNames = 'max-w-3xl mx-auto prose dark:prose-invert';
 
   return (
     <div className={className ?? defClassNames}>
