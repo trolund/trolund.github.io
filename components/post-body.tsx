@@ -1,7 +1,7 @@
 import markdownStyles from '../styles/markdown-styles.module.css';
 import ReactMarkdown from 'react-markdown';
 import * as Markdown from 'react-markdown';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -20,11 +20,11 @@ function flatten(text: string, child: any) {
     : React.Children.toArray(child.props.children).reduce(flatten, text);
 }
 
-function HeadingRenderer(props: any) {
+function HeadingRenderer(props: any, level: number) {
   var children = React.Children.toArray(props.children);
   var text = children.reduce(flatten, '');
   var slug = text.toLowerCase().replace(/\W/g, '-');
-  return React.createElement('h' + props.level, { id: slug }, props.children);
+  return React.createElement('h' + level, { id: slug }, props.children);
 }
 
 const renderers: Markdown.Components = {
@@ -54,14 +54,14 @@ const renderers: Markdown.Components = {
       </code>
     );
   },
-  h1: (props) => HeadingRenderer(props),
-  h2: (props) => HeadingRenderer(props),
-  h3: (props) => HeadingRenderer(props),
-  h4: (props) => HeadingRenderer(props),
+  h1: (props) => HeadingRenderer(props, 1),
+  h2: (props) => HeadingRenderer(props, 2),
+  h3: (props) => HeadingRenderer(props, 3),
+  h4: (props) => HeadingRenderer(props, 4),
 };
 
 export default function PostBody({ className, content }: postBodyTypes) {
-  const defClassNames = 'max-w-3xl mx-auto';
+  const defClassNames = 'max-w-3xl mx-auto prose';
 
   return (
     <div className={className ?? defClassNames}>

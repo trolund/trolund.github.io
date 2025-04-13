@@ -51,7 +51,7 @@ If the link has already been used or the note is expired, it just shows an error
 
 ![alt text](/assets/blog/lock-note/created.png)
 
-## 💡 Why I Made It
+# 💡 Why I Made It
 
 No big reason — just wanted to do something fun and small to stay sharp while being off work. It’s the kind of tool I’ve wished existed a few times, so I figured I’d just build it.
 
