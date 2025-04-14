@@ -5,17 +5,11 @@ type PostTitleProps = {
 export default function PostTitle({ children }: PostTitleProps) {
   return (
     <div>
-      <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
+      <h1 className="mb-12 text-center text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl">
         {children}
         <div
-          className="mr-auto ml-auto md:m-0"
-          style={{
-            height: '5px',
-            maxWidth: '500px',
-            backgroundImage: 'var(--bg-img)',
-            backgroundSize: 'cover',
-            borderRadius: '8px',
-          }}
+          className="ml-auto mr-auto h-[5px] max-w-[500px] rounded-[8px] bg-cover md:m-0"
+          style={{ backgroundImage: 'var(--bg-img)' }}
         />
       </h1>
     </div>
