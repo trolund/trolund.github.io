@@ -1,6 +1,6 @@
 export interface ShipProps {
-  key?: any;
-  value: any;
+  key: string;
+  value: string;
 }
 
 export default function Ship({ key, value }: ShipProps) {
