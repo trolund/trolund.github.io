@@ -8,9 +8,9 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: '/assets/blog/compiler/front.jpg'
-tags: ["project"]
-technologies: ["Compiler", "RISC-V", "F#", "Assembly language"]
-language: "en"
+tags: ['project']
+technologies: ['Compiler', 'RISC-V', 'F#', 'Assembly language']
+language: 'en'
 ---
 
 This project consist of designing a high-level programming language called 'hygge' and implement a compiler (hyggec) implemented in F#. Hyggec compile hygge-prgrams to RISC-V Assembly. This project was part of the course 02247 Compiler Construction at DTU in the Spring of 2023. The course website can be found [here](https://courses.compute.dtu.dk/02247/f23/overview.html).
@@ -21,15 +21,15 @@ The project was done in a group of three. In this Blog post i will write about s
 
 ## Arrays
 
-This section describes an extension of Hygge, that will allow Hygge programmers to use arrays. This includes an array constructor that will allocate the specified memory at run-time and fill the memory space allocated with an initialization value inputted by the programmer. Furthermore, operators for receiving the length of an array, reading from an index in the array as well as writing into a specific position have been added. 
+This section describes an extension of Hygge, that will allow Hygge programmers to use arrays. This includes an array constructor that will allocate the specified memory at run-time and fill the memory space allocated with an initialization value inputted by the programmer. Furthermore, operators for receiving the length of an array, reading from an index in the array as well as writing into a specific position have been added.
 
 <img src="/assets/blog/compiler/array.png"  width="60%" style="margin: auto;">
 
 ### Code Generation
 
-We extend the function *doCodegen* in **RISCVCodegen.fs** by adding the following case to initialize the array. The code checks that the requested size is at least one, but this is not included in the code below, please see the source code. 
+We extend the function _doCodegen_ in **RISCVCodegen.fs** by adding the following case to initialize the array. The code checks that the requested size is at least one, but this is not included in the code below, please see the source code.
 
-The main objective of this case is to allocate space for the array. It ends by leaving the memory address of the before mentioned *struct* in *target*.
+The main objective of this case is to allocate space for the array. It ends by leaving the memory address of the before mentioned _struct_ in _target_.
 
 Parts of the code could be rewritten to use already existing constructs of the compiler, but this was not done due to time constraints.
 
@@ -73,7 +73,7 @@ Parts of the code could be rewritten to use already existing constructs of the c
 
         let beginLabel = Util.genSymbol "loop_begin"
         // 6) Store the array data in the allocated memory
-        let codeGenData = 
+        let codeGenData =
             (doCodegen env data)
                 .AddText([
                     RV.LI(Reg.a2, 4), "Load the size of each element in the array"
@@ -93,7 +93,7 @@ Parts of the code could be rewritten to use already existing constructs of the c
         checkSize ++ structAllocCode ++ lengthCode ++ dataAllocCode ++ dataInitCode ++ codeGenData
 ```
 
-Below the code for accessing an element in an array can be seen. The target is evaluated to a memory address pointing to the *struct*, from this the data pointer and length are extracted.
+Below the code for accessing an element in an array can be seen. The target is evaluated to a memory address pointing to the _struct_, from this the data pointer and length are extracted.
 
 ```fsharp
 | ArrayElement(target, index) ->
@@ -127,7 +127,7 @@ Below the code for accessing an element in an array can be seen. The target is e
                     RV.ECALL, "Call exit"
                     RV.LABEL(checkBiggerThenZeroLabel), "Index is ok"
                 ])
-        
+
         let readElment = Asm([
                 (RV.LI(Reg.t3, 4), "Load the size of each element in the array")
                 (RV.MUL(Reg.r(env.Target), Reg.r(env.Target), Reg.t3), "Calculate the offset (index) from the base address")
@@ -144,7 +144,7 @@ Then the input index is evaluated and checked that the index indeed is within th
 
 This is performed during runtime in order to enable the resolution of the array size dynamically, for example, through the utilization of **ReadInt** to allow the user to input the size in the console.
 
-If the program encounters an error, because one of the before-mentioned rules are violated, a **Exit2** ($a7 = 93$) is performed with an exit code *42* to make sure that Hygge's test system can identify this as an error.
+If the program encounters an error, because one of the before-mentioned rules are violated, a **Exit2** ($a7 = 93$) is performed with an exit code _42_ to make sure that Hygge's test system can identify this as an error.
 
 Below the code that allows $ArrayLength$ to function can be seen.
 
@@ -152,24 +152,24 @@ Below the code that allows $ArrayLength$ to function can be seen.
     | ArrayLength(target) ->
         /// Assembly code that computes the length of the given array. The
         /// length is stored in the first word of the array struct, so we
-        /// simply load that word into the target register. 
+        /// simply load that word into the target register.
         (doCodegen env target).AddText([
                 (RV.LW(Reg.r(env.Target), Imm12(4), Reg.r(env.Target)), "Load array length")
             ])
 ```
 
-Since the length is stored in the before mentioned *struct*, evaluating the length of an array is done simply doing code generation of the *target*, which results in the memory address of the *struct* and then we can just use that address with an offset of 4 to load the length into the *target* register. 
+Since the length is stored in the before mentioned _struct_, evaluating the length of an array is done simply doing code generation of the _target_, which results in the memory address of the _struct_ and then we can just use that address with an offset of 4 to load the length into the _target_ register.
 
-Furthermore a sub-case of **Assign** has been added to make sure that assigning values to an array is possible. This code is not included in the report, please see the source code. 
+Furthermore a sub-case of **Assign** has been added to make sure that assigning values to an array is possible. This code is not included in the report, please see the source code.
 
 ### Testing
 
 A number of tests were added under the 'tests/' directory for the array \hyggec extension. A few examples of tests have been picked out and can be seen in the following section.
 %
-The test *030-array.hyg* contains the code given in the problem description. The only difference is that it does not take user input. The test is using all defined features of the array in one test.
+The test _030-array.hyg_ contains the code given in the problem description. The only difference is that it does not take user input. The test is using all defined features of the array in one test.
 
-The test *030-array-element-assign.hyg* can be seen below. This test is designed to test assigning values to positions in the array. It assigns new values to each position and asserts that the value has been updated correctly. The tests: *029-array-assign-element-out-of-lower-bound.hyg* and 
-*029-array-assign-element-out-of-upper-bound.hyg* make sure that the logic that restricts the index value to be inside the boundaries of the array works correctly. 
+The test _030-array-element-assign.hyg_ can be seen below. This test is designed to test assigning values to positions in the array. It assigns new values to each position and asserts that the value has been updated correctly. The tests: _029-array-assign-element-out-of-lower-bound.hyg_ and
+_029-array-assign-element-out-of-upper-bound.hyg_ make sure that the logic that restricts the index value to be inside the boundaries of the array works correctly.
 
 ```fsharp
 let n: int = 5;
@@ -195,7 +195,7 @@ let sum: int = arrayElem(arr, 0) + arrayElem(arr, 1) + arrayElem(arr, 2) + array
 assert(sum = 53)
 ```
 
-In the test *027-array-simple-types.hyg* multiple arrays are allocated with different types. The *arr4* contains the function *f*, and the array essentially contains function references. This way it is possible to access and execute a stored function like shown in *line 14* of the test.
+In the test _027-array-simple-types.hyg_ multiple arrays are allocated with different types. The _arr4_ contains the function _f_, and the array essentially contains function references. This way it is possible to access and execute a stored function like shown in _line 14_ of the test.
 
 ```fsharp
 let arr: array {bool} = array(2 + 2, true);
@@ -215,11 +215,8 @@ assert(f(3) = arrayElem(arr4, 0)(3));
 assert(arrayLength(arr3) = 4)
 ```
 
-In the case of a string being used for the array, it will be its address to the data segment that will be saved on the heap. Since Hygge at this point does not support string comparison or memory addresses comparison, it is difficult to test the $arrayElem$ operator with strings. Therefore there is no *assert* statement for this case.
+In the case of a string being used for the array, it will be its address to the data segment that will be saved on the heap. Since Hygge at this point does not support string comparison or memory addresses comparison, it is difficult to test the $arrayElem$ operator with strings. Therefore there is no _assert_ statement for this case.
 
 <hr/>
 
-*The picture showing the phases of the compiler was taken from the [course website](https://courses.compute.dtu.dk/02247/f23/overview.html).*
-
-
-
+_The picture showing the phases of the compiler was taken from the [course website](https://courses.compute.dtu.dk/02247/f23/overview.html)._

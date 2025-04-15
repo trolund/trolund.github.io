@@ -1,5 +1,5 @@
 {
-  "name": "Troels-Lund-Personal-Website",
+  "name": "troels-lund-personal-website",
   "version": "1.0.0",
   "scripts": {
     "dev": "npm run buildIndex & next",
@@ -32,6 +32,7 @@
     "react-dom": "18.3.1",
     "react-icons": "^4.12.0",
     "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.6.1",
     "rehype-katex": "^7.0.1",
     "rehype-meta": "^4.0.1",
     "rehype-raw": "^7.0.0",
@@ -44,6 +45,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "latest",
     "@types/react": "18.3.12",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8.5.0",
     "eslint-config-next": "15.0.1",
     "eslint-config-prettier": "^9.1.0",

@@ -8,6 +8,8 @@ import rehypeKatex from 'rehype-katex';
 import rehypeMeta from 'rehype-meta';
 import rehypeRaw from 'rehype-raw';
 import React from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import * as style from 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
 
 type postBodyTypes = {
   content: string;
@@ -47,9 +49,26 @@ const renderers: Markdown.Components = {
       </pre>
     );
   },
-  code: ({ className, children, ...props }) => {
-    return (
-      <code className={className} {...props}>
+  // code: ({ className, children, ...props }) => {
+  //   return (
+  //     <code className={className} {...props}>
+  //       {children}
+  //     </code>
+  //   );
+  // },
+  code: (props) => {
+    const { children, className, ...rest } = props;
+    const match = /language-(\w+)/.exec(className || '');
+    return match ? (
+      <SyntaxHighlighter
+        PreTag="div"
+        // eslint-disable-next-line react/no-children-prop
+        children={String(children).replace(/\n$/, '')}
+        language={match[1]}
+        style={style.default}
+      />
+    ) : (
+      <code {...rest} className={className}>
         {children}
       </code>
     );
@@ -62,7 +81,7 @@ const renderers: Markdown.Components = {
 
 export default function PostBody({ className, content }: postBodyTypes) {
   const defClassNames = 'max-w-3xl mx-auto prose dark:prose-invert';
-
+  console.table(style.default);
   return (
     <div className={className ?? defClassNames}>
       <ReactMarkdown
