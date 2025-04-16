@@ -4,6 +4,19 @@ import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import * as styleDark from 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
 import * as styleLight from 'react-syntax-highlighter/dist/esm/styles/prism/one-light';
+import { MdContentCopy } from 'react-icons/md';
+import { toast } from 'react-toastify';
+
+function copyToClipboard(text: string) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      toast('🛠️ Code copied to clipboard', { type: 'info' });
+    })
+    .catch((err) => {
+      toast('Failed to copy', { type: 'error' });
+    });
+}
 
 function flatten(text: string, child: any) {
   return typeof child === 'string'
@@ -26,28 +39,35 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     );
   },
   pre: ({ ...props }) => {
-    return (
-      <pre
-        style={{
-          maxWidth: '100%',
-          padding: '10px',
-          overflowWrap: 'break-word',
-        }}
-      >
-        {props.children}
-      </pre>
-    );
+    return <span {...props}>{props.children}</span>;
   },
   code: (props) => {
     const { children, className, ...rest } = props;
     const match = /language-(\w+)/.exec(className || '');
+    const code = String(children).replace(/\n$/, '');
     return match ? (
-      <SyntaxHighlighter
-        // eslint-disable-next-line react/no-children-prop
-        children={String(children).replace(/\n$/, '')}
-        language={match[1]}
-        style={isDark ? styleDark.default : styleLight.default}
-      />
+      <>
+        <div className="relative">
+          <SyntaxHighlighter
+            showLineNumbers
+            wrapLongLines
+            language={match[1]}
+            style={isDark ? styleDark.default : styleLight.default}
+          >
+            {code}
+          </SyntaxHighlighter>
+          <MdContentCopy
+            onClick={() => copyToClipboard(code)}
+            className="absolute right-2 top-2 cursor-pointer rounded-lg bg-black/50 transition-transform duration-200 hover:scale-125"
+            style={{
+              position: 'absolute',
+              top: '15px',
+              right: '15px',
+              cursor: 'pointer',
+            }}
+          />
+        </div>
+      </>
     ) : (
       <code {...rest} className={className}>
         {children}

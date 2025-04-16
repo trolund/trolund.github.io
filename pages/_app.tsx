@@ -1,6 +1,8 @@
-import { ThemeProvider } from '../hooks/ThemeContext';
+import { Slide, ToastContainer } from 'react-toastify';
+import { ThemeProvider, useTheme } from '../hooks/ThemeContext';
 import '../styles/index.css';
 import Head from 'next/head';
+import Toast from '../components/Toast';
 
 type AppProps = {
   Component: any;
@@ -17,6 +19,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Component {...pageProps} />
+      <Toast />
     </ThemeProvider>
   );
 }

@@ -17,7 +17,7 @@ type postBodyTypes = {
 export default function PostBody({ className, content }: postBodyTypes) {
   const { isDark } = useTheme();
 
-  const defClassNames = 'max-w-3xl mx-auto prose dark:prose-invert';
+  const defClassNames = 'max-w-4xl mx-auto prose dark:prose-invert relative';
   return (
     <div className={className ?? defClassNames}>
       <ReactMarkdown

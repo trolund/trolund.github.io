@@ -16,7 +16,7 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
       <img
         src={src}
         alt={`Cover Image for ${title}`}
-        className={cn('mx-auto shadow-small', {
+        className={cn('mx-auto max-h-[450px] shadow-small', {
           'transition-shadow duration-200 hover:shadow-medium': slug,
         })}
       />
@@ -24,7 +24,7 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
         tags.map((t, i) => (
           <span
             key={i}
-            className="rounded-full border-transparent border-gray-200 bg-accent-2 p-4 transition-shadow duration-200 hover:shadow-medium"
+            className="rounded-full border-gray-200 border-transparent bg-accent-2 p-4 transition-shadow duration-200 hover:shadow-medium"
           >
             {t}
           </span>

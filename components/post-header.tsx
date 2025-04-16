@@ -33,12 +33,7 @@ export default function PostHeader({
         <Avatar name={author.name} picture={author.picture} />
       </div>
       <div className="mb-8 sm:mx-0 md:mb-16">
-        <CoverImage
-          style={{ borderRadius: 'var(--border-radius)' }}
-          slug=""
-          title={title}
-          src={coverImage}
-        />
+        <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
       <div className="mx-auto flex max-w-2xl flex-col gap-8">
         <div className="block md:hidden">
