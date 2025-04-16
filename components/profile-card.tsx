@@ -3,7 +3,7 @@ import { SiLinkedin } from 'react-icons/si';
 import { VscGithubInverted } from 'react-icons/vsc';
 
 export default function ProfileCard() {
-  function calculateAge(birthdate) {
+  function calculateAge(birthdate: string) {
     // Parse the birthdate string to create a Date object
     const birthDate = new Date(birthdate);
     const today = new Date();
@@ -23,7 +23,7 @@ export default function ProfileCard() {
   }
 
   return (
-    <figure className="card float-left mr-5 mb-2 h-auto w-full rounded-xl p-5 sm:w-[280px]">
+    <figure className="card float-left mb-2 mr-5 h-auto w-full rounded-xl p-5 sm:w-[280px]">
       <div className="rounded-[10%]">
         <Image
           style={{ borderTopLeftRadius: '5px', borderTopRightRadius: '5px' }}
@@ -37,7 +37,7 @@ export default function ProfileCard() {
       </div>
       <div className="space-y-4 pt-6">
         <figcaption>
-          <b className="text-2xl">Troels Lund</b>
+          <b className="text-2xl">Troels Elsvad Lund</b>
           <div>
             <ol>
               <li>
