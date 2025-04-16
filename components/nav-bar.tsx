@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { MenuItem } from '../types/MenuItem';
-import useTheme from '../hooks/useTheme';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import transStyles from '../styles/view-trans.module.css';
 import Link from 'next/link';
+import { useTheme } from '../hooks/ThemeContext';
 
 export type MenuProps = {
   items: MenuItem[];

@@ -1,92 +1,28 @@
 import markdownStyles from '../styles/markdown-styles.module.css';
 import ReactMarkdown from 'react-markdown';
-import * as Markdown from 'react-markdown';
-import Image from 'next/legacy/image';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeMeta from 'rehype-meta';
 import rehypeRaw from 'rehype-raw';
-import React from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import * as style from 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
+
+import { markdownRenderers } from '../services/markdown-renderers';
+import { useTheme } from '../hooks/ThemeContext';
 
 type postBodyTypes = {
   content: string;
   className?: string;
 };
 
-function flatten(text: string, child: any) {
-  return typeof child === 'string'
-    ? text + child
-    : React.Children.toArray(child.props.children).reduce(flatten, text);
-}
-
-function HeadingRenderer(props: any, level: number) {
-  var children = React.Children.toArray(props.children);
-  var text = children.reduce(flatten, '');
-  var slug = text.toLowerCase().replace(/\W/g, '-');
-  return React.createElement('h' + level, { id: slug }, props.children);
-}
-
-const renderers: Markdown.Components = {
-  image: ({ node }) => {
-    const i: HTMLImageElement = node as any;
-    return (
-      <Image src={i.src ?? ''} alt={i.alt ?? ''} height={i.height ?? 50} width={i.width ?? 50} />
-    );
-  },
-  pre: ({ ...props }) => {
-    return (
-      <pre
-        style={{
-          maxWidth: '100%',
-          padding: '10px',
-          overflowWrap: 'break-word',
-        }}
-      >
-        {props.children}
-      </pre>
-    );
-  },
-  // code: ({ className, children, ...props }) => {
-  //   return (
-  //     <code className={className} {...props}>
-  //       {children}
-  //     </code>
-  //   );
-  // },
-  code: (props) => {
-    const { children, className, ...rest } = props;
-    const match = /language-(\w+)/.exec(className || '');
-    return match ? (
-      <SyntaxHighlighter
-        PreTag="div"
-        // eslint-disable-next-line react/no-children-prop
-        children={String(children).replace(/\n$/, '')}
-        language={match[1]}
-        style={style.default}
-      />
-    ) : (
-      <code {...rest} className={className}>
-        {children}
-      </code>
-    );
-  },
-  h1: (props) => HeadingRenderer(props, 1),
-  h2: (props) => HeadingRenderer(props, 2),
-  h3: (props) => HeadingRenderer(props, 3),
-  h4: (props) => HeadingRenderer(props, 4),
-};
-
 export default function PostBody({ className, content }: postBodyTypes) {
+  const { isDark } = useTheme();
+
   const defClassNames = 'max-w-3xl mx-auto prose dark:prose-invert';
-  console.table(style.default);
   return (
     <div className={className ?? defClassNames}>
       <ReactMarkdown
         className={markdownStyles['markdown']}
-        components={renderers}
+        components={markdownRenderers(isDark)}
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex, rehypeMeta, rehypeRaw]}
       >

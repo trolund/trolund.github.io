@@ -1,3 +1,4 @@
+import { ThemeProvider } from '../hooks/ThemeContext';
 import '../styles/index.css';
 import Head from 'next/head';
 
@@ -8,7 +9,7 @@ type AppProps = {
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider>
       <Head>
         <meta
           name="viewport"
@@ -16,6 +17,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }
