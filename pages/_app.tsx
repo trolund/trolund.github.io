@@ -1,5 +1,4 @@
-import { Slide, ToastContainer } from 'react-toastify';
-import { ThemeProvider, useTheme } from '../hooks/ThemeContext';
+import { ThemeProvider } from '../hooks/ThemeContext';
 import '../styles/index.css';
 import Head from 'next/head';
 import Toast from '../components/Toast';
