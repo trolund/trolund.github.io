@@ -40,10 +40,10 @@ export default function Footer() {
               </li>
             </ul>
             <div className={styles.icons}>
-              <a href="https://github.com/trolund">
+              <a href="https://github.com/trolund" aria-label="My GitHub profile">
                 <VscGithubInverted size={40} style={{ animationDelay: '0.2s' }} />
               </a>
-              <a href="https://www.linkedin.com/in/trolund/">
+              <a href="https://www.linkedin.com/in/trolund/" aria-label="My Linkedin profile">
                 <SiLinkedin size={40} style={{ animationDelay: '0.5s' }} />
               </a>
             </div>

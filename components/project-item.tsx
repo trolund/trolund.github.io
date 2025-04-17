@@ -53,7 +53,12 @@ export default function ProjectItem({
           ></div>
         </div>
         <h3 className="mb-3 text-3xl leading-snug">
-          <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover:underline">
+          <Link
+            as={`/posts/${slug}`}
+            href="/posts/[slug]"
+            className="hover:underline"
+            aria-label={title}
+          >
             {title}
           </Link>
         </h3>
