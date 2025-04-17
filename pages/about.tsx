@@ -180,7 +180,7 @@ export default function About({ page }: AboutProps) {
         </Container> */}
         <Container>
           <SubPostTitle>Certifications & Diplomas</SubPostTitle>
-          <div className="flex flex-row flex-wrap">
+          <div className="flex flex-row flex-wrap justify-center gap-5">
             <CertificationItem
               image="/assets/dansk-standard.jpeg"
               title="Project Management"
@@ -194,6 +194,7 @@ export default function About({ page }: AboutProps) {
               href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering"
             />
           </div>
+          <div className="h-8" />
         </Container>
       </Layout>
     </>

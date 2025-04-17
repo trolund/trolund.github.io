@@ -10,11 +10,7 @@ interface CardProp {
 
 const Card: React.FC<CardProp> = ({ children, className, href }: CardProp) => {
   var container = (
-    <div
-      className={cn('card-low m-1 p-3 hover:border-content-text sm:m-1 md:m-2 lg:m-3', className)}
-    >
-      {children}
-    </div>
+    <div className={cn('card-low p-3 hover:border-content-text', className)}>{children}</div>
   );
 
   if (href) {

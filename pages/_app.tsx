@@ -1,7 +1,7 @@
 import { ThemeProvider } from '../hooks/ThemeContext';
 import '../styles/index.css';
 import Head from 'next/head';
-import Toast from '../components/Toast';
+import Toast from '../components/toast';
 
 type AppProps = {
   Component: any;
