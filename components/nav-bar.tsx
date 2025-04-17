@@ -71,7 +71,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
         {items.map((item) => (
           <li
             key={item.link}
-            className="cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-100"
+            className="cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-300/30 dark:hover:bg-gray-800/30"
           >
             <Link
               href={item.link}

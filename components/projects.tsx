@@ -26,8 +26,8 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
   return (
     <section>
       <div className="flex flex-col items-center justify-center gap-5">
-        <div className="relative w-full">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 dark:text-gray-400">
+        <div className="relative w-full p-2">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5 text-gray-500 dark:text-gray-400">
             <MdSearch className="h-5 w-5" />
           </div>
           <input
