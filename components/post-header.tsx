@@ -52,7 +52,7 @@ export default function PostHeader({
           </div>
         </div>
         <div className="mb-4 flex w-full flex-wrap">
-          {technologies && technologies.map((t, i) => <Ship key={`${i}-${slug}`} value={t} />)}
+          {technologies && technologies.map((t, i) => <Ship key={`${i}-${slug}-${t}`} value={t} />)}
         </div>
       </div>
     </>

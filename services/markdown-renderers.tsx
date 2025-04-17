@@ -2,10 +2,10 @@ import * as Markdown from 'react-markdown';
 import Image from 'next/legacy/image';
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import * as styleDark from 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
-import * as styleLight from 'react-syntax-highlighter/dist/esm/styles/prism/one-light';
 import { MdContentCopy } from 'react-icons/md';
 import { toast } from 'react-toastify';
+import { oneDark } from './one-dark';
+import { oneLight } from './one-light';
 
 function copyToClipboard(text: string) {
   navigator.clipboard
@@ -46,28 +46,26 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     const match = /language-(\w+)/.exec(className || '');
     const code = String(children).replace(/\n$/, '');
     return match ? (
-      <>
-        <div className="relative">
-          <SyntaxHighlighter
-            showLineNumbers
-            wrapLongLines
-            language={match[1]}
-            style={isDark ? styleDark.default : styleLight.default}
-          >
-            {code}
-          </SyntaxHighlighter>
-          <MdContentCopy
-            onClick={() => copyToClipboard(code)}
-            className="absolute right-2 top-2 cursor-pointer rounded-lg bg-black/50 transition-transform duration-200 hover:scale-125"
-            style={{
-              position: 'absolute',
-              top: '15px',
-              right: '15px',
-              cursor: 'pointer',
-            }}
-          />
-        </div>
-      </>
+      <div className="relative">
+        <SyntaxHighlighter
+          showLineNumbers
+          wrapLongLines
+          language={match[1]}
+          style={isDark ? (oneDark as any) : oneLight}
+        >
+          {code}
+        </SyntaxHighlighter>
+        <MdContentCopy
+          onClick={() => copyToClipboard(code)}
+          className="absolute right-2 top-2 cursor-pointer rounded-lg bg-black/50 transition-transform duration-200 hover:scale-125"
+          style={{
+            position: 'absolute',
+            top: '15px',
+            right: '15px',
+            cursor: 'pointer',
+          }}
+        />
+      </div>
     ) : (
       <code {...rest} className={className}>
         {children}

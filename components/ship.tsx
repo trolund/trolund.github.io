@@ -1,12 +1,10 @@
 export interface ShipProps {
-  key: string;
   value: string;
 }
 
-export default function Ship({ key, value }: ShipProps) {
+export default function Ship({ value }: ShipProps) {
   return (
     <span
-      key={key}
       style={{
         backgroundColor: 'var(--footer)',
         height: '2rem',
