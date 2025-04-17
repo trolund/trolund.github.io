@@ -35,7 +35,7 @@ export default function ProjectItem({
 }: ProjectItemProps) {
   return (
     <Card className={className}>
-      <div className="px-3.5 py-2.5">
+      <div className="p-2.5">
         <div className="mb-5">
           <div
             className={cn('shadow-small', {

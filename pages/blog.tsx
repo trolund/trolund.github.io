@@ -10,6 +10,7 @@ import PostBody from '../components/post-body';
 import HeroPost from '../components/hero-post';
 import { BlogPost } from '../types/blogPost';
 import { TITLE } from '../lib/constants';
+import SubPostTitle from '../components/sub-post-title';
 
 type IndexProps = {
   allPosts: BlogPost[];
@@ -19,6 +20,7 @@ type IndexProps = {
 export default function Index({ allPosts, blog }: IndexProps) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
+
   return (
     <>
       <NavBar items={menu} spacing />
@@ -41,6 +43,8 @@ export default function Index({ allPosts, blog }: IndexProps) {
               technologies={heroPost.technologies}
             />
           )}
+          <span className="p-10"></span>
+          <SubPostTitle>Older posts</SubPostTitle>
           {morePosts.length > 0 && (
             <ProjectsView
               className="glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900"
