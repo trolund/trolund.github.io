@@ -11,10 +11,6 @@ interface ProjectsViewProps {
 export default function ProjectsView({ posts, className }: ProjectsViewProps) {
   const [searchTerm, setSearchTerm] = useState<string>();
 
-  if (!posts || posts.length === 0) {
-    return <div>𐚤 No projects found.</div>;
-  }
-
   const filteredPosts = useCallback(() => {
     return posts.filter(
       (post) =>
