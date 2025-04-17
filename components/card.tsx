@@ -18,11 +18,7 @@ const Card: React.FC<CardProp> = ({ children, className, href }: CardProp) => {
   );
 
   if (href) {
-    return (
-      <Link href={href} legacyBehavior>
-        {container}
-      </Link>
-    );
+    return <Link href={href}>{container}</Link>;
   }
 
   return container;

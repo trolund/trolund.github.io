@@ -34,7 +34,7 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]" legacyBehavior>
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
           {image}
         </Link>
       ) : (
