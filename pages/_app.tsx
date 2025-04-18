@@ -2,7 +2,7 @@ import { ThemeProvider } from '../hooks/ThemeContext';
 import '../styles/index.css';
 import Head from 'next/head';
 import Toast from '../components/toast';
-import { useCronitor } from '@cronitorio/cronitor-rum-nextjs';
+import { useCronitor } from '../hooks/useCronitor';
 
 type AppProps = {
   Component: any;
