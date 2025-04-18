@@ -39,7 +39,7 @@ export default function ProjectItem({
         <div className="mb-5">
           <div
             className={cn('shadow-small', {
-              'transition-shadow duration-200 hover:shadow-medium': slug,
+              'transition-shadow hover:shadow-medium': slug,
             })}
             style={{
               backgroundImage: `url(${coverImage})`,
@@ -50,7 +50,7 @@ export default function ProjectItem({
               overflow: 'hidden',
               borderRadius: 'var(--border-radius)',
             }}
-          ></div>
+          />
         </div>
         <h3 className="mb-3 text-3xl leading-snug">
           <Link
@@ -80,7 +80,6 @@ export default function ProjectItem({
           </div>
         </div>
         <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-        {/* <Avatar name={author.name} picture={author.picture} /> */}
         <p className="float-right text-base font-semibold">
           <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover:underline">
             Read more

@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface coverImageProps {
@@ -13,12 +14,13 @@ interface coverImageProps {
 export default function CoverImage({ title, src, slug, tags }: coverImageProps) {
   const image = (
     <div>
-      <img
-        src={src}
-        alt={`Cover Image for ${title}`}
-        className={cn('mx-auto max-h-[450px] shadow-small', {
-          'transition-shadow duration-200 hover:shadow-medium': slug,
+      <div
+        className={cn('h-64 w-full overflow-hidden bg-cover bg-center shadow-small', {
+          'transition-shadow hover:shadow-medium': slug,
         })}
+        style={{
+          backgroundImage: `url(${src})`,
+        }}
       />
       {tags &&
         tags.map((t, i) => (

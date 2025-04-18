@@ -38,7 +38,7 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
             className="block w-full rounded-lg border border-gray-300 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           />
         </div>
-        <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32 grid grid-cols-1 md:grid-cols-2">
+        <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32 grid grid-cols-1 gap-4 md:grid-cols-2">
           {filteredPosts().map((post) => (
             <ProjectItem
               key={post.slug}
