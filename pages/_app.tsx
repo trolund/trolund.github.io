@@ -2,6 +2,7 @@ import { ThemeProvider } from '../hooks/ThemeContext';
 import '../styles/index.css';
 import Head from 'next/head';
 import Toast from '../components/toast';
+import { useCronitor } from '@cronitorio/cronitor-rum-nextjs';
 
 type AppProps = {
   Component: any;
@@ -9,6 +10,7 @@ type AppProps = {
 };
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  useCronitor('771126b2208f23bec2650fa1e0e668b7');
   return (
     <ThemeProvider>
       <Head>
