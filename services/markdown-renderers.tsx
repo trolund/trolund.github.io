@@ -38,8 +38,13 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
       <Image src={i.src ?? ''} alt={i.alt ?? ''} height={i.height ?? 50} width={i.width ?? 50} />
     );
   },
-  pre: ({ ...props }) => {
-    return <span {...props}>{props.children}</span>;
+  pre: ({ children, style, ...rest }) => {
+    const isCode = (children as any)?.props?.className?.includes('language-');
+    return (
+      <pre {...rest} style={isCode ? { ...style, padding: '0px', overflowX: 'visible' } : style}>
+        {children}
+      </pre>
+    );
   },
   code: (props) => {
     const { children, className, ...rest } = props;
