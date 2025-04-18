@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import * as Cronitor from '@cronitorio/cronitor-rum';
 
 type ThemeContextType = {
   isDark: boolean;
@@ -31,6 +32,9 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     document.documentElement.classList.toggle('dark', isDarkMode);
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     localStorage.setItem(key, String(isDarkMode));
+    Cronitor.track('ThemeChange', {
+      message: isDarkMode ? 'dark' : 'light',
+    });
   };
 
   return <ThemeContext.Provider value={{ isDark, switchTheme }}>{children}</ThemeContext.Provider>;
