@@ -14,6 +14,7 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
   const image = (
     <div>
       <div
+        aria-label={title}
         className={cn('h-64 w-full overflow-hidden bg-cover bg-center shadow-small', {
           'transition-shadow hover:shadow-medium': slug,
         })}
