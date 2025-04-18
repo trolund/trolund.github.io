@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 
 interface coverImageProps {
