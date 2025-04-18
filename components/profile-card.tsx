@@ -1,6 +1,7 @@
 import Image from 'next/legacy/image';
 import { SiLinkedin } from 'react-icons/si';
-import { VscGithubInverted } from 'react-icons/vsc';
+import { VscGithubInverted, VscCloudDownload } from 'react-icons/vsc';
+import * as Cronitor from '@cronitorio/cronitor-rum';
 
 export default function ProfileCard() {
   function calculateAge(birthdate: string) {
@@ -52,6 +53,15 @@ export default function ProfileCard() {
               <li>Copenhagen, Denmark</li>
               <li className="m-2 border-t-[1px] border-border-color"></li>
               <li className="ml-auto mr-auto flex justify-end gap-4">
+                <a
+                  onClick={() => Cronitor.track('CVDownload')}
+                  target="_blank"
+                  className="mr-auto flex gap-2 transition-all hover:scale-105"
+                  href="/assets/Troels_Lund_CV_2025.pdf"
+                >
+                  <VscCloudDownload color="var(--content-text)" size={25} />
+                  <p>Download CV</p>
+                </a>
                 <a className="transition-all hover:scale-110" href="https://github.com/trolund">
                   <VscGithubInverted color="var(--content-text)" size={25} />
                 </a>
