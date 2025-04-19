@@ -1,6 +1,8 @@
 {
   "name": "troels-lund-personal-website",
   "version": "1.0.0",
+  "description": "personal website of Troels Lund",
+  "homepage": "https://troelslund.dk",
   "scripts": {
     "dev": "npm run buildIndex & next",
     "build": "npm run buildIndex & next build",

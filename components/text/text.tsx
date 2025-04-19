@@ -17,7 +17,7 @@ interface TextProps {
   keepUnderscore?: boolean;
 }
 
-const Text: FunctionComponent<TextProps> = ({
+const Text: React.FC<TextProps> = ({
   input: initInput,
   infinity,
   onlyWhenVisible,
@@ -99,7 +99,7 @@ const Text: FunctionComponent<TextProps> = ({
       }
     >
       {word(wordIndex, charIndex)}
-      <b
+      <strong
         style={{
           display: showUnderScore ? 'inline-block' : 'none',
           color: color,
@@ -111,7 +111,7 @@ const Text: FunctionComponent<TextProps> = ({
         className={styles.underscore + (underscoreClassName ? ' ' + underscoreClassName : '')}
       >
         _
-      </b>
+      </strong>
     </div>
   );
 };
