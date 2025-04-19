@@ -11,7 +11,6 @@ type AppProps = {
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   useCronitor(process.env.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY ?? '');
-  console.log('client key:', process.env.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY);
   return (
     <ThemeProvider>
       <Head>
