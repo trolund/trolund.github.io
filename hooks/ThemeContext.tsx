@@ -17,9 +17,29 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const key = 'isDark';
 
   useEffect(() => {
-    const storedIsDark = localStorage.getItem(key) === 'true';
-    setIsDark(storedIsDark);
-    applyTheme(storedIsDark);
+    const stored = localStorage.getItem(key);
+
+    let darkMode = false;
+    if (stored !== null) {
+      darkMode = stored === 'true';
+    } else {
+      darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    setIsDark(darkMode);
+    applyTheme(darkMode);
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+      setIsDark(event.matches);
+      applyTheme(event.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+    return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
   }, []);
 
   const switchTheme = () => {
