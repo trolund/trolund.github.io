@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useMemo, useState } from 'react';
+import { CSSProperties, FunctionComponent, useEffect, useMemo, useState } from 'react';
 import styles from './text.module.css';
 
 interface TextProps {
@@ -17,7 +17,7 @@ interface TextProps {
   keepUnderscore?: boolean;
 }
 
-const Text: React.FC<TextProps> = ({
+const Text: FunctionComponent<TextProps> = ({
   input: initInput,
   infinity,
   onlyWhenVisible,
