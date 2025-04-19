@@ -42,10 +42,10 @@ export default function ProfileCard() {
           <div>
             <ol>
               <li>
-                <b>Software Engineer</b>
+                <strong>Software Engineer</strong>
               </li>
               <li>
-                <b>MSc Eng. Computer Science</b>
+                <strong>MSc Eng. Computer Science</strong>
               </li>
               <li>
                 <i>{calculateAge('1994-10-06')} years old</i>
