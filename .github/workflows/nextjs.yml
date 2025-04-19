@@ -72,6 +72,16 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build index
         run: npm run buildIndex
+      - name: Check if secret is available
+        run: |
+          if [ -z "$NEXT_PUBLIC_CRONITORIO_CLIENT_KEY" ]; then
+            echo "Secret is not set!"
+            exit 1
+          else
+            echo "Secret is available."
+          fi
+        env:
+          NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
