@@ -1,4 +1,4 @@
-import { CSSProperties, FunctionComponent, useEffect, useState } from 'react';
+import { CSSProperties, FunctionComponent, useEffect, useMemo, useState } from 'react';
 import styles from './text.module.css';
 
 interface TextProps {
@@ -37,7 +37,10 @@ const Text: FunctionComponent<TextProps> = ({
   const [showUnderScore, setShowUnderScore] = useState<boolean>(true);
   const [wait, setWait] = useState(initDelay ?? 0);
 
-  const input: string[] = Array.isArray(initInput) ? initInput : [initInput];
+  const input: string[] = useMemo(
+    () => (Array.isArray(initInput) ? initInput : [initInput]),
+    [initInput],
+  );
 
   const word = (wordIndex: number, charIndex: number): string => {
     return input[wordIndex].substring(0, charIndex);
