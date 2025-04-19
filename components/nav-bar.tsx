@@ -27,22 +27,26 @@ const NavBar = ({ items, spacing }: MenuProps) => {
           transStyles.nav,
         )}
       >
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-end px-4">
+        <div className="mx-auto flex h-16 max-w-5xl items-center justify-end px-2">
           {/* Desktop Navigation */}
           <ul className="hidden md:flex">
             {items.map((item) => (
-              <Link
+              <li
                 key={item.link}
-                href={item.link}
                 className={cn(
-                  'm-2 cursor-pointer border-b-2 p-4 pt-5 duration-300',
+                  'group relative mb-2 mt-2 block cursor-pointer border-b-[1px] duration-300 hover:border-content-text',
                   router.pathname === item.link
                     ? 'border-b-4 border-content-text font-bold'
-                    : 'border-transparent hover:scale-105 hover:border-content-text',
+                    : 'border-transparent',
                 )}
               >
-                <li>{item.itemName}</li>
-              </Link>
+                <Link
+                  className="block h-full w-full p-5 pt-5 transition-all duration-300 group-hover:scale-105 group-hover:bg-slate-300/30 dark:group-hover:bg-gray-800/30"
+                  href={item.link}
+                >
+                  {item.itemName}
+                </Link>
+              </li>
             ))}
             <li
               onClick={switchTheme}

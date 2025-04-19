@@ -58,16 +58,22 @@ export default function ProfileCard() {
                   target="_blank"
                   className="mr-auto flex gap-2 transition-all hover:scale-105"
                   href="/assets/Troels_Lund_CV_2025.pdf"
+                  aria-label="Download my CV"
                 >
                   <VscCloudDownload color="var(--content-text)" size={25} />
                   <p>Download CV</p>
                 </a>
-                <a className="transition-all hover:scale-110" href="https://github.com/trolund">
+                <a
+                  className="transition-all hover:scale-110"
+                  href="https://github.com/trolund"
+                  aria-label="Link to my GitHub profile"
+                >
                   <VscGithubInverted color="var(--content-text)" size={25} />
                 </a>
                 <a
                   className="transition-all hover:scale-110"
                   href="https://www.linkedin.com/in/trolund/"
+                  aria-label="Link to my Linkedin profile"
                 >
                   <SiLinkedin color="var(--content-text)" size={25} />
                 </a>
