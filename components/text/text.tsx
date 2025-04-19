@@ -1,4 +1,4 @@
-import { CSSProperties, FunctionComponent, useEffect, useMemo, useState } from 'react';
+import { CSSProperties, useEffect, useMemo, useState } from 'react';
 import styles from './text.module.css';
 
 interface TextProps {
