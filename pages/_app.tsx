@@ -10,7 +10,7 @@ type AppProps = {
 };
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  useCronitor('771126b2208f23bec2650fa1e0e668b7');
+  useCronitor(process.env.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY ?? '');
   return (
     <ThemeProvider>
       <Head>
