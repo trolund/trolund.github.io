@@ -16,7 +16,7 @@ export default function Footer() {
           }
         >
           <div className={'xs:p-3 md:p-8 ' + styles.box}>
-            <h4>Contact details</h4>
+            <h1>Contact details</h1>
             <div
               style={{
                 height: '5px',
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
           </div>
           <div className={'xs:p-3 md:p-8 ' + styles.box}>
-            <h4>Site map</h4>
+            <h1>Site map</h1>
             <div
               style={{
                 height: '5px',
