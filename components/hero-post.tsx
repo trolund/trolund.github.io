@@ -1,9 +1,9 @@
 import DateFormatter from './date-formatter';
 import Link from 'next/link';
 import { Author } from '../types/blogPost';
-import cn from 'classnames';
 import Card from './card';
 import Ship from './ship';
+import { cn } from '../lib/utils';
 
 interface HeroPostProps {
   title: string;

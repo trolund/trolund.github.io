@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import cn from 'classnames';
+import { cn } from '../lib/utils';
 
 interface CardProp {
   className?: String;
