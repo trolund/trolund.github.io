@@ -87,5 +87,10 @@
   },
   "overrides": {
     "@types/react": "18.3.12"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ]
 }
