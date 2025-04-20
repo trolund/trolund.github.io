@@ -1,16 +1,14 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
-#
-# To get started with Next.js see: https://nextjs.org/docs/getting-started
-#
 name: Deploy Next.js site to Pages
 
 env:
   NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
+  # Runs on pushes to pull requests targeting the default branch
+  pull_request:
     branches: ["master"]
+    paths-ignore:
+      - ".github/workflows/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
