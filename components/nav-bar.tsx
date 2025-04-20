@@ -48,16 +48,13 @@ const NavBar = ({ items, spacing }: MenuProps) => {
                 </Link>
               </li>
             ))}
-            <li
-              onClick={switchTheme}
-              className="m-2 cursor-pointer p-4 duration-300 hover:scale-125"
-            >
+            <li onClick={switchTheme} className="cursor-pointer p-6 duration-300 hover:scale-125">
               {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
             </li>
           </ul>
 
           {/* Mobile Navigation Icon */}
-          <div onClick={() => setIsOpen(!isOpen)} className="block md:hidden">
+          <div onClick={() => setIsOpen(!isOpen)} className="block p-5 md:hidden">
             {isOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
           </div>
         </div>
