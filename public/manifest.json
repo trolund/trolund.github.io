@@ -1,19 +1,17 @@
 {
-    "name": "Personal website - Troels Lund",
+    "name": "Personal website - Troels Elsvad Lund",
     "short_name": "Personal website - Troels Lund",
     "id": "Personal website - Troels Lund",
     "icons": [
         {
-            "src": "../favicon/android-chrome-192x192.png",
+            "src": "icons/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
+            "type": "image/png"
         },
         {
-            "src": "../favicon/android-chrome-512x512.png",
+            "src": "icons/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
+            "type": "image/png"
         }
     ],
     "start_url": "../?source=pwa",
