@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { Author, OgImage } from '../types/blogPost';
-import cn from 'classnames';
 import Image from 'next/legacy/image';
 import Language from '../types/languages';
 import DateFormatter from './date-formatter';
 import Card from './card';
 import Ship from './ship';
+import { cn } from '../lib/utils';
 
 interface ProjectItemProps {
   title: string;
