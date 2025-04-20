@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 function FrontBanner() {
   return (
-    <div className="h-dvh flex justify-center text-center align-middle">
+    <div className="flex h-dvh justify-center text-center align-middle">
       <GradientSVG speed={0.1} size={40} />
       <main className="z-10 inline-flex flex-col justify-center gap-6 text-center align-middle sm:gap-8 md:gap-12">
         <Image

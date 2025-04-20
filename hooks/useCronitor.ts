@@ -11,7 +11,7 @@ export function useCronitor(clientKey: string, config: CronitorRUMConfig = {}) {
 
   useEffect(() => {
     Cronitor.load(clientKey, config);
-  }, []);
+  }, [clientKey, config]);
 
   useEffect(() => {
     Cronitor.track('Pageview');

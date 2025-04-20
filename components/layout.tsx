@@ -1,4 +1,3 @@
-import Meta from './meta';
 import Footer from './Footer';
 import transStyles from '../styles/view-trans.module.css';
 import { cn } from '../lib/utils';
