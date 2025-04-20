@@ -74,11 +74,14 @@ export function search(term: string): SearchResult[] {
   }
 
   const results: SearchResult[] = Object.entries(index)
-    .filter(([_, value]) => value.keywords.includes(term))
-    .map(([key, value]) => (({
-    slug: key,
-    name: value.name
-  }) as SearchResult));
+    .filter(([, value]) => value.keywords.includes(term))
+    .map(
+      ([key, value]) =>
+        ({
+          slug: key,
+          name: value.name,
+        }) as SearchResult,
+    );
 
   return results;
 }

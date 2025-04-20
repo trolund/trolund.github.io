@@ -4,15 +4,17 @@
   "description": "personal website of Troels Lund",
   "homepage": "https://troelslund.dk",
   "scripts": {
-    "dev": "npm run buildIndex & next",
-    "build": "npm run buildIndex & next build",
+    "dev": "next",
+    "build": "npm run format:lint & next build",
     "start": "next start",
     "export": "next build && next export",
     "lint": "next lint",
     "buildIndex": "ts-node search/indexBuilder.ts",
     "find:unused": "next-unused",
     "prepare": "husky install",
-    "format": "prettier --write \"**/*.{js,ts,tsx}\""
+    "format": "prettier --write \"**/*.{js,ts,tsx}\"",
+    "lint:fix": "npx eslint . --ext .ts,.tsx --fix",
+    "format:lint": "npm run lint:fix && npm run format"
   },
   "husky": {
     "hooks": {
@@ -55,6 +57,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "next-unused": "^0.0.6",

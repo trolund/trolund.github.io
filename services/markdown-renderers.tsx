@@ -13,7 +13,7 @@ function copyToClipboard(text: string) {
     .then(() => {
       toast('🛠️ Code copied to clipboard', { type: 'info' });
     })
-    .catch((err) => {
+    .catch(() => {
       toast('Failed to copy', { type: 'error' });
     });
 }

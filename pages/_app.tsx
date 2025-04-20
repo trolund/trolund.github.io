@@ -1,6 +1,5 @@
 import { ThemeProvider } from '../hooks/ThemeContext';
 import '../styles/index.css';
-import Head from 'next/head';
 import Toast from '../components/toast';
 import { useCronitor } from '../hooks/useCronitor';
 import Meta from '../components/meta';
