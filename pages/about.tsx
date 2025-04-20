@@ -13,6 +13,7 @@ import SubPostTitle from '../components/sub-post-title';
 import Education from '../components/education';
 import CertificationItem from '../components/certification-item';
 import { TITLE } from '../lib/constants';
+import Fly from '../components/Rocket/Fly';
 
 type AboutProps = {
   page: {
@@ -40,6 +41,7 @@ export default function About({ page }: AboutProps) {
           <title>{`${TITLE} | About`}</title>
         </Head>
         <Container>
+          <Fly />
           <PostTitle>About me</PostTitle>
           <ProfileCard />
           <PostBody className="mx-auto" content={page.about.content} />
