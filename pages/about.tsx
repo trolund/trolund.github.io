@@ -11,8 +11,6 @@ import styles from '../pages/css/about.module.css';
 import SubPostTitle from '../components/sub-post-title';
 import CertificationItem from '../components/certification-item';
 import { TITLE } from '../lib/constants';
-import Rocket from '../components/rocket/rocket';
-import RocketScene from '../components/rocket/RocketScene';
 
 type AboutProps = {
   page: {
