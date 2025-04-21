@@ -46,12 +46,14 @@ export default function About({ page }: AboutProps) {
         <div className="h-10 w-full"></div>
         <Container className={styles.skillsList}>
           <SubPostTitle>Experience</SubPostTitle>
-          <StaticMarkdown mdContent={page.experience.content} />
+          <PostBody className="mx-auto" content={page.experience.content} />
+          {/* <StaticMarkdown mdContent={page.experience.content} /> */}
         </Container>
 
         <Container className={styles.skillsList}>
           <SubPostTitle>Education</SubPostTitle>
-          <StaticMarkdown mdContent={page.education.content} />
+          <PostBody className="mx-auto" content={page.education.content} />
+          {/* <StaticMarkdown mdContent={page.education.content} /> */}
         </Container>
 
         <Container>

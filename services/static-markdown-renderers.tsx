@@ -1,35 +1,24 @@
 import Image from 'next/image';
 import * as Markdown from 'react-markdown';
-
-interface ImageDataElement extends HTMLLIElement {
-  properties: {
-    dataUrl?: string;
-    dataH?: number;
-    dataW?: number;
-  };
-}
+import ImageItem from '../components/ImageItem';
+import { ImageDataElement } from '../types/ImageDataElement';
 
 export const staticRenderers: Markdown.Components = {
   li: ({ node, children }) => {
     const element: ImageDataElement = node as any;
     const imageUrl = element.properties.dataUrl;
-    const height = element.properties.dataH;
-    const width = element.properties.dataW;
 
-    if (imageUrl) {
-      return (
-        <li>
-          <div className="flex flex-row gap-6">
-            <div>
-              <Image src={imageUrl ?? ''} width={width} height={height} alt="logo" />
-            </div>
-            <div className="w-full">{children}</div>
-          </div>
-        </li>
-      );
-    } else {
-      return <li>{children}</li>;
-    }
+    return imageUrl ? (
+      <ImageItem
+        imageUrl={imageUrl}
+        height={element.properties.dataH}
+        width={element.properties.dataW}
+      >
+        {children}
+      </ImageItem>
+    ) : (
+      <li>{children}</li>
+    );
   },
   image: ({ node }) => {
     const imageElement: HTMLImageElement = node as any;
