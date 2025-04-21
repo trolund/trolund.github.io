@@ -33,9 +33,14 @@ function headingRenderer(props: any, level: number) {
 
 export const markdownRenderers = (isDark: boolean = false): Markdown.Components => ({
   image: ({ node }) => {
-    const i: HTMLImageElement = node as any;
+    const imageElement: HTMLImageElement = node as any;
     return (
-      <Image src={i.src ?? ''} alt={i.alt ?? ''} height={i.height ?? 50} width={i.width ?? 50} />
+      <Image
+        src={imageElement.src ?? ''}
+        alt={imageElement.alt ?? ''}
+        height={imageElement.height ?? 50}
+        width={imageElement.width ?? 50}
+      />
     );
   },
   pre: ({ children, style, ...rest }) => {

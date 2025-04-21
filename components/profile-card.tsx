@@ -25,17 +25,14 @@ export default function ProfileCard() {
 
   return (
     <figure className="card float-left mb-2 mr-5 h-auto w-full rounded-xl p-5 sm:w-[280px]">
-      <div className="rounded-[10%]">
-        <Image
-          style={{ borderTopLeftRadius: '5px', borderTopRightRadius: '5px' }}
-          src="/profil.webp"
-          alt="me"
-          width={100}
-          height={100}
-          layout="responsive"
-          objectFit="contain"
-        />
-      </div>
+      <Image
+        src="/profil.webp"
+        alt="me"
+        width={100}
+        height={100}
+        layout="responsive"
+        objectFit="contain"
+      />
       <div className="space-y-4 pt-6">
         <figcaption>
           <b className="text-2xl">Troels Elsvad Lund</b>
