@@ -27,9 +27,9 @@ const NavBar = ({ items, spacing }: MenuProps) => {
           transStyles.nav,
         )}
       >
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-end px-2">
+        <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex">
+          <ul className="hidden md:flex md:gap-2">
             {items.map((item) => (
               <li
                 key={item.link}
@@ -48,7 +48,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
                 </Link>
               </li>
             ))}
-            <li onClick={switchTheme} className="cursor-pointer p-6 duration-300 hover:scale-125">
+            <li onClick={switchTheme} className="cursor-pointer p-7 duration-300 hover:scale-125">
               {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
             </li>
           </ul>
