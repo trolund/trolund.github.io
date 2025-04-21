@@ -19,8 +19,8 @@ export const staticRenderers: Markdown.Components = {
     if (imageUrl) {
       return (
         <li>
-          <div className="flex flex-row">
-            <div className="mr-6 mt-4">
+          <div className="flex flex-row gap-6">
+            <div>
               <Image src={imageUrl ?? ''} width={width} height={height} alt="logo" />
             </div>
             <div className="w-full">{children}</div>
