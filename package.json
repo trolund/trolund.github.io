@@ -16,12 +16,7 @@
     "lint:fix": "npx eslint . --ext .ts,.tsx --fix",
     "format:lint": "npm run lint:fix && npm run format"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
-    }
-  },
+  "prepare": "husky || true",
   "lint-staged": {
     "*.ts,*.jsx": "eslint --cache --fix"
   },

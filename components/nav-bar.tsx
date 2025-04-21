@@ -7,6 +7,7 @@ import transStyles from '../styles/view-trans.module.css';
 import Link from 'next/link';
 import { useTheme } from '../hooks/ThemeContext';
 import { cn } from '../lib/utils';
+import { useMediaQuery } from 'usehooks-ts';
 
 export type MenuProps = {
   items: MenuItem[];
