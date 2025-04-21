@@ -13,7 +13,7 @@
     "find:unused": "next-unused",
     "prepare": "husky",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "lint:fix": "npx eslint . --ext .ts,.tsx --fix",
+    "lint:fix": "npx eslint --cache . --ext .ts,.tsx --fix",
     "format:lint": "npm run lint:fix && npm run format"
   },
   "prepare": "husky || true",
