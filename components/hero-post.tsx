@@ -32,17 +32,14 @@ export default function HeroPost({
         <div className="px-3.5 py-2.5">
           <div className="mb-5">
             <div
-              className={cn('shadow-small', {
-                'transition-shadow duration-200 hover:shadow-medium': slug,
-              })}
+              className={cn(
+                'h-[300px] w-full overflow-hidden rounded-[var(--border-radius)] bg-cover bg-center shadow-small',
+                {
+                  'transition-shadow duration-200 hover:shadow-medium': slug,
+                },
+              )}
               style={{
                 backgroundImage: `url(${coverImage})`,
-                height: '300px',
-                width: '100%',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                overflow: 'hidden',
-                borderRadius: 'var(--border-radius)',
               }}
             ></div>
           </div>

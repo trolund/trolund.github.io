@@ -5,8 +5,6 @@ interface coverImageProps {
   title: string;
   src: string;
   slug: string;
-  style?: React.CSSProperties;
-  className?: string;
   tags?: string[];
 }
 
