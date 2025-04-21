@@ -1,6 +1,6 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Rocket from './Rocket';
+import Rocket from './rocket';
 
 const Fly = () => {
   const controls = useAnimation();

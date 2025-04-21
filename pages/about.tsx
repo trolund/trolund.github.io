@@ -13,7 +13,7 @@ import SubPostTitle from '../components/sub-post-title';
 import Education from '../components/education';
 import CertificationItem from '../components/certification-item';
 import { TITLE } from '../lib/constants';
-import Fly from '../components/Rocket/Fly';
+import Fly from '../components/rocket/fly';
 
 type AboutProps = {
   page: {
