@@ -6,6 +6,8 @@ import { MdContentCopy } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import { oneDark } from './one-dark';
 import { oneLight } from './one-light';
+import { ImageDataElement } from '../types/ImageDataElement';
+import ImageItem from '../components/ImageItem';
 
 function copyToClipboard(text: string) {
   navigator.clipboard
@@ -16,19 +18,6 @@ function copyToClipboard(text: string) {
     .catch(() => {
       toast('Failed to copy', { type: 'error' });
     });
-}
-
-function flatten(text: string, child: any) {
-  return typeof child === 'string'
-    ? text + child
-    : React.Children.toArray(child.props.children).reduce(flatten, text);
-}
-
-function headingRenderer(props: any, level: number) {
-  var children = React.Children.toArray(props.children);
-  var text = children.reduce(flatten, '');
-  var slug = text.toLowerCase().replace(/\W/g, '-');
-  return React.createElement('h' + level, { id: slug }, props.children);
 }
 
 export const markdownRenderers = (isDark: boolean = false): Markdown.Components => ({
@@ -83,8 +72,20 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
       </code>
     );
   },
-  h1: (props) => headingRenderer(props, 1),
-  h2: (props) => headingRenderer(props, 2),
-  h3: (props) => headingRenderer(props, 3),
-  h4: (props) => headingRenderer(props, 4),
+  li: ({ node, children }) => {
+    const element: ImageDataElement = node as any;
+    const imageUrl = element.properties.dataUrl;
+
+    return imageUrl ? (
+      <ImageItem
+        imageUrl={imageUrl}
+        height={element.properties.dataH}
+        width={element.properties.dataW}
+      >
+        {children}
+      </ImageItem>
+    ) : (
+      <li>{children}</li>
+    );
+  },
 });

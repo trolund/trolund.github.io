@@ -11,7 +11,6 @@ import styles from '../pages/css/about.module.css';
 import SubPostTitle from '../components/sub-post-title';
 import CertificationItem from '../components/certification-item';
 import { TITLE } from '../lib/constants';
-import StaticMarkdown from '../components/static-markdown';
 
 type AboutProps = {
   page: {
@@ -46,12 +45,12 @@ export default function About({ page }: AboutProps) {
         <div className="h-10 w-full"></div>
         <Container className={styles.skillsList}>
           <SubPostTitle>Experience</SubPostTitle>
-          <StaticMarkdown mdContent={page.experience.content} />
+          <PostBody className="mx-auto" content={page.experience.content} />
         </Container>
 
         <Container className={styles.skillsList}>
           <SubPostTitle>Education</SubPostTitle>
-          <StaticMarkdown mdContent={page.education.content} />
+          <PostBody className="mx-auto" content={page.education.content} />
         </Container>
 
         <Container>
