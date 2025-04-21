@@ -4,15 +4,7 @@ export interface ShipProps {
 
 export default function Ship({ value }: ShipProps) {
   return (
-    <span
-      style={{
-        backgroundColor: 'var(--footer)',
-        height: '2rem',
-        fontSize: '0.9rem',
-        borderWidth: 1,
-      }}
-      className="mb-1 mr-2 grow-0 rounded-full border-solid border-gray-800 border-opacity-25 px-3 py-1"
-    >
+    <span className="mb-1 mr-2 h-8 grow-0 rounded-full border border-solid border-gray-800 border-opacity-25 bg-[var(--footer)] px-3 py-1 text-[0.9rem]">
       {value}
     </span>
   );

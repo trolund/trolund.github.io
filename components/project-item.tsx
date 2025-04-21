@@ -38,17 +38,14 @@ export default function ProjectItem({
       <div className="p-2.5">
         <div className="mb-5">
           <div
-            className={cn('shadow-small', {
-              'transition-shadow hover:shadow-medium': slug,
-            })}
+            className={cn(
+              'h-[200px] w-full overflow-hidden rounded-[var(--border-radius)] bg-cover bg-center shadow-small',
+              {
+                'transition-shadow hover:shadow-medium': slug,
+              },
+            )}
             style={{
               backgroundImage: `url(${coverImage})`,
-              height: '200px',
-              width: '100%',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              overflow: 'hidden',
-              borderRadius: 'var(--border-radius)',
             }}
           />
         </div>

@@ -1,6 +1,7 @@
 name: Deploy Next.js site to Pages
 
 env:
+  HUSKY: 0
   NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
 
 on:

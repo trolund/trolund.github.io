@@ -5,23 +5,18 @@
   "homepage": "https://troelslund.dk",
   "scripts": {
     "dev": "next",
-    "build": "npm run format:lint & next build",
+    "build": "next build",
     "start": "next start",
     "export": "next build && next export",
     "lint": "next lint",
     "buildIndex": "ts-node search/indexBuilder.ts",
     "find:unused": "next-unused",
-    "prepare": "husky install",
+    "prepare": "husky",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "lint:fix": "npx eslint . --ext .ts,.tsx --fix",
+    "lint:fix": "npx eslint --cache . --ext .ts,.tsx --fix",
     "format:lint": "npm run lint:fix && npm run format"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
-    }
-  },
+  "prepare": "husky || true",
   "lint-staged": {
     "*.ts,*.jsx": "eslint --cache --fix"
   },

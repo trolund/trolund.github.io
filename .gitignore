@@ -35,3 +35,4 @@ yarn-error.log*
 .vercel
 .DS_Store
 .vscode/settings.json
+.eslintcache

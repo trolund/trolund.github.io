@@ -166,3 +166,7 @@ main {
     opacity: 0;
   }
 }
+
+.bg-color {
+  background-image: var(--bg-img);
+}

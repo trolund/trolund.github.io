@@ -8,11 +8,10 @@ import ProfileCard from '../components/profile-card';
 import { getContent } from '../lib/api';
 import PostBody from '../components/post-body';
 import styles from '../pages/css/about.module.css';
-import Experience from '../components/experience';
 import SubPostTitle from '../components/sub-post-title';
-import Education from '../components/education';
 import CertificationItem from '../components/certification-item';
 import { TITLE } from '../lib/constants';
+import StaticMarkdown from '../components/static-markdown';
 
 type AboutProps = {
   page: {
@@ -47,137 +46,14 @@ export default function About({ page }: AboutProps) {
         <div className="h-10 w-full"></div>
         <Container className={styles.skillsList}>
           <SubPostTitle>Experience</SubPostTitle>
-          <Experience mdContent={page.experience.content} />
+          <StaticMarkdown mdContent={page.experience.content} />
         </Container>
 
         <Container className={styles.skillsList}>
           <SubPostTitle>Education</SubPostTitle>
-          <Education mdcontent={page.education.content} />
+          <StaticMarkdown mdContent={page.education.content} />
         </Container>
-        {/* <Container>
-          <SubPostTitle>Skills</SubPostTitle>
-          <div>
-            <div
-              style={{ marginTop: "30px", marginBottom: "30px" }}
-              className="gap-3 grid-cols-3 grid-rows-3 md:grid md:grid-flow-row lg:grid"
-            >
-              <div
-                className="box card-low lg:m-0 md:m-0 m-3 glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900 row-span-2 text-center"
-                style={{
-                  backgroundColor: "var(--footer)",
-                  backgroundPositionX: "center",
-                  backgroundPositionY: "center",
-                  backgroundImage: "url(assets/ERD.svg)",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "40rem",
-                  minHeight: "150px",
-                  fontWeight: 700,
-                  fontSize: "300%",
-                  color: "var(--dark-text)",
-                }}
-              >
-                <h1
-                  className="glow:text-glow/50"
-                  style={{ ...textStyles, color: "var(--content-text)" }}
-                >
-                  Data modelling
-                </h1>
-              </div>
-              <div className="card-low lg:m-0 md:m-0 m-3 glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900 col-span-2 col-start-2 text-center">
-                <div style={{ minHeight: "150px" }}>
-                  <Text
-                    initDelay={15}
-                    color="transparent"
-                    containerStyles={{
-                      ...animatedTextStyles,
-                      minHeight: "50px",
-                    }}
-                    input={[
-                      "Web",
-                      "Back-end",
-                      "Front-end",
-                      "Mobile-app development",
-                    ]}
-                    onlyWhenVisible
-                    infinity
-                    wordBreakTime={5}
-                    writeSpeed={300}
-                    underscoreStyles={{ color: "grey" }}
-                  />
-                </div>
-              </div>
-              <div className="box card-low lg:m-0 md:m-0 m-3 glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900 col-span-1 col-start-2 text-center">
-                <div style={{ minHeight: "150px" }}>
-                  <Text
-                    initDelay={15}
-                    color="transparent"
-                    containerStyles={{
-                      ...animatedTextStyles,
-                      minHeight: "50px",
-                    }}
-                    input={[
-                      "C#",
-                      "Java",
-                      "TypeScript",
-                      ".NET",
-                      "SQL",
-                      "Next.js",
-                      "React.js",
-                      "F#",
-                    ]}
-                    onlyWhenVisible
-                    infinity
-                    wordBreakTime={5}
-                    writeSpeed={300}
-                    underscoreStyles={{ color: "grey" }}
-                  />
-                </div>
-              </div>
-              <div
-                className={`${styles.ux} card-low lg:m-0 md:m-0 m-3 glow:bg-opacity-10 glow:bg-purple-800 text-center`}
-              >
-                <h1 style={textStyles}>UX design</h1>
-              </div>
-              <div
-                className="box card-low lg:m-0 md:m-0 m-3 glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900 col-span-2 col-start-1 text-center"
-                style={{
-                  backgroundColor: "var(--footer)",
-                  backgroundPositionX: "center",
-                  backgroundPositionY: "center",
-                  backgroundImage: "url(assets/webservices.png)",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "140%",
-                  minHeight: "150px",
-                  fontWeight: 200,
-                  fontSize: "300%",
-                  color: "var(--dark-text)",
-                }}
-              >
-                <h1 style={{ ...textStyles, color: "var(--content-text)" }}>
-                  Web Services
-                </h1>
-              </div>
-              <div
-                className="box card-low lg:m-0 md:m-0 m-3 glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900 text-center"
-                style={{
-                  backgroundColor: "var(--bg-color)",
-                  textShadow: "2px 2px var(--dark-text)",
-                  backgroundPositionX: "center",
-                  backgroundPositionY: "center",
-                  backgroundImage: "url(assets/legos.png)",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "50%",
-                  minHeight: "150px",
-                  fontWeight: 700,
-                  fontSize: "300%",
-                  color: "white",
-                }}
-              >
-                <h1 style={textStyles}>Design Patterns</h1>
-              </div>
-            </div>
-          </div>
-        </Container> */}
+
         <Container>
           <SubPostTitle>Certifications & Diplomas</SubPostTitle>
           <div className="flex flex-row flex-wrap justify-center gap-5">
@@ -194,8 +70,8 @@ export default function About({ page }: AboutProps) {
               href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering"
             />
           </div>
-          <div className="h-8" />
         </Container>
+        <div className="h-8" />
       </Layout>
     </>
   );
