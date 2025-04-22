@@ -10,7 +10,6 @@ const RocketPathAnimation = () => {
   const centerY = 300;
   const radius = 200;
   const totalSteps = 20; // resolution
-  let loop = 1;
   const stepRef = useRef(0); // keeps track of current step
 
   const calculateNextPoint = (step: number) => {

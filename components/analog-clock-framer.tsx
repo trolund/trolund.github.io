@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, useMotionValue, animate } from 'framer-motion';
 
 const AnalogClockFramer = () => {
-  const [time, setTime] = useState(new Date());
-
   const secondRotate = useMotionValue(0);
   const minuteRotate = useMotionValue(0);
   const hourRotate = useMotionValue(0);
