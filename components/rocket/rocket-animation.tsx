@@ -1,55 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Rocket from './rocket';
-
-type RocketPath = {
-  x: number;
-  y: number;
-  rotate: number;
-};
 
 const RocketPathAnimation = () => {
   const controls = useAnimation();
 
-  const generateCircularPath = (
-    centerX: number,
-    centerY: number,
-    radius: number,
-    steps: number,
-  ) => {
-    const points: RocketPath[] = [];
-    for (let i = 0; i <= steps; i++) {
-      const angleRad = (i / steps) * 2 * Math.PI;
-      const x = centerX + radius * Math.cos(angleRad);
-      const y = centerY + radius * Math.sin(angleRad);
-      const angleDeg = angleRad * (180 / Math.PI);
-      points.push({ x, y, rotate: angleDeg });
-    }
-    return points;
+  // Settings
+  const centerX = 400;
+  const centerY = 300;
+  const radius = 200;
+  const totalSteps = 20; // resolution
+  let loop = 1;
+  const stepRef = useRef(0); // keeps track of current step
+
+  const calculateNextPoint = (step: number) => {
+    const angleRad = step * ((2 * Math.PI) / totalSteps);
+    const x = centerX + radius * Math.cos(angleRad);
+    const y = centerY + radius * Math.sin(angleRad);
+    const angleDeg = angleRad * (180 / Math.PI);
+    return { x, y, rotate: angleDeg + 180 };
   };
 
-  const waypoints = generateCircularPath(400, 300, 200, 30);
-
-  console.table(waypoints);
-
   const followPath = async () => {
-    for (let i = 0; i < waypoints.length - 1; i++) {
-      const target = waypoints[i];
+    const target = calculateNextPoint(stepRef.current);
 
-      await controls.start({
-        rotate: target.rotate + 180,
-        x: target.x,
-        y: target.y,
-        transition: { duration: 0.05, ease: 'circInOut' },
-      });
-    }
+    await controls.start({
+      x: target.x,
+      y: target.y,
+      rotate: target.rotate,
+      transition: { duration: 2, ease: 'linear' },
+    });
 
-    followPath(); // seamless restart
+    stepRef.current = stepRef.current + 1;
+    console.log('stepRef.current', stepRef.current);
+    followPath(); // recursion to loop continuously
   };
 
   useEffect(() => {
     followPath();
   }, []);
+
+  const initial = calculateNextPoint(0);
 
   return (
     <div
@@ -64,7 +55,7 @@ const RocketPathAnimation = () => {
     >
       <motion.div
         animate={controls}
-        initial={{ x: waypoints[0].x, y: waypoints[0].y, rotate: 0 }}
+        initial={{ x: initial.x, y: initial.y, rotate: initial.rotate }}
         style={{ position: 'absolute' }}
       >
         <Rocket />
