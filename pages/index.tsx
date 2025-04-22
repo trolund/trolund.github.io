@@ -5,6 +5,7 @@ import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
 import RocketScene from '../components/rocket/RocketScene';
+import RocketAnimation from '../components/rocket/rocket-animation';
 
 export default function Index() {
   return (
@@ -13,7 +14,7 @@ export default function Index() {
       <Head>
         <title>{TITLE}</title>
       </Head>
-      <RocketScene />
+      <RocketAnimation />
       <FrontBanner />
     </>
   );
