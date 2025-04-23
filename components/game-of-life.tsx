@@ -2,73 +2,94 @@
 
 import { useEffect, useRef } from 'react';
 
-const WIDTH = 35;
-const HEIGHT = 20;
-const SIZE = WIDTH * HEIGHT;
-const SCALE = 50;
-
 export default function GameOfLife() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const scale = 20; // px per cell
+  const widthRef = useRef(0);
+  const heightRef = useRef(0);
+  const sizeRef = useRef(0);
+  const bufferRef = useRef<Uint8Array>();
+  const intervalIdRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    let intervalId: any;
-    let memory: WebAssembly.Memory;
-    let tick: (ptr: number, width: number, height: number) => void;
-    let buffer: Uint8Array;
-
     const init = async () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const canvasWidth = window.innerWidth;
+      const canvasHeight = window.innerHeight;
+
+      const WIDTH = Math.floor(canvasWidth / scale);
+      const HEIGHT = Math.floor(canvasHeight / scale);
+      const SIZE = WIDTH * HEIGHT;
+
+      widthRef.current = WIDTH;
+      heightRef.current = HEIGHT;
+      sizeRef.current = SIZE;
+
+      canvas.width = WIDTH * scale;
+      canvas.height = HEIGHT * scale;
+
       const wasmResponse = await fetch('/wasm/release.wasm');
       const wasmBytes = await wasmResponse.arrayBuffer();
       const wasmModule = await WebAssembly.instantiate(wasmBytes, {});
       const exports = wasmModule.instance.exports as any;
 
-      memory = exports.memory;
-      tick = exports.tick;
+      const memory: WebAssembly.Memory = exports.memory;
+      const tick = exports.tick;
 
-      // Ensure memory is large enough
       const requiredPages = Math.ceil((SIZE * 2) / (64 * 1024));
       const currentPages = memory.buffer.byteLength / 65536;
       if (requiredPages > currentPages) {
-        (memory as WebAssembly.Memory).grow(requiredPages - currentPages);
+        memory.grow(requiredPages - currentPages);
       }
 
-      buffer = new Uint8Array(memory.buffer, 0, SIZE * 2);
+      const buffer = new Uint8Array(memory.buffer, 0, SIZE * 2);
+      bufferRef.current = buffer;
 
-      // Initialize the grid
+      // Random init
       for (let i = 0; i < SIZE; i++) {
         buffer[i] = Math.random() > 0.8 ? 1 : 0;
       }
 
-      intervalId = setInterval(() => {
-        tick(0, WIDTH, HEIGHT);
-        draw();
-      }, 1000 / 10); // 10 FPS
-    };
+      const draw = () => {
+        const ctx = canvas.getContext('2d');
+        if (!ctx || !bufferRef.current) return;
 
-    const draw = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgb(255, 255, 255, 0.1)';
 
-      ctx.fillStyle = `rgba(255, 255, 255, 0.2)`;
+        const WIDTH = widthRef.current;
+        const HEIGHT = heightRef.current;
+        const buffer = bufferRef.current;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let y = 0; y < HEIGHT; y++) {
-        for (let x = 0; x < WIDTH; x++) {
-          const i = y * WIDTH + x;
-          if (buffer[i]) {
-            ctx.fillRect(x * SCALE, y * SCALE, SCALE, SCALE);
+        for (let y = 0; y < HEIGHT; y++) {
+          for (let x = 0; x < WIDTH; x++) {
+            const i = y * WIDTH + x;
+            if (buffer[i]) {
+              ctx.fillRect(x * scale, y * scale, scale, scale);
+            }
           }
         }
-      }
+      };
+
+      intervalIdRef.current = setInterval(() => {
+        tick(0, WIDTH, HEIGHT);
+        draw();
+      }, 100);
     };
 
     init();
-    return () => clearInterval(intervalId);
+    return () => {
+      if (intervalIdRef.current) clearInterval(intervalIdRef.current);
+    };
   }, []);
 
   return (
-    <canvas className="bg- fixed" ref={canvasRef} width={WIDTH * SCALE} height={HEIGHT * SCALE} />
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0"
+      style={{ display: 'block', width: '100vw', height: '100vh' }}
+    />
   );
 }
