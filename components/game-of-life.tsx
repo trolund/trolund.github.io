@@ -9,7 +9,7 @@ export default function GameOfLife() {
   const heightRef = useRef(0);
   const sizeRef = useRef(0);
   const bufferRef = useRef<Uint8Array>();
-  const intervalIdRef = useRef<NodeJS.Timeout>();
+  const intervalIdRef = useRef<any>();
 
   useEffect(() => {
     const init = async () => {
