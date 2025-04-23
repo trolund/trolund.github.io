@@ -11,7 +11,7 @@ export default function GameOfLife() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    let intervalId: NodeJS.Timeout;
+    let intervalId: any;
     let memory: WebAssembly.Memory;
     let tick: (ptr: number, width: number, height: number) => void;
     let buffer: Uint8Array;
