@@ -3,11 +3,30 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../hooks/ThemeContext';
 
-const WIDTH = Math.floor(250 / 20);
-const HEIGHT = Math.floor(250 / 20);
+const TILE_SIZE = 5;
+const WIDTH = Math.floor(800 / TILE_SIZE);
+const HEIGHT = Math.floor(700 / TILE_SIZE);
 const SIZE = WIDTH * HEIGHT;
 // frame rate: 1000ms / 60fps = 16.67ms
-const FPS = 1000 / 25;
+const FPS = 1000 / 20;
+
+function getEdgeProximityValue(x: number, y: number, width: number, height: number): number {
+  const centerX = (width - 1) / 2;
+  const centerY = (height - 1) / 2;
+
+  const dx = x - centerX;
+  const dy = y - centerY;
+
+  const distance = Math.sqrt(dx * dx + dy * dy);
+  const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
+
+  const normalized = 1 - distance / maxDistance; // 1 in center, 0 on corners
+
+  const minVal = 0.000000001;
+  const maxVal = 0.6;
+
+  return minVal + normalized * (maxVal - minVal) - 0.2;
+}
 
 export default function GameOfLifeV2() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -39,12 +58,15 @@ export default function GameOfLifeV2() {
     const offCtx = offscreen.getContext('2d');
     if (!offCtx) return;
 
-    offCtx.fillStyle = isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)';
-
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
         const i = y * WIDTH + x;
         if (buffer[i]) {
+          // Get edge proximity value
+          const proximity = getEdgeProximityValue(x, y, WIDTH, HEIGHT);
+          offCtx.fillStyle = isDark
+            ? `rgba(255,255,255, ${proximity})`
+            : `rgba(0,0,0, ${proximity})`;
           offCtx.fillRect(x * scale, y * scale, scale, scale);
         }
       }
@@ -107,9 +129,7 @@ export default function GameOfLifeV2() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center">
-      <div className="m-auto">
-        <canvas ref={canvasRef} className="fixed inset-0 block h-[300px] w-[300px]" />
-      </div>
+      <canvas ref={canvasRef} className="h-96 w-96 sm:h-[500px] sm:w-[500px]" />
     </div>
   );
 }
