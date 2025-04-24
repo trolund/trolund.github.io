@@ -76,7 +76,7 @@ export default function GameOfLife() {
       intervalIdRef.current = setInterval(() => {
         tick(0, WIDTH, HEIGHT);
         draw();
-      }, 100);
+      }, 200);
     };
 
     init();

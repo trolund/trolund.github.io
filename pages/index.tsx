@@ -4,7 +4,7 @@ import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
-import GameOfLife from '../components/game-of-life';
+import GameOfLifeV2 from '../components/game-of-life-v2';
 
 export default function Index() {
   return (
@@ -13,7 +13,7 @@ export default function Index() {
       <Head>
         <title>{TITLE}</title>
       </Head>
-      <GameOfLife />
+      <GameOfLifeV2 />
       <FrontBanner />
     </>
   );
