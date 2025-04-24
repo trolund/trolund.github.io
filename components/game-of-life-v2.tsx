@@ -3,12 +3,12 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../hooks/ThemeContext';
 
-const TILE_SIZE = 5;
+const TILE_SIZE = 15;
 const WIDTH = Math.floor(800 / TILE_SIZE);
 const HEIGHT = Math.floor(700 / TILE_SIZE);
 const SIZE = WIDTH * HEIGHT;
 // frame rate: 1000ms / 60fps = 16.67ms
-const FPS = 1000 / 20;
+const FPS = 1000 / 15;
 
 function getEdgeProximityValue(x: number, y: number, width: number, height: number): number {
   const centerX = (width - 1) / 2;
@@ -23,7 +23,7 @@ function getEdgeProximityValue(x: number, y: number, width: number, height: numb
   const normalized = 1 - distance / maxDistance; // 1 in center, 0 on corners
 
   const minVal = 0.000000001;
-  const maxVal = 0.6;
+  const maxVal = 0.5;
 
   return minVal + normalized * (maxVal - minVal) - 0.2;
 }
@@ -129,7 +129,7 @@ export default function GameOfLifeV2() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center">
-      <canvas ref={canvasRef} className="h-96 w-96 sm:h-[500px] sm:w-[500px]" />
+      <canvas ref={canvasRef} className="h-96 w-96 bg-blend-hard-light sm:h-[600px] sm:w-[600px]" />
     </div>
   );
 }
