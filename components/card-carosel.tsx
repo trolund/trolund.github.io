@@ -15,7 +15,7 @@ const cardContent: CardContent[] = [
   {
     title: 'Card 1 🚀',
     description: 'This is the first card with a unique gradient.',
-    className: 'bg-gradient-to-r from-surface-0 to-surface-1',
+    className: 'bg-gradient-to-r from-surface-2 to-surface-6',
   },
   {
     title: 'Card 2 ✅',
@@ -47,14 +47,14 @@ const CardCarousel: FunctionComponent<CardCarouselProps> = () => {
           <div
             key={index}
             className={cn(
-              'absolute inset-0 rounded-2xl border border-white/10 p-6 text-white shadow-xl transition-all duration-500 ease-in-out',
+              'border-10 absolute inset-0 flex flex-col gap-4 rounded-2xl border-white/10 p-6 text-white shadow-xl transition-all duration-500 ease-in-out',
               card.className,
               index === activeIndex
                 ? 'z-10 scale-100 opacity-100'
                 : 'pointer-events-none z-0 scale-95 opacity-0',
             )}
           >
-            <h2 className="mb-2 text-xl font-bold">{card.title}</h2>
+            <h2 className="text-xl font-bold">{card.title}</h2>
             <p className="text-sm">{card.description}</p>
           </div>
         ))}
