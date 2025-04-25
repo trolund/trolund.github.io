@@ -3,7 +3,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../hooks/ThemeContext';
 
-const TILE_SIZE = 15;
+const TILE_SIZE = 50;
 const WIDTH = Math.floor(800 / TILE_SIZE);
 const HEIGHT = Math.floor(700 / TILE_SIZE);
 const SIZE = WIDTH * HEIGHT;
