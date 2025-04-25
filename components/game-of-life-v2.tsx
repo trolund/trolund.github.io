@@ -62,9 +62,16 @@ export default function GameOfLifeV2() {
         if (buffer[i]) {
           // Get edge proximity value
           const proximity = getEdgeProximityValue(x, y, WIDTH, HEIGHT);
-          offCtx.fillStyle = isDark
-            ? `rgba(255,255,255, ${proximity})`
-            : `rgba(0,0,0, ${proximity})`;
+
+          const root = document.documentElement;
+          const colorVar = isDark ? '--surface-3' : '--surface-3';
+          const hex = getComputedStyle(root).getPropertyValue(colorVar).trim();
+
+          const r = parseInt(hex.slice(1, 3), 16);
+          const g = parseInt(hex.slice(3, 5), 16);
+          const b = parseInt(hex.slice(5, 7), 16);
+
+          offCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${proximity})`;
           offCtx.fillRect(x * scale, y * scale, scale, scale);
         }
       }
