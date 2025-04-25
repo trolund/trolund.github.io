@@ -76,6 +76,12 @@ export default function GameOfLifeV2() {
   }, [isDark]);
 
   useEffect(() => {
+    const setupCanvas = (buffer: Uint8Array, SIZE: number) => {
+      for (let i = 0; i < SIZE; i++) {
+        buffer[i] = Math.random() > 0.5 ? 1 : 0;
+      }
+    };
+
     const init = async () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
@@ -103,10 +109,7 @@ export default function GameOfLifeV2() {
 
       const buffer = new Uint8Array(memory.buffer, 0, SIZE * 2);
       bufferRef.current = buffer;
-
-      for (let i = 0; i < SIZE; i++) {
-        buffer[i] = Math.random() > 0.8 ? 1 : 0;
-      }
+      setupCanvas(buffer, SIZE);
     };
     init();
   }, [draw]);
@@ -129,7 +132,7 @@ export default function GameOfLifeV2() {
     <div className="fixed inset-0 flex items-center justify-center">
       <canvas
         ref={canvasRef}
-        className="h-[400px] w-[400px] bg-blend-hard-light sm:h-[600px] sm:w-[600px] md:h-[700px] md:w-[700px]"
+        className="h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] md:h-[700px] md:w-[700px]"
       />
     </div>
   );
