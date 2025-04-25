@@ -11,7 +11,30 @@ import styles from '../pages/css/about.module.css';
 import SubPostTitle from '../components/sub-post-title';
 import CertificationItem from '../components/certification-item';
 import { TITLE } from '../lib/constants';
-import CardCarosel from '../components/card-carosel';
+import CardCarosel, { CardContent } from '../components/card-carosel';
+
+const cardContent: CardContent[] = [
+  {
+    title: 'Card 1 🚀',
+    description: 'This is the first card with a unique gradient.',
+    className: 'bg-gradient-to-r from-surface-2 to-surface-6',
+  },
+  {
+    title: 'Card 2 ✅',
+    description: 'This is the second card with a different gradient.',
+    className: 'bg-gradient-to-r from-surface-2 to-surface-5',
+  },
+  {
+    title: 'Card 3 🌟',
+    description: 'This is the third card with another gradient.',
+    className: 'bg-gradient-to-r from-surface-3 to-surface-5',
+  },
+  {
+    title: 'Card 4 💡',
+    description: 'This is the fourth card with yet another gradient.',
+    className: 'bg-gradient-to-r from-surface-3 to-surface-6',
+  },
+];
 
 type AboutProps = {
   page: {
@@ -69,7 +92,7 @@ export default function About({ page }: AboutProps) {
               />
             </div>
           </Container>
-          <CardCarosel />
+          <CardCarosel cards={cardContent} />
         </div>
       </Layout>
     </>
