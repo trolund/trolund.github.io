@@ -4,8 +4,8 @@ import { useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../hooks/ThemeContext';
 
 const TILE_SIZE = 50;
-const WIDTH = Math.floor(800 / TILE_SIZE);
-const HEIGHT = Math.floor(700 / TILE_SIZE);
+const WIDTH = Math.floor(2500 / TILE_SIZE);
+const HEIGHT = Math.floor(2500 / TILE_SIZE);
 const SIZE = WIDTH * HEIGHT;
 const FPS = 1000 / 15;
 
@@ -24,9 +24,26 @@ function getEdgeProximityValue(x: number, y: number, width: number, height: numb
   const normalized = 1 - distance / maxDistance; // 1 in center, 0 on corners
 
   const minVal = 0.000000001;
-  const maxVal = 0.5;
+  const maxVal = 0.8;
 
   return minVal + normalized * (maxVal - minVal) - 0.15;
+}
+
+function getColor(x: number, y: number): string {
+  const num = Math.floor((x + y) % 2) + 1;
+  return getComputedStyle(document.documentElement).getPropertyValue(`--surface-${num}`).trim();
+}
+
+function getRgbColor(hex: string): { r: number; g: number; b: number } {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return { r, g, b };
+}
+
+function getColorWithAlpha(hex: string, alpha: number): string {
+  const { r, g, b } = getRgbColor(hex);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
 export default function GameOfLifeV2() {
@@ -62,19 +79,13 @@ export default function GameOfLifeV2() {
       for (let x = 0; x < WIDTH; x++) {
         const i = y * WIDTH + x;
         if (buffer[i]) {
-          // Get edge proximity value
           const proximity = getEdgeProximityValue(x, y, WIDTH, HEIGHT);
+          const hex = getColor(x, y);
 
-          const root = document.documentElement;
-          const colorVar = isDark ? '--surface-3' : '--surface-3';
-          const hex = getComputedStyle(root).getPropertyValue(colorVar).trim();
-
-          const r = parseInt(hex.slice(1, 3), 16);
-          const g = parseInt(hex.slice(3, 5), 16);
-          const b = parseInt(hex.slice(5, 7), 16);
-
-          offCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${proximity})`;
-          offCtx.fillRect(x * scale, y * scale, scale, scale);
+          offCtx.beginPath();
+          offCtx.fillStyle = getColorWithAlpha(hex, proximity);
+          offCtx.arc(x * scale + scale / 2, y * scale + scale / 2, scale / 2, 0, Math.PI * 2);
+          offCtx.fill();
         }
       }
     }
@@ -99,8 +110,13 @@ export default function GameOfLifeV2() {
       heightRef.current = HEIGHT;
       sizeRef.current = SIZE;
 
+      // Set canvas pixel size
       canvas.width = WIDTH * scale;
       canvas.height = HEIGHT * scale;
+
+      // Match CSS size exactly
+      canvas.style.width = `${canvas.width}px`;
+      canvas.style.height = `${canvas.height}px`;
 
       const wasmResponse = await fetch('/wasm/release.wasm');
       const wasmBytes = await wasmResponse.arrayBuffer();
@@ -108,7 +124,6 @@ export default function GameOfLifeV2() {
         env: {
           abort(msgPtr: number, filePtr: number, line: number, column: number) {
             console.error('abort called at', line + ':' + column);
-            // optionally read the message string from memory if needed
           },
         },
       });
@@ -152,10 +167,7 @@ export default function GameOfLifeV2() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center">
-      <canvas
-        ref={canvasRef}
-        className="h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] md:h-[700px] md:w-[700px]"
-      />
+      <canvas ref={canvasRef} className="block" />
     </div>
   );
 }
