@@ -11,34 +11,7 @@ import styles from '../pages/css/about.module.css';
 import SubPostTitle from '../components/sub-post-title';
 import CertificationItem from '../components/certification-item';
 import { TITLE } from '../lib/constants';
-import CardCarosel, { CardContent } from '../components/card-carosel';
-
-const cardContent: CardContent[] = [
-  {
-    title: 'Full-Stack Projects 🛠️',
-    description:
-      'Explore real-world apps I’ve built using C#, TypeScript, and React. From APIs to polished UIs.',
-    className: 'bg-gradient-to-r from-surface-2 to-surface-6',
-  },
-  {
-    title: 'Creative CS Experiments 🧪',
-    description:
-      'Raytracers, compilers, custom DSLs, and other wild experiments in low-level and high-level code.',
-    className: 'bg-gradient-to-r from-surface-2 to-surface-5',
-  },
-  {
-    title: 'Cloud & DevOps ☁️',
-    description:
-      'Azure-native solutions with Bicep, Functions, and GitHub Actions — infrastructure as code, done right.',
-    className: 'bg-gradient-to-r from-surface-3 to-surface-5',
-  },
-  {
-    title: 'About Me 💬',
-    description:
-      'MSc in Engineering, passionate coder since 11. Based in Frederiksberg with my family and coffee ☕.',
-    className: 'bg-gradient-to-r from-surface-3 to-surface-6',
-  },
-];
+import CardCarosel from '../components/card-carosel';
 
 type AboutProps = {
   page: {
@@ -96,7 +69,6 @@ export default function About({ page }: AboutProps) {
               />
             </div>
           </Container>
-          <CardCarosel cards={cardContent} />
         </div>
       </Layout>
     </>

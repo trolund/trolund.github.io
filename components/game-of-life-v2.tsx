@@ -23,14 +23,14 @@ function getEdgeProximityValue(x: number, y: number, width: number, height: numb
 
   const normalized = 1 - distance / maxDistance; // 1 in center, 0 on corners
 
-  const minVal = 0.000000001;
-  const maxVal = 0.8;
+  const minVal = 0.0005;
+  const maxVal = 1;
 
   return minVal + normalized * (maxVal - minVal) - 0.15;
 }
 
 function getColor(x: number, y: number): string {
-  const num = Math.floor((x + y) % 2) + 1;
+  const num = Math.floor((x + y) % 6);
   return getComputedStyle(document.documentElement).getPropertyValue(`--surface-${num}`).trim();
 }
 
