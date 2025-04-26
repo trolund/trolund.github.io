@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useCallback, useState } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../hooks/ThemeContext';
 
 const TILE_SIZE = 50;
