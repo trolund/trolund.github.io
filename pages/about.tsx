@@ -15,23 +15,27 @@ import CardCarosel, { CardContent } from '../components/card-carosel';
 
 const cardContent: CardContent[] = [
   {
-    title: 'Card 1 🚀',
-    description: 'This is the first card with a unique gradient.',
+    title: 'Full-Stack Projects 🛠️',
+    description:
+      'Explore real-world apps I’ve built using C#, TypeScript, and React. From APIs to polished UIs.',
     className: 'bg-gradient-to-r from-surface-2 to-surface-6',
   },
   {
-    title: 'Card 2 ✅',
-    description: 'This is the second card with a different gradient.',
+    title: 'Creative CS Experiments 🧪',
+    description:
+      'Raytracers, compilers, custom DSLs, and other wild experiments in low-level and high-level code.',
     className: 'bg-gradient-to-r from-surface-2 to-surface-5',
   },
   {
-    title: 'Card 3 🌟',
-    description: 'This is the third card with another gradient.',
+    title: 'Cloud & DevOps ☁️',
+    description:
+      'Azure-native solutions with Bicep, Functions, and GitHub Actions — infrastructure as code, done right.',
     className: 'bg-gradient-to-r from-surface-3 to-surface-5',
   },
   {
-    title: 'Card 4 💡',
-    description: 'This is the fourth card with yet another gradient.',
+    title: 'About Me 💬',
+    description:
+      'MSc in Engineering, passionate coder since 11. Based in Frederiksberg with my family and coffee ☕.',
     className: 'bg-gradient-to-r from-surface-3 to-surface-6',
   },
 ];
