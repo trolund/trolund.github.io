@@ -3,7 +3,6 @@
 import React from 'react';
 import styles from './front-banner.module.css';
 import Text from '../text/text';
-import GradientSVG from '../gradient';
 import Image from 'next/image';
 import { VscGithubInverted } from 'react-icons/vsc';
 import { SiLinkedin } from 'react-icons/si';
