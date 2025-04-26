@@ -1,9 +1,8 @@
-// in hooks/useDebouncedTransitionValue.ts
 import { useEffect, useState, useTransition } from 'react';
 
 export function useDebouncedTransitionValue<T>(value: T, delay = 300): T {
   const [debouncedValue, setDebouncedValue] = useState(value);
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   useEffect(() => {
     const timeout = setTimeout(() => {

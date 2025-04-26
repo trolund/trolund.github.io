@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { useTheme } from '../hooks/ThemeContext';
 
 const TILE_SIZE = 50;
@@ -8,6 +8,8 @@ const WIDTH = Math.floor(800 / TILE_SIZE);
 const HEIGHT = Math.floor(700 / TILE_SIZE);
 const SIZE = WIDTH * HEIGHT;
 const FPS = 1000 / 15;
+
+type tickFunction = (offset: number, width: number, height: number) => boolean;
 
 function getEdgeProximityValue(x: number, y: number, width: number, height: number): number {
   const centerX = (width - 1) / 2;
@@ -35,7 +37,7 @@ export default function GameOfLifeV2() {
   const sizeRef = useRef(0);
   const bufferRef = useRef<Uint8Array>();
   const intervalIdRef = useRef<any>();
-  const tickRef = useRef<(offset: number, width: number, height: number) => void>();
+  const tickRef = useRef<tickFunction>();
 
   const { isDark } = useTheme();
 
@@ -102,7 +104,14 @@ export default function GameOfLifeV2() {
 
       const wasmResponse = await fetch('/wasm/release.wasm');
       const wasmBytes = await wasmResponse.arrayBuffer();
-      const wasmModule = await WebAssembly.instantiate(wasmBytes, {});
+      const wasmModule = await WebAssembly.instantiate(wasmBytes, {
+        env: {
+          abort(msgPtr: number, filePtr: number, line: number, column: number) {
+            console.error('abort called at', line + ':' + column);
+            // optionally read the message string from memory if needed
+          },
+        },
+      });
       const exports = wasmModule.instance.exports as any;
 
       const memory: WebAssembly.Memory = exports.memory;
@@ -123,8 +132,14 @@ export default function GameOfLifeV2() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      tickRef.current?.(0, WIDTH, HEIGHT);
-      draw();
+      var done = tickRef.current?.(0, WIDTH, HEIGHT);
+
+      if (done) {
+        intervalIdRef.current = undefined;
+        clearInterval(intervalId);
+      } else {
+        draw();
+      }
     }, FPS);
 
     intervalIdRef.current = intervalId;

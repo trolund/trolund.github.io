@@ -1,4 +1,4 @@
-import { useMemo, useState, useTransition } from 'react';
+import { useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';
 import { MdSearch } from 'react-icons/md';
