@@ -4,8 +4,8 @@ import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { MdContentCopy } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import { oneDark } from './one-dark';
-import { oneLight } from './one-light';
+import { oneDark } from './code-styles/one-dark';
+import { oneLight } from './code-styles/one-light';
 import { ImageDataElement } from '../types/ImageDataElement';
 import ImageItem from '../components/ImageItem';
 
