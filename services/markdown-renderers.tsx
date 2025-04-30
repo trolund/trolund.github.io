@@ -8,6 +8,7 @@ import { oneDark } from './code-styles/one-dark';
 import { oneLight } from './code-styles/one-light';
 import { ImageDataElement } from '../types/ImageDataElement';
 import ImageItem from '../components/ImageItem';
+import { mapLangIdentifierToLanguage } from './code-name-service';
 
 function copyToClipboard(text: string) {
   navigator.clipboard
@@ -44,25 +45,38 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     const { children, className, ...rest } = props;
     const match = /language-(\w+)/.exec(className || '');
     const code = String(children).replace(/\n$/, '');
+    const langName = match ? match[1] : 'unknown';
     return match ? (
       <div className="relative">
         <SyntaxHighlighter
           showLineNumbers
           wrapLongLines
-          language={match[1]}
+          language={langName}
           /* eslint-disable react/forbid-component-props */
           style={isDark ? (oneDark as any) : oneLight}
         >
           {code}
         </SyntaxHighlighter>
+        <div
+          style={{
+            position: 'absolute',
+            top: '0px',
+            padding: '11px',
+            right: '50px',
+            color: 'var(--content-text)',
+            fontSize: '0.8rem',
+          }}
+        >
+          {mapLangIdentifierToLanguage(langName)}
+        </div>
         <MdContentCopy
           onClick={() => copyToClipboard(code)}
-          className="absolute right-2 top-2 cursor-pointer rounded-lg bg-black/50 transition-transform duration-200 hover:scale-125"
+          className="cursor-pointer transition-transform duration-200 hover:scale-125"
           style={{
             position: 'absolute',
             top: '15px',
             right: '15px',
-            cursor: 'pointer',
+            color: 'var(--content-text)',
           }}
         />
       </div>
