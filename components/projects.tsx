@@ -56,6 +56,11 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
               className={className}
             />
           ))}
+          {filteredPosts.length === 0 && (
+            <div className="col-span-2 text-center">
+              <p className="text-gray-500 dark:text-gray-400">🤬 No items found.</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
