@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { useTheme } from '../hooks/ThemeContext';
 
 const TILE_SIZE = 50;
 const WIDTH = Math.floor(2500 / TILE_SIZE);
@@ -56,8 +55,6 @@ export default function GameOfLifeV2() {
   const intervalIdRef = useRef<any>();
   const tickRef = useRef<tickFunction>();
 
-  const { isDark } = useTheme();
-
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     const WIDTH = widthRef.current;
@@ -93,7 +90,7 @@ export default function GameOfLifeV2() {
     // Clear main canvas and draw the fully rendered frame in one go
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(offscreen, 0, 0);
-  }, [isDark]);
+  }, []);
 
   useEffect(() => {
     const setupCanvas = (buffer: Uint8Array, SIZE: number) => {
