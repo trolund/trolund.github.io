@@ -7,7 +7,7 @@ const TILE_SIZE = 50;
 const WIDTH = Math.floor(2500 / TILE_SIZE);
 const HEIGHT = Math.floor(2500 / TILE_SIZE);
 const SIZE = WIDTH * HEIGHT;
-const FPS = 1000 / 10;
+const FPS = 120; // 120ms pr frame
 
 type tickFunction = (offset: number, width: number, height: number) => boolean;
 
