@@ -1,16 +1,6 @@
 @tailwind base;
-
-/* Write your own custom base styles here */
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
-
-/* Write you own custom component styles here */
-
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
 
 /* Your own custom utilities */
 :root {
@@ -36,13 +26,13 @@
   --border-radius: 15px;
 
   /* surfaces in light */
-  --surface-0: #d9e7f3;
-  --surface-1: #c2d8ef;
-  --surface-2: #aac9ea;
-  --surface-3: #91b9e6;
-  --surface-4: #c1b7f4;
-  --surface-5: #dab1f5;
-  --surface-6: #e8aef5;
+  --surface-0: #dce6f1; /* light bluish tone close to smokewhite */
+  --surface-1: #b5cce9;
+  --surface-2: #8db1e0;
+  --surface-3: #678fd1;
+  --surface-4: #846cdb;
+  --surface-5: #aa5ce9;
+  --surface-6: #c03cfa; /* darkest and most saturated */
 }
 
 [data-theme='dark'] {

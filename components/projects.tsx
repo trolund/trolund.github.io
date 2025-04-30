@@ -1,7 +1,8 @@
-import { useCallback, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';
 import { MdSearch } from 'react-icons/md';
+import { useDebouncedTransitionValue } from '../hooks/useDebouncedTransitionValue';
 
 interface ProjectsViewProps {
   posts: BlogPost[];
@@ -9,19 +10,20 @@ interface ProjectsViewProps {
 }
 
 export default function ProjectsView({ posts, className }: ProjectsViewProps) {
-  const [searchTerm, setSearchTerm] = useState<string>();
+  const [searchTerm, setSearchTerm] = useState('');
+  const debouncedSearchTerm = useDebouncedTransitionValue(searchTerm, 300);
 
-  const filteredPosts = useCallback(() => {
-    return posts.filter(
-      (post) =>
-        post.title.toLowerCase().includes(searchTerm?.toLowerCase() || '') ||
-        (post.excerpt && post.excerpt.toLowerCase().includes(searchTerm?.toLowerCase() || '')) ||
-        (post.technologies &&
-          post.technologies.some((tech) =>
-            tech.toLowerCase().includes(searchTerm?.toLowerCase() || ''),
-          )),
-    );
-  }, [searchTerm, posts]);
+  const filteredPosts = useMemo(() => {
+    const term = debouncedSearchTerm.toLowerCase();
+
+    return posts.filter((post) => {
+      return (
+        post.title.toLowerCase().includes(term) ||
+        post.excerpt?.toLowerCase().includes(term) ||
+        post.technologies?.some((tech) => tech.toLowerCase().includes(term))
+      );
+    });
+  }, [debouncedSearchTerm, posts]);
 
   return (
     <section>
@@ -39,7 +41,7 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
           />
         </div>
         <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {filteredPosts().map((post) => (
+          {filteredPosts.map((post) => (
             <ProjectItem
               key={post.slug}
               title={post.title}
@@ -54,6 +56,11 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
               className={className}
             />
           ))}
+          {filteredPosts.length === 0 && (
+            <div className="col-span-2 text-center">
+              <p className="text-gray-500 dark:text-gray-400">🤬 No items found.</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

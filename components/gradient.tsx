@@ -7,14 +7,22 @@ type GradientSVGProps = {
   hideRight?: boolean;
   hideLeft?: boolean;
   opacity?: number;
+  zIndex?: number;
 };
 
-const GradientSVG = ({ speed, size, hideRight, hideLeft, opacity }: GradientSVGProps) => {
+const GradientSVG = ({
+  speed,
+  size,
+  hideRight,
+  hideLeft,
+  opacity,
+  zIndex: initZIndex,
+}: GradientSVGProps) => {
   const animationSpeed: number = speed ?? 0.15;
   const svgSize: number = size ?? 60;
   const growFrom = 0.8;
   const duration = 1.2;
-  const zIndex = -1;
+  const zIndex = initZIndex ?? -1;
   return (
     <>
       {!hideRight && (
