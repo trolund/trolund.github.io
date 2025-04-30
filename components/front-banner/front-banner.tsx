@@ -7,11 +7,12 @@ import Image from 'next/image';
 import { VscGithubInverted } from 'react-icons/vsc';
 import { SiLinkedin } from 'react-icons/si';
 import Link from 'next/link';
+import GradientSVG from '../gradient';
 
 function FrontBanner() {
   return (
     <div className="flex h-dvh justify-center text-center align-middle">
-      {/* <GradientSVG speed={0.1} size={40} /> */}
+      <GradientSVG speed={0.1} size={40} zIndex={1} />
       <main className="z-10 inline-flex flex-col justify-center gap-6 text-center align-middle sm:gap-8 md:gap-12">
         <Image
           className="ml-auto mr-auto rounded-full border-4 border-content-text"

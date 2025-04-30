@@ -166,7 +166,7 @@ export default function GameOfLifeV2() {
   }, [draw]);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center">
+    <div className="fixed inset-0 z-0 flex items-center justify-center">
       <canvas ref={canvasRef} className="block" />
     </div>
   );
