@@ -24,7 +24,7 @@ function getEdgeProximityValue(x: number, y: number, width: number, height: numb
   const normalized = 1 - distance / maxDistance; // 1 in center, 0 on corners
 
   const minVal = 0.0005;
-  const maxVal = 1;
+  const maxVal = 0.6;
 
   return minVal + normalized * (maxVal - minVal) - 0.15;
 }

@@ -8,15 +8,15 @@ author:
   picture: '/assets/blog/authors/troels.png'
 ogImage:
   url: ''
-tags: ["content"]
-technologies: [""]
-language: "en"
+tags: ['content']
+technologies: ['']
+language: 'en'
 ---
 
-I am Troels Elsvad Lund, a software engineer based on Frederiksberg, Denmark. With a Bachelor's Degree in Software Engineering and two years of experience as a full-stack developer, I have recently completed my master's education in Computer Science at the Technical University of Denmark (DTU).
+I am Troels Elsvad Lund, a software engineer based in Frederiksberg, Denmark. I hold a Master's Degree in Computer Science and engineering from the Technical University of Denmark (DTU). I have three years of experience in the software industry and have primarily worked as a full-stack developer.
 
-My fascination with IT developed early in life, leading me to cultivate a comprehensive understanding of various computer science domains.
+My fascination with IT began early in life — at the age of 11, I started developing websites, and over the years, this passion for technology and software grew stronger, ultimately leading me to pursue it as a career.
 
-Beyond coding, I thrive on sports activities, having proudly represented the national sprint kayaking team for six years. I also relish spending time outdoors, staying active through training, and creating cherished moments with my girlfriend.
+Professionally, I really enjoy working with technologies like C#/.NET, React.js, Next.js, Java, TypeScript, T-SQL, and Git. I’m focused on building real, useful solutions and always try to keep the user’s needs in mind. I also have a solid understanding of agile ways of working and like seeing projects move forward in a practical, hands-on way.
 
-Professionally, I derive immense satisfaction from working with technologies such as .NET, React.js, Next.js, Java, TypeScript, T-SQL, and Git. With a commitment to delivering tangible outcomes and a profound grasp of agile methodologies, I prioritize user-centric approaches in my projects.
+Beyond coding, I thrive on sports activities, having proudly represented the national sprint kayaking team for six years. I also relish spending time outdoors, staying active through training, and creating cherished moments with my wife and daughter.
