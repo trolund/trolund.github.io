@@ -19,11 +19,12 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
   const filteredPosts = useMemo(() => {
     const term = debouncedSearchTerm.toLowerCase();
 
-    return posts.filter((post) =>
-      post.title.toLowerCase().includes(term) ||
-      post.excerpt?.toLowerCase().includes(term) ||
-      post.technologies?.some((tech) => tech.toLowerCase().includes(term))
-    )
+    return posts.filter(
+      (post) =>
+        post.title.toLowerCase().includes(term) ||
+        post.excerpt?.toLowerCase().includes(term) ||
+        post.technologies?.some((tech) => tech.toLowerCase().includes(term)),
+    );
   }, [debouncedSearchTerm, posts]);
 
   // Lazy load posts
@@ -33,20 +34,16 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
     return filteredPosts.slice(start, end);
   }, [visibleCount, filteredPosts]);
 
-
   // Reset visible count when search term changes
   useEffect(() => {
     setVisibleCount(6);
   }, [debouncedSearchTerm]);
 
-  const [scrollProgress, isLoading] = useLazyScroll(
-    () => {
-      setVisibleCount((prev) => Math.min(prev + 2, filteredPosts.length));
-    },
-    [filteredPosts.length]
-  );
+  const [scrollProgress, isLoading] = useLazyScroll(() => {
+    setVisibleCount((prev) => Math.min(prev + 2, filteredPosts.length));
+  }, [filteredPosts.length]);
 
-  const shouldShowScollLabel = () => scrollProgress > 0 && visibleCount < filteredPosts.length
+  const shouldShowScollLabel = () => scrollProgress > 0 && visibleCount < filteredPosts.length;
 
   return (
     <section>
@@ -85,12 +82,15 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
             </div>
           )}
           <div
-            className={cn(`col-span-2 flex items-center justify-center transition-opacity duration-300`, shouldShowScollLabel() ? 'opacity-100' : 'opacity-0')}
+            className={cn(
+              `col-span-2 flex items-center justify-center transition-opacity duration-300`,
+              shouldShowScollLabel() ? 'opacity-100' : 'opacity-0',
+            )}
           >
             <div className="flex items-center justify-center">
               <div className="h-2 w-2 animate-ping rounded-full bg-blue-500" />
               <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
-                {isLoading ? 'Loading more...' : "Scroll to load more"}
+                {isLoading ? 'Loading more...' : 'Scroll to load more'}
               </div>
             </div>
           </div>
