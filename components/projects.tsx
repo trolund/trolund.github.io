@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';
-import { MdSearch } from 'react-icons/md';
+import { MdSearch, MdArrowDownward } from 'react-icons/md';
 import { useDebouncedTransitionValue } from '../hooks/useDebouncedTransitionValue';
 import { useLazyScroll } from '../hooks/useLazyScroll';
 import { cn } from '../lib/utils';
-import { MdArrowDownward } from 'react-icons/md';
 
 interface ProjectsViewProps {
   posts: BlogPost[];
@@ -89,13 +88,15 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
             shouldShowScollLabel() ? 'opacity-100' : 'opacity-0',
           )}
         >
-          <div className="flex flex-col items-center gap-4 justify-center mb-10">
+          <div className="mb-10 flex flex-col items-center justify-center gap-4">
             <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
               {isLoading ? 'Loading more...' : 'Scroll to load more'}
             </div>
-            <div className="animate-ping"><MdArrowDownward className='text-gray-500 dark:text-gray-400' /></div>
+            <div className="animate-ping">
+              <MdArrowDownward className="text-gray-500 dark:text-gray-400" />
+            </div>
             <button
-              className="inline-flex items-center justify-center rounded-full px-5 py-2 bg-slate-600 hover:bg-slate-600 dark:bg-slate-200 hover:dark:bg-slate-200 text-white dark:text-slate-900 font-semibold transition-transform duration-200 hover:scale-105 shadow-md"
+              className="inline-flex items-center justify-center rounded-full bg-slate-600 px-5 py-2 font-semibold text-white shadow-md transition-transform duration-200 hover:scale-105 hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-900 hover:dark:bg-slate-200"
               onClick={loadMore}
             >
               Load more
