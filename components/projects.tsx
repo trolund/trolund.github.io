@@ -5,6 +5,7 @@ import { MdSearch } from 'react-icons/md';
 import { useDebouncedTransitionValue } from '../hooks/useDebouncedTransitionValue';
 import { useLazyScroll } from '../hooks/useLazyScroll';
 import { cn } from '../lib/utils';
+import { MdArrowDownward } from 'react-icons/md';
 
 interface ProjectsViewProps {
   posts: BlogPost[];
@@ -39,9 +40,9 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
     setVisibleCount(6);
   }, [debouncedSearchTerm]);
 
-  const [scrollProgress, isLoading] = useLazyScroll(() => {
-    setVisibleCount((prev) => Math.min(prev + 2, filteredPosts.length));
-  }, [filteredPosts.length]);
+  const loadMore = () => setVisibleCount((prev) => Math.min(prev + 6, filteredPosts.length));
+
+  const [scrollProgress, isLoading] = useLazyScroll(loadMore, [filteredPosts.length]);
 
   const shouldShowScollLabel = () => scrollProgress > 0 && visibleCount < filteredPosts.length;
 
@@ -60,7 +61,7 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
             className="block w-full rounded-lg border border-gray-300 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           />
         </div>
-        <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 grid grid-cols-1 gap-4 md:grid-cols-2">
           {visiblePosts.map((post) => (
             <ProjectItem
               key={post.slug}
@@ -81,18 +82,24 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
               <p className="text-gray-500 dark:text-gray-400">🤬 No items found.</p>
             </div>
           )}
-          <div
-            className={cn(
-              `col-span-2 flex items-center justify-center transition-opacity duration-300`,
-              shouldShowScollLabel() ? 'opacity-100' : 'opacity-0',
-            )}
-          >
-            <div className="flex items-center justify-center">
-              <div className="h-2 w-2 animate-ping rounded-full bg-blue-500" />
-              <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
-                {isLoading ? 'Loading more...' : 'Scroll to load more'}
-              </div>
+        </div>
+        <div
+          className={cn(
+            `col-span-2 flex items-center justify-center transition-opacity duration-300`,
+            shouldShowScollLabel() ? 'opacity-100' : 'opacity-0',
+          )}
+        >
+          <div className="flex flex-col items-center gap-4 justify-center mb-10">
+            <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
+              {isLoading ? 'Loading more...' : 'Scroll to load more'}
             </div>
+            <div className="animate-ping"><MdArrowDownward className='text-gray-500 dark:text-gray-400' /></div>
+            <button
+              className="inline-flex items-center justify-center rounded-full px-5 py-2 bg-slate-600 hover:bg-slate-600 dark:bg-slate-200 hover:dark:bg-slate-200 text-white dark:text-slate-900 font-semibold transition-transform duration-200 hover:scale-105 shadow-md"
+              onClick={loadMore}
+            >
+              Load more
+            </button>
           </div>
         </div>
       </div>
