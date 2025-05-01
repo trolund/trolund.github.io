@@ -1,8 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';
 import { MdSearch } from 'react-icons/md';
 import { useDebouncedTransitionValue } from '../hooks/useDebouncedTransitionValue';
+import { useLazyScroll } from '../hooks/useLazyScroll';
+import { cn } from '../lib/utils';
 
 interface ProjectsViewProps {
   posts: BlogPost[];
@@ -11,19 +13,40 @@ interface ProjectsViewProps {
 
 export default function ProjectsView({ posts, className }: ProjectsViewProps) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [visibleCount, setVisibleCount] = useState(6);
   const debouncedSearchTerm = useDebouncedTransitionValue(searchTerm, 300);
 
   const filteredPosts = useMemo(() => {
     const term = debouncedSearchTerm.toLowerCase();
 
-    return posts.filter((post) => {
-      return (
-        post.title.toLowerCase().includes(term) ||
-        post.excerpt?.toLowerCase().includes(term) ||
-        post.technologies?.some((tech) => tech.toLowerCase().includes(term))
-      );
-    });
+    return posts.filter((post) =>
+      post.title.toLowerCase().includes(term) ||
+      post.excerpt?.toLowerCase().includes(term) ||
+      post.technologies?.some((tech) => tech.toLowerCase().includes(term))
+    )
   }, [debouncedSearchTerm, posts]);
+
+  // Lazy load posts
+  const visiblePosts = useMemo(() => {
+    const start = 0;
+    const end = Math.min(visibleCount, filteredPosts.length);
+    return filteredPosts.slice(start, end);
+  }, [visibleCount, filteredPosts]);
+
+
+  // Reset visible count when search term changes
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [debouncedSearchTerm]);
+
+  const [scrollProgress, isLoading] = useLazyScroll(
+    () => {
+      setVisibleCount((prev) => Math.min(prev + 2, filteredPosts.length));
+    },
+    [filteredPosts.length]
+  );
+
+  const shouldShowScollLabel = () => scrollProgress > 0 && visibleCount < filteredPosts.length
 
   return (
     <section>
@@ -41,7 +64,7 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
           />
         </div>
         <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {filteredPosts.map((post) => (
+          {visiblePosts.map((post) => (
             <ProjectItem
               key={post.slug}
               title={post.title}
@@ -61,6 +84,16 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
               <p className="text-gray-500 dark:text-gray-400">🤬 No items found.</p>
             </div>
           )}
+          <div
+            className={cn(`col-span-2 flex items-center justify-center transition-opacity duration-300`, shouldShowScollLabel() ? 'opacity-100' : 'opacity-0')}
+          >
+            <div className="flex items-center justify-center">
+              <div className="h-2 w-2 animate-ping rounded-full bg-blue-500" />
+              <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
+                {isLoading ? 'Loading more...' : "Scroll to load more"}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
