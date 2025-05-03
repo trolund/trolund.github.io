@@ -45,11 +45,7 @@ export default function Index({ allPosts, blog }: IndexProps) {
           )}
           <span className="p-10"></span>
           <SubPostTitle>Older posts</SubPostTitle>
-          {morePosts.length > 0 && (
-            <ProjectsView
-              posts={morePosts}
-            />
-          )}
+          {morePosts.length > 0 && <ProjectsView posts={morePosts} />}
         </Container>
       </Layout>
     </>
