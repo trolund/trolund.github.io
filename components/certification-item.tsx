@@ -11,10 +11,10 @@ interface CertificationItemProp {
 export default function CertificationItem({ href, title, subTitle, image }: CertificationItemProp) {
   return (
     <Card
-      className="flex cursor-pointer flex-col justify-between gap-6 p-5 hover:scale-105"
+      className="cursor-pointer justify-between p-5 hover:scale-105"
       href={href}
     >
-      <div>
+      <div className='flex flex-col gap-6'>
         {image && (
           <div>
             <Image alt="institution" src={image} width={50} height={50} />

@@ -25,17 +25,17 @@ export default function ProfileCard() {
   }
 
   return (
-    <Card className="card float-left mb-2 mr-5 h-auto w-full sm:w-[280px]">
+    <Card className="float-left mb-2 mr-5 h-auto w-full sm:w-[280px]">
       <figure>
-        <Image
-          src="/profil.webp"
-          alt="me"
-          width={100}
-          height={100}
-          layout="responsive"
-          objectFit="cover"
-        />
         <div className="space-y-4 p-5">
+          <Image
+            src="/profil.webp"
+            alt="me"
+            width={100}
+            height={100}
+            layout="responsive"
+            objectFit="cover"
+          />
           <figcaption>
             <b className="text-2xl">Troels Elsvad Lund</b>
             <ol className="flex flex-col gap-2">
@@ -47,8 +47,7 @@ export default function ProfileCard() {
                 <i>{calculateAge('1994-10-06')} years old</i>
               </li>
               <li>Copenhagen, Denmark</li>
-              <li className="border-t-[1px] border-border-color"></li>
-
+              <li className="border-t-[1px] border-border-color" />
               <li className="flex gap-4">
                 <a
                   onClick={() => Cronitor.track('CVDownload')}

@@ -34,13 +34,13 @@ export default function ProjectItem({
   return (
     <Card>
       <div className="flex flex-col">
-        <div
-          className="h-[200px] w-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${coverImage})`,
-          }}
-        />
         <div className="flex flex-col gap-4 p-5">
+          <div
+            className="h-[200px] w-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${coverImage})`,
+            }}
+          />
           <h3 className="text-3xl leading-snug">
             <Link
               as={`/posts/${slug}`}
