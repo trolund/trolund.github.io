@@ -29,18 +29,18 @@ export default function ProjectItem({
   excerpt,
   slug,
   technologies,
-  language
+  language,
 }: ProjectItemProps) {
   return (
     <Card>
-      <div className='flex flex-col'>
+      <div className="flex flex-col">
         <div
-          className='h-[200px] w-full bg-cover bg-center'
+          className="h-[200px] w-full bg-cover bg-center"
           style={{
             backgroundImage: `url(${coverImage})`,
           }}
         />
-        <div className='flex flex-col p-5 gap-4'>
+        <div className="flex flex-col gap-4 p-5">
           <h3 className="text-3xl leading-snug">
             <Link
               as={`/posts/${slug}`}

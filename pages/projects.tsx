@@ -26,9 +26,7 @@ export default function Projects({ projects, project }: IndexProps) {
         <Container>
           <PostTitle>Projects</PostTitle>
           <PostBody className="mx-auto" content={project.content} />
-          <ProjectsView
-            posts={projects}
-          />
+          <ProjectsView posts={projects} />
         </Container>
       </Layout>
     </>

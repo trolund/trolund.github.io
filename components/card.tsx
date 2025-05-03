@@ -10,7 +10,14 @@ interface CardProp {
 
 const Card: React.FC<CardProp> = ({ children, href, className }: CardProp) => {
   var container = (
-    <div className={cn('bg-[var(--footer)] border border-[var(--border-color)] shadow-[var(--shadow-low)] rounded-[15px] w-auto h-auto transform scale-100 transition-all duration-200 ease-in-out overflow-hidden hover:shadow-[var(--shadow)]', className)}>{children}</div>
+    <div
+      className={cn(
+        'h-auto w-auto scale-100 transform overflow-hidden rounded-[15px] border border-[var(--border-color)] bg-[var(--footer)] shadow-[var(--shadow-low)] transition-all duration-200 ease-in-out hover:shadow-[var(--shadow)]',
+        className,
+      )}
+    >
+      {children}
+    </div>
   );
 
   if (href) {

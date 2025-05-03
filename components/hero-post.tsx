@@ -30,13 +30,13 @@ export default function HeroPost({
       <Card className={className}>
         <div>
           <div
-            className='h-[300px] w-full overflow-hidden bg-cover bg-center shadow-small'
+            className="h-[300px] w-full overflow-hidden bg-cover bg-center shadow-small"
             style={{
               backgroundImage: `url(${coverImage})`,
             }}
           ></div>
           <div>
-            <div className='flex flex-col gap-4 p-5'>
+            <div className="flex flex-col gap-4 p-5">
               <h3 className="mb-3 text-3xl leading-snug md:text-6xl md:leading-tight">
                 <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover:underline">
                   {title}

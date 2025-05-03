@@ -14,7 +14,7 @@ export default function CertificationItem({ href, title, subTitle, image }: Cert
       className="flex cursor-pointer flex-col justify-between gap-6 p-5 hover:scale-105"
       href={href}
     >
-      <div >
+      <div>
         {image && (
           <div>
             <Image alt="institution" src={image} width={50} height={50} />
