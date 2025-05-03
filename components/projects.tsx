@@ -8,10 +8,9 @@ import { cn } from '../lib/utils';
 
 interface ProjectsViewProps {
   posts: BlogPost[];
-  className?: string;
 }
 
-export default function ProjectsView({ posts, className }: ProjectsViewProps) {
+export default function ProjectsView({ posts }: ProjectsViewProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleCount, setVisibleCount] = useState(6);
   const debouncedSearchTerm = useDebouncedTransitionValue(searchTerm, 300);
@@ -73,7 +72,6 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
               technologies={post.technologies}
               content={''}
               language={post.language}
-              className={className}
             />
           ))}
           {filteredPosts.length === 0 && (
@@ -89,18 +87,18 @@ export default function ProjectsView({ posts, className }: ProjectsViewProps) {
           )}
         >
           <div className="mb-10 flex flex-col items-center justify-center gap-4">
-            <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
-              {isLoading ? 'Loading more...' : 'Scroll to load more'}
-            </div>
-            <div className="animate-ping">
-              <MdArrowDownward className="text-gray-500 dark:text-gray-400" />
-            </div>
             <button
               className="inline-flex items-center justify-center rounded-full bg-slate-600 px-5 py-2 font-semibold text-white shadow-md transition-transform duration-200 hover:scale-105 hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-900 hover:dark:bg-slate-200"
               onClick={loadMore}
             >
               Load more
             </button>
+            <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
+              {isLoading ? 'Loading more...' : 'Scroll to load more'}
+            </div>
+            <div className="animate-ping">
+              <MdArrowDownward className="text-gray-500 dark:text-gray-400" />
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import Image from 'next/legacy/image';
 import { SiLinkedin } from 'react-icons/si';
 import { VscGithubInverted, VscCloudDownload } from 'react-icons/vsc';
 import * as Cronitor from '@cronitorio/cronitor-rum';
+import Card from './card';
 
 export default function ProfileCard() {
   function calculateAge(birthdate: string) {
@@ -24,25 +25,25 @@ export default function ProfileCard() {
   }
 
   return (
-    <figure className="card float-left mb-2 mr-5 h-auto w-full rounded-xl p-5 sm:w-[280px]">
+    <Card className="card float-left mb-2 mr-5 h-auto w-full sm:w-[280px]">
       <Image
         src="/profil.webp"
         alt="me"
         width={100}
         height={100}
         layout="responsive"
-        objectFit="contain"
+        objectFit="cover"
       />
-      <div className="space-y-4 pt-6">
+      <div className="space-y-4 p-5">
         <figcaption>
           <b className="text-2xl">Troels Elsvad Lund</b>
           <div>
-            <ol>
+            <ol className='flex flex-col gap-1'>
               <li>
                 <strong>Software Engineer</strong>
               </li>
               <li>
-                <strong>MSc Eng. Computer Science</strong>
+                MSc Eng. Computer Science
               </li>
               <li>
                 <i>{calculateAge('1994-10-06')} years old</i>
@@ -79,6 +80,6 @@ export default function ProfileCard() {
           </div>
         </figcaption>
       </div>
-    </figure>
+    </Card>
   );
 }
