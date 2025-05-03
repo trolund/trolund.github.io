@@ -23,7 +23,7 @@ const NavBar = ({ items, spacing }: MenuProps) => {
       {spacing && <div className="mb-5 h-16" />}
       <div
         className={cn(
-          'fixed top-0 z-40 w-full border-b-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
+          'fixed top-0 z-40 w-full border-b-[1px] border-border-color bg-bg-color text-content-text shadow-custom backdrop-blur-[10px]',
           transStyles.nav,
         )}
       >

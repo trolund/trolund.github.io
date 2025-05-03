@@ -26,10 +26,7 @@ export default function Projects({ projects, project }: IndexProps) {
         <Container>
           <PostTitle>Projects</PostTitle>
           <PostBody className="mx-auto" content={project.content} />
-          <ProjectsView
-            className="glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900"
-            posts={projects}
-          />
+          <ProjectsView posts={projects} />
         </Container>
       </Layout>
     </>
