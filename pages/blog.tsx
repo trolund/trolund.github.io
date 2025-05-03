@@ -47,7 +47,6 @@ export default function Index({ allPosts, blog }: IndexProps) {
           <SubPostTitle>Older posts</SubPostTitle>
           {morePosts.length > 0 && (
             <ProjectsView
-              className="glow:bg-opacity-10 glow:bg-purple-800 glow:border-violet-900"
               posts={morePosts}
             />
           )}
