@@ -46,8 +46,7 @@ export default function HeroPost({
             </div>
           </div>
           <div className="flex flex-wrap">
-            {technologies &&
-              technologies.map((t, i) => <Ship key={`${i}-${slug}`} value={t} />)}
+            {technologies && technologies.map((t, i) => <Ship key={`${i}-${slug}`} value={t} />)}
           </div>
           <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
         </div>
