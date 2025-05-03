@@ -5,6 +5,7 @@ import Language from '../types/languages';
 import DateFormatter from './date-formatter';
 import Card from './card';
 import Ship from './ship';
+import { useState } from 'react';
 
 interface ProjectItemProps {
   title: string;
@@ -31,16 +32,27 @@ export default function ProjectItem({
   technologies,
   language,
 }: ProjectItemProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
   return (
     <Card>
       <div className="flex flex-col">
         <div className="flex flex-col gap-4 p-5">
-          <div
-            className="h-[200px] w-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${coverImage})`,
-            }}
-          />
+          <div className="relative h-[200px] w-full">
+            <div className="relative h-[200px] w-full overflow-hidden">
+              {!isLoaded && (
+                <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
+              )}
+              <Image
+                src={coverImage}
+                alt={`${title} - cover image`}
+                layout="fill"
+                objectFit="cover"
+                loading="eager"
+                onLoadingComplete={() => setIsLoaded(true)}
+                className={`transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+              />
+            </div>
+          </div>
           <h3 className="text-3xl leading-snug">
             <Link
               as={`/posts/${slug}`}
