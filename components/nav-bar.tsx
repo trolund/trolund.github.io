@@ -27,7 +27,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           'fixed top-0 z-40 w-full text-content-text',
           transStyles.nav,
           !noBackground &&
-          'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
+            'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">
