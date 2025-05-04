@@ -8,7 +8,7 @@ import FrontBanner from '../components/front-banner';
 export default function Index() {
   return (
     <>
-      <NavBar items={menu} />
+      <NavBar items={menu} noBackground />
       <Head>
         <title>{TITLE}</title>
       </Head>
