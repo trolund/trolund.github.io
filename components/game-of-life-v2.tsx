@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useCallback } from 'react';
 
-const TILE_SIZE = 50;
-const WIDTH = Math.floor(2500 / TILE_SIZE);
-const HEIGHT = Math.floor(2500 / TILE_SIZE);
+const TILE_SIZE = 5;
+const WIDTH = TILE_SIZE * 40;
+const HEIGHT = TILE_SIZE * 40;
 const SIZE = WIDTH * HEIGHT;
 const FPS = 120; // 120ms pr frame
 
@@ -47,7 +47,7 @@ function getColorWithAlpha(hex: string, alpha: number): string {
 
 export default function GameOfLifeV2() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const scale = 20;
+  const scale = TILE_SIZE;
   const widthRef = useRef(0);
   const heightRef = useRef(0);
   const sizeRef = useRef(0);

@@ -11,9 +11,10 @@ import { cn } from '../lib/utils';
 export type MenuProps = {
   items: MenuItem[];
   spacing?: boolean;
+  noBackground?: boolean;
 };
 
-const NavBar = ({ items, spacing }: MenuProps) => {
+const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isDark, switchTheme } = useTheme();
   const router = useRouter();
@@ -23,8 +24,10 @@ const NavBar = ({ items, spacing }: MenuProps) => {
       {spacing && <div className="mb-5 h-16" />}
       <div
         className={cn(
-          'fixed top-0 z-40 w-full border-b-[1px] border-border-color bg-bg-color text-content-text shadow-custom backdrop-blur-[10px]',
+          'fixed top-0 z-40 w-full text-content-text',
           transStyles.nav,
+          !noBackground &&
+            'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">
