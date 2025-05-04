@@ -23,7 +23,7 @@ function FrontBanner() {
         <h1 className="text-4xl text-content-text sm:text-6xl md:text-7xl">
           Hi <span className={styles.wave}>👋</span>, I&apos;m <strong>Troels Lund</strong>
         </h1>
-        <div className="bg-colors h-[5px] rounded-[8px] bg-cover animate-pulse" />
+        <div className="bg-colors h-[5px] animate-pulse rounded-[8px] bg-cover" />
         <h3 className="text-content-text">
           <Text
             initDelay={15}
