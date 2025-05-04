@@ -10,7 +10,7 @@ import Splitter from '../splitter';
 
 export default function Footer() {
   return (
-    <footer id='footer' className={cn('z-45 border-t border-accent-2 bg-accent-1', styles.footer)}>
+    <footer id="footer" className={cn('z-45 border-t border-accent-2 bg-accent-1', styles.footer)}>
       <Container>
         <div className="xs:justify-center grid grid-cols-1 justify-between md:grid-cols-2 md:justify-center lg:grid-cols-2">
           <div className={cn('xs:p-3 md:p-8', styles.box)}>
