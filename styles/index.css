@@ -77,27 +77,9 @@ body {
   color: var(--content-text);
 }
 
-/* .card {
-  background-color: var(--footer);
-  border: var(--border-color) 1px solid;
-  box-shadow: var(--shadow);
-  border-radius: 15px;
+.bg-colors {
+  background-image: var(--bg-img);
 }
-
-.card-low {
-  background-color: var(--footer);
-  border: var(--border-color) 1px solid;
-  box-shadow: var(--shadow-low);
-  border-radius: 15px;
-  height: auto;
-  width: auto;
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
-}
-
-.card-low:hover {
-  box-shadow: var(--shadow);
-} */
 
 h2 {
   font-size: 2rem;

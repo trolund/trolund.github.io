@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { cn } from '../lib/utils';
+import Image from 'next/image';
 
 interface coverImageProps {
   title: string;
@@ -13,13 +13,15 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
     <div>
       <div
         aria-label={title}
-        className={cn('h-64 w-full overflow-hidden bg-cover bg-center shadow-small', {
-          'transition-shadow hover:shadow-medium': slug,
-        })}
-        style={{
-          backgroundImage: `url(${src})`,
-        }}
-      />
+        className='relative h-64 w-full overflow-hidden shadow-small'>
+        <Image
+          src={src}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+      </div>
       {tags &&
         tags.map((t, i) => (
           <span
