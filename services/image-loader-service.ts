@@ -34,5 +34,4 @@ const localImageLoader = ({ src, width }: ImageLoaderProps): string => {
   return `${src}?w=${width}`;
 };
 
-
 export default localImageLoader;

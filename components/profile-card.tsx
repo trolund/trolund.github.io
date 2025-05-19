@@ -36,7 +36,7 @@ export default function ProfileCard() {
             width={100}
             height={100}
             layout="responsive"
-            className='object-cover'
+            className="object-cover"
           />
           <figcaption>
             <b className="text-2xl">Troels Elsvad Lund</b>

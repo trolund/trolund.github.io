@@ -37,7 +37,7 @@ export default function HeroPost({
               src={coverImage}
               alt="Cover image"
               fill
-              className='object-cover'
+              className="object-cover"
               priority
             />
           </div>
