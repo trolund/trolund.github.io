@@ -37,7 +37,7 @@ function FrontBanner() {
         <div className="flex justify-center">
           <Link
             href="about"
-            className="rounded-full bg-content-text p-4 pl-8 pr-8 font-semibold text-bg-color transition-all hover:scale-110"
+            className="rounded-full bg-content-text p-4 pl-8 pr-8 font-semibold text-text transition-all hover:scale-110 hover:shadow-lg"
           >
             Learn more
           </Link>
