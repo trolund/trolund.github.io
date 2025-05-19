@@ -15,13 +15,7 @@ export default function CertificationItem({ href, title, subTitle, image }: Cert
       <div className="flex flex-col gap-6">
         {image && (
           <div>
-            <Image
-              loader={localImageLoader}
-              alt="institution"
-              src={image}
-              width={50}
-              height={50}
-            />
+            <Image loader={localImageLoader} alt="institution" src={image} width={50} height={50} />
           </div>
         )}
         <div>
