@@ -36,3 +36,6 @@ yarn-error.log*
 .DS_Store
 .vscode/settings.json
 .eslintcache
+
+# optimized images
+/public/**/optimized/

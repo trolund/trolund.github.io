@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Author, OgImage } from '../types/blogPost';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Language from '../types/languages';
 import DateFormatter from './date-formatter';
 import Card from './card';
 import Ship from './ship';
 import { useState } from 'react';
+import localImageLoader from '../services/image-loader-service';
 
 interface ProjectItemProps {
   title: string;
@@ -43,6 +44,7 @@ export default function ProjectItem({
                 <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
               )}
               <Image
+                loader={localImageLoader}
                 src={coverImage}
                 alt={`${title} - cover image`}
                 layout="fill"

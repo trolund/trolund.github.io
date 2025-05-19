@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import localImageLoader from '../services/image-loader-service';
 
 type ImageItemProps = {
   imageUrl?: string;
@@ -13,6 +14,7 @@ const ImageItem: React.FC<ImageItemProps> = ({ imageUrl, width, height, children
     <div className="flex flex-row gap-6">
       <div>
         <Image
+          loader={localImageLoader}
           className="mt-2"
           src={imageUrl ?? ''}
           width={width ?? 10}

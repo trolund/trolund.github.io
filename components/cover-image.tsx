@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import localImageLoader from '../services/image-loader-service';
 
 interface coverImageProps {
   title: string;
@@ -12,7 +13,7 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
   const image = (
     <div>
       <div aria-label={title} className="relative h-64 w-full overflow-hidden shadow-small">
-        <Image src={src} alt={title} layout="fill" objectFit="cover" priority />
+        <Image loader={localImageLoader} src={src} alt={title} layout="fill" objectFit="cover" priority />
       </div>
       {tags &&
         tags.map((t, i) => (
