@@ -4,7 +4,7 @@ const supportedExtensions = ['.jpg', '.jpeg', '.png'];
 
 /**
  * Returns the optimal image size label for the given width.
- * 
+ *
  * @param width - The desired display width in pixels
  * @returns 'small' | 'medium' | 'large'
  */
