@@ -1,6 +1,7 @@
 import type { ImageLoaderProps } from 'next/image';
 
-const supportedExtensions = ['.jpg', '.jpeg', '.png'];
+export const supportedExtensions = ['.jpg', '.jpeg', '.png'];
+type ImageSizes = 'small' | 'medium' | 'large';
 
 /**
  * Returns the optimal image size label for the given width.
@@ -8,7 +9,7 @@ const supportedExtensions = ['.jpg', '.jpeg', '.png'];
  * @param width - The desired display width in pixels
  * @returns 'small' | 'medium' | 'large'
  */
-export function getImageSizeLabel(width: number): 'small' | 'medium' | 'large' {
+export function getImageSizeLabel(width: number): ImageSizes {
   if (width <= 600) {
     return 'small';
   } else if (width <= 1000) {
@@ -25,10 +26,13 @@ const localImageLoader = ({ src, width }: ImageLoaderProps): string => {
     const folder = parts.join('/');
     const baseName = filename.split('.').slice(0, -1).join('.');
 
-    return `${folder}/optimized/${baseName}-${getImageSizeLabel(width)}.webp`;
+    const optimizedPath = `${folder}/optimized/${baseName}-${getImageSizeLabel(width)}.webp`;
+
+    return `${optimizedPath}?w=${width}`;
   }
 
-  return src; // Fallback to the original src if not a supported image
+  return `${src}?w=${width}`;
 };
+
 
 export default localImageLoader;

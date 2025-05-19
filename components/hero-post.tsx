@@ -36,8 +36,8 @@ export default function HeroPost({
               loader={localImageLoader}
               src={coverImage}
               alt="Cover image"
-              layout="fill"
-              objectFit="cover"
+              fill
+              className='object-cover'
               priority
             />
           </div>

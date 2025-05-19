@@ -17,9 +17,11 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
           loader={localImageLoader}
           src={src}
           alt={title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          loading="eager"
           priority
+          className='object-cover'
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       {tags &&
