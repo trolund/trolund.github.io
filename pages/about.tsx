@@ -62,8 +62,8 @@ export default function About({ page }: AboutProps) {
               />
               <CertificationItem
                 image="/assets/logos/dtu.png"
-                title="Master of Science in Engineering"
-                subTitle="Computer science and engineering"
+                title="Computer science and engineering"
+                subTitle="Master of Science in Engineering"
                 href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering"
               />
             </div>

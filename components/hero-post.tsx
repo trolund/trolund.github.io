@@ -4,6 +4,7 @@ import { Author } from '../types/blogPost';
 import Card from './card';
 import Ship from './ship';
 import Image from 'next/image';
+import localImageLoader from '../services/image-loader-service';
 
 interface HeroPostProps {
   title: string;
@@ -31,7 +32,14 @@ export default function HeroPost({
       <Card className={className}>
         <div className="flex flex-col gap-4 p-5">
           <div className="relative h-[300px] w-full overflow-hidden shadow-small">
-            <Image src={coverImage} alt="Cover image" layout="fill" objectFit="cover" priority />
+            <Image
+              loader={localImageLoader}
+              src={coverImage}
+              alt="Cover image"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
           <h3 className="mb-3 text-3xl leading-snug md:text-6xl md:leading-tight">
             <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover:underline">

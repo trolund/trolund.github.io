@@ -6,6 +6,7 @@ import Image from 'next/legacy/image';
 import { Author } from '../types/blogPost';
 import Language from '../types/languages';
 import Ship from './ship';
+import localImageLoader from '../services/image-loader-service';
 
 type postHeaderOptions = {
   title: string;
@@ -45,9 +46,21 @@ export default function PostHeader({
           </div>
           <div className="float-right text-base font-extralight italic">
             {language === 'da' ? (
-              <Image src="/assets/flags/da.svg" height={15} width={30} alt="dansk" />
+              <Image
+                loader={localImageLoader}
+                src="/assets/flags/da.svg"
+                height={15}
+                width={30}
+                alt="dansk"
+              />
             ) : (
-              <Image src="/assets/flags/en.svg" height={15} width={30} alt="english" />
+              <Image
+                loader={localImageLoader}
+                src="/assets/flags/en.svg"
+                height={15}
+                width={30}
+                alt="english"
+              />
             )}
           </div>
         </div>

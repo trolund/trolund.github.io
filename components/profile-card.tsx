@@ -3,6 +3,7 @@ import { SiLinkedin } from 'react-icons/si';
 import { VscGithubInverted, VscCloudDownload } from 'react-icons/vsc';
 import * as Cronitor from '@cronitorio/cronitor-rum';
 import Card from './card';
+import localImageLoader from '../services/image-loader-service';
 
 export default function ProfileCard() {
   function calculateAge(birthdate: string) {
@@ -29,12 +30,13 @@ export default function ProfileCard() {
       <figure>
         <div className="space-y-4 p-5">
           <Image
+            loader={localImageLoader}
             src="/profil.webp"
             alt="me"
             width={100}
             height={100}
             layout="responsive"
-            objectFit="cover"
+            className="object-cover"
           />
           <figcaption>
             <b className="text-2xl">Troels Elsvad Lund</b>

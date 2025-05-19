@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Author, OgImage } from '../types/blogPost';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Language from '../types/languages';
 import DateFormatter from './date-formatter';
 import Card from './card';
 import Ship from './ship';
 import { useState } from 'react';
+import localImageLoader from '../services/image-loader-service';
 
 interface ProjectItemProps {
   title: string;
@@ -43,13 +44,15 @@ export default function ProjectItem({
                 <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
               )}
               <Image
+                loader={localImageLoader}
                 src={coverImage}
                 alt={`${title} - cover image`}
-                layout="fill"
-                objectFit="cover"
+                fill
                 loading="eager"
-                onLoadingComplete={() => setIsLoaded(true)}
-                className={`transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setIsLoaded(true)}
+                className={`object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
             </div>
           </div>
@@ -73,9 +76,21 @@ export default function ProjectItem({
             <div className="basis-1/2">
               <span className="float-right">
                 {language === 'da' ? (
-                  <Image src="/assets/flags/da.svg" height={15} width={30} alt="dansk" />
+                  <Image
+                    loader={localImageLoader}
+                    src="/assets/flags/da.svg"
+                    height={15}
+                    width={30}
+                    alt="dansk"
+                  />
                 ) : (
-                  <Image src="/assets/flags/en.svg" height={15} width={30} alt="english" />
+                  <Image
+                    loader={localImageLoader}
+                    src="/assets/flags/en.svg"
+                    height={15}
+                    width={30}
+                    alt="english"
+                  />
                 )}
               </span>
             </div>

@@ -5,7 +5,8 @@
   "homepage": "https://troelslund.dk",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "optimize-images": "node scripts/optimize-images.js",
+    "build": "npm run optimize-images && next build",
     "start": "next start",
     "export": "next build && next export",
     "lint": "next lint",
