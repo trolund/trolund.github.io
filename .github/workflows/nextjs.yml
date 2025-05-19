@@ -81,8 +81,6 @@ jobs:
           NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
       - name: create optimized images
         run: ${{ steps.detect-package-manager.outputs.runner }} node scripts/optimize-images.js
-        env:
-          NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
