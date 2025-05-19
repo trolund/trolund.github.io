@@ -47,11 +47,12 @@ export default function ProjectItem({
                 loader={localImageLoader}
                 src={coverImage}
                 alt={`${title} - cover image`}
-                layout="fill"
-                objectFit="cover"
+                fill
                 loading="eager"
-                onLoadingComplete={() => setIsLoaded(true)}
-                className={`transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setIsLoaded(true)}
+                className={`object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
             </div>
           </div>
