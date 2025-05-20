@@ -5,6 +5,7 @@
   "homepage": "https://troelslund.dk",
   "scripts": {
     "dev": "next",
+    "scan": "next dev & npx react-scan@latest localhost:3000",
     "build": "npm run optimize-images && next build",
     "start": "npx serve@latest out",
     "export": "next build && next export",
