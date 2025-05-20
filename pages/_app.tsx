@@ -15,10 +15,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
       {process.env.NODE_ENV === 'development' && (
-        <script
-          crossOrigin="anonymous"
-          src="//unpkg.com/react-scan/dist/auto.global.js"
-        />
+        <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" />
       )}
       <Meta />
       <Component {...pageProps} />
