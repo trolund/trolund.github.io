@@ -5,16 +5,18 @@
   "homepage": "https://troelslund.dk",
   "scripts": {
     "dev": "next",
-    "optimize-images": "node scripts/optimize-images.js",
     "build": "npm run optimize-images && next build",
-    "start": "next start",
+    "start": "npx serve@latest out",
     "export": "next build && next export",
     "lint": "next lint",
     "find:unused": "next-unused",
     "prepare": "husky",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "lint:fix": "npx eslint --cache . --ext .ts,.tsx --fix",
-    "format:lint": "npm run lint:fix && npm run format"
+    "format:lint": "npm run lint:fix && npm run format",
+    "optimize-images": "node scripts/optimize-images.js",
+    "remove:optimize-images": "node scripts/remove-optimized-images.js",
+    "remove:unused": "next-unused --remove"
   },
   "prepare": "husky || true",
   "lint-staged": {
@@ -59,6 +61,7 @@
     "postcss-preset-env": "^9.5.15",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
+    "react-scan": "^0.3.4",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.2"
   },
