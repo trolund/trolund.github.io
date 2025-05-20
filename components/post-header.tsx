@@ -46,21 +46,9 @@ export default function PostHeader({
           </div>
           <div className="float-right text-base font-extralight italic">
             {language === 'da' ? (
-              <Image
-                loader={localImageLoader}
-                src="/assets/flags/da.svg"
-                height={15}
-                width={30}
-                alt="dansk"
-              />
+              <Image loader={localImageLoader} src={"/assets/flags/da.svg"} height={15} width={30} alt="dansk" />
             ) : (
-              <Image
-                loader={localImageLoader}
-                src="/assets/flags/en.svg"
-                height={15}
-                width={30}
-                alt="english"
-              />
+              <Image loader={localImageLoader} src={"/assets/flags/en.svg"} height={15} width={30} alt="english" />
             )}
           </div>
         </div>

@@ -9,7 +9,6 @@ import { oneLight } from './code-styles/one-light';
 import { ImageDataElement } from '../types/ImageDataElement';
 import ImageItem from '../components/ImageItem';
 import { mapLangIdentifierToLanguage } from './code-name-service';
-import localImageLoader from './image-loader-service';
 
 function copyToClipboard(text: string) {
   navigator.clipboard
@@ -27,7 +26,6 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     const imageElement: HTMLImageElement = node as any;
     return (
       <Image
-        loader={localImageLoader}
         src={imageElement.src ?? ''}
         alt={imageElement.alt ?? ''}
         height={imageElement.height ?? 50}

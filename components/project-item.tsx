@@ -44,7 +44,6 @@ export default function ProjectItem({
                 <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
               )}
               <Image
-                loader={localImageLoader}
                 src={coverImage}
                 alt={`${title} - cover image`}
                 fill
@@ -76,21 +75,9 @@ export default function ProjectItem({
             <div className="basis-1/2">
               <span className="float-right">
                 {language === 'da' ? (
-                  <Image
-                    loader={localImageLoader}
-                    src="/assets/flags/da.svg"
-                    height={15}
-                    width={30}
-                    alt="dansk"
-                  />
+                  <Image loader={localImageLoader} src={"/assets/flags/da.svg"} height={15} width={30} alt="dansk" />
                 ) : (
-                  <Image
-                    loader={localImageLoader}
-                    src="/assets/flags/en.svg"
-                    height={15}
-                    width={30}
-                    alt="english"
-                  />
+                  <Image loader={localImageLoader} src={"/assets/flags/en.svg"} height={15} width={30} alt="english" />
                 )}
               </span>
             </div>

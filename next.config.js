@@ -6,5 +6,6 @@ module.exports = {
   reactStrictMode: true,
   images: {
     loader: 'custom',
+    loaderFile: './services/image-loader-service.ts',
   },
 };
