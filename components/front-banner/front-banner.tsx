@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { VscGithubInverted } from 'react-icons/vsc';
 import { SiLinkedin } from 'react-icons/si';
 import Link from 'next/link';
-import localImageLoader from '../../services/image-loader-service';
 
 function FrontBanner() {
   return (

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import type { ImageLoaderProps } from 'next/image';
 
@@ -16,13 +16,13 @@ export function getImageSizeLabel(width: number): ImageSizes {
     return 'xxsmall';
   } else if (width <= 300) {
     return 'xsmall';
-  } else if (width <= 600) {
+  } else if (width <= 800) {
     return 'small';
-  } else if (width <= 1000) {
-    return 'medium';
   } else if (width <= 1200) {
-    return 'large';
+    return 'medium';
   } else if (width <= 1800) {
+    return 'large';
+  } else if (width <= 2000) {
     return 'xlarge';
   }
   return 'large';
