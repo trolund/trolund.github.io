@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 
 export function useLazyScroll(
   loadMore: () => void,
-  deps: any[] = [],
+  currResultLength: number,
+  totalLength: number,
   cooldownMs = 500,
   triggerDistance = 0,
   progressDistance = 50,
@@ -13,6 +14,8 @@ export function useLazyScroll(
 
   useEffect(() => {
     const handleScroll = () => {
+      if (currResultLength === 0 || currResultLength === totalLength) return; // No results to load
+
       const footer = document.getElementById('footer');
       if (!footer) return;
 
@@ -47,7 +50,7 @@ export function useLazyScroll(
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [loadMore, cooldownMs, triggerDistance, progressDistance, ...deps]);
+  }, [loadMore, cooldownMs, triggerDistance, progressDistance, isCoolDown, currResultLength, totalLength]);
 
   return [progress, isLoading];
 }

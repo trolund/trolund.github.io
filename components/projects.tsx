@@ -40,9 +40,9 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
 
   const loadMore = () => setVisibleCount((prev) => Math.min(prev + 6, filteredPosts.length));
 
-  const [scrollProgress, isLoading] = useLazyScroll(loadMore, [filteredPosts.length]);
+  const [scrollProgress, isLoading] = useLazyScroll(loadMore, filteredPosts.length, visibleCount);
 
-  const shouldShowScollLabel = () => scrollProgress > 0 && visibleCount < filteredPosts.length;
+  const shouldShowScrollLabel = useMemo(() => scrollProgress > 0 && visibleCount < filteredPosts.length, [filteredPosts.length, scrollProgress, visibleCount]);
 
   return (
     <section>
@@ -83,7 +83,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
         <div
           className={cn(
             `col-span-2 flex items-center justify-center transition-opacity duration-300`,
-            shouldShowScollLabel() ? 'opacity-100' : 'opacity-0',
+            shouldShowScrollLabel ? 'opacity-100' : 'opacity-0',
           )}
         >
           <div className="mb-10 flex flex-col items-center justify-center gap-4">
