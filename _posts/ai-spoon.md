@@ -2,7 +2,7 @@
 title: 'Enhance Your Text with LLM Spoon for Hammerspoon'
 excerpt: 'If you’re a Hammerspoon user and often find yourself rewriting, summarizing, or translating text, this little spoon might come in handy.'
 coverImage: '/assets/blog/ai-spoon/front.png'
-date: '2025-05-18T00:00:00.000Z'
+date: '2025-05-18T05:35:07.322Z'
 author:
   name: Troels Lund
   picture: '/assets/blog/authors/troels.png'
