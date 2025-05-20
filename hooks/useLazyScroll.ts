@@ -50,7 +50,15 @@ export function useLazyScroll(
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [loadMore, cooldownMs, triggerDistance, progressDistance, isCoolDown, currResultLength, totalLength]);
+  }, [
+    loadMore,
+    cooldownMs,
+    triggerDistance,
+    progressDistance,
+    isCoolDown,
+    currResultLength,
+    totalLength,
+  ]);
 
   return [progress, isLoading];
 }

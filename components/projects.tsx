@@ -42,7 +42,10 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
 
   const [scrollProgress, isLoading] = useLazyScroll(loadMore, filteredPosts.length, visibleCount);
 
-  const shouldShowScrollLabel = useMemo(() => scrollProgress > 0 && visibleCount < filteredPosts.length, [filteredPosts.length, scrollProgress, visibleCount]);
+  const shouldShowScrollLabel = useMemo(
+    () => scrollProgress > 0 && visibleCount < filteredPosts.length,
+    [filteredPosts.length, scrollProgress, visibleCount],
+  );
 
   return (
     <section>
