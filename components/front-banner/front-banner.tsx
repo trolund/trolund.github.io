@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { VscGithubInverted } from 'react-icons/vsc';
 import { SiLinkedin } from 'react-icons/si';
 import Link from 'next/link';
-import ParticleCanvas from '../ParticleCanvas';
 
 function FrontBanner() {
   return (
@@ -51,7 +50,6 @@ function FrontBanner() {
             <SiLinkedin color="var(--content-text)" size={40} />
           </a>
         </div>
-        <ParticleCanvas />
       </main>
     </div>
   );
