@@ -13,7 +13,7 @@ function FrontBanner() {
     <div className="flex h-dvh select-none justify-center text-center align-middle">
       <main className="z-20 inline-flex flex-col justify-center gap-8 text-center align-middle sm:gap-10 md:gap-12">
         <Image
-          className="ml-auto mr-auto rounded-full border-4 border-content-text h-[140px] sm:h-[150px] md:h-[200px] w-[140px] sm:w-[150px] md:w-[200px]"
+          className="ml-auto mr-auto h-[140px] w-[140px] rounded-full border-4 border-content-text sm:h-[150px] sm:w-[150px] md:h-[200px] md:w-[200px]"
           src="/profil2.webp"
           priority
           alt="me"
