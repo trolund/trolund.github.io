@@ -4,175 +4,175 @@ import React, { useEffect, useRef } from 'react';
 import { getCssColorBasedOnPosition } from '../services/color-service';
 
 type Particle = {
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    radius: number;
-    baseAlpha: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+  baseAlpha: number;
 };
 
 type Cursor = {
-    x: number;
-    y: number;
+  x: number;
+  y: number;
 };
 
 // Helper to calculate particle count based on canvas size
 function calculateParticleCount(
-    width: number,
-    height: number,
-    density: number = 0.0005,
-    maxParticles: number = 3000
+  width: number,
+  height: number,
+  density: number = 0.0005,
+  maxParticles: number = 3000,
 ): number {
-    const count = Math.floor(width * height * density);
-    return Math.min(count, maxParticles);
+  const count = Math.floor(width * height * density);
+  return Math.min(count, maxParticles);
 }
 
 const ParticleCanvas: React.FC = () => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const particles = useRef<Particle[]>([]);
-    const isMouseDown = useRef<boolean>(false);
-    const particleCount = useRef<number>(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const particles = useRef<Particle[]>([]);
+  const isMouseDown = useRef<boolean>(false);
+  const particleCount = useRef<number>(0);
 
-    useEffect(() => {
-        const canvas = canvasRef.current!;
-        const ctx = canvas.getContext('2d')!;
-        const cursor: Cursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  useEffect(() => {
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext('2d')!;
+    const cursor: Cursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
-        const initializeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+    const initializeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-            particleCount.current = calculateParticleCount(canvas.width, canvas.height, 0.0005, 3000);
+      particleCount.current = calculateParticleCount(canvas.width, canvas.height, 0.0005, 3000);
 
-            particles.current = Array.from({ length: particleCount.current }, () => ({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                radius: Math.random() * 2 + 1,
-                baseAlpha: 0.1,
-            }));
-        };
+      particles.current = Array.from({ length: particleCount.current }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        radius: Math.random() * 2 + 1,
+        baseAlpha: 0.1,
+      }));
+    };
 
-        initializeCanvas();
+    initializeCanvas();
 
-        const handleMouseMove = (e: MouseEvent) => {
-            cursor.x = e.clientX;
-            cursor.y = e.clientY;
-        };
+    const handleMouseMove = (e: MouseEvent) => {
+      cursor.x = e.clientX;
+      cursor.y = e.clientY;
+    };
 
-        const handleTouchMove = (e: TouchEvent) => {
-            if (e.touches.length > 0) {
-                cursor.x = e.touches[0].clientX;
-                cursor.y = e.touches[0].clientY;
-            }
-        };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        cursor.x = e.touches[0].clientX;
+        cursor.y = e.touches[0].clientY;
+      }
+    };
 
-        const handleMouseDown = () => {
-            isMouseDown.current = true;
-        };
+    const handleMouseDown = () => {
+      isMouseDown.current = true;
+    };
 
-        const handleMouseUp = () => {
-            isMouseDown.current = false;
-        };
+    const handleMouseUp = () => {
+      isMouseDown.current = false;
+    };
 
-        const handleTouchStart = (e: TouchEvent) => {
-            isMouseDown.current = true;
-            if (e.touches.length > 0) {
-                cursor.x = e.touches[0].clientX;
-                cursor.y = e.touches[0].clientY;
-            }
-        };
+    const handleTouchStart = (e: TouchEvent) => {
+      isMouseDown.current = true;
+      if (e.touches.length > 0) {
+        cursor.x = e.touches[0].clientX;
+        cursor.y = e.touches[0].clientY;
+      }
+    };
 
-        const handleTouchEnd = () => {
-            isMouseDown.current = false;
-        };
+    const handleTouchEnd = () => {
+      isMouseDown.current = false;
+    };
 
-        const handleResize = () => {
-            initializeCanvas();
-        };
+    const handleResize = () => {
+      initializeCanvas();
+    };
 
-        window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mousedown', handleMouseDown);
-        window.addEventListener('mouseup', handleMouseUp);
-        window.addEventListener('touchstart', handleTouchStart);
-        window.addEventListener('touchend', handleTouchEnd);
-        window.addEventListener('touchmove', handleTouchMove);
-        window.addEventListener('resize', handleResize);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('resize', handleResize);
 
-        // Simulate long press on load (center screen)
-        cursor.x = window.innerWidth / 2;
-        cursor.y = window.innerHeight / 2;
-        isMouseDown.current = true;
-        setTimeout(() => {
-            isMouseDown.current = false;
-        }, 1200);
+    // Simulate long press on load (center screen)
+    cursor.x = window.innerWidth / 2;
+    cursor.y = window.innerHeight / 2;
+    isMouseDown.current = true;
+    setTimeout(() => {
+      isMouseDown.current = false;
+    }, 1200);
 
-        const animate = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            for (let p of particles.current) {
-                const dx = cursor.x - p.x;
-                const dy = cursor.y - p.y;
-                const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-                const ux = dx / dist;
-                const uy = dy / dist;
+      for (let p of particles.current) {
+        const dx = cursor.x - p.x;
+        const dy = cursor.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const ux = dx / dist;
+        const uy = dy / dist;
 
-                const tangentX = -uy;
-                const tangentY = ux;
+        const tangentX = -uy;
+        const tangentY = ux;
 
-                const swirlStrength = Math.min(100 / dist, 4);
-                const attractionStrength = 100 / dist;
+        const swirlStrength = Math.min(100 / dist, 4);
+        const attractionStrength = 100 / dist;
 
-                if (isMouseDown.current) {
-                    const repulsionStrength = Math.min(200 / dist, 8);
-                    p.vx -= ux * repulsionStrength * 0.05;
-                    p.vy -= uy * repulsionStrength * 0.05;
-                } else {
-                    p.vx += ux * attractionStrength * 0.003;
-                    p.vy += uy * attractionStrength * 0.003;
+        if (isMouseDown.current) {
+          const repulsionStrength = Math.min(200 / dist, 8);
+          p.vx -= ux * repulsionStrength * 0.05;
+          p.vy -= uy * repulsionStrength * 0.05;
+        } else {
+          p.vx += ux * attractionStrength * 0.003;
+          p.vy += uy * attractionStrength * 0.003;
 
-                    p.vx += tangentX * swirlStrength * 0.02;
-                    p.vy += tangentY * swirlStrength * 0.02;
-                }
+          p.vx += tangentX * swirlStrength * 0.02;
+          p.vy += tangentY * swirlStrength * 0.02;
+        }
 
-                p.x += p.vx;
-                p.y += p.vy;
-                p.vx *= 0.92;
-                p.vy *= 0.92;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.92;
+        p.vy *= 0.92;
 
-                // Wrap around edges
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                if (p.y > canvas.height) p.y = 0;
+        // Wrap around edges
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
 
-                const alpha = Math.min(1, p.baseAlpha + (100 / dist) * 0.5);
+        const alpha = Math.min(1, p.baseAlpha + (100 / dist) * 0.5);
 
-                ctx.beginPath();
-                ctx.fillStyle = getCssColorBasedOnPosition('--surface-4', alpha, p.x, p.y);
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
-            }
+        ctx.beginPath();
+        ctx.fillStyle = getCssColorBasedOnPosition('--surface-4', alpha, p.x, p.y);
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
-            requestAnimationFrame(animate);
-        };
+      requestAnimationFrame(animate);
+    };
 
-        animate();
+    animate();
 
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mousedown', handleMouseDown);
-            window.removeEventListener('mouseup', handleMouseUp);
-            window.removeEventListener('touchstart', handleTouchStart);
-            window.removeEventListener('touchend', handleTouchEnd);
-            window.removeEventListener('touchmove', handleTouchMove);
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
-    return <canvas ref={canvasRef} className="absolute left-0 top-0 h-screen w-screen" />;
+  return <canvas ref={canvasRef} className="absolute left-0 top-0 h-screen w-screen" />;
 };
 
 export default ParticleCanvas;
