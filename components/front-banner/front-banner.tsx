@@ -11,9 +11,9 @@ import Link from 'next/link';
 function FrontBanner() {
   return (
     <div className="flex h-dvh select-none justify-center text-center align-middle">
-      <main className="z-20 inline-flex flex-col justify-center gap-6 text-center align-middle sm:gap-8 md:gap-12">
+      <main className="z-20 inline-flex flex-col justify-center gap-8 text-center align-middle sm:gap-10 md:gap-12">
         <Image
-          className="ml-auto mr-auto rounded-full border-4 border-content-text"
+          className="ml-auto mr-auto rounded-full border-4 border-content-text h-[140px] sm:h-[150px] md:h-[200px] w-[140px] sm:w-[150px] md:w-[200px]"
           src="/profil2.webp"
           priority
           alt="me"
@@ -38,7 +38,7 @@ function FrontBanner() {
           <div className="group relative inline-block">
             {/* Glow bubble matching button size */}
             <div
-              className="absolute left-0 top-full -mt-1 rounded-full bg-[var(--surface-4)] opacity-0 scale-100 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out blur-md"
+              className="absolute left-0 top-full -mt-1 scale-100 rounded-full bg-[var(--surface-4)] opacity-0 blur-md transition-all duration-500 ease-out group-hover:scale-110 group-hover:opacity-100"
               style={{
                 width: '100%',
                 height: '1.2rem',
