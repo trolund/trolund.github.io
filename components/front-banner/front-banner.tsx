@@ -7,11 +7,12 @@ import Image from 'next/image';
 import { VscGithubInverted } from 'react-icons/vsc';
 import { SiLinkedin } from 'react-icons/si';
 import Link from 'next/link';
+import ParticleCanvas from '../ParticleCanvas';
 
 function FrontBanner() {
   return (
     <div className="flex h-dvh justify-center text-center align-middle">
-      <main className="z-10 inline-flex flex-col justify-center gap-6 text-center align-middle sm:gap-8 md:gap-12">
+      <main className="z-20 inline-flex flex-col justify-center gap-6 text-center align-middle sm:gap-8 md:gap-12">
         <Image
           className="ml-auto mr-auto rounded-full border-4 border-content-text"
           src="/profil2.webp"
@@ -50,6 +51,7 @@ function FrontBanner() {
             <SiLinkedin color="var(--content-text)" size={40} />
           </a>
         </div>
+        <ParticleCanvas />
       </main>
     </div>
   );
