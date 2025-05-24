@@ -4,6 +4,7 @@ import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
+import ParticleCanvas from '../components/ParticleCanvas';
 
 export default function Index() {
   return (
@@ -13,6 +14,7 @@ export default function Index() {
         <title>{TITLE}</title>
       </Head>
       <FrontBanner />
+      <ParticleCanvas />
     </>
   );
 }
