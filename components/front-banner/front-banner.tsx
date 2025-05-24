@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 function FrontBanner() {
   return (
-    <div className="flex h-dvh justify-center text-center align-middle select-none">
+    <div className="flex h-dvh select-none justify-center text-center align-middle">
       <main className="z-20 inline-flex flex-col justify-center gap-6 text-center align-middle sm:gap-8 md:gap-12">
         <Image
           className="ml-auto mr-auto rounded-full border-4 border-content-text"
