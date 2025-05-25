@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { getCssColorBasedOnPosition } from '../services/color-service';
+import { getColorCssVarWithAlpha, getCssColorBasedOnPosition } from '../services/color-service';
 
 type Particle = {
   x: number;
@@ -115,7 +115,9 @@ const ParticleCanvas: React.FC = () => {
     }, 1200);
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = getColorCssVarWithAlpha("--bg", 0.6);
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
