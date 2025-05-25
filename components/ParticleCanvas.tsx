@@ -40,8 +40,9 @@ const ParticleCanvas: React.FC = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const ctx = canvas.getContext('2d')!;
     const cursor: Cursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const ctx = canvas.getContext('2d')!;
+
 
     const initializeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -132,13 +133,13 @@ const ParticleCanvas: React.FC = () => {
         const swirlStrength = Math.min(100 / dist, 4);
         const attractionStrength = 100 / dist;
 
-        if (isMouseDown.current) {
+        if (isMouseDown.current) { // If mouse is down, particles are repelled
           const repulsionStrength = Math.min(200 / dist, 8);
           p.vx -= ux * repulsionStrength * 0.05;
           p.vy -= uy * repulsionStrength * 0.05;
         } else {
-          p.vx += ux * attractionStrength * 0.003;
-          p.vy += uy * attractionStrength * 0.003;
+          p.vx += ux * attractionStrength * 0.0003;
+          p.vy += uy * attractionStrength * 0.0003;
 
           p.vx += tangentX * swirlStrength * 0.02;
           p.vy += tangentY * swirlStrength * 0.02;
@@ -166,8 +167,25 @@ const ParticleCanvas: React.FC = () => {
 
         const alpha = Math.min(1, p.baseAlpha + (100 / dist) * 0.5);
 
+        const glowColor = getCssColorBasedOnPosition('--surface-2', alpha * 0.5, p.x, p.y);
+        const solidColor = getCssColorBasedOnPosition('--surface-4', alpha, p.x, p.y);
+
+        // Glow layer
+        ctx.save();
+        if (alpha < 0.5) {
+          ctx.shadowBlur = 50;
+          ctx.shadowColor = glowColor;
+          ctx.fillStyle = glowColor;
+        }
+
         ctx.beginPath();
-        ctx.fillStyle = getCssColorBasedOnPosition('--surface-4', alpha, p.x, p.y);
+        ctx.arc(p.x, p.y, p.radius * 1.4, 0, Math.PI * 2); // slightly larger radius for glow
+        ctx.fill();
+        ctx.restore();
+
+        // Core particle
+        ctx.fillStyle = solidColor;
+        ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
       }
