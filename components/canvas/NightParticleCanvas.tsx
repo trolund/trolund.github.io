@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { getColorCssVarWithAlpha, getCssColorBasedOnPosition } from '../services/color-service';
+import { getColorCssVarWithAlpha, getCssColorBasedOnPosition } from '../../services/color-service';
 
 type Particle = {
   x: number;
@@ -32,7 +32,7 @@ function getRandomNumber(min: number, max: number): number {
   return Math.random() * (max - min) + min;
 }
 
-const ParticleCanvas: React.FC = () => {
+const NightParticleCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particles = useRef<Particle[]>([]);
   const isMouseDown = useRef<boolean>(false);
@@ -214,4 +214,4 @@ const ParticleCanvas: React.FC = () => {
   return <canvas ref={canvasRef} className="fixed left-0 top-0 h-dvh w-dvw" />;
 };
 
-export default ParticleCanvas;
+export default NightParticleCanvas;

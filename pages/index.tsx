@@ -4,8 +4,8 @@ import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
-import ParticleCanvas from '../components/ParticleCanvas';
-import SunParticleCanvas from '../components/SunParticleCanvas';
+import NightParticleCanvas from '../components/canvas/NightParticleCanvas';
+import DayParticleCanvas from '../components/canvas/SunParticleCanvas';
 import { useTheme } from '../hooks/ThemeContext';
 
 export default function Index() {
@@ -19,7 +19,7 @@ export default function Index() {
       </Head>
       <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
-        {isDark ? <ParticleCanvas /> : <SunParticleCanvas />}
+        {isDark ? <NightParticleCanvas /> : <DayParticleCanvas />}
       </div>
     </>
   );
