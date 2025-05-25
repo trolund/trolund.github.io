@@ -28,11 +28,10 @@ const SunParticleCanvas: React.FC = () => {
                 radius: initialRadius,
                 baseRadius: initialRadius,
                 speed: Math.random() * 0.01 + 0.002,
-                drift: Math.random() * 0.4 + 0.2,
+                drift: Math.random() * 0.2 + 0.1,
                 size: Math.random() * 3 + 1,
                 alpha: 1,
                 color: palette[Math.floor(Math.random() * palette.length)],
-                trail: [], // store past positions
             });
         }
 
@@ -61,22 +60,6 @@ const SunParticleCanvas: React.FC = () => {
                 const x = sun.x + Math.cos(p.angle) * p.radius;
                 const y = sun.y + Math.sin(p.angle) * p.radius;
 
-                // Update trail
-                p.trail.push({ x, y });
-                if (p.trail.length > 10) p.trail.shift(); // limit trail length
-
-                // Draw trail
-                for (let i = 0; i < p.trail.length; i++) {
-                    const pos = p.trail[i];
-                    const tAlpha = (i + 1) / p.trail.length * p.alpha;
-                    ctx.beginPath();
-                    ctx.globalAlpha = tAlpha;
-                    ctx.fillStyle = p.color;
-                    ctx.arc(pos.x, pos.y, p.size * (i / p.trail.length), 0, Math.PI * 2);
-                    ctx.fill();
-                }
-
-                // Draw head particle
                 ctx.beginPath();
                 ctx.globalAlpha = p.alpha;
                 ctx.fillStyle = p.color;
@@ -84,29 +67,34 @@ const SunParticleCanvas: React.FC = () => {
                 ctx.fill();
                 ctx.globalAlpha = 1;
 
-                // Move particle
+                // Spiral motion
                 p.angle += p.speed;
                 p.radius += p.drift;
 
-                // Fade out and reset
+                // Fade out as they get farther from the sun
                 const distance = p.radius - p.baseRadius;
                 p.alpha = Math.max(0, 1 - distance / 300);
+
+                // Respawn if too far
                 if (distance > 300) {
                     p.radius = p.baseRadius;
                     p.alpha = 1;
                     p.angle = Math.random() * Math.PI * 2;
                     p.color = palette[Math.floor(Math.random() * palette.length)];
-                    p.trail = [];
                 }
             }
         }
 
+        let animationFrameId: number;
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
             drawSun();
             drawParticles();
+
             sun.pulse += 0.05;
-            requestAnimationFrame(animate);
+            animationFrameId = requestAnimationFrame(animate);
         }
 
         animate();
@@ -119,7 +107,11 @@ const SunParticleCanvas: React.FC = () => {
         };
 
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return <canvas ref={canvasRef} className="fixed left-0 top-0 h-full w-full z-[-1]" />;

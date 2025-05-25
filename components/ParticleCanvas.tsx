@@ -37,6 +37,7 @@ const ParticleCanvas: React.FC = () => {
   const particles = useRef<Particle[]>([]);
   const isMouseDown = useRef<boolean>(false);
   const particleCount = useRef<number>(0);
+  const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -190,12 +191,15 @@ const ParticleCanvas: React.FC = () => {
         ctx.fill();
       }
 
-      requestAnimationFrame(animate);
+      animationFrameId.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationFrameId.current = requestAnimationFrame(animate);
 
     return () => {
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
