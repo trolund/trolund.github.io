@@ -5,8 +5,12 @@ import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
 import ParticleCanvas from '../components/ParticleCanvas';
+import SunParticleCanvas from '../components/SunParticleCanvas';
+import { useTheme } from '../hooks/ThemeContext';
 
 export default function Index() {
+  const { isDark } = useTheme();
+
   return (
     <>
       <NavBar items={menu} noBackground />
@@ -14,7 +18,7 @@ export default function Index() {
         <title>{TITLE}</title>
       </Head>
       <FrontBanner />
-      <ParticleCanvas />
+      {isDark ? <ParticleCanvas /> : <SunParticleCanvas />}
     </>
   );
 }
