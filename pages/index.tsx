@@ -1,4 +1,3 @@
-import { getAllPosts, getAllProjects } from '../lib/api';
 import Head from 'next/head';
 import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
@@ -23,31 +22,4 @@ export default function Index() {
       </div>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-    'tags',
-  ]);
-
-  const projects = getAllProjects([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-    'tags',
-    'technologies',
-  ]);
-
-  return {
-    props: { allPosts, projects },
-  };
 }
