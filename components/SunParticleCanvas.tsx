@@ -22,12 +22,15 @@ const SunParticleCanvas: React.FC = () => {
         };
 
         for (let i = 0; i < 200; i++) {
+            const initialRadius = Math.random() * 20 + sun.radius + 10;
             particles.push({
                 angle: Math.random() * Math.PI * 2,
-                radius: Math.random() * 200 + 80,
+                radius: initialRadius,
+                baseRadius: initialRadius,
                 speed: Math.random() * 0.01 + 0.002,
+                drift: Math.random() * 0.2 + 0.1,
                 size: Math.random() * 3 + 1,
-                alpha: Math.random() * 0.5 + 0.3,
+                alpha: 1,
                 color: palette[Math.floor(Math.random() * palette.length)],
             });
         }
@@ -64,8 +67,21 @@ const SunParticleCanvas: React.FC = () => {
                 ctx.fill();
                 ctx.globalAlpha = 1;
 
+                // Spiral motion
                 p.angle += p.speed;
-                p.radius += Math.sin(p.angle * 5) * 0.2; // dynamic wave
+                p.radius += p.drift;
+
+                // Fade out as they get farther from the sun
+                const distance = p.radius - p.baseRadius;
+                p.alpha = Math.max(0, 1 - distance / 300);
+
+                // Respawn if too far
+                if (distance > 300) {
+                    p.radius = p.baseRadius;
+                    p.alpha = 1;
+                    p.angle = Math.random() * Math.PI * 2;
+                    p.color = palette[Math.floor(Math.random() * palette.length)];
+                }
             }
         }
 
