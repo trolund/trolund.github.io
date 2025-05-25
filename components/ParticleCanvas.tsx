@@ -115,8 +115,7 @@ const ParticleCanvas: React.FC = () => {
     }, 1200);
 
     const animate = () => {
-
-      ctx.fillStyle = getColorCssVarWithAlpha("--bg", 0.6);
+      ctx.fillStyle = getColorCssVarWithAlpha('--bg', 0.6);
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const centerX = canvas.width / 2;
