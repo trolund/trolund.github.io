@@ -33,6 +33,11 @@
   --surface-4: #846cdb;
   --surface-5: #aa5ce9;
   --surface-6: #c03cfa; /* darkest and most saturated */
+
+  --secondary-0: #ffdd66;
+  --secondary-1: #ff9900;
+  --secondary-2: #ff6600;
+  --secondary-3: #ff3300;
 }
 
 [data-theme='dark'] {
@@ -41,7 +46,7 @@
   --primary: #006de4;
   --bg-color: #0c0c0cb2;
   --bg: #0b141a;
-  --text: #0A0A0A;
+  --text: #0a0a0a;
   --content-text: rgb(255, 255, 255);
   --footer: rgba(29, 29, 29, 0.349);
   --shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.03);
