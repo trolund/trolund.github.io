@@ -17,7 +17,7 @@ export default function Index() {
       <Head>
         <title>{TITLE}</title>
       </Head>
-      <div className='overflow-x-hidden overflow-y-hidden'>
+      <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
         {isDark ? <ParticleCanvas /> : <SunParticleCanvas />}
       </div>

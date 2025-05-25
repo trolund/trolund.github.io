@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 function FrontBanner() {
   return (
-    <div className="flex h-dvh select-none justify-center text-center align-middle pointer-events-none">
+    <div className="pointer-events-none flex h-dvh select-none justify-center text-center align-middle">
       <main className="z-20 inline-flex flex-col justify-center gap-8 text-center align-middle sm:gap-10 md:gap-12">
         <Image
           className="ml-auto mr-auto h-[140px] w-[140px] rounded-full border-4 border-content-text sm:h-[150px] sm:w-[150px] md:h-[200px] md:w-[200px]"
@@ -56,7 +56,7 @@ function FrontBanner() {
             </Link>
           </div>
         </div>
-        <div className="ml-auto mr-auto flex gap-4 pointer-events-auto">
+        <div className="pointer-events-auto ml-auto mr-auto flex gap-4">
           <a className="transition-all hover:scale-110" href="https://github.com/trolund">
             <VscGithubInverted color="var(--content-text)" size={40} />
           </a>
