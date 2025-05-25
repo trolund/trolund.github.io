@@ -43,7 +43,6 @@ const ParticleCanvas: React.FC = () => {
     const cursor: Cursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     const ctx = canvas.getContext('2d')!;
 
-
     const initializeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -133,7 +132,8 @@ const ParticleCanvas: React.FC = () => {
         const swirlStrength = Math.min(100 / dist, 4);
         const attractionStrength = 100 / dist;
 
-        if (isMouseDown.current) { // If mouse is down, particles are repelled
+        if (isMouseDown.current) {
+          // If mouse is down, particles are repelled
           const repulsionStrength = Math.min(200 / dist, 8);
           p.vx -= ux * repulsionStrength * 0.05;
           p.vy -= uy * repulsionStrength * 0.05;
