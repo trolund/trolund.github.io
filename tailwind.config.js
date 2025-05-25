@@ -26,6 +26,10 @@ module.exports = {
         'surface-4': 'var(--surface-4)',
         'surface-5': 'var(--surface-5)',
         'surface-6': 'var(--surface-6)',
+        'secondary-0': 'var(--secondary-0)',
+        'secondary-1': 'var(--secondary-1)',
+        'secondary-2': 'var(--secondary-2)',
+        'secondary-3': 'var(--secondary-3)',
       },
       spacing: {
         28: '7rem',

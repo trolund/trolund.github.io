@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { getCssColorBasedOnPosition } from '../services/color-service';
+import { getColorCssVarWithAlpha, getCssColorBasedOnPosition } from '../../services/color-service';
 
 type Particle = {
   x: number;
@@ -32,11 +32,12 @@ function getRandomNumber(min: number, max: number): number {
   return Math.random() * (max - min) + min;
 }
 
-const ParticleCanvas: React.FC = () => {
+const NightParticleCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particles = useRef<Particle[]>([]);
   const isMouseDown = useRef<boolean>(false);
   const particleCount = useRef<number>(0);
+  const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -114,7 +115,8 @@ const ParticleCanvas: React.FC = () => {
     }, 1200);
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = getColorCssVarWithAlpha('--bg', 0.6);
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
@@ -190,12 +192,15 @@ const ParticleCanvas: React.FC = () => {
         ctx.fill();
       }
 
-      requestAnimationFrame(animate);
+      animationFrameId.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationFrameId.current = requestAnimationFrame(animate);
 
     return () => {
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
@@ -206,7 +211,7 @@ const ParticleCanvas: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="w-dvh absolute left-0 top-0 h-dvh" />;
+  return <canvas ref={canvasRef} className="fixed left-0 top-0 h-dvh w-dvw" />;
 };
 
-export default ParticleCanvas;
+export default NightParticleCanvas;

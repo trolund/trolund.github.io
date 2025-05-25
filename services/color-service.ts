@@ -9,6 +9,11 @@ export function getRgbColor(hex: string): { r: number; g: number; b: number } {
   return { r, g, b };
 }
 
+export function getColorCssVarWithAlpha(cssVarName: string, alpha: number): string {
+  const { r, g, b } = getRgbColor(getHexColor(cssVarName));
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 export function getColorWithAlpha(hex: string, alpha: number): string {
   const { r, g, b } = getRgbColor(hex);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;

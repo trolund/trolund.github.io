@@ -4,17 +4,23 @@ import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
-import ParticleCanvas from '../components/ParticleCanvas';
+import NightParticleCanvas from '../components/canvas/NightParticleCanvas';
+import DayParticleCanvas from '../components/canvas/SunParticleCanvas';
+import { useTheme } from '../hooks/ThemeContext';
 
 export default function Index() {
+  const { isDark } = useTheme();
+
   return (
     <>
       <NavBar items={menu} noBackground />
       <Head>
         <title>{TITLE}</title>
       </Head>
-      <FrontBanner />
-      <ParticleCanvas />
+      <div className="overflow-x-hidden overflow-y-hidden">
+        <FrontBanner />
+        {isDark ? <NightParticleCanvas /> : <DayParticleCanvas />}
+      </div>
     </>
   );
 }
