@@ -4,8 +4,8 @@ import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
 import NightParticleCanvas from '../components/canvas/NightParticleCanvas';
-import DayParticleCanvas from '../components/canvas/SunParticleCanvas';
 import { useTheme } from '../hooks/ThemeContext';
+import VectorFieldParticleCanvas from '../components/canvas/VectorFieldParticleCanvas';
 
 export default function Index() {
   const { isDark } = useTheme();
@@ -18,7 +18,7 @@ export default function Index() {
       </Head>
       <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
-        {isDark ? <NightParticleCanvas /> : <DayParticleCanvas />}
+        {isDark ? <NightParticleCanvas /> : <VectorFieldParticleCanvas />}
       </div>
     </>
   );
