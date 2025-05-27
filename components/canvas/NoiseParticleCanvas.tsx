@@ -2,8 +2,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import { getColorCssVarWithAlpha, getCssColorBasedOnPosition } from '../../services/color-service';
+import { add, dist2, limit, mult, normalize, sub, Vec } from '../../services/vectorService';
 
-type Vec = { x: number; y: number };
 type Particle = {
   pos: Vec;
   vel: Vec;
@@ -11,28 +11,6 @@ type Particle = {
   radius: number;
   baseAlpha: number;
 };
-
-// --- Vec Math Helpers ---
-function normalize(v: Vec) {
-  const m = Math.hypot(v.x, v.y) || 1;
-  return { x: v.x / m, y: v.y / m };
-}
-function mult(v: Vec, s: number) {
-  return { x: v.x * s, y: v.y * s };
-}
-function add(a: Vec, b: Vec) {
-  return { x: a.x + b.x, y: a.y + b.y };
-}
-function sub(a: Vec, b: Vec) {
-  return { x: a.x - b.x, y: a.y - b.y };
-}
-function dist2(a: Vec, b: Vec) {
-  return (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
-}
-function limit(v: Vec, max: number) {
-  const m = Math.hypot(v.x, v.y);
-  return m > max ? { x: (v.x / m) * max, y: (v.y / m) * max } : v;
-}
 
 // Box–Muller for Gaussian(0,1)
 function gaussianRandom(): number {
@@ -43,8 +21,7 @@ function gaussianRandom(): number {
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 
-// Generate a circular path
-function makePath(
+function makeCirclePath(
   width: number,
   height: number,
   segments = 200,
@@ -63,18 +40,6 @@ function makePath(
   }
   return pts;
 }
-
-// --- Path Definition ---
-// function makePath(width: number, height: number, segments = 200): Vec[] {
-//   const pts: Vec[] = [];
-//   for (let i = 0; i <= segments; i++) {
-//     const t = i / segments;
-//     const x = t * width;
-//     const y = height * 0.5 + Math.sin(t * Math.PI * 2) * height * 0.2;
-//     pts.push({ x, y });
-//   }
-//   return pts;
-// }
 
 // Project point onto polyline, find closest
 function closestPointOnPath(path: Vec[], p: Vec) {
@@ -114,7 +79,7 @@ const VectorFieldParticleCanvas: React.FC = () => {
     const reset = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      path.current = makePath(canvas.width, canvas.height, 300);
+      path.current = makeCirclePath(canvas.width, canvas.height, 300);
       const count = Math.floor(canvas.width * canvas.height * 0.0005);
       particles.current = Array.from({ length: count }, () => {
         const t0 = Math.random();
@@ -135,8 +100,6 @@ const VectorFieldParticleCanvas: React.FC = () => {
       // slight trail
       ctx.fillStyle = getColorCssVarWithAlpha('--bg', 0.1);
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // === Removed drawing of the path line ===
 
       const lookAhead = 0.0035;
       const sigma = 200; // standard deviation for Gaussian spread
