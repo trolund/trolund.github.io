@@ -1,10 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import {
-  getColorCssVarWithAlpha,
-  getCssColorBasedOnPosition,
-} from '../../services/color-service';
+import { getColorCssVarWithAlpha, getCssColorBasedOnPosition } from '../../services/color-service';
 
 type Particle = {
   x: number;
@@ -55,11 +52,7 @@ function baseVectorField(x: number, y: number, time: number): { vx: number; vy: 
 }
 
 // Attractor when pointer.down===false, Repeller when pointer.down===true
-function pointerVectorField(
-  x: number,
-  y: number,
-  pointer: Pointer
-): { vx: number; vy: number } {
+function pointerVectorField(x: number, y: number, pointer: Pointer): { vx: number; vy: number } {
   if (!pointer.active) return { vx: 0, vy: 0 };
 
   const dx = pointer.x - x;
@@ -101,9 +94,8 @@ const VectorFieldParticleCanvas: React.FC = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       particleCount.current = calculateParticleCount(canvas.width, canvas.height);
-      particles.current = Array.from(
-        { length: particleCount.current },
-        () => createParticle(canvas.width, canvas.height)
+      particles.current = Array.from({ length: particleCount.current }, () =>
+        createParticle(canvas.width, canvas.height),
       );
     };
 
@@ -113,8 +105,12 @@ const VectorFieldParticleCanvas: React.FC = () => {
       pointer.current.y = e.clientY;
       pointer.current.active = true;
     };
-    const handleMouseDown = () => { pointer.current.down = true; };
-    const handleMouseUp = () => { pointer.current.down = false; };
+    const handleMouseDown = () => {
+      pointer.current.down = true;
+    };
+    const handleMouseUp = () => {
+      pointer.current.down = false;
+    };
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length > 0) {
         pointer.current.x = e.touches[0].clientX;
@@ -160,18 +156,17 @@ const VectorFieldParticleCanvas: React.FC = () => {
         p.vy += (base.vy + pointerF.vy) * 0.05;
 
         // move and damp
-        p.x += p.vx; p.y += p.vy;
-        p.vx *= 0.9; p.vy *= 0.9;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.9;
+        p.vy *= 0.9;
 
         // fade in
         if (p.baseAlpha < 0.1) p.baseAlpha += 0.005;
         const alpha = Math.min(1, p.baseAlpha);
 
         // respawn if out of bounds
-        if (
-          p.x < 0 || p.x > canvas.width ||
-          p.y < 0 || p.y > canvas.height
-        ) {
+        if (p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
           particles.current[i] = createParticle(canvas.width, canvas.height);
           continue;
         }

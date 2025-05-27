@@ -1,10 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import {
-  getColorCssVarWithAlpha,
-  getCssColorBasedOnPosition,
-} from '../../services/color-service';
+import { getColorCssVarWithAlpha, getCssColorBasedOnPosition } from '../../services/color-service';
 
 type Vec = { x: number; y: number };
 type Particle = {
@@ -20,10 +17,18 @@ function normalize(v: Vec) {
   const m = Math.hypot(v.x, v.y) || 1;
   return { x: v.x / m, y: v.y / m };
 }
-function mult(v: Vec, s: number) { return { x: v.x * s, y: v.y * s }; }
-function add(a: Vec, b: Vec) { return { x: a.x + b.x, y: a.y + b.y }; }
-function sub(a: Vec, b: Vec) { return { x: a.x - b.x, y: a.y - b.y }; }
-function dist2(a: Vec, b: Vec) { return (a.x - b.x) ** 2 + (a.y - b.y) ** 2; }
+function mult(v: Vec, s: number) {
+  return { x: v.x * s, y: v.y * s };
+}
+function add(a: Vec, b: Vec) {
+  return { x: a.x + b.x, y: a.y + b.y };
+}
+function sub(a: Vec, b: Vec) {
+  return { x: a.x - b.x, y: a.y - b.y };
+}
+function dist2(a: Vec, b: Vec) {
+  return (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
+}
 function limit(v: Vec, max: number) {
   const m = Math.hypot(v.x, v.y);
   return m > max ? { x: (v.x / m) * max, y: (v.y / m) * max } : v;
@@ -31,19 +36,19 @@ function limit(v: Vec, max: number) {
 
 // Box–Muller for Gaussian(0,1)
 function gaussianRandom(): number {
-  let u = 0, v = 0;
+  let u = 0,
+    v = 0;
   while (u === 0) u = Math.random();
   while (v === 0) v = Math.random();
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
-
 
 // Generate a circular path
 function makePath(
   width: number,
   height: number,
   segments = 200,
-  radiusFactor = 0.8  // fraction of half-min-dimension
+  radiusFactor = 0.8, // fraction of half-min-dimension
 ): Vec[] {
   const pts: Vec[] = [];
   const cx = width / 2;
@@ -73,11 +78,18 @@ function makePath(
 
 // Project point onto polyline, find closest
 function closestPointOnPath(path: Vec[], p: Vec) {
-  let record = Infinity, closest: Vec = path[0], bestT = 0;
+  let record = Infinity,
+    closest: Vec = path[0],
+    bestT = 0;
   for (let i = 0; i < path.length - 1; i++) {
-    const a = path[i], b = path[i + 1];
-    const ab = sub(b, a), ap = sub(p, a);
-    const proj = Math.max(0, Math.min(1, (ap.x * ab.x + ap.y * ab.y) / (ab.x * ab.x + ab.y * ab.y)));
+    const a = path[i],
+      b = path[i + 1];
+    const ab = sub(b, a),
+      ap = sub(p, a);
+    const proj = Math.max(
+      0,
+      Math.min(1, (ap.x * ab.x + ap.y * ab.y) / (ab.x * ab.x + ab.y * ab.y)),
+    );
     const pt = add(a, mult(ab, proj));
     const d2 = dist2(p, pt);
     if (d2 < record) {
@@ -126,8 +138,8 @@ const VectorFieldParticleCanvas: React.FC = () => {
 
       // === Removed drawing of the path line ===
 
-      const lookAhead = 0.02;
-      const sigma = 480; // standard deviation for Gaussian spread
+      const lookAhead = 0.0035;
+      const sigma = 200; // standard deviation for Gaussian spread
 
       for (let p of particles.current) {
         const { t: nearestT } = closestPointOnPath(path.current, p.pos);
@@ -143,10 +155,7 @@ const VectorFieldParticleCanvas: React.FC = () => {
         const offset = gaussianRandom() * sigma;
         const jitter = mult(perp, offset);
 
-        const desired = mult(
-          normalize(sub(add(targetPt, jitter), p.pos)),
-          2
-        );
+        const desired = mult(normalize(sub(add(targetPt, jitter), p.pos)), 2);
         const steer = limit(sub(desired, p.vel), 0.1);
 
         p.acc = steer;
