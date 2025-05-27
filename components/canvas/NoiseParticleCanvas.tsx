@@ -162,7 +162,7 @@ const VectorFieldParticleCanvas: React.FC = () => {
         p.vel = mult(add(p.vel, p.acc), 0.95);
         p.pos = add(p.pos, p.vel);
 
-        if (p.baseAlpha < 0.1) p.baseAlpha += 0.005;
+        if (p.baseAlpha < 0.1) p.baseAlpha += 0.2;
         const alpha = Math.min(1, p.baseAlpha);
 
         if (nearestT >= 0.999) {
