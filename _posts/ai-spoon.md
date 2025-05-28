@@ -73,3 +73,7 @@ It’s just a small utility I built for myself — shared in case others find it
 Let me know if you end up using it or improving it — I’d love to hear how you make it your own.
 
 The source code can be found [here.](https://github.com/trolund/llm-spoon)
+
+---
+
+The Spoon has been updated to integrate ChatGPT from OpenAI as the LLM provider. Additionally, prompts are now separated into individual files to facilitate easy customization.
