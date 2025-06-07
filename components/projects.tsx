@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';
 import { MdSearch, MdArrowDownward } from 'react-icons/md';
@@ -33,7 +33,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
     return filteredPosts.slice(start, end);
   }, [visibleCount, filteredPosts]);
 
-  const loadMore = () => setVisibleCount(prev => Math.min(prev + 6, filteredPosts.length));
+  const loadMore = () => setVisibleCount((prev) => Math.min(prev + 6, filteredPosts.length));
 
   const [scrollProgress, isLoading] = useLazyScroll(loadMore, filteredPosts.length, visibleCount);
 
@@ -45,7 +45,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
   const onSearchTermChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
     setVisibleCount(6);
-  }
+  };
 
   return (
     <section>
@@ -55,7 +55,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
             <MdSearch className="h-5 w-5" />
           </div>
           <input
-              onChange={onSearchTermChange}
+            onChange={onSearchTermChange}
             value={searchTerm}
             type="search"
             placeholder="Search"
