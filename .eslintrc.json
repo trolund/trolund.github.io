@@ -8,7 +8,8 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "prettier"
+    "prettier",
+    "plugin:react-hooks/recommended"
   ],
   "env": {
     "browser": true,
@@ -23,11 +24,14 @@
   },
   "plugins": [
     "react",
-    "unused-imports"
+    "unused-imports",
+    "react-hooks"
   ],
   "rules": {
     "react/react-in-jsx-scope": "error",
     "unused-imports/no-unused-imports": "error",
+    "react-hooks/rules-of-hooks": "error", 
+    "react-hooks/exhaustive-deps": "warn",  
     "unused-imports/no-unused-vars": [
       "error",
       {
