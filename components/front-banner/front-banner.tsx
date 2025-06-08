@@ -35,7 +35,7 @@ function FrontBanner() {
           />
         </h3>
         <div className="relative flex justify-center">
-          <div className="group relative inline-block hover:scale-110 transition-all">
+          <div className="group relative inline-block transition-all hover:scale-110">
             <div
               className="absolute left-0 top-full -mt-1 scale-100 rounded-full bg-[var(--surface-4)] opacity-0 blur-md transition-all duration-500 ease-out group-hover:scale-110 group-hover:opacity-100"
               style={{
