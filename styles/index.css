@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 /* Your own custom utilities */
 :root {
   --is-dark: 0;
@@ -48,7 +51,7 @@
   --bg: #0b141a;
   --text: #0a0a0a;
   --content-text: rgb(255, 255, 255);
-  --footer: rgba(29, 29, 29, 0.349);
+  --footer: #12181dca;
   --shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.03);
   --shadow-low: 0px 0px 10px 5px rgba(0, 0, 0, 0.01);
   --border-color: rgba(255, 255, 255, 0.25);
@@ -63,6 +66,25 @@
   --surface-5: #a044ef;
   --surface-6: #c03cfa;
 }
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --bg-color: #e2e8f0; /* Removed transparency */
+    --footer: #f5f5f5;    /* Solid footer color */
+    --shadow: none;       /* Optional: remove subtle shadows if they create visual noise */
+    --shadow-low: none;
+    --border-color-muted: rgba(203, 179, 179, 0.1); /* Less transparent fallback */
+  }
+
+  [data-theme='dark'] {
+    --bg-color: #0c0c0c;  /* Solid background in dark mode */
+    --footer: #12181d;
+    --shadow: none;
+    --shadow-low: none;
+    --border-color-muted: rgba(255, 255, 255, 0.1);
+  }
+}
+
 
 html {
   /* make sure that ID-links scroll smooth */
