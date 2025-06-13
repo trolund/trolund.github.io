@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/legacy/image';
 import { SiLinkedin } from 'react-icons/si';
 import { VscGithubInverted, VscCloudDownload } from 'react-icons/vsc';

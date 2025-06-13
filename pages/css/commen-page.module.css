@@ -1,3 +1,0 @@
-.grid3d {
-    transform: perspective(2rem) scale(0.8) rotate3d(0, 1, 1, -1deg);
-}

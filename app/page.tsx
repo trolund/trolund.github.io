@@ -1,3 +1,5 @@
+'use client';
+
 import Head from 'next/head';
 import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
@@ -9,11 +11,10 @@ import NoiseParticleCanvas from '../components/canvas/NoiseParticleCanvas';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import { usePrefersReducedTransparency } from '../hooks/usePrefersReducedTransparency';
 
-export default function Index() {
+export default function Page() {
   const { isDark } = useTheme();
   const prefersReducedMotion = usePrefersReducedMotion();
   const reduceTransparency = usePrefersReducedTransparency();
-
   return (
     <>
       <NavBar items={menu} noBackground={!reduceTransparency} />

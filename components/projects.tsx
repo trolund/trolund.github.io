@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';

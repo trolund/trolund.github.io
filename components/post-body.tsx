@@ -1,3 +1,5 @@
+'use client';
+
 import markdownStyles from '../styles/markdown-styles.module.css';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
