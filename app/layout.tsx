@@ -1,8 +1,8 @@
 'use client';
 
-import '../styles/index.css';
-import { ThemeProvider } from '../hooks/ThemeContext';
-import Toast from '../components/toast';
+import '@/styles/index.css';
+import { ThemeProvider } from '@/hooks/ThemeContext';
+import Toast from '@/components/toast';
 import { ReactNode, StrictMode } from 'react';
 import { useCronitor } from '../hooks/useCronitor';
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Slide, ToastContainer } from 'react-toastify';
-import { useTheme } from '../hooks/ThemeContext';
+import { useTheme } from '@/hooks/ThemeContext';
 
 interface ToastProps {}
 

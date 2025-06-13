@@ -1,12 +1,12 @@
-import Container from '../../components/container';
-import Layout from '../../components/layout';
-import NavBar from '../../components/nav-bar';
-import PostBody from '../../components/post-body';
-import PostTitle from '../../components/post-title';
-import ProjectsView from '../../components/projects';
-import menu from '../../constants/menu';
-import { getAllProjects, getContent } from '../../lib/api';
-import { TITLE } from '../../lib/constants';
+import Container from '@/components/container';
+import Layout from '@/components/layout';
+import NavBar from '@/components/nav-bar';
+import PostBody from '@/components/post-body';
+import PostTitle from '@/components/post-title';
+import ProjectsView from '@/components/projects';
+import menu from '@/constants/menu';
+import { getAllProjects, getContent } from '@/lib/api';
+import { TITLE } from '@/lib/constants';
 
 export const metadata = {
   title: `${TITLE} | Projects`,

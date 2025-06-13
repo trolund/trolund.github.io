@@ -13,7 +13,6 @@ import Head from 'next/head';
 import CertificationItem from '@/components/certification-item';
 
 export default async function AboutPage() {
-  // Fetch your content here
   const about = await getContent('about', ['title', 'content']);
   const experience = await getContent('experience', ['title', 'content']);
   const education = await getContent('education', ['title', 'content']);

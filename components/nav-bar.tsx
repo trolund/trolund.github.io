@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
-import { MenuItem } from '../types/MenuItem';
+import { MenuItem } from '@/types/MenuItem';
 import { usePathname } from 'next/navigation';
-import transStyles from '../styles/view-trans.module.css';
 import Link from 'next/link';
 import { useTheme } from '@/hooks/ThemeContext';
 import { cn } from '@/lib/utils';
@@ -28,7 +27,6 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       <div
         className={cn(
           'fixed top-0 z-40 w-full text-content-text',
-          transStyles.nav,
           !noBackground &&
             'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}

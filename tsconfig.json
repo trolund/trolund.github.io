@@ -22,7 +22,8 @@
       "@/lib/*": ["lib/*"],
       "@/constants/*": ["constants/*"],
       "@/types/*": ["types/*"],
-      "@/hooks/*": ["hooks/*"]
+      "@/hooks/*": ["hooks/*"],
+      "@/styles/*": ["styles/*"]
     }
   },
   "ts-node": {
