@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 export default async function ProjectsPage() {
-  const projects = getAllProjects([
+  const projects = await getAllProjects([
     'title',
     'date',
     'slug',
@@ -25,7 +25,7 @@ export default async function ProjectsPage() {
     'language',
   ]);
 
-  const project = getContent('project', ['title', 'content']);
+  const project = await getContent('project', ['title', 'content']);
 
   return (
     <>

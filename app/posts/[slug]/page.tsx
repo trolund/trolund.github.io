@@ -15,12 +15,13 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const posts = getAllPosts(['slug']);
+  const posts = await getAllPosts(['slug']);
   return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
-  const post = getPostBySlug(params.slug, ['title', 'ogImage']);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug, ['title', 'ogImage']);
   if (!post) return {};
   return {
     title: `${TITLE} | ${post.title}`,
@@ -30,8 +31,9 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default function PostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug, [
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug, [
     'title',
     'date',
     'slug',

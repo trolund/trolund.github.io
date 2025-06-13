@@ -15,7 +15,7 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-  const allPosts = getAllPosts([
+  const allPosts = await getAllPosts([
     'title',
     'date',
     'slug',
@@ -27,7 +27,7 @@ export default async function BlogPage() {
     'language',
   ]);
 
-  const blog = getContent('blog', ['title', 'content']);
+  const blog = await getContent('blog', ['title', 'content']);
 
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
