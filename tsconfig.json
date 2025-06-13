@@ -21,7 +21,8 @@
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
       "@/constants/*": ["constants/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/hooks/*": ["hooks/*"]
     }
   },
   "ts-node": {
