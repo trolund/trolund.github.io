@@ -4,10 +4,7 @@ import { Themes } from '@/types/theme';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
-import { FaCircle } from "react-icons/fa6";
 import { AnimatePresence, motion } from 'framer-motion';
-import { th } from 'date-fns/locale';
-
 
 export function ThemeIcon() {
   const { theme, setTheme } = useTheme();
@@ -18,12 +15,12 @@ export function ThemeIcon() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <div style={{width: size, height: size}} />;
+  if (!mounted) return <div style={{ width: size, height: size }} />;
 
   const isDark = (theme) => {
-    if(theme === undefined || theme === 'system') return false;
+    if (theme === undefined || theme === 'system') return false;
     return theme === Themes.DARK;
-  }
+  };
 
   return (
     <AnimatePresence mode="wait" initial={false}>

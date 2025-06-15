@@ -1,5 +1,4 @@
 import { TITLE } from '@/lib/constants';
-import Script from 'next/script';
 
 export default function Head() {
   return (

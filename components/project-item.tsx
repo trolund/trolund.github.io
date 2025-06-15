@@ -41,7 +41,7 @@ export default function ProjectItem({
           <div className="relative h-[200px] w-full">
             <div className="relative h-[200px] w-full overflow-hidden">
               {!isLoaded && (
-                <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
+                <div className="dark:bg-slate-800 absolute inset-0 animate-pulse bg-gray-300" />
               )}
               <Image
                 src={coverImage}

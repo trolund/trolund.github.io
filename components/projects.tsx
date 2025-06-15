@@ -53,7 +53,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
     <section>
       <div className="flex flex-col items-center justify-center gap-5">
         <div className="relative w-full p-2">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5 text-gray-500 dark:text-gray-400">
+          <div className="dark:text-gray-400 pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5 text-gray-500">
             <MdSearch className="h-5 w-5" />
           </div>
           <input
@@ -61,7 +61,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
             value={searchTerm}
             type="search"
             placeholder="Search"
-            className="block w-full rounded-lg border border-gray-300 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            className="dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 block w-full rounded-lg border border-gray-300 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
           />
         </div>
         <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -81,7 +81,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
           ))}
           {filteredPosts.length === 0 && (
             <div className="col-span-2 text-center">
-              <p className="text-gray-500 dark:text-gray-400">🤬 No items found.</p>
+              <p className="dark:text-gray-400 text-gray-500">🤬 No items found.</p>
             </div>
           )}
         </div>
@@ -93,16 +93,16 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
         >
           <div className="mb-10 flex flex-col items-center justify-center gap-4">
             <button
-              className="inline-flex items-center justify-center rounded-full bg-slate-600 px-5 py-2 font-semibold text-white shadow-md transition-transform duration-200 hover:scale-105 hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-900 hover:dark:bg-slate-200"
+              className="dark:bg-slate-200 dark:text-slate-900 hover:dark:bg-slate-200 inline-flex items-center justify-center rounded-full bg-slate-600 px-5 py-2 font-semibold text-white shadow-md transition-transform duration-200 hover:scale-105 hover:bg-slate-600"
               onClick={loadMore}
             >
               Load more
             </button>
-            <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
+            <div className="dark:text-gray-400 ml-2 text-sm text-gray-500">
               {isLoading ? 'Loading more...' : 'Scroll to load more'}
             </div>
             <div className="animate-ping">
-              <MdArrowDownward className="text-gray-500 dark:text-gray-400" />
+              <MdArrowDownward className="dark:text-gray-400 text-gray-500" />
             </div>
           </div>
         </div>
