@@ -12,6 +12,10 @@ import { getContent } from '@/lib/api';
 import Head from 'next/head';
 import CertificationItem from '@/components/certification-item';
 
+export const metadata = {
+  title: `${TITLE} | About`,
+};
+
 export default async function AboutPage() {
   const about = await getContent('about', ['title', 'content']);
   const experience = await getContent('experience', ['title', 'content']);

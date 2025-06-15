@@ -3,6 +3,11 @@ import Button from '@/components/button';
 import Link from 'next/link';
 import { TbError404 } from 'react-icons/tb';
 import Splitter from '@/components/splitter';
+import { TITLE } from '@/lib/constants';
+
+export const metadata = {
+  title: `${TITLE} | 404 Not Found`,
+};
 
 export default function NotFoundPage() {
   return (

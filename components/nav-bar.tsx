@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ThemeIcon } from './theme-icon';
+import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTransparency';
 
 export type MenuProps = {
   items: MenuItem[];
@@ -17,6 +18,11 @@ export type MenuProps = {
 const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const reduceTransparency = usePrefersReducedTransparency();
+
+  if (reduceTransparency) {
+    noBackground = false; // Disable background if user prefers reduced transparency
+  }
 
   return (
     <>
@@ -25,7 +31,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         className={cn(
           'fixed top-0 z-40 w-full text-content-text',
           !noBackground &&
-            'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
+          'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">

@@ -1,28 +1,21 @@
-'use client';
-
 import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
 import FrontBanner from '../components/front-banner';
-import NightParticleCanvas from '../components/canvas/NightParticleCanvas';
-import NoiseParticleCanvas from '../components/canvas/NoiseParticleCanvas';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
-import { usePrefersReducedTransparency } from '../hooks/usePrefersReducedTransparency';
-import { useTheme } from 'next-themes';
+import { TITLE } from '@/lib/constants';
+import FrontBackDrop from '@/components/home-backdrop';
+
+export const metadata = {
+  title: `${TITLE} | Home`,
+};
 
 export default function Page() {
-  const { resolvedTheme } = useTheme();
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const reduceTransparency = usePrefersReducedTransparency();
+
   return (
     <>
-      <NavBar items={menu} noBackground={!reduceTransparency} />
-      {/* <Head>
-        <title>{TITLE}</title>
-      </Head> */}
+      <NavBar items={menu} noBackground={true} />
       <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
-        {!prefersReducedMotion &&
-          (resolvedTheme === 'dark' ? <NightParticleCanvas /> : <NoiseParticleCanvas />)}
+        <FrontBackDrop />
       </div>
     </>
   );
