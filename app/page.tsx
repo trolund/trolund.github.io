@@ -23,7 +23,8 @@ export default function Page() {
       </Head>
       <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
-        {!prefersReducedMotion && (theme === "dark" ? <NightParticleCanvas /> : <NoiseParticleCanvas />)}
+        {!prefersReducedMotion &&
+          (theme === 'dark' ? <NightParticleCanvas /> : <NoiseParticleCanvas />)}
       </div>
     </>
   );

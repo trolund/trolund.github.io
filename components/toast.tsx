@@ -7,7 +7,7 @@ import { Slide, ToastContainer } from 'react-toastify';
 interface ToastProps {}
 
 const Toast: FC<ToastProps> = () => {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
   return (
     <ToastContainer
       position="bottom-center"

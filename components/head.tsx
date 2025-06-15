@@ -15,7 +15,6 @@ export default function Head() {
       <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
       <link rel="manifest" href="/manifest.json" />
       <meta name="google-site-verification" content="fK40wZmELLwBjymUVMTij0LHyohVxm-xrNj4T7mPzaU" />
-      <Script src="/theme-init.js" strategy="beforeInteractive" />
     </head>
   );
 }

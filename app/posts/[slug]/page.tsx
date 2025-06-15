@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params
+  const { slug } = await params;
   const post = await getPostBySlug(slug, ['title', 'ogImage']);
   if (!post) return {};
   return {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function PostPage({ params }: Props) {
-  const { slug } = await params
+  const { slug } = await params;
   const post = await getPostBySlug(slug, [
     'title',
     'date',

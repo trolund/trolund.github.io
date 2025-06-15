@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: 'class',
+  darkMode: '[data-theme="dark"]',
   content: ['./components/**/*.tsx', './pages/**/*.tsx'],
   theme: {
     extend: {
