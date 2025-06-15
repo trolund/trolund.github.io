@@ -7,7 +7,7 @@ import { Slide, ToastContainer } from 'react-toastify';
 interface ToastProps {}
 
 const Toast: FC<ToastProps> = () => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   return (
     <ToastContainer
       position="bottom-center"
@@ -22,7 +22,7 @@ const Toast: FC<ToastProps> = () => {
       pauseOnHover
       icon={false}
       limit={3}
-      theme={theme}
+      theme={resolvedTheme}
       transition={Slide}
     />
   );
