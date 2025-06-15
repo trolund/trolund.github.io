@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { CSSProperties, FunctionComponent, useEffect, useMemo, useState } from 'react';
 import styles from './text.module.css';

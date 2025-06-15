@@ -9,7 +9,6 @@ export const metadata = {
 };
 
 export default function Page() {
-
   return (
     <>
       <NavBar items={menu} noBackground={true} />
