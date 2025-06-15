@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <Head />
       <body>
         <StrictMode>
-          <ThemeProvider>
+          <ThemeProvider enableSystem={true}>
             {children}
             <ClientInit />
             <Toast />
