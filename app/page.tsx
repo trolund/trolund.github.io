@@ -1,9 +1,7 @@
 'use client';
 
-import Head from 'next/head';
 import NavBar from '../components/nav-bar';
 import menu from '../constants/menu';
-import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
 import NightParticleCanvas from '../components/canvas/NightParticleCanvas';
 import NoiseParticleCanvas from '../components/canvas/NoiseParticleCanvas';
