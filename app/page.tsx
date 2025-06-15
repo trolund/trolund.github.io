@@ -12,19 +12,19 @@ import { usePrefersReducedTransparency } from '../hooks/usePrefersReducedTranspa
 import { useTheme } from 'next-themes';
 
 export default function Page() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const prefersReducedMotion = usePrefersReducedMotion();
   const reduceTransparency = usePrefersReducedTransparency();
   return (
     <>
       <NavBar items={menu} noBackground={!reduceTransparency} />
-      <Head>
+      {/* <Head>
         <title>{TITLE}</title>
-      </Head>
+      </Head> */}
       <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
         {!prefersReducedMotion &&
-          (theme === 'dark' ? <NightParticleCanvas /> : <NoiseParticleCanvas />)}
+          (resolvedTheme === 'dark' ? <NightParticleCanvas /> : <NoiseParticleCanvas />)}
       </div>
     </>
   );
