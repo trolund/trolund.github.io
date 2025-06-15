@@ -21,7 +21,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const reduceTransparency = usePrefersReducedTransparency();
 
   if (reduceTransparency) {
-    noBackground = false; 
+    noBackground = false;
   }
 
   return (
