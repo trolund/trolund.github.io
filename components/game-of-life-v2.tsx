@@ -90,7 +90,7 @@ export default function GameOfLifeV2() {
     // Clear main canvas and draw the fully rendered frame in one go
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(offscreen, 0, 0);
-  }, []);
+  }, [scale]);
 
   useEffect(() => {
     const setupCanvas = (buffer: Uint8Array, SIZE: number) => {

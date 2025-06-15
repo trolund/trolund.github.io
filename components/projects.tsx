@@ -1,10 +1,13 @@
+'use client';
+
 import { ChangeEvent, useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';
-import { MdSearch, MdArrowDownward } from 'react-icons/md';
+import { MdArrowDownward } from 'react-icons/md';
 import { useDebouncedTransitionValue } from '../hooks/useDebouncedTransitionValue';
 import { useLazyScroll } from '../hooks/useLazyScroll';
 import { cn } from '../lib/utils';
+import { SearchInput } from './search-input';
 
 interface ProjectsViewProps {
   posts: BlogPost[];
@@ -51,16 +54,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
     <section>
       <div className="flex flex-col items-center justify-center gap-5">
         <div className="relative w-full p-2">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5 text-gray-500 dark:text-gray-400">
-            <MdSearch className="h-5 w-5" />
-          </div>
-          <input
-            onChange={onSearchTermChange}
-            value={searchTerm}
-            type="search"
-            placeholder="Search"
-            className="block w-full rounded-lg border border-gray-300 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-          />
+          <SearchInput searchTerm={searchTerm} onSearchTermChange={onSearchTermChange} />
         </div>
         <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 grid grid-cols-1 gap-4 md:grid-cols-2">
           {visiblePosts.map((post) => (

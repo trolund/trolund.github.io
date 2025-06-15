@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import styles from './front-banner.module.css';
 import Text from '../text/text';

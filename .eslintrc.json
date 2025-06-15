@@ -28,6 +28,7 @@
     "react-hooks"
   ],
   "rules": {
+    "@next/next/no-head-element": "off",
     "react/react-in-jsx-scope": "error",
     "unused-imports/no-unused-imports": "error",
     "react-hooks/rules-of-hooks": "error", 

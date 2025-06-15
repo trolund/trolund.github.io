@@ -1,12 +1,13 @@
+'use client';
+
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { MdDarkMode, MdLightMode } from 'react-icons/md';
-import { MenuItem } from '../types/MenuItem';
-import { useRouter } from 'next/router';
-import transStyles from '../styles/view-trans.module.css';
+import { MenuItem } from '@/types/MenuItem';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useTheme } from '../hooks/ThemeContext';
-import { cn } from '../lib/utils';
+import { cn } from '@/lib/utils';
+import { ThemeIcon } from './theme-icon';
+import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTransparency';
 
 export type MenuProps = {
   items: MenuItem[];
@@ -16,8 +17,12 @@ export type MenuProps = {
 
 const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isDark, switchTheme } = useTheme();
-  const router = useRouter();
+  const pathname = usePathname();
+  const reduceTransparency = usePrefersReducedTransparency();
+
+  if (reduceTransparency) {
+    noBackground = false;
+  }
 
   return (
     <>
@@ -25,7 +30,6 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       <div
         className={cn(
           'fixed top-0 z-40 w-full text-content-text',
-          transStyles.nav,
           !noBackground &&
             'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}
@@ -38,7 +42,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 key={item.link}
                 className={cn(
                   'group relative mb-2 mt-2 block cursor-pointer border-b-[1px] duration-300 hover:border-content-text',
-                  router.pathname === item.link
+                  pathname === item.link
                     ? 'border-b-4 border-content-text font-bold'
                     : 'border-transparent',
                 )}
@@ -51,8 +55,8 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 </Link>
               </li>
             ))}
-            <li onClick={switchTheme} className="cursor-pointer p-7 duration-300 hover:scale-125">
-              {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
+            <li className="cursor-pointer p-7 duration-300 hover:scale-125">
+              <ThemeIcon />
             </li>
           </ul>
 
@@ -62,6 +66,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           </div>
         </div>
       </div>
+
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
@@ -71,7 +76,6 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             : 'bottom-0 left-[-100%] top-0 w-[60%] duration-500 ease-in-out',
         )}
       >
-        {/* Mobile Navigation Items */}
         {items.map((item) => (
           <li
             key={item.link}
@@ -79,25 +83,29 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           >
             <Link
               href={item.link}
-              className={
-                router.pathname === item.link
+              className={cn(
+                'block w-full',
+                pathname === item.link
                   ? 'border-content-text font-bold'
-                  : 'border-transparent hover:scale-105 hover:border-content-text'
-              }
+                  : 'border-transparent hover:scale-105 hover:border-content-text',
+              )}
+              onClick={() => setIsOpen(false)} // Optional: close menu after click
             >
               {item.itemName}
             </Link>
           </li>
         ))}
-        <li onClick={switchTheme} className="m-2 cursor-pointer p-4">
-          {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
+        <li className="m-2 cursor-pointer p-4">
+          <ThemeIcon />
         </li>
       </ul>
+
+      {/* Mobile Overlay */}
       {isOpen && (
         <div
           className="fixed z-[49] h-screen w-screen md:h-0 md:w-0"
-          onClick={() => setIsOpen(!isOpen)}
-        ></div>
+          onClick={() => setIsOpen(false)}
+        />
       )}
     </>
   );

@@ -1,35 +1,26 @@
-import Container from '../components/container';
-import Layout from '../components/layout';
+import Container from '@/components/container';
+import Layout from '@/components/layout';
+import NavBar from '@/components/nav-bar';
+import PostTitle from '@/components/post-title';
+import ProfileCard from '@/components/profile-card';
+import PostBody from '@/components/post-body';
+import SubPostTitle from '@/components/sub-post-title';
+import menu from '@/constants/menu';
+import { TITLE } from '@/lib/constants';
+import styles from './about.module.css';
+import { getContent } from '@/lib/api';
 import Head from 'next/head';
-import menu from '../constants/menu';
-import NavBar from '../components/nav-bar';
-import PostTitle from '../components/post-title';
-import ProfileCard from '../components/profile-card';
-import { getContent } from '../lib/api';
-import PostBody from '../components/post-body';
-import styles from '../pages/css/about.module.css';
-import SubPostTitle from '../components/sub-post-title';
-import CertificationItem from '../components/certification-item';
-import { TITLE } from '../lib/constants';
+import CertificationItem from '@/components/certification-item';
 
-type AboutProps = {
-  page: {
-    about: {
-      title: string;
-      content: string;
-    };
-    experience: {
-      title: string;
-      content: string;
-    };
-    education: {
-      title: string;
-      content: string;
-    };
-  };
+export const metadata = {
+  title: `${TITLE} | About`,
 };
 
-export default function About({ page }: AboutProps) {
+export default async function AboutPage() {
+  const about = await getContent('about', ['title', 'content']);
+  const experience = await getContent('experience', ['title', 'content']);
+  const education = await getContent('education', ['title', 'content']);
+
   return (
     <>
       <NavBar items={menu} spacing />
@@ -41,15 +32,15 @@ export default function About({ page }: AboutProps) {
           <Container>
             <PostTitle>About me</PostTitle>
             <ProfileCard />
-            <PostBody className="mx-auto" content={page.about.content} />
+            <PostBody className="mx-auto" content={about.content} />
           </Container>
           <Container className={styles.skillsList}>
             <SubPostTitle>Experience</SubPostTitle>
-            <PostBody className="mx-auto" content={page.experience.content} />
+            <PostBody className="mx-auto" content={experience.content} />
           </Container>
           <Container className={styles.skillsList}>
             <SubPostTitle>Education</SubPostTitle>
-            <PostBody className="mx-auto" content={page.education.content} />
+            <PostBody className="mx-auto" content={education.content} />
           </Container>
           <Container>
             <SubPostTitle>Certifications & Diplomas</SubPostTitle>
@@ -72,14 +63,4 @@ export default function About({ page }: AboutProps) {
       </Layout>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const about = getContent('about', ['title', 'content']);
-  const experience = getContent('experience', ['title', 'content']);
-  const education = getContent('education', ['title', 'content']);
-
-  return {
-    props: { page: { about, experience, education } } as AboutProps,
-  };
 }

@@ -3,7 +3,7 @@ module.exports = {
     'postcss-preset-env': {
       stage: 1,
       features: {
-        'is-pseudo-class': false, // <— disable this plugin specifically
+        'is-pseudo-class': false,
       },
     },
     tailwindcss: {},

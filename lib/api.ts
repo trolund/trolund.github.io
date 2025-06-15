@@ -1,4 +1,4 @@
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import { BlogPost } from '../types/blogPost';
@@ -8,19 +8,20 @@ const contentDirectory = join(process.cwd(), '_content');
 
 export type BlogFields = (keyof BlogPost)[];
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+export async function getPostSlugs() {
+  return await fs.readdir(postsDirectory);
 }
 
-export function getContentFile(name: string) {
-  const path = join(postsDirectory, `${name}.md`);
-  return fs.readdirSync(path);
+export async function getContentFile(name: string): Promise<string> {
+  const filePath = join(postsDirectory, `${name}.md`);
+  const fileContents = await fs.readFile(filePath, 'utf8');
+  return fileContents;
 }
 
-export function getContent(name: string, fields: BlogFields = []) {
+export async function getContent(name: string, fields: BlogFields = []) {
   const realSlug = name.replace(/\.md$/, '');
   const fullPath = join(contentDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const fileContents = await fs.readFile(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
   const items: { [key: string]: any } = {};
@@ -42,10 +43,10 @@ export function getContent(name: string, fields: BlogFields = []) {
   return items as BlogPost;
 }
 
-export function getPostBySlug(slug: string, fields: BlogFields = []) {
+export async function getPostBySlug(slug: string, fields: BlogFields = []) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const fileContents = await fs.readFile(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
   const items: { [key: string]: any } = {};
@@ -66,30 +67,34 @@ export function getPostBySlug(slug: string, fields: BlogFields = []) {
   return items as BlogPost;
 }
 
-export function getAllPosts(fields: BlogFields = []) {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, [...fields, 'tags', 'isDraft']))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+export async function getAllPosts(fields: BlogFields = []) {
+  const slugs = await getPostSlugs();
+  const posts = await Promise.all(
+    slugs.map(async (slug) => await getPostBySlug(slug, [...fields, 'tags', 'isDraft'])),
+  );
+
+  const sortedPosts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
   // filter out drafts
   if (fields.includes('tags')) {
-    return posts.filter((i) => i.tags?.includes('post') && !i.isDraft);
+    return sortedPosts.filter((i) => i.tags?.includes('post') && !i.isDraft);
   }
 
-  return posts;
+  return sortedPosts;
 }
 
-export function getAllProjects(fields: BlogFields = []) {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, [...fields, 'tags', 'isDraft']))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+export async function getAllProjects(fields: BlogFields = []) {
+  const slugs = await getPostSlugs();
+  const posts = await Promise.all(
+    slugs.map(async (slug) => await getPostBySlug(slug, [...fields, 'tags', 'isDraft'])),
+  );
+
+  const sortedPosts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
   // filter out drafts
   if (fields.includes('tags')) {
-    return posts.filter((i) => i.tags?.includes('project') && !i.isDraft);
+    return sortedPosts.filter((i) => i.tags?.includes('project') && !i.isDraft);
   }
 
-  return posts;
+  return sortedPosts;
 }
