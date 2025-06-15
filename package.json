@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "scan": "next dev --turbopack & npx react-scan@latest localhost:3000",
-    "build": "npm run optimize-images && next build",
+    "build": "next build",
     "start": "npx serve@latest out",
     "export": "next build && next export",
     "lint": "next lint",
