@@ -6,7 +6,8 @@ import { ThemeProvider } from 'next-themes';
 import { Metadata } from 'next';
 import { TITLE } from '@/lib/constants';
 
-const description = 'A personal portfolio site featuring projects and a blog focused on web development, programming, and technology.';
+const description =
+  'A personal portfolio site featuring projects and a blog focused on web development, programming, and technology.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://troelslund.dk'),
@@ -21,12 +22,12 @@ export const metadata: Metadata = {
     apple: '/icons/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
-    openGraph: {
+  openGraph: {
     title: TITLE,
     description: description,
     images: [
       {
-        url: '/home.png', 
+        url: '/home.png',
         width: 1200,
         height: 630,
         alt: "The homepage of Troels Lund's portfolio site",
