@@ -1,5 +1,4 @@
 import { getAllPosts, getPostBySlug } from '@/lib/api';
-import { notFound } from 'next/navigation';
 import PostHeader from '@/components/post-header';
 import PostBody from '@/components/post-body';
 import Layout from '@/components/layout';
@@ -33,9 +32,6 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-
-  if (!slug) notFound();
-  
   const post = await getPostBySlug(slug, [
     'title',
     'date',
@@ -47,8 +43,6 @@ export default async function PostPage({ params }: Props) {
     'language',
     'technologies',
   ]);
-
-  if (!post) notFound();
 
   return (
     <>
