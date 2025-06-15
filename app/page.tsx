@@ -6,13 +6,13 @@ import menu from '../constants/menu';
 import { TITLE } from '../lib/constants';
 import FrontBanner from '../components/front-banner';
 import NightParticleCanvas from '../components/canvas/NightParticleCanvas';
-import { useTheme } from '../hooks/ThemeContext';
 import NoiseParticleCanvas from '../components/canvas/NoiseParticleCanvas';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import { usePrefersReducedTransparency } from '../hooks/usePrefersReducedTransparency';
+import { useTheme } from 'next-themes';
 
 export default function Page() {
-  const { isDark } = useTheme();
+  const { theme } = useTheme();
   const prefersReducedMotion = usePrefersReducedMotion();
   const reduceTransparency = usePrefersReducedTransparency();
   return (
@@ -23,7 +23,7 @@ export default function Page() {
       </Head>
       <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
-        {!prefersReducedMotion && (isDark ? <NightParticleCanvas /> : <NoiseParticleCanvas />)}
+        {!prefersReducedMotion && (theme === "dark" ? <NightParticleCanvas /> : <NoiseParticleCanvas />)}
       </div>
     </>
   );

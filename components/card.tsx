@@ -8,13 +8,14 @@ interface CardProp {
   href?: URL | string;
 }
 
-const Card: React.FC<CardProp> = ({ children, href, className }: CardProp) => {
+const Card: React.FC<CardProp> = ({ children, href, className, ...props }: CardProp) => {
+
   var container = (
     <div
-      className={cn(
-        'h-auto w-auto scale-100 transform overflow-hidden rounded-[15px] border border-[var(--border-color)] bg-[var(--footer)] shadow-custom transition-all duration-200 ease-in-out hover:shadow-custom-low',
-        className,
+      className={cn(className,
+        'h-auto w-auto scale-100 transform overflow-hidden rounded-[15px] border border-border-color bg-footer shadow-custom transition-all duration-200 ease-in-out hover:shadow-custom-low',
       )}
+      {...props}
     >
       {children}
     </div>

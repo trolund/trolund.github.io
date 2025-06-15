@@ -1,11 +1,13 @@
+'use client';
+
+import { useTheme } from 'next-themes';
 import { FC } from 'react';
 import { Slide, ToastContainer } from 'react-toastify';
-import { useTheme } from '@/hooks/ThemeContext';
 
 interface ToastProps {}
 
 const Toast: FC<ToastProps> = () => {
-  const { isDark } = useTheme();
+  const { theme } = useTheme()
   return (
     <ToastContainer
       position="bottom-center"
@@ -20,7 +22,7 @@ const Toast: FC<ToastProps> = () => {
       pauseOnHover
       icon={false}
       limit={3}
-      theme={isDark ? 'dark' : 'light'}
+      theme={theme}
       transition={Slide}
     />
   );

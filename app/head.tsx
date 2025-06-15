@@ -1,8 +1,9 @@
 import { TITLE } from '@/lib/constants';
+import Script from 'next/script';
 
 export default function Head() {
   return (
-    <>
+    <head>
       <meta name="application-name" content={TITLE} />
       <meta name="theme-color" content="#000000" />
       <meta
@@ -14,6 +15,7 @@ export default function Head() {
       <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
       <link rel="manifest" href="/manifest.json" />
       <meta name="google-site-verification" content="fK40wZmELLwBjymUVMTij0LHyohVxm-xrNj4T7mPzaU" />
-    </>
+      <Script src="/theme-init.js" strategy="beforeInteractive" />
+    </head>
   );
 }

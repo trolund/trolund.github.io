@@ -30,6 +30,7 @@
     "gray-matter": "4.0.2",
     "keyword-extractor": "^0.0.23",
     "next": "^15.3.1",
+    "next-themes": "^0.4.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-icons": "^4.12.0",

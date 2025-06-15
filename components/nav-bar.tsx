@@ -2,12 +2,11 @@
 
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { MenuItem } from '@/types/MenuItem';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useTheme } from '@/hooks/ThemeContext';
 import { cn } from '@/lib/utils';
+import { ThemeIcon } from './theme-icon';
 
 export type MenuProps = {
   items: MenuItem[];
@@ -17,8 +16,6 @@ export type MenuProps = {
 
 const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isDark, switchTheme } = useTheme();
-
   const pathname = usePathname();
 
   return (
@@ -52,8 +49,8 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 </Link>
               </li>
             ))}
-            <li onClick={switchTheme} className="cursor-pointer p-7 duration-300 hover:scale-125">
-              {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
+            <li className="cursor-pointer p-7 duration-300 hover:scale-125">
+              <ThemeIcon />
             </li>
           </ul>
 
@@ -92,8 +89,8 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             </Link>
           </li>
         ))}
-        <li onClick={switchTheme} className="m-2 cursor-pointer p-4">
-          {isDark ? <MdLightMode size={30} /> : <MdDarkMode size={30} />}
+        <li className="m-2 cursor-pointer p-4">
+          <ThemeIcon />
         </li>
       </ul>
 
