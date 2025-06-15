@@ -33,6 +33,9 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
+
+  if (!slug) notFound();
+  
   const post = await getPostBySlug(slug, [
     'title',
     'date',
