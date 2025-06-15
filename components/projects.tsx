@@ -3,7 +3,7 @@
 import { ChangeEvent, useMemo, useState } from 'react';
 import { BlogPost } from '../types/blogPost';
 import ProjectItem from './project-item';
-import { MdSearch, MdArrowDownward } from 'react-icons/md';
+import { MdArrowDownward } from 'react-icons/md';
 import { useDebouncedTransitionValue } from '../hooks/useDebouncedTransitionValue';
 import { useLazyScroll } from '../hooks/useLazyScroll';
 import { cn } from '../lib/utils';
@@ -73,7 +73,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
           ))}
           {filteredPosts.length === 0 && (
             <div className="col-span-2 text-center">
-              <p className="dark:text-gray-400 text-gray-500">🤬 No items found.</p>
+              <p className="text-gray-500 dark:text-gray-400">🤬 No items found.</p>
             </div>
           )}
         </div>
@@ -85,16 +85,16 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
         >
           <div className="mb-10 flex flex-col items-center justify-center gap-4">
             <button
-              className="dark:bg-slate-200 dark:text-slate-900 hover:dark:bg-slate-200 inline-flex items-center justify-center rounded-full bg-slate-600 px-5 py-2 font-semibold text-white shadow-md transition-transform duration-200 hover:scale-105 hover:bg-slate-600"
+              className="inline-flex items-center justify-center rounded-full bg-slate-600 px-5 py-2 font-semibold text-white shadow-md transition-transform duration-200 hover:scale-105 hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-900 hover:dark:bg-slate-200"
               onClick={loadMore}
             >
               Load more
             </button>
-            <div className="dark:text-gray-400 ml-2 text-sm text-gray-500">
+            <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
               {isLoading ? 'Loading more...' : 'Scroll to load more'}
             </div>
             <div className="animate-ping">
-              <MdArrowDownward className="dark:text-gray-400 text-gray-500" />
+              <MdArrowDownward className="text-gray-500 dark:text-gray-400" />
             </div>
           </div>
         </div>

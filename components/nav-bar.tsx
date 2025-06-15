@@ -42,7 +42,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 )}
               >
                 <Link
-                  className="dark:group-hover:bg-gray-800/30 block h-full w-full p-5 pt-5 transition-all duration-300 group-hover:scale-105 group-hover:bg-slate-300/30"
+                  className="block h-full w-full p-5 pt-5 transition-all duration-300 group-hover:scale-105 group-hover:bg-slate-300/30 dark:group-hover:bg-gray-800/30"
                   href={item.link}
                 >
                   {item.itemName}
@@ -73,7 +73,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         {items.map((item) => (
           <li
             key={item.link}
-            className="dark:hover:bg-gray-800/30 cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-300/30"
+            className="cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-300/30 dark:hover:bg-gray-800/30"
           >
             <Link
               href={item.link}
