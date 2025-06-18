@@ -3,17 +3,20 @@ import menu from '../constants/menu';
 import FrontBanner from '../components/front-banner';
 import { TITLE } from '@/lib/constants';
 import FrontBackDrop from '@/components/home-backdrop';
-import ScrollRevealCards from '@/components/scroll-reveal-cards';
+import ScrollRevealCards, { ExampleScrollingCards } from '@/components/scroll-reveal-cards';
+import FancyStackCards from '@/components/scroll-reveal-cards';
+import HolographicCardStack from '@/components/scroll-reveal-cards';
+import HoloFlipCards from '@/components/scroll-reveal-cards';
 
 export const metadata = {
   title: `${TITLE} | Home`,
 };
 
 const cardsData = [
-  "Card 1 content here",
-  "Card 2 content here",
-  "Card 3 content here",
-  "Card 4 content here",
+  'Card 1 content here',
+  'Card 2 content here',
+  'Card 3 content here',
+  'Card 4 content here',
 ];
 
 export default function Page() {
@@ -25,9 +28,24 @@ export default function Page() {
         <FrontBackDrop />
       </div>
       <section>
-        <div style={{ background: "#f0f0f0", minHeight: "150vh", padding: 20 }}>
+        <div style={{ background: '#f0f0f0', minHeight: '150vh', padding: 20 }}>
           <h1>Scroll to reveal cards</h1>
-          <ScrollRevealCards cards={cardsData} />
+          <ExampleScrollingCards />
+        </div>
+      </section>
+      <section className="bg-white">
+        <div className="container mx-auto px-4 py-10 bg-white">
+          <h2 className="text-2xl font-bold mb-6">Cards Section</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cardsData.map((content, index) => (
+              <div
+                key={index}
+                className="bg-gray-200 p-4 rounded-lg shadow-md"
+              >
+                {content}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

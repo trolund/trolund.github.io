@@ -1,86 +1,184 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
+'use client';
 
-const cards = [
-  {
-    id: 1,
-    title: "We're creating companions, not replacements",
-    gradient: "from-[#1a103d] via-[#7d1c28] to-[#ff6a00]",
-  },
-  {
-    id: 2,
-    title: "Design with empathy",
-    gradient: "from-[#103d1a] via-[#1c7d28] to-[#00ff6a]",
-  },
-  {
-    id: 3,
-    title: "Tech for humans",
-    gradient: "from-[#3d101a] via-[#7d281c] to-[#6a00ff]",
-  },
-];
+import { cn } from "@/lib/utils";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function StackScrollCards() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    function handleScroll() {
-      if (!containerRef.current) return;
-
-      const containerTop = containerRef.current.offsetTop;
-      const scrollY = window.scrollY;
-      const stickyStart = scrollY - containerTop;
-
-      const stepHeight = 500;
-
-      if (stickyStart > 0) {
-        const newIndex = Math.min(
-          cards.length - 1,
-          Math.max(0, Math.floor(stickyStart / stepHeight))
-        );
-        setActiveIndex(newIndex);
-      } else {
-        setActiveIndex(0);
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <div className="relative h-[300vh] bg-white">
-      <div
-        ref={containerRef}
-        className="sticky top-0 h-screen flex items-center justify-center"
-      >
-        <div className="relative w-full max-w-5xl h-[60vh]">
-          {cards.map((card, i) => {
-            const isActive = i <= activeIndex;
-            const stackPos = activeIndex - i;
-
-            return (
-              <div
-                key={card.id}
-                className={`
-                  absolute w-full h-full rounded-3xl p-10 text-white font-semibold text-2xl shadow-xl
-                  bg-gradient-to-r ${card.gradient}
-                  transition-all duration-300 ease-in-out translalte-y-[-50px]
-                `}
-                style={{
-                  transform: `translateY(${stackPos * 50}px) scale(${
-                    1 - stackPos * 0.02
-                  })`,
-                  zIndex: isActive ? i + 1 : 0,
-                  opacity: isActive ? 1 : 0,
-                }}
-              >
-                {card.title}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
+interface Card {
+    id: number;
+    title: string;
+    backgroundImage: string;
+    tag: string;
+    color: string; // Tailwind color class for the card
 }
+
+interface ScrollingCardsProps {
+    cards: Card[];
+    height?: string;
+    cardHeight?: string;
+}
+
+const ScrollingCards: React.FC<ScrollingCardsProps> = ({
+    cards,
+    height = "300vh",
+    cardHeight = "60vh"
+}) => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [activeCardIndex, setActiveCardIndex] = useState(0);
+    const [isIntersecting, setIsIntersecting] = useState(false);
+    const ticking = useRef(false);
+
+    const cardStyle = {
+        height: cardHeight,
+        maxHeight: '600px',
+        borderRadius: '20px',
+        transition: 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
+        willChange: 'transform, opacity'
+    };
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                setIsIntersecting(entry.isIntersecting);
+            },
+            { threshold: 0.1 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        const handleScroll = () => {
+            if (!ticking.current) {
+                window.requestAnimationFrame(() => {
+                    if (!sectionRef.current) return;
+
+                    const sectionRect = sectionRef.current.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    const totalScrollDistance = viewportHeight * 2;
+
+                    let progress = 0;
+                    if (sectionRect.top <= 0) {
+                        progress = Math.min(1, Math.max(0, Math.abs(sectionRect.top) / totalScrollDistance));
+                    }
+
+                    // Calculate active card based on progress and number of cards
+                    const cardThreshold = 1 / cards.length;
+                    const newActiveIndex = Math.min(
+                        cards.length - 1,
+                        Math.floor(progress / cardThreshold)
+                    );
+
+                    setActiveCardIndex(newActiveIndex);
+                    ticking.current = false;
+                });
+
+                ticking.current = true;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, [cards.length]);
+
+    const getCardTransform = (index: number) => {
+        const isVisible = isIntersecting && activeCardIndex >= index;
+        const baseTranslateY = isVisible ? 90 - (index * 15) : 200;
+        const scale = isVisible ? 0.9 + (index * 0.05) : 0.9;
+
+        return `translateY(${baseTranslateY}px) scale(${scale})`;
+    };
+
+    const getCardOpacity = (index: number) => {
+        return isIntersecting && activeCardIndex >= index ? 1 : 0;
+    };
+
+    const getCardZIndex = (index: number) => {
+        return 10 + index;
+    };
+
+    return (
+        <div
+            ref={sectionRef}
+            className="relative"
+            style={{ height }}
+        >
+            <section className="w-full h-screen py-10 md:py-16 sticky top-0 overflow-hidden">
+                <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col">
+                    <div className="relative flex-1 perspective-1000">
+                        {cards.map((card, index) => (
+                            <div
+                                key={card.id}
+                                className={cn("absolute inset-0 overflow-hidden shadow-xl", card.color, activeCardIndex >= index ? 'animate-card-enter' : ''
+                                )}
+                                style={{
+                                    ...cardStyle,
+                                    zIndex: getCardZIndex(index),
+                                    transform: getCardTransform(index),
+                                    opacity: getCardOpacity(index),
+                                    pointerEvents: activeCardIndex >= index ? 'auto' : 'none'
+                                }}
+                            >
+                                <div
+                                    className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/40 to-dark-900/80"
+                                />
+
+                                <div className="absolute top-4 right-4 z-20">
+                                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                                        <span className="text-sm font-medium">{card.tag}</span>
+                                    </div>
+                                </div>
+
+                                <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
+                                    <div className="max-w-lg">
+                                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight">
+                                            {card.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+// Example usage:
+export const ExampleScrollingCards = () => {
+    const cards = [
+        {
+            id: 1,
+            title: "We're giving AI a way to navigate the physical world",
+            backgroundImage: "/background-section1.png",
+            tag: "The vision",
+            color: "bg-blue-500"
+        },
+        {
+            id: 2,
+            title: "We're bringing adaptive intelligence to where humans work",
+            backgroundImage: "/background-section2.png",
+            tag: "The vision",
+            color: "bg-green-500"
+        },
+        {
+            id: 3,
+            title: "We're creating companions, not replacements",
+            backgroundImage: "/background-section3.png",
+            tag: "The vision",
+            color: "bg-purple-500"
+        }
+    ];
+
+    return <ScrollingCards cards={cards} />;
+};
+
+export default ScrollingCards;

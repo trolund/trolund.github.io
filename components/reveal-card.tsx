@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 const RevealCard = ({ children, index }: { children: React.ReactNode; index: number }) => {
   // Use null instead of undefined here:
@@ -16,10 +16,10 @@ const RevealCard = ({ children, index }: { children: React.ReactNode; index: num
       }
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
     onScroll(); // Check visibility on mount
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
@@ -27,13 +27,13 @@ const RevealCard = ({ children, index }: { children: React.ReactNode; index: num
       ref={ref}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(-50px)",
+        transform: visible ? 'translateY(0)' : 'translateY(-50px)',
         transition: `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`,
-        background: "white",
-        padding: "20px",
-        margin: "10px 0",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-        borderRadius: "8px",
+        background: 'white',
+        padding: '20px',
+        margin: '10px 0',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+        borderRadius: '8px',
       }}
     >
       {children}
