@@ -3,10 +3,7 @@ import menu from '../constants/menu';
 import FrontBanner from '../components/front-banner';
 import { TITLE } from '@/lib/constants';
 import FrontBackDrop from '@/components/home-backdrop';
-import ScrollRevealCards, { ExampleScrollingCards } from '@/components/scroll-reveal-cards';
-import FancyStackCards from '@/components/scroll-reveal-cards';
-import HolographicCardStack from '@/components/scroll-reveal-cards';
-import HoloFlipCards from '@/components/scroll-reveal-cards';
+import { ExampleScrollingCards } from '@/components/scroll-reveal-cards';
 
 export const metadata = {
   title: `${TITLE} | Home`,
@@ -34,14 +31,11 @@ export default function Page() {
         </div>
       </section>
       <section className="bg-white">
-        <div className="container mx-auto px-4 py-10 bg-white">
-          <h2 className="text-2xl font-bold mb-6">Cards Section</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="container mx-auto bg-white px-4 py-10">
+          <h2 className="mb-6 text-2xl font-bold">Cards Section</h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {cardsData.map((content, index) => (
-              <div
-                key={index}
-                className="bg-gray-200 p-4 rounded-lg shadow-md"
-              >
+              <div key={index} className="rounded-lg bg-gray-200 p-4 shadow-md">
                 {content}
               </div>
             ))}
