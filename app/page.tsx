@@ -24,8 +24,8 @@ export default function Page() {
         <FrontBanner />
         <FrontBackDrop />
       </div>
-      <section className='py-10 md:py-16'>
-          <ExampleScrollingCards />
+      <section className="py-10 md:py-16">
+        <ExampleScrollingCards />
       </section>
       <section className="bg-white">
         <div className="container mx-auto bg-white px-4 py-10">

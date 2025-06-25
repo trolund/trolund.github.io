@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ThemeIcon } from './theme-icon';
 import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTransparency';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 export type MenuProps = {
@@ -34,7 +34,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         className={cn(
           'fixed top-0 z-40 w-full text-content-text transition-all duration-300 ease-in-out',
           !noBackground &&
-          'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
+            'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">
@@ -68,13 +68,13 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
-          'fixed top-0 z-50 border-r-[1px] border-border-color bg-bg-color text-content-text text-center backdrop-blur-[10px]',
+          'fixed top-0 z-50 border-r-[1px] border-border-color bg-bg-color text-center text-content-text backdrop-blur-[10px]',
           isOpen
-            ? 'translate-y-0 left-0 w-full duration-500 ease-in-out md:hidden'
-            : '-translate-y-full left-0 w-full duration-500 ease-in-out md:hidden'
+            ? 'left-0 w-full translate-y-0 duration-500 ease-in-out md:hidden'
+            : 'left-0 w-full -translate-y-full duration-500 ease-in-out md:hidden',
         )}
       >
-        <li className="m-2 cursor-pointer p-4 w-fit">
+        <li className="m-2 w-fit cursor-pointer p-4">
           <ThemeIcon />
         </li>
         {items.map((item) => (
@@ -96,7 +96,6 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             </Link>
           </li>
         ))}
-
       </ul>
 
       {/* Mobile Overlay */}
@@ -108,9 +107,8 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       )}
 
       {/* Mobile Navigation Icon */}
-      <div className='fixed top-1 right-0 z-50 w-fit md:hidden'>
-        <div onClick={() => setIsOpen(!isOpen)} className="block p-5 md:hidden z-50">
-
+      <div className="fixed right-0 top-1 z-50 w-fit md:hidden">
+        <div onClick={() => setIsOpen(!isOpen)} className="z-50 block p-5 md:hidden">
           <motion.div>
             <AnimatePresence mode="wait">
               {isOpen ? (
