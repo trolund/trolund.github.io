@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ThemeIcon } from './theme-icon';
 import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTransparency';
+import { motion, AnimatePresence } from "framer-motion";
+import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 export type MenuProps = {
   items: MenuItem[];
@@ -19,8 +21,9 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const reduceTransparency = usePrefersReducedTransparency();
+  const scrollY = useScrollPosition();
 
-  if (reduceTransparency) {
+  if (reduceTransparency || scrollY > 50) {
     noBackground = false;
   }
 
@@ -29,9 +32,9 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {spacing && <div className="mb-5 h-16" />}
       <div
         className={cn(
-          'fixed top-0 z-40 w-full text-content-text',
+          'fixed top-0 z-40 w-full text-content-text transition-all duration-300 ease-in-out',
           !noBackground &&
-            'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
+          'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">
@@ -59,23 +62,21 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               <ThemeIcon />
             </li>
           </ul>
-
-          {/* Mobile Navigation Icon */}
-          <div onClick={() => setIsOpen(!isOpen)} className="block p-5 md:hidden">
-            {isOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
-          </div>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
-          'fixed z-50 border-r-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
+          'fixed top-0 z-50 border-r-[1px] border-border-color bg-bg-color text-content-text text-center backdrop-blur-[10px]',
           isOpen
-            ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
-            : 'bottom-0 left-[-100%] top-0 w-[60%] duration-500 ease-in-out',
+            ? 'translate-y-0 left-0 w-full duration-500 ease-in-out md:hidden'
+            : '-translate-y-full left-0 w-full duration-500 ease-in-out md:hidden'
         )}
       >
+        <li className="m-2 cursor-pointer p-4 w-fit">
+          <ThemeIcon />
+        </li>
         {items.map((item) => (
           <li
             key={item.link}
@@ -89,15 +90,13 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                   ? 'border-content-text font-bold'
                   : 'border-transparent hover:scale-105 hover:border-content-text',
               )}
-              onClick={() => setIsOpen(false)} // Optional: close menu after click
+              onClick={() => setIsOpen(false)}
             >
               {item.itemName}
             </Link>
           </li>
         ))}
-        <li className="m-2 cursor-pointer p-4">
-          <ThemeIcon />
-        </li>
+
       </ul>
 
       {/* Mobile Overlay */}
@@ -107,6 +106,38 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           onClick={() => setIsOpen(false)}
         />
       )}
+
+      {/* Mobile Navigation Icon */}
+      <div className='fixed top-1 right-0 z-50 w-fit md:hidden'>
+        <div onClick={() => setIsOpen(!isOpen)} className="block p-5 md:hidden z-50">
+
+          <motion.div>
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <AiOutlineClose size={20} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: -90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <AiOutlineMenu size={20} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </div>
     </>
   );
 };

@@ -24,11 +24,8 @@ export default function Page() {
         <FrontBanner />
         <FrontBackDrop />
       </div>
-      <section>
-        <div style={{ background: '#f0f0f0', minHeight: '150vh', padding: 20 }}>
-          <h1>Scroll to reveal cards</h1>
+      <section className='py-10 md:py-16'>
           <ExampleScrollingCards />
-        </div>
       </section>
       <section className="bg-white">
         <div className="container mx-auto bg-white px-4 py-10">
