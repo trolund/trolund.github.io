@@ -19,10 +19,16 @@
   left: 0;
 }
 
+.footerBackground {
+  background-image: url(../../public/assets/bottom.svg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+  background-blend-mode: difference;
+}
+
 .footer {
-  border: 0px;
-  background-color: var(--footer);
-  border-top: var(--border-color) solid 1px;
   background-image: url(../../public/assets/brackets.svg);
   background-repeat: no-repeat;
   background-position: 50%;

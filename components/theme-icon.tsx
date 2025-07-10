@@ -48,7 +48,6 @@ export function ThemeIcon() {
       <motion.div
         key={theme}
         onClick={() => setTheme(getNextTheme(theme))}
-        initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
         animate={{ opacity: 1, rotate: 0, scale: 1 }}
         exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
         transition={{ duration: 0.3 }}

@@ -16,7 +16,7 @@ module.exports = {
         bg: 'var(--bg)',
         'bg-color': 'var(--bg-color)',
         'content-text': 'var(--content-text)',
-        footer: 'var(--footer)',
+        footer: 'rgb(var(--footer-rgb) / <alpha-value>)',
         'border-color': 'var(--border-color)',
         'border-color-muted': 'var(--border-color-muted)',
         'surface-0': 'var(--surface-0)',
