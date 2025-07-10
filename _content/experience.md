@@ -14,12 +14,21 @@ language: 'en'
 ---
 
 <ul>
+  <li data-url="/assets/logos/copenhagen_optimization_logo.jpeg" data-w="50" data-h="50" data-r="10">
+    <strong>Software Engineer</strong>
+    <div><em>Copenhagen Optimization</em></div>
+    <div>Jul. 2025 – Present</div>
+    <div>Working As an in-house full-stack engineer.</div>
+    <div><strong>Key skills:</strong> C#, .NET, React, TypeScript</div>
+    <br/>
+  </li>
+
   <li data-url="/assets/logos/cvation_logo_processed.jpeg" data-w="50" data-h="50" data-r="10">
     <strong>Software Engineer</strong>
     <div><em>cVation</em></div>
-    <div>Mar. 2024 – Present</div>
-    <div>Working IT consultant focused on Azure cloud solutions.</div>
-    <div><strong>Key skills:</strong> C#, .NET, Azure</div>
+    <div>Mar. 2024 – Jun. 2025</div>
+    <div>Worked as an IT consultant focused on Azure cloud solutions.</div>
+    <div><strong>Key skills:</strong> C#, .NET, Azure, TypeScript</div>
     <br/>
   </li>
 
