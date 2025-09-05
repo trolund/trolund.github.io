@@ -30,16 +30,17 @@ export default function ProfileCard() {
   return (
     <Card className="mb-2 mr-5 h-auto w-full sm:float-left sm:w-[280px]">
       <figure>
-        <div className="space-y-4 p-5">
-          <Image
-            loader={localImageLoader}
-            src="/profil.webp"
-            alt="me"
-            width={100}
-            height={100}
-            layout="responsive"
-            className="object-cover"
-          />
+        <div className="space-y-4 p-5 flex flex-col">
+          <div className="relative aspect-square w-full">
+            <Image
+              loader={localImageLoader}
+              src="/profil3.png"
+              alt="me"
+              layout="fill"
+              objectFit='cover'
+              objectPosition='top'
+            />
+          </div>
           <figcaption>
             <b className="text-2xl">Troels Elsvad Lund</b>
             <ol className="flex flex-col gap-2">

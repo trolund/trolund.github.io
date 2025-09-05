@@ -14,7 +14,7 @@ language: 'en'
 ---
 
 <ul>
-  <li data-url="/assets/logos/copenhagen_optimization_logo.jpeg" data-w="50" data-h="50" data-r="10">
+  <li data-url="/assets/logos/copopt-logomark-RGB-POS.png:/assets/logos/copopt-logomark-RGB-NEG.png" data-w="50" data-h="50" data-r="10">
     <strong>Software Engineer</strong>
     <div><em>Copenhagen Optimization</em></div>
     <div>Jul. 2025 – Present</div>
