@@ -90,7 +90,7 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     const element: ImageDataElement = node as any;
     let imageUrl = element.properties.dataUrl;
 
-    if(imageUrl?.includes(':')) {
+    if (imageUrl?.includes(':')) {
       const index = isDark ? 1 : 0;
       imageUrl = imageUrl.split(':')[index];
     }

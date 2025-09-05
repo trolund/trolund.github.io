@@ -30,15 +30,15 @@ export default function ProfileCard() {
   return (
     <Card className="mb-2 mr-5 h-auto w-full sm:float-left sm:w-[280px]">
       <figure>
-        <div className="space-y-4 p-5 flex flex-col">
+        <div className="flex flex-col space-y-4 p-5">
           <div className="relative aspect-square w-full">
             <Image
               loader={localImageLoader}
               src="/profil3.png"
               alt="me"
               layout="fill"
-              objectFit='cover'
-              objectPosition='top'
+              objectFit="cover"
+              objectPosition="top"
             />
           </div>
           <figcaption>
