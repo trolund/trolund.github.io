@@ -23,7 +23,7 @@ language: 'en'
     <br/>
   </li>
 
-  <li data-url="/assets/logos/cvation_logo_processed.jpeg" data-w="50" data-h="50" data-r="10">
+  <li data-url="/assets/logos/cvation_logo_processed.jpeg:/assets/logos/cvation_white.png" data-w="50" data-h="50" data-r="10">
     <strong>Software Engineer</strong>
     <div><em>cVation</em></div>
     <div>Mar. 2024 – Jun. 2025</div>
