@@ -5,7 +5,7 @@ import PostTitle from '@/components/post-title';
 import ProfileCard from '@/components/profile-card';
 import PostBody from '@/components/post-body';
 import SubPostTitle from '@/components/sub-post-title';
-import menu from '@/constants/menu';
+import menuItems from '@/constants/menu';
 import { TITLE } from '@/lib/constants';
 import styles from './about.module.css';
 import { getContent } from '@/lib/api';
@@ -23,7 +23,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <NavBar items={menu} spacing />
+      <NavBar items={menuItems} spacing />
       <Layout>
         <Head>
           <title>{`${TITLE} | About`}</title>

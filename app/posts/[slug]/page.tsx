@@ -5,7 +5,7 @@ import Layout from '@/components/layout';
 import NavBar from '@/components/nav-bar';
 import Container from '@/components/container';
 import { TITLE } from '@/lib/constants';
-import menu from '@/constants/menu';
+import menuItems from '@/constants/menu';
 
 type Props = {
   params: Promise<{
@@ -46,7 +46,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <>
-      <NavBar items={menu} spacing />
+      <NavBar items={menuItems} spacing />
       <Layout>
         <Container>
           <article className="mb-32">

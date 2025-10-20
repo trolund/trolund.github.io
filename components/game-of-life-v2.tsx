@@ -51,9 +51,9 @@ export default function GameOfLifeV2() {
   const widthRef = useRef(0);
   const heightRef = useRef(0);
   const sizeRef = useRef(0);
-  const bufferRef = useRef<Uint8Array>();
-  const intervalIdRef = useRef<any>();
-  const tickRef = useRef<tickFunction>();
+  const bufferRef = useRef<Uint8Array>(new Uint8Array(SIZE));
+  const intervalIdRef = useRef<any>(null);
+  const tickRef = useRef<tickFunction>(() => false);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -140,7 +140,7 @@ export default function GameOfLifeV2() {
       setupCanvas(buffer, SIZE);
     };
     init();
-  }, [draw]);
+  }, [draw, scale]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {

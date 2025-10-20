@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 import { MdMail, MdPhone } from 'react-icons/md';
 import { VscGithubInverted } from 'react-icons/vsc';
 import { SiLinkedin } from 'react-icons/si';
-import menu from '../../constants/menu';
+import menuItems from '../../constants/menu';
 import Link from 'next/link';
 import { cn } from '../../lib/utils';
 import Splitter from '../splitter';
@@ -42,7 +42,7 @@ export default function Footer() {
             <h1>Site map</h1>
             <Splitter />
             <ul className={styles.links}>
-              {menu.map((l, i) => (
+              {menuItems.map((l, i) => (
                 <li key={i}>
                   <Link href={l.link}>{l.itemName}</Link>
                 </li>

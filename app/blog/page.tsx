@@ -2,7 +2,7 @@ import Container from '@/components/container';
 import Layout from '@/components/layout';
 import { getAllPosts, getContent } from '@/lib/api';
 import NavBar from '@/components/nav-bar';
-import menu from '@/constants/menu';
+import menuItems from '@/constants/menu';
 import PostTitle from '@/components/post-title';
 import ProjectsView from '@/components/projects';
 import PostBody from '@/components/post-body';
@@ -34,7 +34,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <NavBar items={menu} spacing />
+      <NavBar items={menuItems} spacing />
       <Layout>
         <Container>
           <PostTitle>Blog</PostTitle>
