@@ -73,7 +73,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           'fixed z-50 border-r border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
           isOpen
             ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
-            : 'bottom-0 -left-full top-0 w-[60%] duration-500 ease-in-out',
+            : '-left-full bottom-0 top-0 w-[60%] duration-500 ease-in-out',
         )}
       >
         {items.map((item) => (
@@ -103,7 +103,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Overlay */}
       {isOpen && (
         <div
-          className="fixed z-49 h-screen w-screen md:h-0 md:w-0"
+          className="z-49 fixed h-screen w-screen md:h-0 md:w-0"
           onClick={() => setIsOpen(false)}
         />
       )}
