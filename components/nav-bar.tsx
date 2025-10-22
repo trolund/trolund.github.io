@@ -31,7 +31,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         className={cn(
           'fixed top-0 z-40 w-full text-content-text',
           !noBackground &&
-            'border-b-[1px] border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
+            'border-b border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">
@@ -41,7 +41,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               <li
                 key={item.link}
                 className={cn(
-                  'group relative mb-2 mt-2 block cursor-pointer border-b-[1px] duration-300 hover:border-content-text',
+                  'group relative mb-2 mt-2 block cursor-pointer border-b duration-300 hover:border-content-text',
                   pathname === item.link
                     ? 'border-b-4 border-content-text font-bold'
                     : 'border-transparent',
@@ -70,10 +70,10 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
-          'fixed z-50 border-r-[1px] border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
+          'fixed z-50 border-r border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
           isOpen
             ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
-            : 'bottom-0 left-[-100%] top-0 w-[60%] duration-500 ease-in-out',
+            : '-left-full bottom-0 top-0 w-[60%] duration-500 ease-in-out',
         )}
       >
         {items.map((item) => (
@@ -103,7 +103,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Overlay */}
       {isOpen && (
         <div
-          className="fixed z-[49] h-screen w-screen md:h-0 md:w-0"
+          className="z-49 fixed h-screen w-screen md:h-0 md:w-0"
           onClick={() => setIsOpen(false)}
         />
       )}

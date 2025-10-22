@@ -8,8 +8,8 @@ export default function GameOfLife() {
   const widthRef = useRef(0);
   const heightRef = useRef(0);
   const sizeRef = useRef(0);
-  const bufferRef = useRef<Uint8Array>();
-  const intervalIdRef = useRef<any>();
+  const bufferRef = useRef<Uint8Array>(new Uint8Array());
+  const intervalIdRef = useRef<any>(null);
 
   useEffect(() => {
     const init = async () => {

@@ -11,6 +11,7 @@ import rehypeRaw from 'rehype-raw';
 import { markdownRenderers } from '../services/markdown-renderers';
 import { useTheme } from 'next-themes';
 import { Themes } from '@/types/theme';
+import { cn } from '@/lib/utils';
 
 type postBodyTypes = {
   content: string;
@@ -22,9 +23,8 @@ export default function PostBody({ className, content }: postBodyTypes) {
 
   const defClassNames = 'max-w-4xl mx-auto prose dark:prose-invert relative';
   return (
-    <div className={className ?? defClassNames}>
+    <div className={cn(className ?? defClassNames, markdownStyles['markdown'])}>
       <ReactMarkdown
-        className={markdownStyles['markdown']}
         components={markdownRenderers(resolvedTheme === Themes.DARK)}
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex, rehypeMeta, rehypeRaw]}

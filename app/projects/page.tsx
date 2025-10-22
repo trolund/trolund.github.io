@@ -4,7 +4,7 @@ import NavBar from '@/components/nav-bar';
 import PostBody from '@/components/post-body';
 import PostTitle from '@/components/post-title';
 import ProjectsView from '@/components/projects';
-import menu from '@/constants/menu';
+import menuItems from '@/constants/menu';
 import { getAllProjects, getContent } from '@/lib/api';
 import { TITLE } from '@/lib/constants';
 
@@ -29,7 +29,7 @@ export default async function ProjectsPage() {
 
   return (
     <>
-      <NavBar items={menu} spacing />
+      <NavBar items={menuItems} spacing />
       <Layout>
         <Container>
           <PostTitle>Projects</PostTitle>
