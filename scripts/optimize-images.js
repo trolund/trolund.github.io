@@ -1,6 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-const sharp = require('sharp');
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+import { fileURLToPath } from 'url';
+
+// Helpers to replicate __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const supportedExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
 const publicDir = path.join(__dirname, '../public');
@@ -49,11 +54,13 @@ function optimizeImage(filePath) {
 
     sharp(filePath)
       .resize({ width })
-      .webp({ quality: 80 }) // Use webp() instead of toFormat() for better support
+      .webp({ quality: 80 })
       .toFile(outputPath)
       .then(() => console.log(`✅ Optimized: ${filePath} → ${outputPath}`))
       .catch((err) => console.error(`❌ Failed: ${filePath}`, err));
   });
 }
 
+// Start the process
 walkAndOptimize(publicDir);
+console.log('Image optimization complete.');

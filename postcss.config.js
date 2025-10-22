@@ -1,4 +1,8 @@
-module.exports = {
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+
+/** @type {import('postcss').ProcessOptions} */
+const config = {
   plugins: {
     'postcss-preset-env': {
       stage: 1,
@@ -6,7 +10,9 @@ module.exports = {
         'is-pseudo-class': false,
       },
     },
-    tailwindcss: {},
-    autoprefixer: {},
+    tailwindcss,
+    autoprefixer,
   },
 };
+
+export default config;

@@ -1,29 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 
 export const usePrefersReducedTransparency = () => {
-  const [prefersReducedTransparency, setPrefersReducedTransparency] = useState(false);
+  const getPrefersReducedTransparency = () =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-reduced-transparency: reduce)').matches
+      : false;
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-transparency: reduce)');
-
-    // Set the initial value
-    setPrefersReducedTransparency(mediaQuery.matches);
-
-    // Define a handler to update the value when it changes
-    const handleChange = () => {
-      setPrefersReducedTransparency(mediaQuery.matches);
-    };
-
-    // Add listener
-    mediaQuery.addEventListener('change', handleChange);
-
-    // Cleanup
-    return () => {
-      mediaQuery.removeEventListener('change', handleChange);
-    };
-  }, []);
-
-  return prefersReducedTransparency;
+  return useSyncExternalStore(
+    (callback) => {
+      const mediaQuery = window.matchMedia('(prefers-reduced-transparency: reduce)');
+      mediaQuery.addEventListener('change', callback);
+      return () => mediaQuery.removeEventListener('change', callback);
+    },
+    getPrefersReducedTransparency,
+    () => false, // server snapshot
+  );
 };
