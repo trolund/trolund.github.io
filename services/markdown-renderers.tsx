@@ -52,7 +52,7 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
           showLineNumbers
           wrapLongLines
           language={langName}
-          /* eslint-disable react/forbid-component-props */
+           
           style={isDark ? (oneDark as any) : oneLight}
         >
           {code}

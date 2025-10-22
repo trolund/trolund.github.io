@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   env: {
     NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: process.env.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY,
   },
@@ -9,3 +10,5 @@ module.exports = {
     loaderFile: './services/image-loader-service.ts',
   },
 };
+
+export default nextConfig;

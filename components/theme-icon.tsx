@@ -14,14 +14,16 @@ export function ThemeIcon() {
   const [mounted, setMounted] = useState(false);
   const size = 25;
 
+  // Mount detection to avoid hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Placeholder until mounted
   if (!mounted) return <div style={{ width: size, height: size + 6 }} />;
 
-  const getNextTheme = (current: string | undefined) => {
-    const index = themes.indexOf(current as Themes);
+  const getNextTheme = (current: Themes | undefined) => {
+    const index = themes.indexOf(current ?? Themes.SYSTEM);
     const selectedTheme = themes[(index + 1) % themes.length];
 
     Cronitor.track('ThemeChange', {
@@ -47,7 +49,7 @@ export function ThemeIcon() {
     <AnimatePresence mode="popLayout">
       <motion.div
         key={theme}
-        onClick={() => setTheme(getNextTheme(theme))}
+        onClick={() => setTheme(getNextTheme(theme as Themes))}
         initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
         animate={{ opacity: 1, rotate: 0, scale: 1 }}
         exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
