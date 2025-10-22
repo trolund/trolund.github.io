@@ -15,6 +15,6 @@ export const usePrefersReducedTransparency = () => {
       return () => mediaQuery.removeEventListener('change', callback);
     },
     getPrefersReducedTransparency,
-    () => false // server snapshot
+    () => false, // server snapshot
   );
 };

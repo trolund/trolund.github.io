@@ -19,6 +19,6 @@ export const usePrefersReducedMotion = () => {
     // Snapshot function: returns current value
     getPrefersReducedMotion,
     // Server snapshot
-    () => false
+    () => false,
   );
 };

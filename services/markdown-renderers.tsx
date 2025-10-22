@@ -52,7 +52,6 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
           showLineNumbers
           wrapLongLines
           language={langName}
-           
           style={isDark ? (oneDark as any) : oneLight}
         >
           {code}
