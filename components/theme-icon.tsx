@@ -10,7 +10,7 @@ import * as Cronitor from '@cronitorio/cronitor-rum';
 const themes = Object.values(Themes) as Themes[];
 
 export function ThemeIcon() {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const size = 25;
 
   // Only render on client
@@ -23,11 +23,24 @@ export function ThemeIcon() {
 
   if (!mounted) return null;
 
-  const currentTheme = resolvedTheme as Themes | undefined;
+  const currentTheme = theme as Themes | undefined;
 
   const getNextTheme = (current: Themes | undefined) => {
-    const index = themes.indexOf(current ?? Themes.SYSTEM);
-    const selectedTheme = themes[(index + 1) % themes.length];
+    // Find the current index; default to -1 if not found
+    const currentIndex = current ? themes.indexOf(current) : -1;
+
+    // Compute the next index, wrapping around
+    const nextIndex = (currentIndex + 1) % themes.length;
+
+    // Handle case where currentIndex was -1 (current theme not in array)
+    const selectedTheme = nextIndex >= 0 ? themes[nextIndex] : themes[0];
+
+    console.log('Switching theme:', {
+      from: current,
+      fromIndex: currentIndex,
+      to: selectedTheme,
+      toIndex: nextIndex,
+    });
 
     Cronitor.track('ThemeChange', { message: selectedTheme });
 
