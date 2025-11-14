@@ -2,24 +2,127 @@ import Container from '@/components/container';
 import Layout from '@/components/layout';
 import NavBar from '@/components/nav-bar';
 import PostTitle from '@/components/post-title';
-import ProfileCard from '@/components/profile-card';
-import PostBody from '@/components/post-body';
 import SubPostTitle from '@/components/sub-post-title';
 import menuItems from '@/constants/menu';
 import { TITLE } from '@/lib/constants';
-import styles from './about.module.css';
 import { getContent } from '@/lib/api';
 import Head from 'next/head';
 import CertificationItem from '@/components/certification-item';
+import Timeline, { TimelineItem } from '@/components/timeline';
+import AboutHero from '@/components/about-hero';
 
 export const metadata = {
   title: `${TITLE} | About`,
 };
 
+const timelineItems: TimelineItem[] = [
+  {
+    category: 'experience',
+    title: 'Software Engineer',
+    subtitle: 'Copenhagen Optimization',
+    period: 'Jul. 2025 – Present',
+    description: 'In-house full-stack engineer creating products that help airports operate more efficiently.',
+    logo: {
+      light: '/assets/logos/copopt-logomark-RGB-POS.png',
+      dark: '/assets/logos/copopt-logomark-RGB-NEG.png',
+      width: 50,
+      height: 50,
+      borderRadius: 10,
+    },
+  },
+  {
+    category: 'experience',
+    title: 'Software Engineer',
+    subtitle: 'cVation',
+    period: 'Mar. 2024 – Jun. 2025',
+    description: 'Consulted on Azure cloud projects with an emphasis on modern web stacks using .NET and TypeScript.',
+    logo: {
+      light: '/assets/logos/cvation_logo_processed.jpeg',
+      dark: '/assets/logos/cvation_white.png',
+      width: 50,
+      height: 50,
+      borderRadius: 10,
+    },
+  },
+  {
+    category: 'experience',
+    title: 'Development Engineer',
+    subtitle: 'Logos Payment Solutions',
+    period: 'Nov. 2020 – Jul. 2022',
+    description: 'Part-time full-stack developer delivering payment systems alongside my Industry Master studies.',
+    logo: {
+      light: '/assets/logos/logos_processed.jpeg',
+      width: 50,
+      height: 50,
+      borderRadius: 100,
+    },
+  },
+  {
+    category: 'experience',
+    title: 'Software Developer',
+    subtitle: 'IT Minds',
+    period: 'Aug. 2020 – Nov. 2020',
+    description: 'Consultant focused on .NET and React engagements while studying.',
+    logo: {
+      light: '/assets/logos/itminds_processed.jpg',
+      width: 50,
+      height: 50,
+      borderRadius: 100,
+    },
+  },
+  {
+    category: 'experience',
+    title: 'Software Developer (Internship)',
+    subtitle: 'IT Minds',
+    period: 'Aug. 2019 – Feb. 2020',
+    description: 'Developed and tested internal products and supported customer deliveries.',
+    logo: {
+      light: '/assets/logos/itminds_processed.jpg',
+      width: 50,
+      height: 50,
+      borderRadius: 100,
+    },
+  },
+  {
+    category: 'experience',
+    title: 'Software Developer',
+    subtitle: 'Technical University of Denmark',
+    period: 'Jul. 2019 – Oct. 2019',
+    description: 'Contributed software to an EU project targeting reductions in fertilizer usage.',
+    logo: {
+      light: '/assets/logos/dtu.png',
+      width: 50,
+      height: 70,
+    },
+  },
+  {
+    category: 'education',
+    title: 'MSc Eng. – Computer Science and Engineering',
+    subtitle: 'Technical University of Denmark (DTU)',
+    period: 'Graduated 2024',
+    description: 'Focused on theoretical computer science while finalizing an Industry Master of Science in Engineering.',
+    logo: {
+      light: '/assets/logos/dtu.png',
+      width: 50,
+      height: 70,
+    },
+  },
+  {
+    category: 'education',
+    title: 'B.Eng – Software Technology',
+    subtitle: 'Technical University of Denmark (DTU)',
+    period: 'Graduated 2020',
+    description: 'Specialized in applied software engineering and practical product development.',
+    logo: {
+      light: '/assets/logos/dtu.png',
+      width: 50,
+      height: 70,
+    },
+  },
+];
+
 export default async function AboutPage() {
   const about = await getContent('about', ['title', 'content']);
-  const experience = await getContent('experience', ['title', 'content']);
-  const education = await getContent('education', ['title', 'content']);
 
   return (
     <>
@@ -31,16 +134,11 @@ export default async function AboutPage() {
         <div className="mb-10 flex flex-col gap-10">
           <Container>
             <PostTitle>About me</PostTitle>
-            <ProfileCard />
-            <PostBody className="mx-auto" content={about.content} />
+            <AboutHero content={about.content} />
           </Container>
-          <Container className={styles.skillsList}>
-            <SubPostTitle>Experience</SubPostTitle>
-            <PostBody className="mx-auto" content={experience.content} />
-          </Container>
-          <Container className={styles.skillsList}>
-            <SubPostTitle>Education</SubPostTitle>
-            <PostBody className="mx-auto" content={education.content} />
+          <Container>
+            <SubPostTitle>Experience &amp; Education Timeline</SubPostTitle>
+            <Timeline items={timelineItems} />
           </Container>
           <Container>
             <SubPostTitle>Certifications & Diplomas</SubPostTitle>

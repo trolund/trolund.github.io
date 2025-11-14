@@ -23,7 +23,9 @@
   --shadow-low: 0px 0px 10px 5px rgba(0, 0, 0, 0.01);
   --border-color: rgba(203, 179, 179, 0.5);
   --border-color-muted: rgba(203, 179, 179, 0.02);
-  --gradient: linear-gradient(39deg, rgb(68, 84, 193) 0%, rgb(163, 43, 193) 100%);
+  --gradient-start: rgb(68, 84, 193);
+  --gradient-end: rgb(163, 43, 193);
+  --gradient: linear-gradient(39deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
   --border-radius: 15px;
 
   /* surfaces in light */
@@ -53,7 +55,9 @@
   --shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.03);
   --shadow-low: 0px 0px 10px 5px rgba(0, 0, 0, 0.01);
   --border-color: rgba(255, 255, 255, 0.25);
-  --gradient: linear-gradient(39deg, rgb(25, 31, 70) 0%, rgb(118, 31, 139) 100%);
+  --gradient-start: rgb(25, 31, 70);
+  --gradient-end: rgb(118, 31, 139);
+  --gradient: linear-gradient(39deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 
   /* surfaces in dark */
   --surface-0: #001b33;
