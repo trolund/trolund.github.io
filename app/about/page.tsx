@@ -21,7 +21,8 @@ const timelineItems: TimelineItem[] = [
     title: 'Software Engineer',
     subtitle: 'Copenhagen Optimization',
     period: 'Jul. 2025 – Present',
-    description: 'In-house full-stack engineer creating products that help airports operate more efficiently.',
+    description:
+      'In-house full-stack engineer creating products that help airports operate more efficiently.',
     logo: {
       light: '/assets/logos/copopt-logomark-RGB-POS.png',
       dark: '/assets/logos/copopt-logomark-RGB-NEG.png',
@@ -35,7 +36,8 @@ const timelineItems: TimelineItem[] = [
     title: 'Software Engineer',
     subtitle: 'cVation',
     period: 'Mar. 2024 – Jun. 2025',
-    description: 'Consulted on Azure cloud projects with an emphasis on modern web stacks using .NET and TypeScript.',
+    description:
+      'Consulted on Azure cloud projects with an emphasis on modern web stacks using .NET and TypeScript.',
     logo: {
       light: '/assets/logos/cvation_logo_processed.jpeg',
       dark: '/assets/logos/cvation_white.png',
@@ -49,7 +51,8 @@ const timelineItems: TimelineItem[] = [
     title: 'Development Engineer',
     subtitle: 'Logos Payment Solutions',
     period: 'Nov. 2020 – Jul. 2022',
-    description: 'Part-time full-stack developer delivering payment systems alongside my Industry Master studies.',
+    description:
+      'Part-time full-stack developer delivering payment systems alongside my Industry Master studies.',
     logo: {
       light: '/assets/logos/logos_processed.jpeg',
       width: 50,
@@ -100,7 +103,8 @@ const timelineItems: TimelineItem[] = [
     title: 'MSc Eng. – Computer Science and Engineering',
     subtitle: 'Technical University of Denmark (DTU)',
     period: 'Graduated 2024',
-    description: 'Focused on theoretical computer science while finalizing an Industry Master of Science in Engineering.',
+    description:
+      'Focused on theoretical computer science while finalizing an Industry Master of Science in Engineering.',
     logo: {
       light: '/assets/logos/dtu.png',
       width: 50,
