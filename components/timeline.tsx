@@ -57,7 +57,14 @@ export default function Timeline({ children }: TimelineProps) {
   return <ol className={styles.timeline}>{children}</ol>;
 }
 
-export function TimelineItem({ title, subtitle, period, description, category, logo }: TimelineItemProps) {
+export function TimelineItem({
+  title,
+  subtitle,
+  period,
+  description,
+  category,
+  logo,
+}: TimelineItemProps) {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLLIElement | null>(null);
 
@@ -75,7 +82,7 @@ export function TimelineItem({ title, subtitle, period, description, category, l
       {
         threshold: 0.35,
         rootMargin: '-15% 0px -10% 0px',
-      }
+      },
     );
 
     observer.observe(node);
@@ -93,21 +100,42 @@ export function TimelineItem({ title, subtitle, period, description, category, l
             categoryPulseTone[category],
             isVisible ? styles.markerDotActive : styles.markerDotInactive,
             isVisible && 'ring-4 ring-offset-2 ring-offset-white dark:ring-offset-zinc-900',
-            isVisible && categoryRingClass[category]
+            isVisible && categoryRingClass[category],
           )}
         />
       </div>
-      <Card className={cn(styles.card, 'px-4 py-4 transition-transform duration-200 ease-out hover:-translate-y-0.5')}>
+      <Card
+        className={cn(
+          styles.card,
+          'px-4 py-4 transition-transform duration-200 ease-out hover:-translate-y-0.5',
+        )}
+      >
         <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400">
           {categoryLabel[category]}
         </p>
         <div className="mt-2 flex items-start gap-3">
           {logo && (
-            <div className={styles.logo} style={{ borderRadius: `${logo.borderRadius ?? 12}px` }} aria-hidden="true">
+            <div
+              className={styles.logo}
+              style={{ borderRadius: `${logo.borderRadius ?? 12}px` }}
+              aria-hidden="true"
+            >
               {logo.dark ? (
                 <>
-                  <Image src={logo.light} alt="" width={logo.width} height={logo.height} className="block dark:hidden" />
-                  <Image src={logo.dark} alt="" width={logo.width} height={logo.height} className="hidden dark:block" />
+                  <Image
+                    src={logo.light}
+                    alt=""
+                    width={logo.width}
+                    height={logo.height}
+                    className="block dark:hidden"
+                  />
+                  <Image
+                    src={logo.dark}
+                    alt=""
+                    width={logo.width}
+                    height={logo.height}
+                    className="hidden dark:block"
+                  />
                 </>
               ) : (
                 <Image src={logo.light} alt="" width={logo.width} height={logo.height} />
@@ -119,9 +147,13 @@ export function TimelineItem({ title, subtitle, period, description, category, l
             <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200">{subtitle}</p>
           </div>
         </div>
-        <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{period}</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+          {period}
+        </p>
         {description && (
-          <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{description}</p>
+          <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+            {description}
+          </p>
         )}
       </Card>
     </li>
@@ -130,7 +162,10 @@ export function TimelineItem({ title, subtitle, period, description, category, l
 
 export function TimelineDivider({ label }: TimelineDividerProps) {
   return (
-    <li className={cn(styles.categoryDividerItem, 'text-neutral-500 dark:text-neutral-400')} aria-hidden="true">
+    <li
+      className={cn(styles.categoryDividerItem, 'text-neutral-500 dark:text-neutral-400')}
+      aria-hidden="true"
+    >
       <div className={styles.categoryDivider}>
         <span>{label}</span>
       </div>
