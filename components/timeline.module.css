@@ -27,7 +27,7 @@
   opacity: 0;
   transform: translateY(12px);
   animation: fadeSlide 0.65s ease forwards;
-  animation-delay: calc(var(--index) * 120ms);
+  animation-delay: calc(var(--index, 0) * 120ms);
   overflow: visible;
 }
 
