@@ -3,7 +3,7 @@ import typography from '@tailwindcss/typography';
 /** @type {import('tailwindcss').Config} */
 const config = {
   darkMode: ['class', '[data-theme="dark"]'],
-  content: ['./components/**/*.tsx', './pages/**/*.tsx'],
+  content: ['./app/**/*.tsx', './components/**/*.tsx', './pages/**/*.tsx'],
   theme: {
     extend: {
       colors: {
@@ -33,6 +33,12 @@ const config = {
         'secondary-1': 'var(--secondary-1)',
         'secondary-2': 'var(--secondary-2)',
         'secondary-3': 'var(--secondary-3)',
+        'timeline-exp': '#f97316',
+        'timeline-exp-ring': '#fed7aa',
+        'timeline-exp-ring-dark': '#fb923c',
+        'timeline-edu': '#a855f7',
+        'timeline-edu-ring': '#e9d5ff',
+        'timeline-edu-ring-dark': '#d946ef',
       },
       spacing: {
         28: '7rem',

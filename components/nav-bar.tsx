@@ -87,7 +87,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 'block w-full',
                 pathname === item.link
                   ? 'border-content-text font-bold'
-                  : 'border-transparent hover:scale-105 hover:border-content-text',
+                  : 'border-transparent hover:border-content-text',
               )}
               onClick={() => setIsOpen(false)} // Optional: close menu after click
             >

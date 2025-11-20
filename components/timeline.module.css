@@ -1,0 +1,169 @@
+.timeline {
+  position: relative;
+  padding-left: 0;
+  margin-left: 0;
+  overflow: visible;
+  list-style: none;
+  --line-offset: 0.85rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  left: var(--line-offset);
+  width: 2px;
+  border-radius: 999px;
+  background-image: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+  animation: pulseLine 3.5s ease-in-out infinite;
+}
+
+.timelineItem {
+  position: relative;
+  list-style: none;
+  margin-bottom: 1.5rem;
+  padding-left: calc(var(--line-offset) + 1.25rem);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeSlide 0.65s ease forwards;
+  animation-delay: calc(var(--index, 0) * 120ms);
+  overflow: visible;
+}
+
+.marker {
+  position: absolute;
+  top: 1.6rem;
+  left: var(--line-offset);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.markerDot {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 999px;
+  position: relative;
+  z-index: 2;
+  transition: transform 220ms ease, opacity 220ms ease, box-shadow 220ms ease;
+}
+
+.markerDot::after {
+  content: '';
+  position: absolute;
+  inset: -0.35rem;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+}
+
+.markerDotInactive {
+  opacity: 0.45;
+  transform: scale(0.75);
+  z-index: 1;
+}
+
+.markerDotActive {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.markerDotActive::after {
+  opacity: 1;
+  animation: ripple 3.2s ease-out infinite;
+}
+
+.card {
+  position: relative;
+}
+
+.categoryDividerItem {
+  list-style: none;
+  padding-left: calc(var(--line-offset) + 1.25rem);
+  margin: 0.5rem 0 0.85rem;
+}
+
+.categoryDivider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+
+.categoryDivider::before,
+.categoryDivider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-image: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  opacity: 0.7;
+}
+
+.categoryDivider::after {
+  background-image: linear-gradient(90deg, var(--gradient-end), var(--gradient-start));
+}
+
+.logo {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.04);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    --line-offset: 1.25rem;
+  }
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseLine {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.4);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
