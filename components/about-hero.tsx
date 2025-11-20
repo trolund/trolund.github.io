@@ -74,7 +74,9 @@ export default function AboutHero({ content }: AboutHeroProps) {
             </p>
             <h2 className="text-4xl font-semibold leading-tight">Troels Elsvad Lund</h2>
             <i className="text-white/80">
-              {calculateAge('1994-10-06')} y/o engineer combining product thinking, modern .NET platforms, and elegant frontend experiences to deliver resilient, user-centered systems.
+              {calculateAge('1994-10-06')} y/o engineer combining product thinking, modern .NET
+              platforms, and elegant frontend experiences to deliver resilient, user-centered
+              systems.
             </i>
           </div>
           <dl className="grid w-full grid-cols-2 gap-4 text-left text-white/90">
