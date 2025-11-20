@@ -14,23 +14,23 @@ type AboutHeroProps = {
 const highlights = [
   {
     label: 'Experience',
-    value: '6+ yrs',
-    detail: 'Full-stack product & consulting work since 2019.',
+    value: '4+ yrs',
+    detail: 'Full-stack development in .NET & TypeScript.',
   },
   {
     label: 'Current Focus',
     value: 'Airport Ops',
-    detail: 'Building tools at Copenhagen Optimization.',
+    detail: 'Building SaaS products for airports at Copenhagen Optimization.',
   },
   {
     label: 'Location',
     value: 'Copenhagen, DK',
-    detail: 'Working hybrid & remote across EU/US timezones.',
+    detail: 'Working in Copenhagen, Denmark.',
   },
   {
     label: 'Toolbox',
     value: 'C#, .NET, React',
-    detail: 'Cloud native apps with TypeScript & Azure.',
+    detail: 'Cloud native apps with .NET, TypeScript & Azure.',
   },
 ];
 
@@ -55,7 +55,7 @@ export default function AboutHero({ content }: AboutHeroProps) {
     <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white shadow-[0_35px_60px_rgba(15,23,42,0.45)]">
       <div className="pointer-events-none absolute -right-32 top-10 h-72 w-72 rounded-full bg-white/20 blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-fuchsia-500/30 blur-[140px]" />
-      <div className="relative grid gap-10 p-8 lg:grid-cols-[320px,1fr] lg:gap-14 lg:p-12">
+      <div className="relative grid gap-10 p-4 md:p-8 lg:grid-cols-[320px,1fr] lg:gap-14 lg:p-12">
         <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
           <div className="relative h-48 w-48 overflow-hidden rounded-[28px] border border-white/25 shadow-[0_20px_45px_rgba(15,15,40,0.7)]">
             <Image
@@ -73,10 +73,9 @@ export default function AboutHero({ content }: AboutHeroProps) {
               Software Engineer
             </p>
             <h2 className="text-4xl font-semibold leading-tight">Troels Elsvad Lund</h2>
-            <p className="text-white/80">
-              {calculateAge('1994-10-06')} y/o builder using product thinking, modern .NET stacks,
-              and delightful frontends to ship resilient systems.
-            </p>
+            <i className="text-white/80">
+              {calculateAge('1994-10-06')} y/o engineer combining product thinking, modern .NET platforms, and elegant frontend experiences to deliver resilient, user-centered systems.
+            </i>
           </div>
           <dl className="grid w-full grid-cols-2 gap-4 text-left text-white/90">
             {highlights.map((item) => (
