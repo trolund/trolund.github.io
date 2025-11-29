@@ -14,7 +14,7 @@ type AboutHeroProps = {
 const highlights = [
   {
     label: 'Experience',
-    value: '4+ yrs',
+    value: '3+ yrs',
     detail: 'Full-stack development in .NET & TypeScript.',
   },
   {
