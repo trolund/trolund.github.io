@@ -21,7 +21,7 @@ export function ThemeIcon() {
 
   if (!mounted) return <div style={{ width: size, height: size }} />;
 
-  const currentTheme = theme as Themes ?? Themes.SYSTEM;
+  const currentTheme = (theme as Themes) ?? Themes.SYSTEM;
 
   const getNextTheme = (current: Themes) => {
     const currentIndex = current ? themes.indexOf(current) : -1;
@@ -40,23 +40,23 @@ export function ThemeIcon() {
       case Themes.LIGHT:
         return <MdLightMode size={size} />;
       case Themes.SYSTEM:
-        return <SystemIcon size={size} />
+        return <SystemIcon size={size} />;
       default:
         return <MdAdjust size={size} />;
     }
   };
 
   return (
-      <motion.div
-        key={currentTheme}
-        onClick={() => setTheme(getNextTheme(currentTheme))}
-        initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-        animate={{ opacity: 1, rotate: 0, scale: 1 }}
-        exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-        transition={{ duration: 0.3 }}
-        className="cursor-pointer"
-      >
-        {getIcon()}
-      </motion.div>
+    <motion.div
+      key={currentTheme}
+      onClick={() => setTheme(getNextTheme(currentTheme))}
+      initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+      exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+      transition={{ duration: 0.3 }}
+      className="cursor-pointer"
+    >
+      {getIcon()}
+    </motion.div>
   );
 }
