@@ -52,11 +52,11 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
 
   return (
     <section>
-      <div className="flex flex-col items-center justify-center gap-5">
-        <div className="relative w-full p-2">
+      <div className="flex flex-col items-center justify-center gap-8">
+        <div className="w-full max-w-3xl">
           <SearchInput searchTerm={searchTerm} onSearchTermChange={onSearchTermChange} />
         </div>
-        <div className="md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           {visiblePosts.map((post) => (
             <ProjectItem
               key={post.slug}
@@ -72,23 +72,23 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
             />
           ))}
           {filteredPosts.length === 0 && (
-            <div className="col-span-2 text-center">
-              <p className="text-gray-500 dark:text-gray-400">🤬 No items found.</p>
+            <div className="col-span-full text-center">
+              <p className="text-gray-500 dark:text-gray-400">No projects match that search.</p>
             </div>
           )}
         </div>
         <div
           className={cn(
-            `col-span-2 flex items-center justify-center transition-opacity duration-300`,
+            `col-span-full flex items-center justify-center transition-opacity duration-300`,
             shouldShowScrollLabel ? 'opacity-100' : 'opacity-0',
           )}
         >
-          <div className="mb-10 flex flex-col items-center justify-center gap-4">
+          <div className="mb-12 flex flex-col items-center justify-center gap-4">
             <button
-              className="inline-flex items-center justify-center rounded-full bg-slate-600 px-5 py-2 font-semibold text-white shadow-md transition-transform duration-200 hover:scale-105 hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-900 hover:dark:bg-slate-200"
+              className="inline-flex items-center justify-center rounded-full border border-border-color bg-[var(--bg)] px-6 py-2 text-sm font-semibold text-content-text shadow-custom transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-custom-low"
               onClick={loadMore}
             >
-              Load more
+              Load more projects
             </button>
             <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
               {isLoading ? 'Loading more...' : 'Scroll to load more'}
