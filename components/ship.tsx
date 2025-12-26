@@ -46,7 +46,8 @@ function getIconForValue(value: string) {
   if (v.includes('node')) return <FaNodeJs size={14} />;
   if (v.includes('python')) return <FaPython size={14} />;
   if (v.includes('tailwind')) return <FaCss3Alt size={14} />;
-  if (v.includes('postgres') || v.includes('sql') || v.includes('t-sql')) return <FaDatabase size={14} />;
+  if (v.includes('postgres') || v.includes('sql') || v.includes('t-sql'))
+    return <FaDatabase size={14} />;
   if (v.includes('mongo')) return <FaDatabase size={14} />;
   if (v.includes('docker')) return <FaDocker size={14} />;
   if (v.includes('firebase')) return <FaFire size={14} />;
@@ -65,7 +66,8 @@ function getIconForValue(value: string) {
   if (v.includes('.net')) return <FaCubes size={14} />;
   if (v.includes('unity')) return <FaCube size={14} />;
   if (v.includes('arduino')) return <FaCogs size={14} />;
-  if (v.includes('bash') || v.includes('shell') || v.includes('zsh')) return <FaTerminal size={14} />;
+  if (v.includes('bash') || v.includes('shell') || v.includes('zsh'))
+    return <FaTerminal size={14} />;
   if (v.includes('macos')) return <FaApple size={14} />;
   if (v.includes('selenium')) return <FaCogs size={14} />;
   if (v.includes('svg')) return <FaCode size={14} />;
@@ -76,7 +78,8 @@ function getIconForValue(value: string) {
   if (v.includes('jquery')) return <FaJsSquare size={14} />;
   if (v.includes('risc-v') || v.includes('assembly')) return <FaCogs size={14} />;
   if (v.includes('rabbitmq')) return <FaServer size={14} />;
-  if (v.includes('azure') || v.includes('signalr') || v.includes('bicep')) return <FaCloud size={14} />;
+  if (v.includes('azure') || v.includes('signalr') || v.includes('bicep'))
+    return <FaCloud size={14} />;
   if (v.includes('blazor')) return <FaCubes size={14} />;
   if (v.includes('pwa')) return <FaMobileAlt size={13} />;
   if (v.includes('ci/cd')) return <FaCogs size={14} />;
