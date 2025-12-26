@@ -27,67 +27,84 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   return (
     <>
       {spacing && <div className="mb-5 h-16" />}
-      <div
-        className={cn(
-          'fixed top-0 z-40 w-full text-content-text',
-          !noBackground &&
-            'border-b border-border-color bg-bg-color shadow-custom backdrop-blur-[10px]',
-        )}
-      >
-        <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-end px-2">
+      <div className={cn('fixed top-0 z-40 w-full text-content-text')}>
+        <div className="mx-auto flex h-[74px] max-w-6xl items-center justify-end px-3 md:justify-center">
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex md:gap-2">
+          <div
+            className={cn(
+              'hidden items-center gap-2 rounded-full px-2 py-2 md:flex',
+              !noBackground &&
+                (reduceTransparency
+                  ? 'border border-border-color bg-[var(--bg)] shadow-custom'
+                  : 'border border-border-color bg-bg-color shadow-custom backdrop-blur-[16px]'),
+            )}
+          >
             {items.map((item) => (
-              <li
+              <Link
                 key={item.link}
+                href={item.link}
                 className={cn(
-                  'group relative mb-2 mt-2 block cursor-pointer border-b duration-300 hover:border-content-text',
+                  'relative rounded-full px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.3em] transition-all duration-200',
                   pathname === item.link
-                    ? 'border-b-4 border-content-text font-bold'
-                    : 'border-transparent',
+                    ? 'bg-content-text text-text'
+                    : 'text-content-text/80 hover:bg-content-text/10 hover:text-content-text',
                 )}
               >
-                <Link
-                  className="block h-full w-full p-5 pt-5 transition-all duration-300 group-hover:scale-105 group-hover:bg-slate-300/30 dark:group-hover:bg-gray-800/30"
-                  href={item.link}
-                >
-                  {item.itemName}
-                </Link>
-              </li>
+                {item.itemName}
+                {pathname === item.link && (
+                  <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-content-text/80" />
+                )}
+              </Link>
             ))}
-            <li className="cursor-pointer p-7 duration-300 hover:scale-125">
+            <button
+              className="ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full text-content-text/70 transition-all hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text dark:hover:text-text"
+              aria-label="Toggle theme"
+            >
               <ThemeIcon />
-            </li>
-          </ul>
+            </button>
+          </div>
 
           {/* Mobile Navigation Icon */}
-          <div onClick={() => setIsOpen(!isOpen)} className="block p-5 md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={cn(
+              'inline-flex h-11 w-10 items-center justify-center rounded-full text-content-text/80 transition-all hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text dark:hover:text-text md:hidden',
+              !noBackground &&
+                (reduceTransparency
+                  ? 'border border-border-color bg-[var(--bg)] shadow-custom'
+                  : 'border border-border-color bg-bg-color shadow-custom backdrop-blur-[16px]'),
+            )}
+            aria-label="Toggle menu"
+          >
             {isOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
-          </div>
+          </button>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
       <ul
         className={cn(
-          'fixed z-50 border-r border-border-color bg-bg-color text-content-text backdrop-blur-[10px]',
+          'fixed z-50 border-r border-border-color bg-bg-color text-content-text shadow-custom backdrop-blur-[16px]',
           isOpen
             ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
             : '-left-full bottom-0 top-0 w-[60%] duration-500 ease-in-out',
         )}
       >
+        <li className="px-4 pb-2 pt-6 text-xs uppercase tracking-[0.35em] text-content-text/60">
+          Menu
+        </li>
         {items.map((item) => (
           <li
             key={item.link}
-            className="cursor-pointer border-b border-border-color p-4 text-content-text duration-300 hover:bg-slate-300/30 dark:hover:bg-gray-800/30"
+            className="cursor-pointer border-b border-border-color px-4 py-3 text-content-text duration-300 hover:bg-slate-300/30 dark:hover:bg-gray-800/30"
           >
             <Link
               href={item.link}
               className={cn(
-                'block w-full',
+                'block w-full text-sm font-semibold uppercase tracking-[0.2em]',
                 pathname === item.link
-                  ? 'border-content-text font-bold'
-                  : 'border-transparent hover:border-content-text',
+                  ? 'text-content-text'
+                  : 'text-content-text/70',
               )}
               onClick={() => setIsOpen(false)} // Optional: close menu after click
             >
@@ -95,15 +112,16 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             </Link>
           </li>
         ))}
-        <li className="m-2 cursor-pointer p-4">
+        <li className="m-3 inline-flex cursor-pointer items-center gap-3 rounded-full border border-border-color px-4 py-2 text-xs uppercase tracking-[0.2em] text-content-text/70">
           <ThemeIcon />
+          Theme
         </li>
       </ul>
 
       {/* Mobile Overlay */}
       {isOpen && (
         <div
-          className="z-49 fixed h-screen w-screen md:h-0 md:w-0"
+          className="z-49 fixed h-screen w-screen bg-black/30 backdrop-blur-[2px] md:h-0 md:w-0"
           onClick={() => setIsOpen(false)}
         />
       )}
