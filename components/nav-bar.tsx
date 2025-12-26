@@ -52,12 +52,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               >
                 {item.itemName}
                 {pathname === item.link && (
-                  <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-content-text/80" />
+                  <span className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full" />
                 )}
               </Link>
             ))}
             <button
-              className="ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full text-content-text/70 transition-all hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text dark:hover:text-text"
+              className="text-content-text/70 hover:bg-content-text/10 ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:bg-content-text dark:hover:text-text"
               aria-label="Toggle theme"
             >
               <ThemeIcon />
@@ -68,7 +68,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
-              'inline-flex h-11 w-10 items-center justify-center rounded-full text-content-text/80 transition-all hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text dark:hover:text-text md:hidden',
+              'text-content-text/80 hover:bg-content-text/10 inline-flex h-11 w-10 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:bg-content-text dark:hover:text-text md:hidden',
               !noBackground &&
                 (reduceTransparency
                   ? 'border border-border-color bg-[var(--bg)] shadow-custom'
@@ -90,7 +90,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             : '-left-full bottom-0 top-0 w-[60%] duration-500 ease-in-out',
         )}
       >
-        <li className="px-4 pb-2 pt-6 text-xs uppercase tracking-[0.35em] text-content-text/60">
+        <li className="text-content-text/60 px-4 pb-2 pt-6 text-xs uppercase tracking-[0.35em]">
           Menu
         </li>
         {items.map((item) => (
@@ -102,9 +102,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               href={item.link}
               className={cn(
                 'block w-full text-sm font-semibold uppercase tracking-[0.2em]',
-                pathname === item.link
-                  ? 'text-content-text'
-                  : 'text-content-text/70',
+                pathname === item.link ? 'text-content-text' : 'text-content-text/70',
               )}
               onClick={() => setIsOpen(false)} // Optional: close menu after click
             >
@@ -112,7 +110,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             </Link>
           </li>
         ))}
-        <li className="m-3 inline-flex cursor-pointer items-center gap-3 rounded-full border border-border-color px-4 py-2 text-xs uppercase tracking-[0.2em] text-content-text/70">
+        <li className="text-content-text/70 m-3 inline-flex cursor-pointer items-center gap-3 rounded-full border border-border-color px-4 py-2 text-xs uppercase tracking-[0.2em]">
           <ThemeIcon />
           Theme
         </li>
