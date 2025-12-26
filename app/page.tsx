@@ -11,7 +11,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <NavBar items={menuItems} noBackground={true} />
+      <NavBar items={menuItems} />
       <div className="overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
         <FrontBackDrop />

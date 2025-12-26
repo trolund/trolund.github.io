@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MenuItem } from '@/types/MenuItem';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -17,14 +17,38 @@ export type MenuProps = {
 const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const pathname = usePathname();
   const reduceTransparency = usePrefersReducedTransparency();
+  const [isMobileHidden, setIsMobileHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const scrollRaf = useRef<number | null>(null);
 
   if (reduceTransparency) {
     noBackground = false;
   }
 
+  useEffect(() => {
+    const onScroll = () => {
+      if (scrollRaf.current !== null) return;
+      scrollRaf.current = window.requestAnimationFrame(() => {
+        scrollRaf.current = null;
+        const currentY = window.scrollY;
+        const delta = currentY - lastScrollY.current;
+        if (Math.abs(delta) > 6) {
+          setIsMobileHidden(delta > 0 && currentY > 80);
+          lastScrollY.current = currentY;
+        }
+      });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      if (scrollRaf.current !== null) cancelAnimationFrame(scrollRaf.current);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
     <>
-      {spacing && <div className="mb-5 h-16" />}
+      {spacing && <div className="mb-5 hidden h-16 md:block" />}
       <div className={cn('fixed top-0 z-40 w-full text-content-text')}>
         <div className="mx-auto flex h-[74px] max-w-6xl items-center justify-end px-3 md:justify-center">
           {/* Desktop Navigation */}
@@ -65,7 +89,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       </div>
 
       {/* Mobile Bottom Tab Bar */}
-      <div className="fixed bottom-1 left-1/2 z-50 w-[min(98vw,680px)] -translate-x-1/2 md:hidden">
+      <div
+        className={cn(
+          'fixed bottom-1 left-1/2 z-50 w-[min(98vw,680px)] -translate-x-1/2 transform transition-transform duration-300 md:hidden',
+          isMobileHidden ? 'translate-y-24' : 'translate-y-0',
+        )}
+      >
         <div className="relative">
           <div
             className={cn(
