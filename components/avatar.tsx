@@ -17,7 +17,7 @@ export default function Avatar({ name, picture, showName = true }: AvatarProps) 
         className="mr-4 h-12 w-12 rounded-full"
       />
       {showName && (
-        <div className="text-sm font-semibold uppercase tracking-[0.25em] text-content-text/70">
+        <div className="text-content-text/70 text-sm font-semibold uppercase tracking-[0.25em]">
           {name}
         </div>
       )}
