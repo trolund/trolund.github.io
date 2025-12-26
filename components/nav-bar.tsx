@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import React from 'react';
 import { MenuItem } from '@/types/MenuItem';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -16,7 +15,6 @@ export type MenuProps = {
 };
 
 const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const reduceTransparency = usePrefersReducedTransparency();
 
@@ -52,77 +50,64 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               >
                 {item.itemName}
                 {pathname === item.link && (
-                  <span className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full" />
+                  <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-content-text/80" />
                 )}
               </Link>
             ))}
             <button
-              className="text-content-text/70 hover:bg-content-text/10 ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:bg-content-text dark:hover:text-text"
+              className="ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full text-content-text/70 transition-all hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text/10 dark:hover:text-text"
               aria-label="Toggle theme"
             >
               <ThemeIcon />
             </button>
           </div>
+        </div>
+      </div>
 
-          {/* Mobile Navigation Icon */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
+      {/* Mobile Bottom Tab Bar */}
+      <div className="fixed bottom-1 left-1/2 z-50 w-[min(98vw,680px)] -translate-x-1/2 md:hidden">
+        <div className="relative">
+          <div
             className={cn(
-              'text-content-text/80 hover:bg-content-text/10 inline-flex h-11 w-10 items-center justify-center rounded-full transition-all hover:text-content-text dark:text-content-text dark:hover:bg-white/20 dark:hover:text-text md:hidden',
+              'flex items-center gap-2 rounded-full px-2 py-2',
               !noBackground &&
                 (reduceTransparency
                   ? 'border border-border-color bg-[var(--bg)] shadow-custom'
                   : 'border border-border-color bg-bg-color shadow-custom backdrop-blur-[16px]'),
             )}
-            aria-label="Toggle menu"
+            style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.5rem)' }}
           >
-            {isOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+            <div className="grid flex-1 grid-cols-4 gap-1">
+            {items.map((item) => (
+              <Link
+                key={item.link}
+                href={item.link}
+                className={cn(
+                  'min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase tracking-[0.12em] leading-tight transition-all',
+                  pathname === item.link
+                    ? 'bg-content-text text-text'
+                    : 'text-content-text/70 hover:bg-content-text/10 hover:text-content-text',
+                )}
+              >
+                <span className="block">{item.itemName}</span>
+              </Link>
+            ))}
+          </div>
+          </div>
+          <button
+            className={cn(
+              'absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text/10 dark:hover:text-text',
+              !noBackground &&
+                (reduceTransparency
+                  ? 'bg-[var(--bg)]'
+                  : 'bg-bg-color backdrop-blur-[16px]'),
+            )}
+            aria-label="Toggle theme"
+          >
+            <ThemeIcon />
           </button>
         </div>
       </div>
-
-      {/* Mobile Navigation Menu */}
-      <ul
-        className={cn(
-          'fixed z-50 border-r border-border-color bg-bg-color text-content-text shadow-custom backdrop-blur-[16px]',
-          isOpen
-            ? 'left-0 top-0 h-full w-[60%] duration-500 ease-in-out md:hidden'
-            : '-left-full bottom-0 top-0 w-[60%] duration-500 ease-in-out',
-        )}
-      >
-        <li className="text-content-text/60 px-4 pb-2 pt-6 text-xs uppercase tracking-[0.35em]">
-          Menu
-        </li>
-        {items.map((item) => (
-          <li
-            key={item.link}
-            className="cursor-pointer border-b border-border-color px-4 py-3 text-content-text duration-300 hover:bg-slate-300/30 dark:hover:bg-gray-800/30"
-          >
-            <Link
-              href={item.link}
-              className={cn(
-                'block w-full text-sm font-semibold uppercase tracking-[0.2em]',
-                pathname === item.link ? 'text-content-text' : 'text-content-text/70',
-              )}
-              onClick={() => setIsOpen(false)} // Optional: close menu after click
-            >
-              {item.itemName}
-            </Link>
-          </li>
-        ))}
-        <li className="text-content-text/70 m-3 inline-flex cursor-pointer items-center gap-3 rounded-full border border-border-color px-4 py-2 text-xs uppercase tracking-[0.2em]">
-          <ThemeIcon />
-          Theme
-        </li>
-      </ul>
-
-      {/* Mobile Overlay */}
-      {isOpen && (
-        <div
-          className="z-49 fixed h-screen w-screen bg-black/30 backdrop-blur-[2px] md:h-0 md:w-0"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
     </>
   );
 };
