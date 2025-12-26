@@ -50,12 +50,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               >
                 {item.itemName}
                 {pathname === item.link && (
-                  <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-content-text/80" />
+                  <span className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full" />
                 )}
               </Link>
             ))}
             <button
-              className="ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full text-content-text/70 transition-all hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text/10 dark:hover:text-text"
+              className="text-content-text/70 hover:bg-content-text/10 dark:hover:bg-content-text/10 ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:text-text"
               aria-label="Toggle theme"
             >
               <ThemeIcon />
@@ -78,29 +78,27 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.5rem)' }}
           >
             <div className="grid flex-1 grid-cols-4 gap-1">
-            {items.map((item) => (
-              <Link
-                key={item.link}
-                href={item.link}
-                className={cn(
-                  'min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase tracking-[0.12em] leading-tight transition-all',
-                  pathname === item.link
-                    ? 'bg-content-text text-text'
-                    : 'text-content-text/70 hover:bg-content-text/10 hover:text-content-text',
-                )}
-              >
-                <span className="block">{item.itemName}</span>
-              </Link>
-            ))}
-          </div>
+              {items.map((item) => (
+                <Link
+                  key={item.link}
+                  href={item.link}
+                  className={cn(
+                    'min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
+                    pathname === item.link
+                      ? 'bg-content-text text-text'
+                      : 'text-content-text/70 hover:bg-content-text/10 hover:text-content-text',
+                  )}
+                >
+                  <span className="block">{item.itemName}</span>
+                </Link>
+              ))}
+            </div>
           </div>
           <button
             className={cn(
-              'absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text/10 dark:hover:text-text',
+              'hover:bg-content-text/10 dark:hover:bg-content-text/10 absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:text-content-text dark:hover:text-text',
               !noBackground &&
-                (reduceTransparency
-                  ? 'bg-[var(--bg)]'
-                  : 'bg-bg-color backdrop-blur-[16px]'),
+                (reduceTransparency ? 'bg-[var(--bg)]' : 'bg-bg-color backdrop-blur-[16px]'),
             )}
             aria-label="Toggle theme"
           >
