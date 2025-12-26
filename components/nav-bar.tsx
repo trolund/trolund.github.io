@@ -130,12 +130,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 <Link
                   key={item.link}
                   href={item.link}
-                className={cn(
-                  'nav-pill min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
-                  pathname === item.link
-                    ? 'bg-content-text text-text'
-                    : 'text-content-text/70 hover:bg-content-text/15 hover:text-content-text',
-                )}
+                  className={cn(
+                    'nav-pill min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
+                    pathname === item.link
+                      ? 'bg-content-text text-text'
+                      : 'text-content-text/70 hover:bg-content-text/15 hover:text-content-text',
+                  )}
                 >
                   <span className="block">{item.itemName}</span>
                 </Link>
