@@ -83,10 +83,10 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 key={item.link}
                 href={item.link}
                 className={cn(
-                  'relative rounded-full px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.3em] transition-all duration-200',
+                  'nav-pill relative rounded-full px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.3em] transition-all duration-200',
                   pathname === item.link
                     ? 'bg-content-text text-text'
-                    : 'text-content-text/80 hover:bg-content-text/10 hover:text-content-text',
+                    : 'text-content-text/80 hover:bg-content-text/15 hover:text-content-text',
                 )}
               >
                 {item.itemName}
@@ -130,12 +130,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 <Link
                   key={item.link}
                   href={item.link}
-                  className={cn(
-                    'min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
-                    pathname === item.link
-                      ? 'bg-content-text text-text'
-                      : 'text-content-text/70 hover:bg-content-text/10 hover:text-content-text',
-                  )}
+                className={cn(
+                  'nav-pill min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
+                  pathname === item.link
+                    ? 'bg-content-text text-text'
+                    : 'text-content-text/70 hover:bg-content-text/15 hover:text-content-text',
+                )}
                 >
                   <span className="block">{item.itemName}</span>
                 </Link>
