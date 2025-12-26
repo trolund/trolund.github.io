@@ -164,7 +164,12 @@ const VectorFieldParticleCanvas: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed left-0 top-0 h-dvh w-dvw" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none fixed left-0 top-0 -z-10 h-dvh w-dvw"
+    />
+  );
 };
 
 export default VectorFieldParticleCanvas;
