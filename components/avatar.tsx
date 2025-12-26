@@ -3,9 +3,10 @@ import Image from 'next/image';
 type AvatarProps = {
   name: string;
   picture: string;
+  showName?: boolean;
 };
 
-export default function Avatar({ name, picture }: AvatarProps) {
+export default function Avatar({ name, picture, showName = true }: AvatarProps) {
   return (
     <div className="flex items-center">
       <Image
@@ -15,7 +16,11 @@ export default function Avatar({ name, picture }: AvatarProps) {
         height={48}
         className="mr-4 h-12 w-12 rounded-full"
       />
-      <div className="text-xl font-bold">{name}</div>
+      {showName && (
+        <div className="text-sm font-semibold uppercase tracking-[0.25em] text-content-text/70">
+          {name}
+        </div>
+      )}
     </div>
   );
 }
