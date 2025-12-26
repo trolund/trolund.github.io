@@ -7,6 +7,9 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ThemeIcon } from './theme-icon';
 import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTransparency';
+import { useTheme } from 'next-themes';
+import { Themes } from '@/types/theme';
+import * as Cronitor from '@cronitorio/cronitor-rum';
 
 export type MenuProps = {
   items: MenuItem[];
@@ -17,6 +20,7 @@ export type MenuProps = {
 const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const pathname = usePathname();
   const reduceTransparency = usePrefersReducedTransparency();
+  const { theme, setTheme } = useTheme();
   const [isMobileHidden, setIsMobileHidden] = useState(false);
   const lastScrollY = useRef(0);
   const scrollRaf = useRef<number | null>(null);
@@ -24,6 +28,19 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   if (reduceTransparency) {
     noBackground = false;
   }
+
+  const themes = Object.values(Themes) as Themes[];
+  const currentTheme = (theme as Themes) ?? Themes.SYSTEM;
+  const getNextTheme = (current: Themes) => {
+    const currentIndex = current ? themes.indexOf(current) : -1;
+    const nextIndex = (currentIndex + 1) % themes.length;
+    return nextIndex >= 0 ? themes[nextIndex] : themes[0];
+  };
+  const handleThemeToggle = () => {
+    const next = getNextTheme(currentTheme);
+    Cronitor.track('ThemeChange', { message: next });
+    setTheme(next);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -81,8 +98,9 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             <button
               className="text-content-text/70 hover:bg-content-text/10 dark:hover:bg-content-text/10 ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:text-text"
               aria-label="Toggle theme"
+              onClick={handleThemeToggle}
             >
-              <ThemeIcon />
+              <ThemeIcon theme={currentTheme} />
             </button>
           </div>
         </div>
@@ -131,8 +149,9 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 (reduceTransparency ? 'bg-[var(--bg)]' : 'bg-bg-color backdrop-blur-[16px]'),
             )}
             aria-label="Toggle theme"
+            onClick={handleThemeToggle}
           >
-            <ThemeIcon />
+            <ThemeIcon theme={currentTheme} />
           </button>
         </div>
       </div>
