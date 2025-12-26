@@ -1,116 +1,135 @@
-.svg {
-  height: 150px;
-  width: 150px;
-  margin: 15px;
-  clip-path: url(#my-clip-path);
-  background-size: cover;
-  background-image: var(--bg-img);
-}
-
-.svg2 {
-  height: 150px;
-  width: 100vw;
-  margin: 15px;
-  clip-path: url(#path);
-  background-size: cover;
-  background-image: var(--bg-img);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
 .footer {
-  border: 0px;
-  background-color: var(--footer);
-  border-top: var(--border-color) solid 1px;
-  background-image: url(../../public/assets/brackets.svg);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-position-y: 50%;
-  background-size: cover;
-  background-blend-mode: difference;
-}
-
-.bottom {
-  padding-bottom: 10px;
-  text-align: center;
-  font-weight: 200;
-  font-size: 11px;
-  margin-top: -1px;
+  border-top: 1px solid var(--border-color);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(141, 177, 224, 0.2), transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(170, 92, 233, 0.18), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(220, 230, 241, 0.4));
   color: var(--content-text);
 }
 
-.icons a {
-  display: inline-block;
-  margin-right: 1rem;
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
+.inner {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  padding: 3.5rem 0 2.5rem;
 }
 
-.icons a:hover {
-  transform: scale(1.2);
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.icons {
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding: 2rem;
+.title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(28, 31, 43, 0.7);
 }
 
-.list li {
+.divider {
+  height: 2px;
+  width: 64px;
+  border-radius: 999px;
+  background-image: var(--gradient);
+}
+
+.contactList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
   list-style: none;
-  padding: 1rem 0rem 0rem 0rem;
-
-  height: 3rem;
 }
 
-.list li {
-  border-bottom: dashed var(--border-color) 1px;
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: rgba(28, 31, 43, 0.8);
 }
 
-.list li:last-child {
-  border-bottom: none;
+.note {
+  font-size: 0.9rem;
+  color: rgba(28, 31, 43, 0.6);
+  font-style: italic;
 }
 
-@media only screen and (max-width: 768px) {
-  .box {
-    border: none !important;
-    height: auto !important;
-    margin-top: 40px !important;
-    margin-bottom: 10px !important;
-  }
+.socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.box {
-  border-right: var(--border-color) 1px solid;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  height: calc(var(--footer-height) - 100px);
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(28, 31, 43, 0.1);
+  color: rgba(28, 31, 43, 0.85);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.box:last-child {
-  border-right: none;
+.socials a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
 }
 
 .links {
-  float: left;
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.links li {
-  padding-top: 0.5rem;
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
-  font-weight: 300;
+.links a {
+  font-size: 0.95rem;
+  color: rgba(28, 31, 43, 0.75);
+  transition: color 0.2s ease;
 }
 
-.links li:hover {
-  transform: scale(1.1);
-  font-weight: 700;
+.links a:hover {
+  color: rgba(28, 31, 43, 1);
 }
 
-.footer h4 {
-  font-weight: 700;
-  font-size: 1.2rem;
+.bottom {
+  padding: 1rem 0 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(28, 31, 43, 0.55);
+}
+
+:global([data-theme='dark']) .footer {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(38, 68, 174, 0.25), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(98, 73, 209, 0.2), transparent 50%),
+    linear-gradient(180deg, rgba(0, 27, 51, 0.8), rgba(0, 20, 40, 0.9));
+}
+
+:global([data-theme='dark']) .title {
+  color: rgba(226, 231, 255, 0.6);
+}
+
+:global([data-theme='dark']) .contactItem,
+:global([data-theme='dark']) .note,
+:global([data-theme='dark']) .links a,
+:global([data-theme='dark']) .bottom {
+  color: rgba(226, 231, 255, 0.7);
+}
+
+:global([data-theme='dark']) .links a:hover {
+  color: rgba(226, 231, 255, 1);
+}
+
+:global([data-theme='dark']) .socials a {
+  border-color: rgba(226, 231, 255, 0.2);
+  color: rgba(226, 231, 255, 0.8);
 }
