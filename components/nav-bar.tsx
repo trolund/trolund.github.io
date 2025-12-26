@@ -91,9 +91,10 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Bottom Tab Bar */}
       <div
         className={cn(
-          'fixed bottom-1 left-1/2 z-50 w-[min(98vw,680px)] -translate-x-1/2 transform transition-transform duration-300 md:hidden',
+          'fixed bottom-0 left-1/2 z-50 w-[min(98vw,680px)] -translate-x-1/2 transform transition-transform duration-300 md:hidden',
           isMobileHidden ? 'translate-y-24' : 'translate-y-0',
         )}
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="relative">
           <div
