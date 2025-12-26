@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import Card from './card';
 import { cn } from '@/lib/utils';
 import styles from './timeline.module.css';
 
@@ -104,16 +103,16 @@ export function TimelineItem({
           )}
         />
       </div>
-      <Card
+      <div
         className={cn(
           styles.card,
-          'px-4 py-4 transition-transform duration-200 ease-out hover:-translate-y-0.5',
+          'group rounded-[28px] border border-border-color bg-[var(--bg)] px-6 py-6 shadow-custom transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:shadow-custom-low',
         )}
       >
-        <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400">
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-content-text opacity-60">
           {categoryLabel[category]}
         </p>
-        <div className="mt-2 flex items-start gap-3">
+        <div className="mt-3 flex items-start gap-4">
           {logo && (
             <div
               className={styles.logo}
@@ -142,20 +141,20 @@ export function TimelineItem({
               )}
             </div>
           )}
-          <div>
-            <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">{title}</h3>
-            <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200">{subtitle}</p>
+          <div className="flex flex-col gap-1">
+            <h3 className="text-lg font-semibold tracking-tight text-content-text">{title}</h3>
+            <p className="text-sm font-medium text-content-text opacity-70">{subtitle}</p>
           </div>
         </div>
-        <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+        <p className="mt-4 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-content-text opacity-60">
           {period}
         </p>
         {description && (
-          <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+          <p className="mt-3 text-sm leading-relaxed text-content-text opacity-75">
             {description}
           </p>
         )}
-      </Card>
+      </div>
     </li>
   );
 }
