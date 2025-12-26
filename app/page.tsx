@@ -12,10 +12,10 @@ export default function Page() {
   return (
     <>
       <NavBar items={menuItems} />
-      <div className="overflow-x-hidden overflow-y-hidden">
+      <main className="vt-page overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
         <FrontBackDrop />
-      </div>
+      </main>
     </>
   );
 }

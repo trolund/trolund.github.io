@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MenuItem } from '@/types/MenuItem';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import LinkTransition from './link-transition';
 import { cn } from '@/lib/utils';
 import { ThemeIcon } from './theme-icon';
 import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTransparency';
@@ -77,9 +77,10 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                   ? 'border border-border-color bg-[var(--bg)] shadow-custom'
                   : 'border border-border-color bg-bg-color shadow-custom backdrop-blur-[16px]'),
             )}
+            style={{ viewTransitionName: 'nav-bar' } as React.CSSProperties}
           >
             {items.map((item) => (
-              <Link
+              <LinkTransition
                 key={item.link}
                 href={item.link}
                 className={cn(
@@ -93,7 +94,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 {pathname === item.link && (
                   <span className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full" />
                 )}
-              </Link>
+              </LinkTransition>
             ))}
             <button
               className="text-content-text/70 hover:bg-content-text/10 dark:hover:bg-content-text/10 ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:text-text"
@@ -112,7 +113,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           'fixed bottom-0 left-1/2 z-50 w-[min(98vw,680px)] -translate-x-1/2 transform transition-transform duration-300 md:hidden',
           isMobileHidden ? 'translate-y-24' : 'translate-y-0',
         )}
-        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+        style={
+          {
+            paddingBottom: 'env(safe-area-inset-bottom)',
+            viewTransitionName: 'nav-bar',
+          } as React.CSSProperties
+        }
       >
         <div className="relative">
           <div
@@ -127,7 +133,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           >
             <div className="grid flex-1 grid-cols-4 gap-1">
               {items.map((item) => (
-                <Link
+                <LinkTransition
                   key={item.link}
                   href={item.link}
                   className={cn(
@@ -138,7 +144,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                   )}
                 >
                   <span className="block">{item.itemName}</span>
-                </Link>
+                </LinkTransition>
               ))}
             </div>
           </div>

@@ -3,7 +3,7 @@ import styles from './front-banner.module.css';
 import Image from 'next/image';
 import { VscGithubInverted } from 'react-icons/vsc';
 import { SiLinkedin } from 'react-icons/si';
-import Link from 'next/link';
+import LinkTransition from '../link-transition';
 
 function FrontBanner() {
   return (
@@ -16,12 +16,12 @@ function FrontBanner() {
             and speed.
           </p>
           <div className={styles.ctaRow}>
-            <Link className={styles.primaryCta} href="projects">
+            <LinkTransition className={styles.primaryCta} href="projects">
               View projects
-            </Link>
-            <Link className={styles.secondaryCta} href="about">
+            </LinkTransition>
+            <LinkTransition className={styles.secondaryCta} href="about">
               About me
-            </Link>
+            </LinkTransition>
           </div>
           <div className={styles.tags}>
             <span className={styles.tag}>Software engineering 🧑🏽‍💻</span>

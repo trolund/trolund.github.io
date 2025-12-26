@@ -169,13 +169,71 @@ main {
 }
 
 ::view-transition-old(nav-bar) {
-  animation-duration: 20000s;
-  animation-delay: 20000s;
+  animation: nav-fade-out 140ms ease-out forwards;
 }
 
 ::view-transition-new(nav-bar) {
-  animation-duration: 20000s;
-  animation-delay: 20000s;
+  animation: nav-fade-in 180ms ease-out forwards;
+}
+
+::view-transition-old(page) {
+  animation: page-fade-out 180ms ease-out forwards;
+}
+
+::view-transition-new(page) {
+  animation: page-fade-in 220ms ease-out forwards;
+}
+
+@keyframes nav-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes nav-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.vt-page {
+  view-transition-name: page;
 }
 
 /* Keyframes for blending when there are 2 images */

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkTransition from './link-transition';
 import { Author, OgImage } from '../types/blogPost';
 import Image from 'next/image';
 import Language from '../types/languages';
@@ -92,9 +92,8 @@ export default function ProjectItem({
           </div>
         </div>
       </div>
-      <Link
-        as={`/posts/${slug}`}
-        href="/posts/[slug]"
+      <LinkTransition
+        href={`/posts/${slug}`}
         aria-label={title}
         className="absolute inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40"
       />
