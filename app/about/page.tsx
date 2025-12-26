@@ -146,12 +146,14 @@ export default async function AboutPage() {
                 image="/assets/dansk-standard.jpeg"
                 title="Project Management"
                 subTitle="ISO 21500 and ISO 21502"
+                label="Certification"
                 href="https://app.diplomasafe.com/en-US/diploma/db16b9c7a5637f7b39a3fdc1e0460851a1198a015"
               />
               <CertificationItem
                 image="/assets/logos/dtu.png"
                 title="Computer science and engineering"
                 subTitle="Master of Science in Engineering"
+                label="Diploma"
                 href="https://app.diplomasafe.com/en-US/diploma/de152fbe5546056362f0766592ebe39741c592fc5/master-of-science-in-engineering"
               />
             </div>
