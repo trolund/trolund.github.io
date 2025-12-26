@@ -97,7 +97,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               </LinkTransition>
             ))}
             <button
-              className="text-content-text/70 hover:bg-content-text/10 dark:hover:bg-content-text/10 ml-1 inline-flex h-9 w-8 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:text-text"
+              className="ml-1 inline-flex h-9 w-9 min-w-0 items-center justify-center rounded-full p-0 text-content-text/70 transition-all hover:bg-content-text/10 hover:text-content-text dark:hover:bg-content-text/10 dark:hover:text-text"
               aria-label="Toggle theme"
               onClick={handleThemeToggle}
             >
