@@ -68,7 +68,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
-              'text-content-text/80 hover:bg-content-text/10 inline-flex h-11 w-10 items-center justify-center rounded-full transition-all hover:text-content-text dark:hover:bg-content-text dark:hover:text-text md:hidden',
+              'text-content-text/80 hover:bg-content-text/10 inline-flex h-11 w-10 items-center justify-center rounded-full transition-all hover:text-content-text dark:text-content-text dark:hover:bg-white/20 dark:hover:text-text md:hidden',
               !noBackground &&
                 (reduceTransparency
                   ? 'border border-border-color bg-[var(--bg)] shadow-custom'
