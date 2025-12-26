@@ -87,7 +87,7 @@ export default function ProjectItem({
               ))}
           </div>
           <div className="mt-auto flex items-center justify-between text-sm font-semibold text-content-text opacity-80">
-            <span>View case study</span>
+            <span>Read more</span>
             <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
           </div>
         </div>
