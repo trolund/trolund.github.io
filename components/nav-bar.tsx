@@ -117,7 +117,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Bottom Tab Bar */}
       <div
         className={cn(
-          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] transition-[bottom] duration-300 md:hidden rounded-full backdrop-blur-md',
+          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] rounded-full backdrop-blur-md transition-[bottom] duration-300 md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
         style={
