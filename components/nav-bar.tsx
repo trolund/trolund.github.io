@@ -71,11 +71,8 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           {/* Desktop Navigation */}
           <div
             className={cn(
-              'hidden items-center gap-2 rounded-full px-2 py-2 md:flex',
-              !noBackground &&
-                (reduceTransparency
-                  ? 'border border-border-color bg-[var(--bg)] shadow-custom'
-                  : 'border border-border-color bg-bg-color shadow-custom backdrop-blur-[16px]'),
+              'nav-shell hidden items-center gap-2 rounded-full px-2 py-2 md:flex backdrop-blur-md',
+              !noBackground && 'border border-border-color shadow-custom',
             )}
             style={{ viewTransitionName: 'nav-bar' } as React.CSSProperties}
           >
@@ -110,11 +107,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Bottom Tab Bar */}
       <div
         className={cn(
-          'fixed bottom-0 left-1/2 z-50 w-[min(98vw,680px)] -translate-x-1/2 transform transition-transform duration-300 md:hidden',
-          isMobileHidden ? 'translate-y-24' : 'translate-y-0',
+          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] transition-[bottom] duration-300 md:hidden backdrop-blur-md',
+          isMobileHidden ? 'pointer-events-none' : '',
         )}
         style={
           {
+            bottom: isMobileHidden ? 'calc(-6rem - env(safe-area-inset-bottom))' : '2rem',
             paddingBottom: 'env(safe-area-inset-bottom)',
             viewTransitionName: 'nav-bar',
           } as React.CSSProperties
@@ -123,11 +121,8 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         <div className="relative">
           <div
             className={cn(
-              'flex items-center gap-2 rounded-full px-2 py-2',
-              !noBackground &&
-                (reduceTransparency
-                  ? 'border border-border-color bg-[var(--bg)] shadow-custom'
-                  : 'border border-border-color bg-bg-color shadow-custom backdrop-blur-[16px]'),
+              'nav-shell flex items-center gap-2 rounded-full px-2 py-2',
+              'border border-border-color shadow-custom',
             )}
             style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.5rem)' }}
           >
@@ -152,7 +147,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             className={cn(
               'hover:bg-content-text/10 dark:hover:bg-content-text/10 absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:text-content-text dark:hover:text-text',
               !noBackground &&
-                (reduceTransparency ? 'bg-[var(--bg)]' : 'bg-bg-color backdrop-blur-[16px]'),
+                (reduceTransparency ? 'bg-bg-color backdrop-blur-md': 'bg-[var(--bg)]'),
             )}
             aria-label="Toggle theme"
             onClick={handleThemeToggle}
