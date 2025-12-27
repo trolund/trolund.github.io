@@ -120,7 +120,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           'fixed bottom-8 left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
-        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+        style={{}}
       >
         <div
           className="relative transition-transform duration-300"
@@ -128,7 +128,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             {
               transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
               viewTransitionName: 'nav-bar',
-              willChange: 'transform',
+              paddingBottom: 'env(safe-area-inset-bottom)',
             } as React.CSSProperties
           }
         >
@@ -137,7 +137,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               'nav-shell flex items-center gap-2 rounded-full px-2 py-2',
               'border border-border-color shadow-custom',
             )}
-            style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.5rem)' }}
+            style={{ paddingTop: '0.5rem', paddingBottom: '0.5rem' }}
             onMouseMove={handleGlowMove}
           >
             <div className="grid flex-1 grid-cols-4 gap-1">
