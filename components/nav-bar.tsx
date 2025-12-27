@@ -71,7 +71,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           {/* Desktop Navigation */}
           <div
             className={cn(
-              'nav-shell hidden items-center gap-2 rounded-full px-2 py-2 md:flex backdrop-blur-md',
+              'nav-shell hidden items-center gap-2 rounded-full px-2 py-2 backdrop-blur-md md:flex',
               !noBackground && 'border border-border-color shadow-custom',
             )}
             style={{ viewTransitionName: 'nav-bar' } as React.CSSProperties}
@@ -107,7 +107,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Bottom Tab Bar */}
       <div
         className={cn(
-          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] transition-[bottom] duration-300 md:hidden backdrop-blur-md',
+          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] backdrop-blur-md transition-[bottom] duration-300 md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
         style={
@@ -147,7 +147,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             className={cn(
               'hover:bg-content-text/10 dark:hover:bg-content-text/10 absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:text-content-text dark:hover:text-text',
               !noBackground &&
-                (reduceTransparency ? 'bg-bg-color backdrop-blur-md': 'bg-[var(--bg)]'),
+                (reduceTransparency ? 'bg-bg-color backdrop-blur-md' : 'bg-[var(--bg)]'),
             )}
             aria-label="Toggle theme"
             onClick={handleThemeToggle}
