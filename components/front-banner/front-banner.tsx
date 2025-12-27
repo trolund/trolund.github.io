@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './front-banner.module.css';
 import Image from 'next/image';
-import { VscGithubInverted } from 'react-icons/vsc';
-import { SiLinkedin } from 'react-icons/si';
 import LinkTransition from '../link-transition';
+import SocialLinks from '../social-links';
 
 function FrontBanner() {
   return (
@@ -28,16 +27,7 @@ function FrontBanner() {
             <span className={styles.tag}>Product engineering 🛠️</span>
             <span className={styles.tag}>Performance & scalability 🚀</span>
           </div>
-          <div className={styles.socials}>
-            <a className={styles.socialLink} href="https://github.com/trolund">
-              <VscGithubInverted color="currentColor" size={22} />
-              GitHub
-            </a>
-            <a className={styles.socialLink} href="https://www.linkedin.com/in/trolund/">
-              <SiLinkedin color="currentColor" size={22} />
-              LinkedIn
-            </a>
-          </div>
+          <SocialLinks />
         </div>
         <div className={styles.visual}>
           <div className={styles.deviceFrame}>

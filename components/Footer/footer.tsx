@@ -1,11 +1,10 @@
 import Container from '../container';
 import styles from './Footer.module.css';
 import { MdMail, MdPhone } from 'react-icons/md';
-import { VscGithubInverted } from 'react-icons/vsc';
-import { SiLinkedin } from 'react-icons/si';
 import menuItems from '../../constants/menu';
 import LinkTransition from '../link-transition';
 import { cn } from '../../lib/utils';
+import SocialLinks from '../social-links';
 
 export default function Footer() {
   return (
@@ -26,14 +25,7 @@ export default function Footer() {
               </li>
               <li className={styles.note}>You are always welcome to send me an email.</li>
             </ul>
-            <div className={styles.socials}>
-              <a href="https://github.com/trolund" aria-label="My GitHub profile">
-                <VscGithubInverted size={22} />
-              </a>
-              <a href="https://www.linkedin.com/in/trolund/" aria-label="My Linkedin profile">
-                <SiLinkedin size={22} />
-              </a>
-            </div>
+            <SocialLinks />
           </div>
           <div className={styles.section}>
             <div className={styles.title}>Site map</div>
