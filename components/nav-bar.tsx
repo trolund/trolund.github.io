@@ -94,7 +94,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                   'nav-pill relative rounded-full px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.3em] transition-all duration-200',
                   pathname === item.link
                     ? 'bg-content-text text-text'
-                    : 'text-content-text/80 hover:bg-content-text/15 hover:text-content-text',
+                    : 'text-content-text opacity-80 hover:bg-content-text/15 hover:text-content-text hover:opacity-100',
                 )}
               >
                 {item.itemName}
@@ -104,7 +104,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               </LinkTransition>
             ))}
             <button
-              className="text-content-text/70 hover:bg-content-text/10 dark:hover:bg-content-text/10 ml-1 inline-flex h-9 w-9 min-w-0 items-center justify-center rounded-full p-0 transition-all hover:text-content-text dark:hover:text-text"
+              className="ml-1 inline-flex h-9 w-9 min-w-0 items-center justify-center rounded-full p-0 text-content-text opacity-70 transition-all hover:bg-content-text/10 hover:text-content-text hover:opacity-100"
               aria-label="Toggle theme"
               onClick={handleThemeToggle}
             >
@@ -142,12 +142,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 <LinkTransition
                   key={item.link}
                   href={item.link}
-                  className={cn(
-                    'nav-pill min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
-                    pathname === item.link
-                      ? 'bg-content-text text-text'
-                      : 'text-content-text/70 hover:bg-content-text/15 hover:text-content-text',
-                  )}
+                className={cn(
+                  'nav-pill min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
+                  pathname === item.link
+                    ? 'bg-content-text text-text'
+                    : 'text-content-text opacity-70 hover:bg-content-text/15 hover:text-content-text hover:opacity-100',
+                )}
                 >
                   <span className="block">{item.itemName}</span>
                 </LinkTransition>
@@ -156,7 +156,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           </div>
           <button
             className={cn(
-              'hover:bg-content-text/10 dark:hover:bg-content-text/10 absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:text-content-text dark:hover:text-text',
+              'absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:bg-content-text/10 hover:text-content-text',
               !noBackground &&
                 (reduceTransparency ? 'bg-bg-color backdrop-blur-md' : 'bg-[var(--bg)]'),
             )}

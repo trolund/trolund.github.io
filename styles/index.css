@@ -159,7 +159,7 @@ button:hover {
 .nav-shell {
   position: relative;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(24px);
 }
 
@@ -179,12 +179,12 @@ button:hover {
     radial-gradient(
       circle at var(--nav-glow-x, 15%) var(--nav-glow-y, 20%),
       rgba(141, 177, 224, 0.22),
-      transparent 45%
+      transparent 96%
     ),
     radial-gradient(
       circle at calc(100% - var(--nav-glow-x, 15%)) 10%,
       rgba(170, 92, 233, 0.18),
-      transparent 50%
+      transparent 96%
     ),
     linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(220, 230, 241, 0.15));
   opacity: 0;
@@ -195,6 +195,8 @@ button:hover {
 .nav-shell:hover::after {
   opacity: 1;
 }
+
+/* keep base background on hover */
 
 .nav-shell > * {
   position: relative;
@@ -217,18 +219,18 @@ button:hover {
     radial-gradient(
       circle at var(--nav-glow-x, 15%) var(--nav-glow-y, 20%),
       rgba(38, 68, 174, 0.25),
-      transparent 50%
+      transparent 96%
     ),
     radial-gradient(
       circle at calc(100% - var(--nav-glow-x, 15%)) 12%,
       rgba(98, 73, 209, 0.22),
-      transparent 55%
+      transparent 96%
     ),
     linear-gradient(180deg, rgba(0, 27, 51, 0.4), rgba(0, 20, 40, 0.35));
 }
 
 [data-theme='dark'] .nav-shell {
-  background-color: rgba(12, 20, 30, 0.22);
+  background-color: rgba(12, 20, 30, 0.5);
 }
 
 main {
