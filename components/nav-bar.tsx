@@ -104,7 +104,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               </LinkTransition>
             ))}
             <button
-              className="hover:bg-content-text/10 ml-1 inline-flex h-9 w-9 min-w-0 items-center justify-center rounded-full p-0 text-content-text opacity-70 transition-all hover:text-content-text hover:opacity-100"
+              className="hover:bg-black/20 ml-1 inline-flex h-9 w-9 min-w-0 items-center justify-center rounded-full p-0 text-content-text opacity-70 transition-all hover:text-content-text hover:opacity-100"
               aria-label="Toggle theme"
               onClick={handleThemeToggle}
             >
@@ -156,7 +156,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           </div>
           <button
             className={cn(
-              'hover:bg-content-text/10 absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:text-content-text',
+              'hover:bg-black/20 absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:text-content-text',
               !noBackground &&
                 (reduceTransparency ? 'bg-bg-color backdrop-blur-md' : 'bg-[var(--bg)]'),
             )}
