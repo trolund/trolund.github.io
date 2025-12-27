@@ -117,18 +117,21 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Bottom Tab Bar */}
       <div
         className={cn(
-          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] rounded-full backdrop-blur-md transition-[bottom] duration-300 md:hidden',
+          'fixed bottom-8 left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
-        style={
-          {
-            bottom: isMobileHidden ? 'calc(-8rem - env(safe-area-inset-bottom))' : '2rem',
-            paddingBottom: 'env(safe-area-inset-bottom)',
-            viewTransitionName: 'nav-bar',
-          } as React.CSSProperties
-        }
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
-        <div className="relative">
+        <div
+          className="relative transition-transform duration-300"
+          style={
+            {
+              transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
+              viewTransitionName: 'nav-bar',
+              willChange: 'transform',
+            } as React.CSSProperties
+          }
+        >
           <div
             className={cn(
               'nav-shell flex items-center gap-2 rounded-full px-2 py-2',
