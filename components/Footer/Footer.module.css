@@ -109,9 +109,9 @@
 
 :global([data-theme='dark']) .footer {
   background:
-    radial-gradient(circle at 10% 20%, rgba(38, 68, 174, 0.25), transparent 45%),
-    radial-gradient(circle at 90% 10%, rgba(98, 73, 209, 0.2), transparent 50%),
-    linear-gradient(180deg, rgba(0, 27, 51, 0.8), rgba(0, 20, 40, 0.9));
+    radial-gradient(circle at 10% 20%, rgba(45, 70, 130, 0.28), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(70, 55, 120, 0.24), transparent 50%),
+    linear-gradient(180deg, rgba(4, 6, 12, 0.96), rgba(4, 5, 10, 0.99));
 }
 
 :global([data-theme='dark']) .title {

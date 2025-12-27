@@ -218,19 +218,19 @@ button:hover {
   background:
     radial-gradient(
       circle at var(--nav-glow-x, 15%) var(--nav-glow-y, 20%),
-      rgba(38, 68, 174, 0.25),
+      rgba(45, 70, 130, 0.35),
       transparent 96%
     ),
     radial-gradient(
       circle at calc(100% - var(--nav-glow-x, 15%)) 12%,
-      rgba(98, 73, 209, 0.22),
+      rgba(70, 55, 120, 0.3),
       transparent 96%
     ),
-    linear-gradient(180deg, rgba(0, 27, 51, 0.4), rgba(0, 20, 40, 0.35));
+    linear-gradient(180deg, rgba(4, 6, 12, 0.82), rgba(4, 5, 10, 0.78));
 }
 
 [data-theme='dark'] .nav-shell {
-  background-color: rgba(12, 20, 30, 0.5);
+  background-color: rgba(4, 6, 12, 0.78);
 }
 
 main {
