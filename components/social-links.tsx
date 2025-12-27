@@ -8,11 +8,7 @@ type SocialLinksProps = {
   iconSize?: number;
 };
 
-export default function SocialLinks({
-  className,
-  linkClassName,
-  iconSize = 22,
-}: SocialLinksProps) {
+export default function SocialLinks({ className, linkClassName, iconSize = 22 }: SocialLinksProps) {
   return (
     <div className={cn('flex flex-wrap items-center gap-4 text-[0.95rem]', className)}>
       <a
