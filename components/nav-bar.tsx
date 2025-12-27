@@ -42,6 +42,17 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
     setTheme(next);
   };
 
+  const handleGlowMove = (event: React.MouseEvent<HTMLElement>) => {
+    const target = event.currentTarget;
+    const rect = target.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    const easedX = 30 + (x - 50) * 0.35;
+    const easedY = 30 + (y - 50) * 0.35;
+    target.style.setProperty('--nav-glow-x', `${easedX}%`);
+    target.style.setProperty('--nav-glow-y', `${easedY}%`);
+  };
+
   useEffect(() => {
     const onScroll = () => {
       if (scrollRaf.current !== null) return;
@@ -75,6 +86,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               !noBackground && 'border border-border-color shadow-custom',
             )}
             style={{ viewTransitionName: 'nav-bar' } as React.CSSProperties}
+            onMouseMove={handleGlowMove}
           >
             {items.map((item) => (
               <LinkTransition
@@ -125,6 +137,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               'border border-border-color shadow-custom',
             )}
             style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.5rem)' }}
+            onMouseMove={handleGlowMove}
           >
             <div className="grid flex-1 grid-cols-4 gap-1">
               {items.map((item) => (
