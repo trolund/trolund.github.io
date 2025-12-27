@@ -47,10 +47,8 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
     const rect = target.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;
-    const easedX = 30 + (x - 50) * 0.35;
-    const easedY = 30 + (y - 50) * 0.35;
-    target.style.setProperty('--nav-glow-x', `${easedX}%`);
-    target.style.setProperty('--nav-glow-y', `${easedY}%`);
+    target.style.setProperty('--nav-glow-x', `${x}%`);
+    target.style.setProperty('--nav-glow-y', `${y}%`);
   };
 
   useEffect(() => {
@@ -119,12 +117,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Bottom Tab Bar */}
       <div
         className={cn(
-          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] backdrop-blur-md transition-[bottom] duration-300 md:hidden',
+          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] transition-[bottom] duration-300 md:hidden rounded-full backdrop-blur-md',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
         style={
           {
-            bottom: isMobileHidden ? 'calc(-6rem - env(safe-area-inset-bottom))' : '2rem',
+            bottom: isMobileHidden ? 'calc(-8rem - env(safe-area-inset-bottom))' : '2rem',
             paddingBottom: 'env(safe-area-inset-bottom)',
             viewTransitionName: 'nav-bar',
           } as React.CSSProperties
