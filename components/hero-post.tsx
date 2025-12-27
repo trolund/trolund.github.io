@@ -28,8 +28,8 @@ export default function HeroPost({
   return (
     <section className={className}>
       <article className="group relative overflow-hidden rounded-[28px] border border-border-color bg-[var(--bg)] transition-all duration-300 hover:-translate-y-1 hover:shadow-custom-low">
-        <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr]">
-          <div className="relative aspect-[21/9] w-full overflow-hidden bg-[var(--bg-color)]">
+        <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
+          <div className="relative aspect-[21/9] w-full overflow-hidden bg-[var(--bg-color)] lg:aspect-auto lg:h-full">
             <Image
               src={coverImage}
               alt="Cover image"
