@@ -36,7 +36,7 @@ function FrontBanner() {
                 className={styles.portrait}
                 src="/profil3.jpg"
                 priority
-                alt="Portrait of Troels Lund"
+                alt="Portrait of Troels Elsvad Lund"
                 width={1200}
                 height={1712}
               />
