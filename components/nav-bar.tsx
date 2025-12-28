@@ -99,7 +99,10 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               >
                 {item.itemName}
                 {pathname === item.link && (
-                  <span className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full" />
+                  <span
+                    className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
+                    aria-hidden="true"
+                  />
                 )}
               </LinkTransition>
             ))}

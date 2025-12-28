@@ -174,7 +174,11 @@ const VectorFieldParticleCanvas: React.FC = () => {
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="pointer-events-none fixed left-0 top-0 -z-10 h-dvh w-dvw" />
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none fixed left-0 top-0 -z-10 h-dvh w-dvw"
+      aria-label="Decorative particle animation background"
+    />
   );
 };
 
