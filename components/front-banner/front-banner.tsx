@@ -11,8 +11,7 @@ function FrontBanner() {
         <div className={styles.copy}>
           <h1 className={styles.title}>Troels Lund</h1>
           <p className={styles.lead}>
-            Software engineer crafting calm, high-performance web products with a focus on clarity
-            and speed.
+            Software engineer turning complex ideas into clear, fast, and highly-engineered products.
           </p>
           <div className={styles.ctaRow}>
             <LinkTransition className={styles.primaryCta} href="projects">
@@ -24,8 +23,8 @@ function FrontBanner() {
           </div>
           <div className={styles.tags}>
             <span className={styles.tag}>Software engineering 🧑🏽‍💻</span>
-            <span className={styles.tag}>Product engineering 🛠️</span>
-            <span className={styles.tag}>Performance & scalability 🚀</span>
+            <span className={styles.tag}>Product-minded builder 🛠️</span>
+            <span className={styles.tag}>Performance, concurrency & scalability 🚀</span>
           </div>
           <SocialLinks />
         </div>

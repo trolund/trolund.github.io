@@ -15,7 +15,7 @@ const highlights = [
   {
     label: 'Experience',
     value: '3+ yrs',
-    detail: 'Full-stack development in .NET & TypeScript.',
+    detail: 'Full-stack development in C#/.NET & React, TypeScript.',
   },
   {
     label: 'Current Focus',
