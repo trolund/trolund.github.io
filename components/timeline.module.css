@@ -84,6 +84,23 @@
   position: relative;
 }
 
+.detailsPanel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: max-height 320ms ease, opacity 200ms ease, transform 200ms ease;
+}
+
+.detailsPanelOpen {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.detailsInner {
+  overflow: hidden;
+}
+
 .categoryDividerItem {
   list-style: none;
   padding-left: calc(var(--line-offset) + 1.25rem);
