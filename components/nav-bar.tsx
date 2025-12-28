@@ -117,13 +117,13 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       {/* Mobile Bottom Tab Bar */}
       <div
         className={cn(
-          'fixed bottom-8 left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] md:hidden',
+          'fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
         style={{}}
       >
         <div
-          className="relative transition-transform duration-300"
+          className="relative transition-transform duration-300 backdrop-blur-md rounded-full"
           style={
             {
               transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
@@ -134,7 +134,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         >
           <div
             className={cn(
-              'nav-shell flex items-center gap-2 rounded-full px-2 py-2',
+              'nav-shell nav-blur flex items-center gap-2 rounded-full px-2 py-2',
               'border border-border-color shadow-custom',
             )}
             style={{ paddingTop: '0.5rem', paddingBottom: '0.5rem' }}
