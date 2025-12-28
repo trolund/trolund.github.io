@@ -5,6 +5,7 @@ import ClientInit from './client-init';
 import { ThemeProvider } from 'next-themes';
 import { Metadata } from 'next';
 import { TITLE } from '@/lib/constants';
+import { Manrope, Space_Grotesk } from 'next/font/google';
 
 const description =
   'A personal portfolio site featuring projects and a blog focused on web development, programming, and technology.';
@@ -46,10 +47,22 @@ export const metadata: Metadata = {
   },
 };
 
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
+  display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+});
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body>
+      <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
         <StrictMode>
           <ThemeProvider enableSystem={true}>
             {children}

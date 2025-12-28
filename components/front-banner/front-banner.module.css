@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 .hero {
   position: relative;
   min-height: 100dvh;
@@ -49,7 +47,7 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: clamp(24px, 4vw, 60px);
-  font-family: 'Manrope', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-manrope), 'Helvetica Neue', sans-serif;
   align-items: center;
 }
 
@@ -70,7 +68,7 @@
 }
 
 .title {
-  font-family: 'Space Grotesk', 'Manrope', sans-serif;
+  font-family: var(--font-space-grotesk), var(--font-manrope), sans-serif;
   font-size: clamp(2.6rem, 6vw, 4.6rem);
   font-weight: 600;
   letter-spacing: -0.03em;
