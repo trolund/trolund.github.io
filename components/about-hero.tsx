@@ -91,7 +91,7 @@ export default function AboutHero({ content }: AboutHeroProps) {
                 <dd className="text-balance text-[clamp(1rem,2.1vw,1.3rem)] font-semibold leading-tight text-white">
                   {item.value}
                 </dd>
-                <dd className="mt-1 text-xs text-white/70">{item.detail}</dd>
+                <p className="mt-1 text-xs text-white/70">{item.detail}</p>
               </div>
             ))}
           </dl>
