@@ -467,7 +467,12 @@ export default async function AboutPage() {
                   width: 50,
                   height: 70,
                 }}
-                detailsTable={renderEducationTable(mscCourses)}
+                detailsTable={
+                  <>
+                    {renderEducationTable(mscCourses)}
+                    {renderDiplomaLink()}
+                  </>
+                }
               />
               <TimelineItem
                 category="education"
@@ -485,7 +490,7 @@ export default async function AboutPage() {
             </Timeline>
           </Container>
           <Container>
-            <SubPostTitle>Certifications & Diplomas</SubPostTitle>
+            <SubPostTitle id="certifications">Certifications & Diplomas</SubPostTitle>
             <div className="flex flex-row flex-wrap justify-center gap-5">
               <CertificationItem
                 image="/assets/dansk-standard.jpeg"
