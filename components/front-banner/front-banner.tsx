@@ -11,7 +11,8 @@ function FrontBanner() {
         <div className={styles.copy}>
           <h1 className={styles.title}>Troels Lund</h1>
           <p className={styles.lead}>
-            Software engineer turning complex ideas into clear, fast, and highly-engineered products.
+            Software engineer turning complex ideas into clear, fast, and highly-engineered
+            products.
           </p>
           <div className={styles.ctaRow}>
             <LinkTransition className={styles.primaryCta} href="projects">
