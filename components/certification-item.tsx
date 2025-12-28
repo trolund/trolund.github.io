@@ -29,7 +29,7 @@ export default function CertificationItem({
           <span>{label}</span>
           {image && (
             <span className="relative h-10 w-10 overflow-hidden rounded-full border border-border-color bg-[var(--bg-color)]">
-              <Image alt="institution" src={image} fill className="object-cover" />
+              <Image alt="institution" src={image} fill sizes="40px" className="object-cover" />
             </span>
           )}
         </div>
