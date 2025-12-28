@@ -374,7 +374,7 @@ export default async function AboutPage() {
             <AboutHero content={about.content} />
           </Container>
           <Container>
-            <SubPostTitle>Experience &amp; Education Timeline</SubPostTitle>
+            <SubPostTitle id="experience-education">Experience &amp; Education</SubPostTitle>
             <Timeline>
               <TimelineItem
                 category="experience"
