@@ -1,8 +1,6 @@
 import Avatar from './avatar';
 import DateFormatter from './date-formatter';
-import CoverImage from './cover-image';
-import PostTitle from './post-title';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { Author } from '../types/blogPost';
 import Language from '../types/languages';
 import Ship from './ship';
@@ -28,46 +26,50 @@ export default function PostHeader({
   slug,
 }: postHeaderOptions) {
   return (
-    <>
-      <PostTitle>{title}</PostTitle>
-      <div className="hidden md:mb-12 md:block">
-        <Avatar name={author.name} picture={author.picture} />
+    <header className="mb-12">
+      <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[28px] bg-[var(--bg-color)]">
+        <Image src={coverImage} alt={title} fill className="object-cover" priority />
       </div>
-      <div className="mb-8 sm:mx-0 md:mb-16">
-        <CoverImage slug={slug} title={title} src={coverImage} />
-      </div>
-      <div className="mx-auto flex max-w-2xl flex-col gap-8">
-        <div className="block md:hidden">
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
-        <div style={{ height: '20px' }}>
-          <div className="float-left text-base font-extralight italic">
-            <DateFormatter date={date} />
-          </div>
-          <div className="float-right text-base font-extralight italic">
+      <div className="mt-8 flex flex-col gap-6">
+        <div className="flex flex-wrap items-center justify-between text-[0.7rem] uppercase tracking-[0.35em] text-content-text opacity-60">
+          <DateFormatter date={date} />
+          <span className="flex items-center">
             {language === 'da' ? (
               <Image
                 loader={localImageLoader}
                 src={'/assets/flags/da.svg'}
-                height={15}
-                width={30}
+                height={14}
+                width={22}
                 alt="dansk"
               />
             ) : (
               <Image
                 loader={localImageLoader}
                 src={'/assets/flags/en.svg'}
-                height={15}
-                width={30}
+                height={14}
+                width={22}
                 alt="english"
               />
             )}
-          </div>
+          </span>
         </div>
-        <div className="mb-4 flex w-full flex-wrap">
-          {technologies && technologies.map((t, i) => <Ship key={`${i}-${slug}-${t}`} value={t} />)}
+        <h1 className="text-3xl font-semibold leading-tight text-content-text md:text-5xl">
+          {title}
+        </h1>
+        <div className="flex items-center gap-2">
+          <Avatar name={author.name} picture={author.picture} />
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {technologies &&
+            technologies.map((t, i) => (
+              <Ship
+                key={`${i}-${slug}-${t}`}
+                value={t}
+                className="rounded-full border border-border-color bg-transparent px-3 py-1 text-[0.7rem] uppercase tracking-[0.2em] text-content-text opacity-70"
+              />
+            ))}
         </div>
       </div>
-    </>
+    </header>
   );
 }

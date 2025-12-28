@@ -11,11 +11,11 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <NavBar items={menuItems} noBackground={true} />
-      <div className="overflow-x-hidden overflow-y-hidden">
+      <NavBar items={menuItems} />
+      <main className="vt-page overflow-x-hidden overflow-y-hidden">
         <FrontBanner />
         <FrontBackDrop />
-      </div>
+      </main>
     </>
   );
 }

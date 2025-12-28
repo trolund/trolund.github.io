@@ -1,9 +1,16 @@
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+'use client';
 
-function LinkTransition(props: any) {
+import Link, { LinkProps } from 'next/link';
+import { useRouter } from 'next/navigation';
+import { MouseEvent, PropsWithChildren } from 'react';
+
+type LinkTransitionProps = PropsWithChildren<LinkProps> & {
+  className?: string;
+};
+
+function LinkTransition({ href, children, className, ...rest }: LinkTransitionProps) {
   const router = useRouter();
-  const handleClick = async (e: Event) => {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!document.startViewTransition) {
       // browser does not support view transition. Continue the default behavior.
       return;
@@ -11,14 +18,14 @@ function LinkTransition(props: any) {
       // browser supports view transition. Animate the transition.
       e.preventDefault();
       document.startViewTransition(async () => {
-        router.push(props.href as any);
+        router.push(href as any);
       });
     }
   };
 
   return (
-    <Link onClick={handleClick} {...props}>
-      {props.children}
+    <Link onClick={handleClick} href={href} className={className} {...rest}>
+      {children}
     </Link>
   );
 }

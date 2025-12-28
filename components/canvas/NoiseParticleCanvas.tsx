@@ -71,6 +71,7 @@ const VectorFieldParticleCanvas: React.FC = () => {
   const particles = useRef<Particle[]>([]);
   const path = useRef<Vec[]>([]);
   const anim = useRef<number | null>(null);
+  const resizeRaf = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -93,7 +94,14 @@ const VectorFieldParticleCanvas: React.FC = () => {
         };
       });
     };
-    window.addEventListener('resize', reset);
+    const handleResize = () => {
+      if (resizeRaf.current !== null) return;
+      resizeRaf.current = window.requestAnimationFrame(() => {
+        resizeRaf.current = null;
+        reset();
+      });
+    };
+    window.addEventListener('resize', handleResize);
     reset();
 
     const animate = () => {
@@ -160,11 +168,18 @@ const VectorFieldParticleCanvas: React.FC = () => {
     anim.current = requestAnimationFrame(animate);
     return () => {
       if (anim.current) cancelAnimationFrame(anim.current);
-      window.removeEventListener('resize', reset);
+      if (resizeRaf.current !== null) cancelAnimationFrame(resizeRaf.current);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed left-0 top-0 h-dvh w-dvw" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none fixed left-0 top-0 -z-10 h-dvh w-dvw"
+      aria-label="Decorative particle animation background"
+    />
+  );
 };
 
 export default VectorFieldParticleCanvas;

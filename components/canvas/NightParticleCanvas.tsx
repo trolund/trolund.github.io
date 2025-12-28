@@ -38,6 +38,7 @@ const NightParticleCanvas: React.FC = () => {
   const isMouseDown = useRef<boolean>(false);
   const particleCount = useRef<number>(0);
   const animationFrameId = useRef<number | null>(null);
+  const resizeRaf = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -95,7 +96,11 @@ const NightParticleCanvas: React.FC = () => {
     };
 
     const handleResize = () => {
-      initializeCanvas();
+      if (resizeRaf.current !== null) return;
+      resizeRaf.current = window.requestAnimationFrame(() => {
+        resizeRaf.current = null;
+        initializeCanvas();
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -198,9 +203,8 @@ const NightParticleCanvas: React.FC = () => {
     animationFrameId.current = requestAnimationFrame(animate);
 
     return () => {
-      if (animationFrameId.current !== null) {
-        cancelAnimationFrame(animationFrameId.current);
-      }
+      if (animationFrameId.current !== null) cancelAnimationFrame(animationFrameId.current);
+      if (resizeRaf.current !== null) cancelAnimationFrame(resizeRaf.current);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
@@ -211,7 +215,13 @@ const NightParticleCanvas: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed left-0 top-0 h-dvh w-dvw" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none fixed left-0 top-0 -z-10 h-dvh w-dvw"
+      aria-label="Decorative night particle animation background"
+    />
+  );
 };
 
 export default NightParticleCanvas;

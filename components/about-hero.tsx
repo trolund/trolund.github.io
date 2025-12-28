@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { VscCloudDownload, VscGithubInverted } from 'react-icons/vsc';
-import { SiLinkedin } from 'react-icons/si';
+import { VscCloudDownload } from 'react-icons/vsc';
 import * as Cronitor from '@cronitorio/cronitor-rum';
 import PostBody from './post-body';
 import localImageLoader from 'services/image-loader-service';
+import SocialLinks from './social-links';
 
 type AboutHeroProps = {
   content: string;
@@ -15,7 +15,7 @@ const highlights = [
   {
     label: 'Experience',
     value: '3+ yrs',
-    detail: 'Full-stack development in .NET & TypeScript.',
+    detail: 'Full-stack development in C#/.NET & React, TypeScript.',
   },
   {
     label: 'Current Focus',
@@ -106,22 +106,11 @@ export default function AboutHero({ content }: AboutHeroProps) {
               <VscCloudDownload size={18} />
               CV
             </a>
-            <div className="flex items-center gap-4 text-white/80">
-              <a
-                className="transition hover:text-white"
-                href="https://github.com/trolund"
-                aria-label="Link to my GitHub profile"
-              >
-                <VscGithubInverted size={26} />
-              </a>
-              <a
-                className="transition hover:text-white"
-                href="https://www.linkedin.com/in/trolund/"
-                aria-label="Link to my Linkedin profile"
-              >
-                <SiLinkedin size={24} />
-              </a>
-            </div>
+            <SocialLinks
+              iconSize={24}
+              className="text-white/80"
+              linkClassName="text-white/80 hover:text-white"
+            />
           </div>
         </div>
         <div className="rounded-2xl border border-white/10 bg-slate-900/30 p-6 shadow-[0_25px_65px_rgba(15,23,42,0.35)] backdrop-blur">
