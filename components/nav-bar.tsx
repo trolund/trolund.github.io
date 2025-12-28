@@ -123,7 +123,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         style={{}}
       >
         <div
-          className="relative transition-transform duration-300 backdrop-blur-md rounded-full"
+          className="relative rounded-full backdrop-blur-md transition-transform duration-300"
           style={
             {
               transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
