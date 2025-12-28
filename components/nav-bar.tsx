@@ -123,7 +123,6 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           'fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
-        style={{}}
       >
         <div
           className="relative rounded-full backdrop-blur-md transition-transform duration-300"
