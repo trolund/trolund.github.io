@@ -51,8 +51,8 @@ function HomeMarvel() {
             A living atlas of the site
           </h2>
           <p className={styles.subtitle}>
-            Each node is a gateway. Follow the signals to see how projects, writing, and
-            experiments connect into one narrative.
+            Each node is a gateway. Follow the signals to see how projects, writing, and experiments
+            connect into one narrative.
           </p>
         </div>
         <div className={styles.map}>

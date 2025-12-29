@@ -3,13 +3,13 @@
 import { useEffect, useMemo, useRef } from 'react';
 import styles from './contact-reactor.module.css';
 
-type Point = {
+type FieldParticle = {
   x: number;
   y: number;
-  z: number;
   size: number;
   hue: number;
-  glow: number;
+  speed: number;
+  life: number;
 };
 
 const contactItems = [
@@ -33,19 +33,13 @@ const contactItems = [
   },
 ];
 
-const ringConfig = [
-  { radius: 170, tiltX: 0.6, tiltY: 0.1, hue: 32 },
-  { radius: 120, tiltX: -0.4, tiltY: 0.6, hue: 190 },
-  { radius: 90, tiltX: 0.2, tiltY: -0.8, hue: 280 },
-];
-
 const ContactReactor = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
-  const pointsRef = useRef<Point[]>([]);
+  const particlesRef = useRef<FieldParticle[]>([]);
+  const seedsRef = useRef<{ x: number; y: number; hue: number }[]>([]);
   const pointerRef = useRef({ x: 0, y: 0, active: false });
   const animationRef = useRef<number | null>(null);
-  const rotationRef = useRef({ x: 0.4, y: -0.6 });
 
   const nodes = useMemo(() => contactItems, []);
 
@@ -73,39 +67,58 @@ const ContactReactor = () => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    const createPoints = () => {
-      const points: Point[] = [
-        { x: 160, y: -60, z: 60, size: 4.2, hue: 28, glow: 1 },
-        { x: -140, y: 120, z: -70, size: 3.6, hue: 190, glow: 1 },
-        { x: 80, y: 150, z: 110, size: 3.8, hue: 280, glow: 1 },
-      ];
+    const createSeeds = () => {
+      const seeds: { x: number; y: number; hue: number }[] = [];
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const radius = Math.min(width, height) * 0.32;
+      const rings = [radius * 0.6, radius * 0.85, radius];
+      rings.forEach((r, ringIndex) => {
+        const count = 18 + ringIndex * 6;
+        for (let i = 0; i < count; i += 1) {
+          const angle = (i / count) * Math.PI * 2;
+          seeds.push({
+            x: centerX + Math.cos(angle) * r,
+            y: centerY + Math.sin(angle) * r,
+            hue: 28 + ringIndex * 60,
+          });
+        }
+      });
 
-      const count = Math.floor((width * height) / 2600);
+      const edgeCount = Math.floor((width + height) / 28);
+      for (let i = 0; i < edgeCount; i += 1) {
+        const t = i / edgeCount;
+        seeds.push({ x: t * width, y: 0, hue: 200 });
+        seeds.push({ x: t * width, y: height, hue: 220 });
+      }
+      seedsRef.current = seeds;
+    };
+
+    const createParticles = () => {
+      const count = Math.floor((width * height) / 5200);
+      const particles: FieldParticle[] = [];
       for (let i = 0; i < count; i += 1) {
-        const u = Math.random();
-        const v = Math.random();
-        const theta = u * Math.PI * 2;
-        const phi = Math.acos(2 * v - 1);
-        const radius = 180 + Math.random() * 80;
-        points.push({
-          x: radius * Math.sin(phi) * Math.cos(theta),
-          y: radius * Math.sin(phi) * Math.sin(theta),
-          z: radius * Math.cos(phi),
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
           size: 1.1 + Math.random() * 1.6,
-          hue: 200 + Math.random() * 120,
-          glow: 0.4 + Math.random() * 0.6,
+          hue: 180 + Math.random() * 120,
+          speed: 0.6 + Math.random() * 1.2,
+          life: Math.random() * 100,
         });
       }
-      pointsRef.current = points;
+      particlesRef.current = particles;
     };
 
     const resizeObserver = new ResizeObserver(() => {
       resize();
-      createPoints();
+      createSeeds();
+      createParticles();
     });
     resizeObserver.observe(stage);
     resize();
-    createPoints();
+    createSeeds();
+    createParticles();
 
     const handlePointerMove = (event: PointerEvent) => {
       const rect = stage.getBoundingClientRect();
@@ -120,57 +133,6 @@ const ContactReactor = () => {
 
     stage.addEventListener('pointermove', handlePointerMove);
     stage.addEventListener('pointerleave', handlePointerLeave);
-
-    const project = (x: number, y: number, z: number) => {
-      const fov = 520;
-      const scale = fov / (fov + z);
-      return {
-        x: x * scale + width / 2,
-        y: y * scale + height / 2,
-        scale,
-      };
-    };
-
-    const rotatePoint = (x: number, y: number, z: number, rotX: number, rotY: number) => {
-      const cosY = Math.cos(rotY);
-      const sinY = Math.sin(rotY);
-      const x1 = x * cosY - z * sinY;
-      const z1 = x * sinY + z * cosY;
-
-      const cosX = Math.cos(rotX);
-      const sinX = Math.sin(rotX);
-      const y1 = y * cosX - z1 * sinX;
-      const z2 = y * sinX + z1 * cosX;
-
-      return { x: x1, y: y1, z: z2 };
-    };
-
-    const drawRing = (
-      radius: number,
-      tiltX: number,
-      tiltY: number,
-      hue: number,
-      rotX: number,
-      rotY: number,
-      time: number,
-    ) => {
-      ctx.beginPath();
-      const steps = 120;
-      for (let i = 0; i <= steps; i += 1) {
-        const angle = (i / steps) * Math.PI * 2 + time * 0.0002;
-        const px = Math.cos(angle) * radius;
-        const py = Math.sin(angle) * radius;
-        const pz = Math.sin(angle * 0.6) * 20;
-        const tilted = rotatePoint(px, py, pz, tiltX, tiltY);
-        const rotated = rotatePoint(tilted.x, tilted.y, tilted.z, rotX, rotY);
-        const projected = project(rotated.x, rotated.y, rotated.z);
-        if (i === 0) ctx.moveTo(projected.x, projected.y);
-        else ctx.lineTo(projected.x, projected.y);
-      }
-      ctx.strokeStyle = `hsla(${hue}, 90%, 62%, 0.45)`;
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-    };
 
     const drawCore = (time: number) => {
       const pulse = 0.5 + Math.sin(time * 0.002) * 0.2;
@@ -196,64 +158,106 @@ const ContactReactor = () => {
       ctx.stroke();
     };
 
-    const animate = (time: number) => {
-      ctx.clearRect(0, 0, width, height);
+    const fieldVector = (x: number, y: number, time: number) => {
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const dx = x - centerX;
+      const dy = y - centerY;
+      const dist = Math.hypot(dx, dy) + 40;
+      const angle = Math.atan2(dy, dx);
+
+      const tangentX = -dy / dist;
+      const tangentY = dx / dist;
+      const radialX = dx / dist;
+      const radialY = dy / dist;
+
+      const swirl = 120 / dist;
+      const drift = 18 / dist;
+      let vx = tangentX * swirl + radialX * drift;
+      let vy = tangentY * swirl + radialY * drift;
 
       const pointer = pointerRef.current;
-      const targetX = pointer.active ? (pointer.y - 0.5) * 0.8 : 0.3;
-      const targetY = pointer.active ? (pointer.x - 0.5) * 1.0 : -0.4;
-
-      rotationRef.current.x += (targetX - rotationRef.current.x) * 0.04;
-      rotationRef.current.y += (targetY - rotationRef.current.y) * 0.04;
-
-      const rotX = rotationRef.current.x + Math.sin(time * 0.0004) * 0.08;
-      const rotY = rotationRef.current.y + Math.cos(time * 0.00035) * 0.08;
-
-      drawCore(time);
-
-      ctx.globalCompositeOperation = 'lighter';
-      ringConfig.forEach((ring) => {
-        drawRing(ring.radius, ring.tiltX, ring.tiltY, ring.hue, rotX, rotY, time);
-      });
-      ctx.globalCompositeOperation = 'source-over';
-
-      const points = pointsRef.current
-        .map((point) => {
-          const rotated = rotatePoint(point.x, point.y, point.z, rotX, rotY);
-          const projected = project(rotated.x, rotated.y, rotated.z);
-          return { ...point, ...rotated, ...projected };
-        })
-        .sort((a, b) => (a.z ?? 0) - (b.z ?? 0));
-
-      for (let i = 0; i < points.length; i += 1) {
-        const p = points[i];
-        for (let j = i + 1; j < points.length && j < i + 28; j += 1) {
-          const q = points[j];
-          const dx = p.x - q.x;
-          const dy = p.y - q.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < 90) {
-            const alpha = 1 - dist / 90;
-            ctx.strokeStyle = `rgba(120, 160, 220, ${alpha * 0.18})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.stroke();
-          }
-        }
+      if (pointer.active) {
+        const px = pointer.x * width;
+        const py = pointer.y * height;
+        const pdx = x - px;
+        const pdy = y - py;
+        const pdist = Math.hypot(pdx, pdy) + 30;
+        const bend = 160 / pdist;
+        vx += (-pdy / pdist) * bend;
+        vy += (pdx / pdist) * bend;
       }
 
-      points.forEach((point) => {
-        const alpha = 0.45 + (point.glow ?? 0.3) * 0.5;
+      const wobble = Math.sin((x + y) * 0.008 + time * 0.0012) * 0.35;
+      vx += Math.cos(angle) * wobble;
+      vy += Math.sin(angle) * wobble;
+
+      return { vx, vy };
+    };
+
+    const drawFieldLines = (time: number) => {
+      ctx.save();
+      ctx.lineWidth = 1;
+      ctx.globalCompositeOperation = 'lighter';
+
+      seedsRef.current.forEach((seed, index) => {
+        let x = seed.x;
+        let y = seed.y;
         ctx.beginPath();
-        ctx.fillStyle = `hsla(${point.hue}, 90%, 75%, ${alpha})`;
-        ctx.shadowColor = `hsla(${point.hue}, 90%, 75%, 0.65)`;
-        ctx.shadowBlur = point.size * 10;
-        ctx.arc(point.x, point.y, point.size * 1.4 * (point.scale ?? 1), 0, Math.PI * 2);
+        ctx.moveTo(x, y);
+
+        const steps = 70;
+        for (let i = 0; i < steps; i += 1) {
+          const { vx, vy } = fieldVector(x, y, time);
+          x += vx * 6;
+          y += vy * 6;
+          if (x < -40 || x > width + 40 || y < -40 || y > height + 40) break;
+          ctx.lineTo(x, y);
+        }
+
+        const alpha = 0.18 + (index % 6) * 0.02;
+        ctx.strokeStyle = `hsla(${seed.hue}, 90%, 70%, ${alpha})`;
+        ctx.stroke();
+      });
+
+      ctx.restore();
+    };
+
+    const drawParticles = (time: number) => {
+      particlesRef.current.forEach((particle) => {
+        const { vx, vy } = fieldVector(particle.x, particle.y, time);
+        particle.x += vx * particle.speed;
+        particle.y += vy * particle.speed;
+        particle.life -= 1;
+
+        if (
+          particle.life <= 0 ||
+          particle.x < -60 ||
+          particle.x > width + 60 ||
+          particle.y < -60 ||
+          particle.y > height + 60
+        ) {
+          particle.x = Math.random() * width;
+          particle.y = Math.random() * height;
+          particle.life = 60 + Math.random() * 120;
+        }
+
+        ctx.beginPath();
+        ctx.fillStyle = `hsla(${particle.hue}, 90%, 75%, 0.7)`;
+        ctx.shadowColor = `hsla(${particle.hue}, 90%, 75%, 0.6)`;
+        ctx.shadowBlur = 12;
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
         ctx.shadowBlur = 0;
       });
+    };
+
+    const animate = (time: number) => {
+      ctx.clearRect(0, 0, width, height);
+
+      drawCore(time);
+      drawFieldLines(time);
+      drawParticles(time);
 
       animationRef.current = requestAnimationFrame(animate);
     };
