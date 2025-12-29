@@ -306,10 +306,10 @@ const ContactReactor = () => {
             className={styles.canvas}
             aria-label="Interactive 3D contact visualization"
           />
-          <div className={styles.hud}>
+          {/* <div className={styles.hud}>
             <div className={styles.hudLine}>Signal strength: 99%</div>
             <div className={styles.hudLine}>Latency: &lt; 1 business day</div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

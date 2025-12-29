@@ -4,6 +4,7 @@ import FrontBanner from '../components/front-banner';
 import { TITLE } from '@/lib/constants';
 import FrontBackDrop from '@/components/home-backdrop';
 import ContactReactor from '@/components/contact-reactor';
+import ContactWaves from '@/components/contact-waves';
 
 export const metadata = {
   title: `${TITLE} | Home`,
@@ -17,6 +18,7 @@ export default function Page() {
         <FrontBanner />
         <FrontBackDrop />
         <ContactReactor />
+        <ContactWaves />
       </main>
     </>
   );
