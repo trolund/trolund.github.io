@@ -5,6 +5,7 @@ import { TITLE } from '@/lib/constants';
 import FrontBackDrop from '@/components/home-backdrop';
 import ContactReactor from '@/components/contact-reactor';
 import ContactWaves from '@/components/contact-waves';
+import ContactMesh from '@/components/contact-mesh';
 
 export const metadata = {
   title: `${TITLE} | Home`,
@@ -19,6 +20,7 @@ export default function Page() {
         <FrontBackDrop />
         <ContactReactor />
         <ContactWaves />
+        <ContactMesh />
       </main>
     </>
   );
