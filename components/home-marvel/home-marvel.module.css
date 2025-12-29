@@ -1,0 +1,322 @@
+.marvel {
+  position: relative;
+  padding: clamp(80px, 12vw, 140px) clamp(20px, 6vw, 80px);
+  color: var(--content-text);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.marvel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 186, 120, 0.22), transparent 55%),
+    radial-gradient(circle at 90% 0%, rgba(61, 184, 175, 0.2), transparent 60%),
+    radial-gradient(circle at 70% 85%, rgba(68, 142, 214, 0.22), transparent 60%),
+    linear-gradient(150deg, rgba(255, 248, 236, 0.9), rgba(239, 246, 255, 0.6));
+  filter: blur(12px);
+  z-index: -2;
+}
+
+.marvel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(25, 30, 46, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.inner {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  font-family: var(--font-manrope), 'Helvetica Neue', sans-serif;
+}
+
+.heading {
+  max-width: 520px;
+  display: grid;
+  gap: 14px;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(65, 73, 91, 0.75);
+}
+
+.title {
+  font-family: var(--font-space-grotesk), var(--font-manrope), sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(41, 48, 66, 0.75);
+  margin: 0;
+}
+
+.map {
+  position: relative;
+  min-height: clamp(420px, 60vw, 620px);
+  border-radius: 36px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(38, 40, 54, 0.08);
+  box-shadow: 0 40px 90px rgba(15, 20, 32, 0.12);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.map::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border-radius: 999px;
+  border: 1px dashed rgba(32, 37, 52, 0.16);
+  opacity: 0.8;
+}
+
+.map::after {
+  content: '';
+  position: absolute;
+  inset: 20%;
+  border-radius: 999px;
+  border: 1px solid rgba(32, 37, 52, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.7) inset,
+    0 0 80px rgba(255, 186, 120, 0.12);
+}
+
+.orbit {
+  position: absolute;
+  inset: 28%;
+  border-radius: 999px;
+  border: 1px solid rgba(32, 37, 52, 0.08);
+  animation: orbit-glow 8s ease-in-out infinite;
+}
+
+.core {
+  position: relative;
+  text-align: center;
+  max-width: 280px;
+  padding: 32px 24px;
+  border-radius: 24px;
+  background: rgba(15, 20, 32, 0.95);
+  color: rgba(245, 248, 255, 0.95);
+  box-shadow: 0 24px 60px rgba(10, 14, 24, 0.4);
+  z-index: 2;
+}
+
+.coreEyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(214, 220, 232, 0.7);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.coreTitle {
+  font-family: var(--font-space-grotesk), var(--font-manrope), sans-serif;
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+}
+
+.coreCopy {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(214, 220, 232, 0.8);
+}
+
+.nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform:
+    translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
+    translate(-50%, -50%);
+  animation: float 8s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.nodeCard {
+  pointer-events: auto;
+  display: grid;
+  gap: 6px;
+  min-width: 210px;
+  max-width: 240px;
+  padding: 18px 18px 20px;
+  border-radius: 20px;
+  background:
+    linear-gradient(140deg, rgba(var(--accent), 0.25), rgba(255, 255, 255, 0.9));
+  border: 1px solid rgba(var(--accent), 0.45);
+  box-shadow: 0 20px 40px rgba(var(--accent), 0.2);
+  color: rgba(24, 30, 45, 0.9);
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.nodeCard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 26px 60px rgba(var(--accent), 0.28);
+}
+
+.nodeTag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(44, 52, 70, 0.7);
+}
+
+.nodeTitle {
+  font-family: var(--font-space-grotesk), var(--font-manrope), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.nodeCopy {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(44, 52, 70, 0.7);
+}
+
+@keyframes orbit-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(255, 186, 120, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 178, 170, 0.18);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform:
+      translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
+      translate(-50%, -50%)
+      translateY(0);
+  }
+  50% {
+    transform:
+      translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
+      translate(-50%, -50%)
+      translateY(-10px);
+  }
+}
+
+@media (max-width: 900px) {
+  .map {
+    min-height: auto;
+    padding: 34px 24px 40px;
+  }
+
+  .nodes {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .node {
+    position: static;
+    transform: none;
+    animation: none;
+  }
+
+  .nodeCard {
+    min-width: unset;
+    max-width: none;
+  }
+
+  .map::before,
+  .map::after,
+  .orbit {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node,
+  .orbit {
+    animation: none;
+  }
+
+  .nodeCard {
+    transition: none;
+  }
+}
+
+:global([data-theme='dark']) .marvel::before {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 140, 90, 0.14), transparent 58%),
+    radial-gradient(circle at 90% 0%, rgba(45, 156, 150, 0.12), transparent 60%),
+    radial-gradient(circle at 70% 85%, rgba(68, 140, 214, 0.12), transparent 65%),
+    linear-gradient(150deg, rgba(8, 14, 22, 0.95), rgba(6, 12, 20, 0.8));
+}
+
+:global([data-theme='dark']) .marvel::after {
+  opacity: 0.2;
+}
+
+:global([data-theme='dark']) .subtitle {
+  color: rgba(214, 220, 232, 0.75);
+}
+
+:global([data-theme='dark']) .map {
+  background: rgba(10, 16, 28, 0.75);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+}
+
+:global([data-theme='dark']) .map::before {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+:global([data-theme='dark']) .map::after {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 60px rgba(255, 146, 76, 0.1);
+}
+
+:global([data-theme='dark']) .core {
+  background: rgba(7, 10, 18, 0.95);
+  color: rgba(248, 250, 255, 0.95);
+}
+
+:global([data-theme='dark']) .nodeCard {
+  background:
+    linear-gradient(140deg, rgba(var(--accent), 0.15), rgba(8, 12, 20, 0.92));
+  border-color: rgba(var(--accent), 0.35);
+  color: rgba(238, 243, 255, 0.9);
+}
+
+:global([data-theme='dark']) .nodeTag,
+:global([data-theme='dark']) .nodeCopy {
+  color: rgba(195, 205, 220, 0.75);
+}
