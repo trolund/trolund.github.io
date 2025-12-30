@@ -1,11 +1,20 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import styles from './contact-waves.module.css';
+import styles from './contact-gravity.module.css';
 
-const ContactWaves = () => {
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  hue: number;
+};
+
+const ContactGravity = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number | null>(null);
   const isActiveRef = useRef(true);
 
@@ -20,7 +29,6 @@ const ContactWaves = () => {
     let width = 0;
     let height = 0;
     let dpr = window.devicePixelRatio || 1;
-    let time = 0;
 
     const resize = () => {
       const rect = stage.getBoundingClientRect();
@@ -32,15 +40,22 @@ const ContactWaves = () => {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const count = Math.min(120, Math.floor((width * height) / 7000));
+      particlesRef.current = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2,
+        hue: 200 + Math.random() * 80,
+      }));
     };
 
-    const resizeObserver = new ResizeObserver(() => {
-      resize();
-    });
+    const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(stage);
     resize();
 
-    let lastFrame = 0;
+    let lastTime = 0;
     const minFrameMs = 1000 / 50;
     const start = () => {
       if (animationRef.current === null) {
@@ -63,60 +78,57 @@ const ContactWaves = () => {
         animationRef.current = null;
         return;
       }
-      if (now - lastFrame < minFrameMs) {
+      const delta = lastTime ? Math.min(40, now - lastTime) : 16;
+      lastTime = now;
+      if (delta < minFrameMs) {
         animationRef.current = requestAnimationFrame(animate);
         return;
       }
-      lastFrame = now;
-      time = now;
-      ctx.clearRect(0, 0, width, height);
+      const dt = delta / 1000;
 
-      const amplitude = Math.min(height * 0.18, 90);
-      const baseY = height * 0.5;
-      const waveLength = Math.max(width * 0.6, 520);
-      const phase = time * 0.0015;
-
-      const edgeFade = ctx.createLinearGradient(0, 0, width, 0);
-      edgeFade.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      edgeFade.addColorStop(0.08, 'rgba(0, 0, 0, 1)');
-      edgeFade.addColorStop(0.92, 'rgba(0, 0, 0, 1)');
-      edgeFade.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-      const drawWave = (widthScale: number, alpha: number, blur: number) => {
-        ctx.save();
-        ctx.globalAlpha = alpha;
-        ctx.filter = `blur(${blur}px)`;
-        ctx.beginPath();
-        for (let x = 0; x <= width; x += 6) {
-          const theta = (x / waveLength) * Math.PI * 2 + phase;
-          const y =
-            baseY +
-            Math.sin(theta) * amplitude * widthScale +
-            Math.sin(theta * 0.6 + phase * 0.7) * (amplitude * 0.25);
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        const stroke = ctx.createLinearGradient(0, 0, width, 0);
-        stroke.addColorStop(0, 'rgba(90, 200, 230, 0)');
-        stroke.addColorStop(0.2, 'rgba(90, 200, 230, 0.55)');
-        stroke.addColorStop(0.5, 'rgba(140, 210, 255, 0.9)');
-        stroke.addColorStop(0.8, 'rgba(90, 200, 230, 0.55)');
-        stroke.addColorStop(1, 'rgba(90, 200, 230, 0)');
-        ctx.strokeStyle = stroke;
-        ctx.lineWidth = 6;
-        ctx.stroke();
-        ctx.restore();
-      };
-
-      drawWave(1.0, 0.8, 8);
-      drawWave(0.85, 0.6, 14);
-      drawWave(1.15, 0.4, 18);
-
-      ctx.save();
-      ctx.globalCompositeOperation = 'destination-in';
-      ctx.fillStyle = edgeFade;
+      ctx.fillStyle = 'rgba(8, 12, 20, 0.18)';
       ctx.fillRect(0, 0, width, height);
-      ctx.restore();
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const gravity = 55;
+
+      ctx.globalCompositeOperation = 'lighter';
+      particlesRef.current.forEach((particle) => {
+        const dx = centerX - particle.x;
+        const dy = centerY - particle.y;
+        const dist = Math.hypot(dx, dy) + 40;
+        const force = gravity / dist;
+        const swirl = 18 / dist;
+        particle.vx += (dx / dist) * force * dt;
+        particle.vy += (dy / dist) * force * dt;
+        particle.vx += (-dy / dist) * swirl * dt;
+        particle.vy += (dx / dist) * swirl * dt;
+
+        particle.x += particle.vx * (dt * 60);
+        particle.y += particle.vy * (dt * 60);
+        particle.vx *= 0.992;
+        particle.vy *= 0.992;
+
+        if (particle.x < -40) particle.x = width + 40;
+        if (particle.x > width + 40) particle.x = -40;
+        if (particle.y < -40) particle.y = height + 40;
+        if (particle.y > height + 40) particle.y = -40;
+
+        ctx.beginPath();
+        ctx.fillStyle = `hsla(${particle.hue}, 90%, 72%, 0.45)`;
+        ctx.arc(particle.x, particle.y, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      ctx.globalCompositeOperation = 'source-over';
+      const core = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 120);
+      core.addColorStop(0, 'rgba(140, 210, 255, 0.22)');
+      core.addColorStop(1, 'rgba(8, 12, 20, 0)');
+      ctx.fillStyle = core;
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 120, 0, Math.PI * 2);
+      ctx.fill();
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -141,22 +153,22 @@ const ContactWaves = () => {
   }, []);
 
   return (
-    <section className={styles.waves} aria-labelledby="contact-waves-title">
+    <section className={styles.gravity} aria-labelledby="contact-gravity-title">
       <div className={styles.inner}>
         <div className={styles.heading}>
-          <p className={styles.kicker}>Wavefield</p>
-          <h2 className={styles.title} id="contact-waves-title">
-            Perpetual signal tides
+          <p className={styles.kicker}>Gravity Swarm</p>
+          <h2 className={styles.title} id="contact-gravity-title">
+            Orbital attraction
           </h2>
           <p className={styles.subtitle}>
-            Continuous flow lines that never terminate, echoing an always-on contact channel.
+            Particles slingshot around a central attractor, building momentum and cohesion.
           </p>
         </div>
         <div className={styles.stage} ref={stageRef}>
           <canvas
             ref={canvasRef}
             className={styles.canvas}
-            aria-label="Continuous wave field visualization"
+            aria-label="Gravitational swarm visualization"
           />
           <div className={styles.glow} aria-hidden="true" />
         </div>
@@ -165,4 +177,4 @@ const ContactWaves = () => {
   );
 };
 
-export default ContactWaves;
+export default ContactGravity;

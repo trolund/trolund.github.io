@@ -1,11 +1,19 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import styles from './contact-waves.module.css';
+import styles from './contact-cloth.module.css';
 
-const ContactWaves = () => {
+type ClothPoint = {
+  x: number;
+  y: number;
+  vy: number;
+  baseY: number;
+};
+
+const ContactCloth = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<ClothPoint[][]>([]);
   const animationRef = useRef<number | null>(null);
   const isActiveRef = useRef(true);
 
@@ -32,15 +40,27 @@ const ContactWaves = () => {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const cols = 22;
+      const rows = 14;
+      const grid: ClothPoint[][] = [];
+      for (let y = 0; y < rows; y += 1) {
+        const row: ClothPoint[] = [];
+        for (let x = 0; x < cols; x += 1) {
+          const px = (x / (cols - 1)) * width;
+          const py = (y / (rows - 1)) * height;
+          row.push({ x: px, y: py, baseY: py, vy: 0 });
+        }
+        grid.push(row);
+      }
+      gridRef.current = grid;
     };
 
-    const resizeObserver = new ResizeObserver(() => {
-      resize();
-    });
+    const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(stage);
     resize();
 
-    let lastFrame = 0;
+    let lastTime = 0;
     const minFrameMs = 1000 / 50;
     const start = () => {
       if (animationRef.current === null) {
@@ -63,60 +83,55 @@ const ContactWaves = () => {
         animationRef.current = null;
         return;
       }
-      if (now - lastFrame < minFrameMs) {
+      const delta = lastTime ? Math.min(40, now - lastTime) : 16;
+      lastTime = now;
+      if (delta < minFrameMs) {
         animationRef.current = requestAnimationFrame(animate);
         return;
       }
-      lastFrame = now;
-      time = now;
-      ctx.clearRect(0, 0, width, height);
+      const dt = delta / 1000;
+      time = now * 0.001;
 
-      const amplitude = Math.min(height * 0.18, 90);
-      const baseY = height * 0.5;
-      const waveLength = Math.max(width * 0.6, 520);
-      const phase = time * 0.0015;
-
-      const edgeFade = ctx.createLinearGradient(0, 0, width, 0);
-      edgeFade.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      edgeFade.addColorStop(0.08, 'rgba(0, 0, 0, 1)');
-      edgeFade.addColorStop(0.92, 'rgba(0, 0, 0, 1)');
-      edgeFade.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-      const drawWave = (widthScale: number, alpha: number, blur: number) => {
-        ctx.save();
-        ctx.globalAlpha = alpha;
-        ctx.filter = `blur(${blur}px)`;
-        ctx.beginPath();
-        for (let x = 0; x <= width; x += 6) {
-          const theta = (x / waveLength) * Math.PI * 2 + phase;
-          const y =
-            baseY +
-            Math.sin(theta) * amplitude * widthScale +
-            Math.sin(theta * 0.6 + phase * 0.7) * (amplitude * 0.25);
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        const stroke = ctx.createLinearGradient(0, 0, width, 0);
-        stroke.addColorStop(0, 'rgba(90, 200, 230, 0)');
-        stroke.addColorStop(0.2, 'rgba(90, 200, 230, 0.55)');
-        stroke.addColorStop(0.5, 'rgba(140, 210, 255, 0.9)');
-        stroke.addColorStop(0.8, 'rgba(90, 200, 230, 0.55)');
-        stroke.addColorStop(1, 'rgba(90, 200, 230, 0)');
-        ctx.strokeStyle = stroke;
-        ctx.lineWidth = 6;
-        ctx.stroke();
-        ctx.restore();
-      };
-
-      drawWave(1.0, 0.8, 8);
-      drawWave(0.85, 0.6, 14);
-      drawWave(1.15, 0.4, 18);
-
-      ctx.save();
-      ctx.globalCompositeOperation = 'destination-in';
-      ctx.fillStyle = edgeFade;
+      ctx.fillStyle = 'rgba(8, 12, 20, 0.16)';
       ctx.fillRect(0, 0, width, height);
-      ctx.restore();
+
+      const grid = gridRef.current;
+      const wave = Math.sin(time * 1.1) * 10;
+      const damping = 0.88;
+
+      grid.forEach((row) => {
+        row.forEach((point, colIndex) => {
+          const phase = (colIndex / (row.length - 1)) * Math.PI * 2;
+          const target = point.baseY + Math.sin(phase + time * 1.2) * (10 + wave);
+          const dy = target - point.y;
+          point.vy += dy * 4.5 * dt;
+          point.vy *= damping;
+          point.y += point.vy * (dt * 60);
+        });
+      });
+
+      ctx.strokeStyle = 'rgba(120, 190, 255, 0.28)';
+      ctx.lineWidth = 1;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      grid.forEach((row) => {
+        ctx.beginPath();
+        row.forEach((point, index) => {
+          if (index === 0) ctx.moveTo(point.x, point.y);
+          else ctx.lineTo(point.x, point.y);
+        });
+        ctx.stroke();
+      });
+
+      for (let x = 0; x < grid[0].length; x += 1) {
+        ctx.beginPath();
+        for (let y = 0; y < grid.length; y += 1) {
+          const point = grid[y][x];
+          if (y === 0) ctx.moveTo(point.x, point.y);
+          else ctx.lineTo(point.x, point.y);
+        }
+        ctx.stroke();
+      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -141,22 +156,22 @@ const ContactWaves = () => {
   }, []);
 
   return (
-    <section className={styles.waves} aria-labelledby="contact-waves-title">
+    <section className={styles.cloth} aria-labelledby="contact-cloth-title">
       <div className={styles.inner}>
         <div className={styles.heading}>
-          <p className={styles.kicker}>Wavefield</p>
-          <h2 className={styles.title} id="contact-waves-title">
-            Perpetual signal tides
+          <p className={styles.kicker}>Cloth Wave</p>
+          <h2 className={styles.title} id="contact-cloth-title">
+            Tensioned surface
           </h2>
           <p className={styles.subtitle}>
-            Continuous flow lines that never terminate, echoing an always-on contact channel.
+            A soft mesh ripples with traveling waves, like a fabric under steady wind.
           </p>
         </div>
         <div className={styles.stage} ref={stageRef}>
           <canvas
             ref={canvasRef}
             className={styles.canvas}
-            aria-label="Continuous wave field visualization"
+            aria-label="Cloth wave visualization"
           />
           <div className={styles.glow} aria-hidden="true" />
         </div>
@@ -165,4 +180,4 @@ const ContactWaves = () => {
   );
 };
 
-export default ContactWaves;
+export default ContactCloth;

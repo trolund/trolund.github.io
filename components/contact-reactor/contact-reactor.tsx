@@ -40,6 +40,7 @@ const ContactReactor = () => {
   const seedsRef = useRef<{ x: number; y: number; hue: number }[]>([]);
   const pointerRef = useRef({ x: 0, y: 0, active: false });
   const animationRef = useRef<number | null>(null);
+  const isActiveRef = useRef(true);
 
   const nodes = useMemo(() => contactItems, []);
 
@@ -252,7 +253,34 @@ const ContactReactor = () => {
       });
     };
 
+    let lastFrame = 0;
+    const minFrameMs = 1000 / 50;
+    const start = () => {
+      if (animationRef.current === null) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+    const stop = () => {
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
+    };
+    const syncActiveState = () => {
+      if (document.hidden || !isActiveRef.current) stop();
+      else start();
+    };
+
     const animate = (time: number) => {
+      if (document.hidden || !isActiveRef.current) {
+        animationRef.current = null;
+        return;
+      }
+      if (time - lastFrame < minFrameMs) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrame = time;
       ctx.clearRect(0, 0, width, height);
 
       drawCore(time);
@@ -262,10 +290,21 @@ const ContactReactor = () => {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animationRef.current = requestAnimationFrame(animate);
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isActiveRef.current = entry.isIntersecting;
+        syncActiveState();
+      },
+      { threshold: 0.1 },
+    );
+    visibilityObserver.observe(stage);
+    document.addEventListener('visibilitychange', syncActiveState);
+    syncActiveState();
 
     return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      stop();
+      visibilityObserver.disconnect();
+      document.removeEventListener('visibilitychange', syncActiveState);
       resizeObserver.disconnect();
       stage.removeEventListener('pointermove', handlePointerMove);
       stage.removeEventListener('pointerleave', handlePointerLeave);

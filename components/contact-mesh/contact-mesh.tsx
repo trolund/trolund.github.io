@@ -35,6 +35,7 @@ const ContactMesh = () => {
   const pulsesRef = useRef<Pulse[]>([]);
   const ripplesRef = useRef<BeamRipple[]>([]);
   const animationRef = useRef<number | null>(null);
+  const isActiveRef = useRef(true);
   const [nodeCount, setNodeCount] = useState(3);
 
   useEffect(() => {
@@ -181,7 +182,34 @@ const ContactMesh = () => {
       ctx.shadowBlur = 0;
     };
 
+    let lastFrame = 0;
+    const minFrameMs = 1000 / 50;
+    const start = () => {
+      if (animationRef.current === null) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+    const stop = () => {
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
+    };
+    const syncActiveState = () => {
+      if (document.hidden || !isActiveRef.current) stop();
+      else start();
+    };
+
     const animate = (now: number) => {
+      if (document.hidden || !isActiveRef.current) {
+        animationRef.current = null;
+        return;
+      }
+      if (now - lastFrame < minFrameMs) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrame = now;
       const delta = lastTime ? Math.min(40, now - lastTime) : 16;
       lastTime = now;
 
@@ -229,10 +257,21 @@ const ContactMesh = () => {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animationRef.current = requestAnimationFrame(animate);
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isActiveRef.current = entry.isIntersecting;
+        syncActiveState();
+      },
+      { threshold: 0.1 },
+    );
+    visibilityObserver.observe(stage);
+    document.addEventListener('visibilitychange', syncActiveState);
+    syncActiveState();
 
     return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      stop();
+      visibilityObserver.disconnect();
+      document.removeEventListener('visibilitychange', syncActiveState);
       resizeObserver.disconnect();
     };
   }, [nodeCount]);
