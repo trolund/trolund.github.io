@@ -129,15 +129,15 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           isMobileHidden ? 'pointer-events-none' : '',
         )}
       >
-          <div
-            className="relative rounded-full backdrop-blur-md transition-transform duration-300"
-            style={
-              {
-                transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
-                paddingBottom: 'env(safe-area-inset-bottom)',
-              } as React.CSSProperties
-            }
-          >
+        <div
+          className="relative rounded-full backdrop-blur-md transition-transform duration-300"
+          style={
+            {
+              transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
+              paddingBottom: 'env(safe-area-inset-bottom)',
+            } as React.CSSProperties
+          }
+        >
           <div
             className={cn(
               'nav-shell nav-blur flex items-center gap-2 rounded-full px-2 py-2',
