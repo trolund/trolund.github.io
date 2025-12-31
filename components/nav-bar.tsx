@@ -85,7 +85,6 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               'nav-shell hidden items-center gap-2 rounded-full px-2 py-2 backdrop-blur-md md:flex',
               !noBackground && 'border border-border-color shadow-custom',
             )}
-            style={{ viewTransitionName: 'nav-bar' } as React.CSSProperties}
             onMouseMove={handleGlowMove}
           >
             {items.map((item) => (
@@ -130,16 +129,15 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           isMobileHidden ? 'pointer-events-none' : '',
         )}
       >
-        <div
-          className="relative rounded-full backdrop-blur-md transition-transform duration-300"
-          style={
-            {
-              transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
-              viewTransitionName: 'nav-bar',
-              paddingBottom: 'env(safe-area-inset-bottom)',
-            } as React.CSSProperties
-          }
-        >
+          <div
+            className="relative rounded-full backdrop-blur-md transition-transform duration-300"
+            style={
+              {
+                transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
+                paddingBottom: 'env(safe-area-inset-bottom)',
+              } as React.CSSProperties
+            }
+          >
           <div
             className={cn(
               'nav-shell nav-blur flex items-center gap-2 rounded-full px-2 py-2',

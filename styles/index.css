@@ -245,14 +245,6 @@ main {
   filter: blur(12px);
 }
 
-::view-transition-old(nav-bar) {
-  animation: nav-fade-out 140ms ease-out forwards;
-}
-
-::view-transition-new(nav-bar) {
-  animation: nav-fade-in 180ms ease-out forwards;
-}
-
 ::view-transition-old(page) {
   animation: page-fade-out 180ms ease-out forwards;
 }
@@ -261,26 +253,9 @@ main {
   animation: page-fade-in 220ms ease-out forwards;
 }
 
-@keyframes nav-fade-out {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes nav-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
 }
 
 @keyframes page-fade-out {
