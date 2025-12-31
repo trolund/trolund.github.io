@@ -22,6 +22,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const reduceTransparency = usePrefersReducedTransparency();
   const { theme, setTheme } = useTheme();
   const [isMobileHidden, setIsMobileHidden] = useState(false);
+  const [animateThemeIcon, setAnimateThemeIcon] = useState(false);
   const lastScrollY = useRef(0);
   const scrollRaf = useRef<number | null>(null);
 
@@ -39,6 +40,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const handleThemeToggle = () => {
     const next = getNextTheme(currentTheme);
     Cronitor.track('ThemeChange', { message: next });
+    setAnimateThemeIcon(true);
     setTheme(next);
   };
 
@@ -111,7 +113,11 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               aria-label="Toggle theme"
               onClick={handleThemeToggle}
             >
-              <ThemeIcon theme={currentTheme} />
+              <ThemeIcon
+                theme={currentTheme}
+                animateOnChange={animateThemeIcon}
+                onAnimationComplete={() => setAnimateThemeIcon(false)}
+              />
             </button>
           </div>
         </div>
@@ -168,7 +174,11 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             aria-label="Toggle theme"
             onClick={handleThemeToggle}
           >
-            <ThemeIcon theme={currentTheme} />
+            <ThemeIcon
+              theme={currentTheme}
+              animateOnChange={animateThemeIcon}
+              onAnimationComplete={() => setAnimateThemeIcon(false)}
+            />
           </button>
         </div>
       </div>
