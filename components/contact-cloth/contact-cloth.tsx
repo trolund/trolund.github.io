@@ -168,11 +168,7 @@ const ContactCloth = () => {
           </p>
         </div>
         <div className={styles.stage} ref={stageRef}>
-          <canvas
-            ref={canvasRef}
-            className={styles.canvas}
-            aria-label="Cloth wave visualization"
-          />
+          <canvas ref={canvasRef} className={styles.canvas} aria-label="Cloth wave visualization" />
           <div className={styles.glow} aria-hidden="true" />
         </div>
       </div>

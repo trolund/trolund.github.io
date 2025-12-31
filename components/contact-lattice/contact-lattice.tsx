@@ -108,8 +108,7 @@ const ContactLattice = () => {
         ctx.beginPath();
         for (let x = 0; x < grid[y].length; x += 1) {
           const point = grid[y][x];
-          const wobble =
-            Math.sin(point.offset + time * 1.2 + x * waveX + y * waveY) * 10;
+          const wobble = Math.sin(point.offset + time * 1.2 + x * waveX + y * waveY) * 10;
           const px = point.x + Math.cos(point.offset + time * 0.8) * wobble * 0.6;
           const py = point.y + wobble;
           if (x === 0) ctx.moveTo(px, py);
@@ -122,8 +121,7 @@ const ContactLattice = () => {
         ctx.beginPath();
         for (let y = 0; y < grid.length; y += 1) {
           const point = grid[y][x];
-          const wobble =
-            Math.sin(point.offset + time * 1.2 + x * waveX + y * waveY) * 10;
+          const wobble = Math.sin(point.offset + time * 1.2 + x * waveX + y * waveY) * 10;
           const px = point.x + Math.cos(point.offset + time * 0.8) * wobble * 0.6;
           const py = point.y + wobble;
           if (y === 0) ctx.moveTo(px, py);
