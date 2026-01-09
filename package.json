@@ -55,6 +55,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "latest",
     "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
