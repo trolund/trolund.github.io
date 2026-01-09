@@ -219,7 +219,6 @@ const NightParticleCanvas: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="pointer-events-none fixed left-0 top-0 -z-10 h-dvh w-dvw"
-      aria-label="Decorative night particle animation background"
     />
   );
 };
