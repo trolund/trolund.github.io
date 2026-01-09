@@ -5,8 +5,8 @@
   "homepage": "https://troelslund.dk",
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "scan": "next dev --turbopack & npx react-scan@latest localhost:3000",
+    "dev": "next dev",
+    "scan": "next dev & npx react-scan@latest localhost:3000",
     "build": "next build",
     "start": "npx serve@latest out",
     "find:unused": "next-unused",
@@ -29,10 +29,10 @@
     "framer-motion": "^12.23.24",
     "gray-matter": "4.0.3",
     "keyword-extractor": "^0.0.28",
-    "next": "16.0.7",
+    "next": "^16.1.1",
     "next-themes": "^0.4.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^15.6.6",
@@ -50,17 +50,17 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.38.0",
-    "@next/eslint-plugin-next": "^16.0.0",
+    "@next/eslint-plugin-next": "^16.1.1",
     "@tailwindcss/postcss": "^4.1.15",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "latest",
-    "@types/react": "19.2.2",
+    "@types/react": "^19.2.7",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "baseline-browser-mapping": "^2.9.11",
     "eslint": "^9.38.0",
-    "eslint-config-next": "^16.0.0",
+    "eslint-config-next": "^16.1.1",
     "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -75,7 +75,8 @@
     "prettier-plugin-tailwindcss": "^0.7.1",
     "react-scan": "^0.4.3",
     "tailwindcss": "^3.4.14",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "babel-plugin-react-compiler": "latest"
   },
   "next-unused": {
     "alias": {},
@@ -97,10 +98,10 @@
   "license": "MIT",
   "engines": {
     "npm": ">=6.0.0",
-    "node": ">=10.0.0"
+    "node": ">=20.9.0"
   },
   "overrides": {
-    "@types/react": "19.2.2"
+    "@types/react": "^19.2.7"
   },
   "browserslist": [
     "last 2 versions",
