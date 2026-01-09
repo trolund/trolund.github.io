@@ -21,22 +21,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run tests
-        id: tests
         run: npm test
-        continue-on-error: true
-      - name: Publish test report
-        if: always()
-        uses: dorny/test-reporter@v1
-        with:
-          name: Jest Tests
-          path: reports/jest/junit.xml
-          reporter: jest-junit
-      - name: Upload JUnit report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: jest-report
-          path: reports/jest/junit.xml
-      - name: Fail job if tests failed
-        if: steps.tests.outcome == 'failure'
-        run: exit 1
