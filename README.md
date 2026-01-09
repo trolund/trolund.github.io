@@ -1,6 +1,7 @@
 # Personal portfolio website
 
 [![Deploy Next.js site to Pages](https://github.com/trolund/trolund.github.io/actions/workflows/nextjs.yml/badge.svg)](https://github.com/trolund/trolund.github.io/actions/workflows/nextjs.yml)
+[![PR tests](https://github.com/trolund/trolund.github.io/actions/workflows/pr-tests.yml/badge.svg)](https://github.com/trolund/trolund.github.io/actions/workflows/pr-tests.yml)
 ![troelslunddk](https://cronitor.io/badges/dcbGAe/production/3X7aOG8m_mEKeGvjw1ETTyWZPJY.svg)
 
 ---
