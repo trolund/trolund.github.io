@@ -5,8 +5,8 @@ env:
   NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
 
 on:
-  # Runs on pushes to pull requests targeting the default branch
-  pull_request:
+  # Run only when changes are merged into the default branch
+  push:
     branches: ["master"]
     paths-ignore:
       - ".github/workflows/**"
