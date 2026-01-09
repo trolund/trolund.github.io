@@ -10,6 +10,16 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
   },
+  reporters: [
+    'default',
+    [
+      'jest-junit',
+      {
+        outputDirectory: 'reports/jest',
+        outputName: 'junit.xml',
+      },
+    ],
+  ],
 };
 
 export default createJestConfig(customJestConfig);
