@@ -1,4 +1,4 @@
-name: Deploy Next.js site to Pages
+name: Deploy to Pages (CD)
 
 env:
   HUSKY: 0
