@@ -97,6 +97,7 @@ The HyggeWasm compiler represents a significant advancement in the field of WebA
 
 ### Links
 
-The entire thesis can be found [here.](/assets/docs/thesis.pdf) The source code of the *HyggeWasm* compiler can be found [here.](https://github.com/trolund/hygge-wasm)
-
-The *Learning and Development tool* can be used to debug Wasm programs and implement the HyggeWasm runtime. The source code can be found [here.](https://github.com/trolund/hygge-wasm-debugger) and the tool it self can be found [here.](https://trolund.github.io/hygge-wasm-debugger/)
+* The entire thesis can be found [here.](/assets/docs/thesis.pdf)
+* Presentation for the defense can be found [here.](/assets/docs/Presentation-master.pdf)
+* The source code of the *HyggeWasm* compiler can be found [here.](https://github.com/trolund/hygge-wasm)
+* The *Learning and Development tool* can be used to debug Wasm programs and implement the HyggeWasm runtime. The source code can be found [here.](https://github.com/trolund/hygge-wasm-debugger) and the tool it self can be found [here.](https://trolund.github.io/hygge-wasm-debugger/)
