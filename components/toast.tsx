@@ -1,12 +1,9 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { FC } from 'react';
 import { Slide, ToastContainer } from 'react-toastify';
 
-interface ToastProps {}
-
-const Toast: FC<ToastProps> = () => {
+const Toast = () => {
   const { resolvedTheme } = useTheme();
   return (
     <ToastContainer
