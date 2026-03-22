@@ -8,6 +8,7 @@
     "dev": "next dev",
     "scan": "next dev & npx react-scan@latest localhost:3000",
     "build": "next build",
+    "csp:inject": "node scripts/inject-csp.js out",
     "start": "npx serve@latest out",
     "find:unused": "next-unused",
     "prepare": "husky",
