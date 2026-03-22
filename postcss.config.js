@@ -1,6 +1,3 @@
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
-
 /** @type {import('postcss').ProcessOptions} */
 const config = {
   plugins: {
@@ -10,8 +7,8 @@ const config = {
         'is-pseudo-class': false,
       },
     },
-    tailwindcss,
-    autoprefixer,
+    tailwindcss: {},
+    autoprefixer: {},
   },
 };
 

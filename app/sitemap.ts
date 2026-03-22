@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
 
-const sitemapBaseUrl = 'https://troelslund.dk';
+const sitemapBaseUrl = 'https://www.troelslund.dk';
 const buildTime = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {

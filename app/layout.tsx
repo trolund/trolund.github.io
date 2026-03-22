@@ -9,12 +9,14 @@ import { Manrope, Space_Grotesk } from 'next/font/google';
 
 const description =
   'A personal portfolio site featuring projects and a blog focused on web development, programming, and technology.';
+const siteUrl = 'https://www.troelslund.dk';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://troelslund.dk'),
+  metadataBase: new URL(siteUrl),
   title: TITLE,
   applicationName: TITLE,
   description: description,
+  referrer: 'strict-origin-when-cross-origin',
   icons: {
     icon: [
       { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
