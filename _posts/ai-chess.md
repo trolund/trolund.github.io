@@ -13,8 +13,6 @@ technologies: ["Next.js", "React", "TypeScript", "Stockfish", "Web Workers", "PW
 language: "en"
 ---
 
-# Reviving a 5-Year-Old Chess Project With Agentic Coding
-
 Five years ago, I started building this chess project.
 
 At the time, it was probably 90% done. The core idea was there, a lot of the game logic was already in place, and the project had real potential. But like a lot of side projects, it slowly lost momentum. I lost interest, moved on to other things, and never came back to finish the final stretch.
