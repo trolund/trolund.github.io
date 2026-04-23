@@ -45,7 +45,7 @@ jobs:
         uses: openai/codex-action@v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          prompt-file: .github/codex/prompts/daily-website-improvement-apply.md
+          prompt-file: .codex/prompts/daily-website-improvement-apply.md
           output-file: reports/daily-codex-site-review/implementation-summary.md
           model: gpt-5.3-codex
           effort: high
