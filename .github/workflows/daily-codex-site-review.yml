@@ -50,6 +50,7 @@ jobs:
 
       - name: Run Codex UI improvement
         id: apply_codex
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
         continue-on-error: true
         uses: openai/codex-action@v1
         with:
@@ -63,7 +64,7 @@ jobs:
 
       - name: Retry Codex UI improvement once
         id: apply_codex_retry
-        if: steps.apply_codex.outcome != 'success'
+        if: ${{ secrets.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' }}
         continue-on-error: true
         uses: openai/codex-action@v1
         with:
@@ -146,7 +147,7 @@ jobs:
             ["--output-schema",".github/codex/schemas/daily-website-improvement.schema.json"]
 
       - name: Write fallback report when Codex apply fails
-        if: steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success'
+        if: ${{ secrets.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success' }}
         shell: bash
         run: |
           jq -n '{
@@ -157,6 +158,25 @@ jobs:
             rationale: "The workflow now degrades to a no-op report instead of failing the entire job when the model run itself errors.",
             relevant_files: [],
             validation_notes: ["Codex apply phase failed before the build step."],
+            browser_support_notes: [],
+            visual_target: "",
+            artifact_dir: "",
+            screenshots: [],
+            ui_change_description: ""
+          }' > codex-site-review.json
+
+      - name: Write fallback report when OPENAI_API_KEY is missing
+        if: ${{ secrets.OPENAI_API_KEY == '' }}
+        shell: bash
+        run: |
+          jq -n '{
+            action_required: false,
+            title: "OPENAI_API_KEY secret is missing",
+            summary: "The workflow cannot run the Codex apply step because the `OPENAI_API_KEY` secret is not configured for this repository/environment.",
+            recommendation: "Add `OPENAI_API_KEY` in repository or environment secrets, then rerun the workflow.",
+            rationale: "The Codex GitHub Action requires an OpenAI API key to start its local Responses API proxy before executing prompts.",
+            relevant_files: [".github/workflows/daily-codex-site-review.yml"],
+            validation_notes: ["Codex apply step was skipped because `secrets.OPENAI_API_KEY` was empty."],
             browser_support_notes: [],
             visual_target: "",
             artifact_dir: "",
