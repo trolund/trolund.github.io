@@ -52,23 +52,9 @@ jobs:
           sandbox: workspace-write
           safety-strategy: drop-sudo
 
-      - name: Retry Codex focused improvement once
-        id: apply_codex_retry
-        if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' }}
-        continue-on-error: true
-        uses: openai/codex-action@v1
-        with:
-          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          prompt-file: .github/codex/prompts/daily-website-improvement-apply.md
-          output-file: reports/daily-codex-site-review/implementation-summary.md
-          model: gpt-5.3-codex
-          effort: high
-          sandbox: workspace-write
-          safety-strategy: drop-sudo
-
       - name: Detect generated changes
         id: detect_changes
-        if: ${{ steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success' }}
+        if: ${{ steps.apply_codex.outcome == 'success' }}
         shell: bash
         run: |
           if git diff --quiet; then
@@ -129,12 +115,12 @@ jobs:
           echo "OPENAI_API_KEY is missing; skipping Codex improvement run." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Summary when Codex apply failed
-        if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success' }}
+        if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' }}
         run: |
           echo "Codex apply step failed twice; no PR was created." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Summary when no code changes were produced
-        if: ${{ (steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success') && steps.detect_changes.outputs.has_changes != 'true' }}
+        if: ${{ steps.apply_codex.outcome == 'success' && steps.detect_changes.outputs.has_changes != 'true' }}
         run: |
           echo "Codex completed but produced no code changes; no PR was created." >> "$GITHUB_STEP_SUMMARY"
 
