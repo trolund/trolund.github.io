@@ -1,8 +1,8 @@
 name: Daily Codex Improvement PR
 
 on:
-  schedule:
-    - cron: '23 6 * * *'
+  # schedule:
+  #   - cron: '23 6 * * *'
   workflow_dispatch:
 
 permissions:
