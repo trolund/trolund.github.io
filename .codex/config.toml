@@ -32,8 +32,3 @@ nickname_candidates = ["Frame", "Viewport"]
 description = "Markdown and copy editor for portfolio content, blog posts, and page copy."
 config_file = "./agents/content-editor.toml"
 nickname_candidates = ["Quill", "Draft"]
-
-[mcp_servers.chrome_devtools]
-command = "npx"
-args = ["chrome-devtools-mcp", "--browserUrl=http://127.0.0.1:9222"]
-startup_timeout_sec = 20

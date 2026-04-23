@@ -10,3 +10,8 @@ Capture light mode, dark mode, and responsive widths when the target appears res
 Write screenshots and any lightweight manifests only under `reports/daily-codex-site-review/`.
 Do not edit application source files.
 """
+
+[mcp_servers.chrome_devtools]
+command = "npx"
+args = ["chrome-devtools-mcp", "--browserUrl=http://127.0.0.1:9222"]
+startup_timeout_sec = 20
