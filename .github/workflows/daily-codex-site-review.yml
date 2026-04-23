@@ -50,6 +50,7 @@ jobs:
 
       - name: Run Codex UI improvement
         id: apply_codex
+        continue-on-error: true
         uses: openai/codex-action@v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
@@ -61,15 +62,21 @@ jobs:
           safety-strategy: drop-sudo
 
       - name: Save generated patch artifacts
+        if: always()
         shell: bash
         run: |
           git diff --binary > reports/daily-codex-site-review/ui-change.patch
           git diff --stat > reports/daily-codex-site-review/ui-change.stat
 
       - name: Build static site after Codex changes
-        run: npm run build
+        id: build_after_codex
+        if: steps.apply_codex.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: npm run build > /tmp/daily-codex-site-review-build.log 2>&1
 
       - name: Serve built site
+        if: steps.build_after_codex.outcome == 'success'
         shell: bash
         run: |
           npx --yes serve@latest out --listen 4173 > /tmp/daily-codex-site-review-serve.log 2>&1 &
@@ -85,6 +92,7 @@ jobs:
           exit 1
 
       - name: Start headless Chrome for DevTools MCP
+        if: steps.build_after_codex.outcome == 'success'
         shell: bash
         run: |
           "${{ steps.setup-chrome.outputs.chrome-path }}" \
@@ -109,6 +117,8 @@ jobs:
 
       - name: Run Codex visual audit
         id: run_codex
+        if: steps.build_after_codex.outcome == 'success'
+        continue-on-error: true
         uses: openai/codex-action@v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
@@ -120,6 +130,63 @@ jobs:
           safety-strategy: drop-sudo
           codex-args: >-
             ["--output-schema",".github/codex/schemas/daily-website-improvement.schema.json"]
+
+      - name: Write fallback report when Codex apply fails
+        if: steps.apply_codex.outcome != 'success'
+        shell: bash
+        run: |
+          jq -n '{
+            action_required: false,
+            title: "Codex apply phase failed",
+            summary: "The daily Codex UI improvement step did not complete successfully, so no UI change was available for visual review.",
+            recommendation: "Review the `implementation-summary.md` output and the workflow logs before enabling another automated UI change run.",
+            rationale: "The workflow now degrades to a no-op report instead of failing the entire job when the model run itself errors.",
+            relevant_files: [],
+            validation_notes: ["Codex apply phase failed before the build step."],
+            browser_support_notes: [],
+            visual_target: "",
+            artifact_dir: "",
+            screenshots: [],
+            ui_change_description: ""
+          }' > codex-site-review.json
+
+      - name: Write fallback report when post-change build fails
+        if: steps.apply_codex.outcome == 'success' && steps.build_after_codex.outcome != 'success'
+        shell: bash
+        run: |
+          jq -n '{
+            action_required: false,
+            title: "Generated UI change did not build",
+            summary: "Codex produced a UI change, but the repository no longer built successfully afterwards, so the visual capture phase was skipped.",
+            recommendation: "Inspect `ui-change.patch` and the saved build log, then tighten the apply prompt or revert the generated change before the next scheduled run.",
+            rationale: "The automation keeps the pipeline green and preserves the generated diff for inspection rather than failing the entire workflow run.",
+            relevant_files: [],
+            validation_notes: ["`npm run build` failed after the generated UI change."],
+            browser_support_notes: [],
+            visual_target: "",
+            artifact_dir: "",
+            screenshots: [],
+            ui_change_description: ""
+          }' > codex-site-review.json
+
+      - name: Write fallback report when visual audit fails
+        if: steps.build_after_codex.outcome == 'success' && steps.run_codex.outcome != 'success'
+        shell: bash
+        run: |
+          jq -n '{
+            action_required: false,
+            title: "Visual audit phase failed",
+            summary: "The site built successfully after the generated UI change, but the screenshot/reporting phase did not complete.",
+            recommendation: "Inspect the Chrome and Codex visual-audit logs, then rerun the workflow once the Chrome DevTools MCP connection issue is resolved.",
+            rationale: "The workflow keeps the generated patch and build artifacts available even when the post-build reporting phase fails.",
+            relevant_files: [],
+            validation_notes: ["The visual Codex audit did not finish successfully after a successful build."],
+            browser_support_notes: [],
+            visual_target: "",
+            artifact_dir: "",
+            screenshots: [],
+            ui_change_description: ""
+          }' > codex-site-review.json
 
       - name: Summarize result
         id: summarize
@@ -172,6 +239,7 @@ jobs:
             codex-site-review.json
             /tmp/codex-site-review.pretty.json
             reports/daily-codex-site-review/**
+            /tmp/daily-codex-site-review-build.log
             /tmp/daily-codex-site-review-serve.log
             /tmp/daily-codex-site-review-chrome.log
 
@@ -239,7 +307,7 @@ jobs:
                 ? report.screenshots.map((shot) => `- \`${shot.path}\` (${shot.theme}, ${shot.viewport}) - ${shot.note}`)
                 : ["- No screenshots captured"]),
               "",
-              `Artifacts are uploaded with this workflow run under \`daily-codex-site-review\`.`,
+              "Artifacts are uploaded with this workflow run under `daily-codex-site-review`.",
               "",
               "_Generated automatically by the Daily Codex Site Review workflow._"
             ].join("\n");

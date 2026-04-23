@@ -12,6 +12,7 @@ Rules:
 - Do not introduce experimental APIs, unstable Next.js flags, or changes that would break static export.
 - Avoid new dependencies unless the current stack cannot solve the problem cleanly.
 - Do not create screenshots in this phase.
+- Before finishing, run the smallest relevant validation you can for the touched area. Prefer `npm run build` if the change affects rendering.
 
 Process:
 
