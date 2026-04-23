@@ -1,0 +1,39 @@
+# Repo-local Codex defaults for trolund.github.io
+
+[features]
+memories = true
+multi_agent = true
+
+[memories]
+generate_memories = true
+use_memories = true
+disable_on_external_context = false
+
+[agents]
+max_threads = 4
+max_depth = 1
+
+[agents.repo_explorer]
+description = "Read-only codebase explorer for tracing execution paths and locating the right files before changes."
+config_file = "./agents/repo-explorer.toml"
+nickname_candidates = ["Scout", "Trace"]
+
+[agents.frontend_reviewer]
+description = "Read-only reviewer for Next.js, React, static export, and accessibility regressions."
+config_file = "./agents/frontend-reviewer.toml"
+nickname_candidates = ["Harbor", "Lighthouse"]
+
+[agents.ui_render_reviewer]
+description = "Browser-backed UI reviewer that captures rendered screenshots in Chrome for light, dark, and responsive states."
+config_file = "./agents/ui-render-reviewer.toml"
+nickname_candidates = ["Frame", "Viewport"]
+
+[agents.content_editor]
+description = "Markdown and copy editor for portfolio content, blog posts, and page copy."
+config_file = "./agents/content-editor.toml"
+nickname_candidates = ["Quill", "Draft"]
+
+[mcp_servers.chrome_devtools]
+command = "npx"
+args = ["chrome-devtools-mcp", "--browserUrl=http://127.0.0.1:9222"]
+startup_timeout_sec = 20
