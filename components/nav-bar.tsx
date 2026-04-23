@@ -53,6 +53,18 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
     target.style.setProperty('--nav-glow-y', `${y}%`);
   };
 
+  const handleSkipToContent = () => {
+    const main = document.querySelector('main');
+    if (!(main instanceof HTMLElement)) return;
+
+    if (!main.hasAttribute('tabindex')) {
+      main.setAttribute('tabindex', '-1');
+    }
+
+    main.focus({ preventScroll: true });
+    main.scrollIntoView({ block: 'start' });
+  };
+
   useEffect(() => {
     const onScroll = () => {
       if (scrollRaf.current !== null) return;
@@ -76,6 +88,13 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
 
   return (
     <>
+      <button
+        type="button"
+        className="sr-only fixed left-4 top-4 z-[70] rounded-md border border-border-color bg-bg px-3 py-2 text-sm font-semibold text-content-text shadow-custom focus:not-sr-only focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        onClick={handleSkipToContent}
+      >
+        Skip to content
+      </button>
       {spacing && <div className="mb-5 hidden h-16 md:block" />}
       <div className={cn('fixed top-0 z-40 w-full text-content-text')}>
         <div className="mx-auto flex h-[74px] max-w-6xl items-center justify-end px-3 md:justify-center">
