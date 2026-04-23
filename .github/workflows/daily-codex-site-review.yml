@@ -1,4 +1,4 @@
-name: Daily Codex Site Review
+name: Daily Codex Improvement PR
 
 on:
   schedule:
@@ -6,21 +6,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  issues: write
+  contents: write
+  pull-requests: write
 
 concurrency:
   group: daily-codex-site-review
   cancel-in-progress: false
 
 jobs:
-  codex-review:
+  codex-improvement:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
       HUSKY: 0
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
-      NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - name: Checkout
@@ -37,19 +35,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup Chrome
-        id: setup-chrome
-        uses: browser-actions/setup-chrome@v2
-        with:
-          install-dependencies: true
+      - name: Prepare output directory
+        run: mkdir -p reports/daily-codex-site-review
 
-      - name: Install Chrome DevTools MCP server
-        run: npm install --no-save chrome-devtools-mcp
-
-      - name: Prepare visual review directories
-        run: mkdir -p reports/daily-codex-site-review/visuals
-
-      - name: Run Codex UI improvement
+      - name: Run Codex focused improvement
         id: apply_codex
         if: ${{ env.OPENAI_API_KEY != '' }}
         continue-on-error: true
@@ -63,7 +52,7 @@ jobs:
           sandbox: workspace-write
           safety-strategy: drop-sudo
 
-      - name: Retry Codex UI improvement once
+      - name: Retry Codex focused improvement once
         id: apply_codex_retry
         if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' }}
         continue-on-error: true
@@ -77,291 +66,82 @@ jobs:
           sandbox: workspace-write
           safety-strategy: drop-sudo
 
-      - name: Save generated patch artifacts
-        if: always()
+      - name: Detect generated changes
+        id: detect_changes
+        if: ${{ steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success' }}
         shell: bash
         run: |
-          git diff --binary > reports/daily-codex-site-review/ui-change.patch
-          git diff --stat > reports/daily-codex-site-review/ui-change.stat
+          if git diff --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            git diff --binary > reports/daily-codex-site-review/ui-change.patch
+            git diff --stat > reports/daily-codex-site-review/ui-change.stat
+          fi
 
-      - name: Build static site after Codex changes
-        id: build_after_codex
-        if: steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success'
-        continue-on-error: true
+      - name: Build generated change
+        id: build_generated_change
+        if: ${{ steps.detect_changes.outputs.has_changes == 'true' }}
         shell: bash
-        run: npm run build > /tmp/daily-codex-site-review-build.log 2>&1
+        run: npm run build
 
-      - name: Serve built site
-        if: steps.build_after_codex.outcome == 'success'
-        shell: bash
-        run: |
-          npx --yes serve@latest out --listen 4173 > /tmp/daily-codex-site-review-serve.log 2>&1 &
-          echo $! > /tmp/daily-codex-site-review-serve.pid
-          for i in {1..30}; do
-            if curl -sf http://127.0.0.1:4173 >/dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          echo "Local static server did not start in time." >&2
-          cat /tmp/daily-codex-site-review-serve.log >&2 || true
-          exit 1
-
-      - name: Start headless Chrome for DevTools MCP
-        if: steps.build_after_codex.outcome == 'success'
+      - name: Write PR body
+        id: pr_body
+        if: ${{ steps.detect_changes.outputs.has_changes == 'true' && steps.build_generated_change.outcome == 'success' }}
         shell: bash
         run: |
-          "${{ steps.setup-chrome.outputs.chrome-path }}" \
-            --headless \
-            --disable-gpu \
-            --no-sandbox \
-            --remote-debugging-port=9222 \
-            --user-data-dir=/tmp/daily-codex-chrome-profile \
-            --no-first-run \
-            --no-default-browser-check \
-            http://127.0.0.1:4173 > /tmp/daily-codex-site-review-chrome.log 2>&1 &
-          echo $! > /tmp/daily-codex-site-review-chrome.pid
-          for i in {1..30}; do
-            if curl -sf http://127.0.0.1:9222/json/version >/dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          echo "Chrome remote debugging endpoint did not start in time." >&2
-          cat /tmp/daily-codex-site-review-chrome.log >&2 || true
-          exit 1
+          cat > /tmp/codex-pr-body.md <<'MD'
+          ## What changed
+          This PR contains one focused, automated improvement from the daily Codex workflow.
 
-      - name: Run Codex visual audit
-        id: run_codex
-        if: steps.build_after_codex.outcome == 'success'
-        continue-on-error: true
-        uses: openai/codex-action@v1
+          ## Why
+          The goal is to keep improvements small, reviewable, and low-risk while incrementally improving quality.
+
+          ## Validation
+          - `npm run build`
+
+          ## Codex implementation summary
+          MD
+
+          if [ -s reports/daily-codex-site-review/implementation-summary.md ]; then
+            cat reports/daily-codex-site-review/implementation-summary.md >> /tmp/codex-pr-body.md
+          else
+            echo "No implementation summary was generated." >> /tmp/codex-pr-body.md
+          fi
+
+          echo "path=/tmp/codex-pr-body.md" >> "$GITHUB_OUTPUT"
+
+      - name: Create pull request
+        if: ${{ steps.detect_changes.outputs.has_changes == 'true' && steps.build_generated_change.outcome == 'success' }}
+        uses: peter-evans/create-pull-request@v7
         with:
-          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          prompt-file: .github/codex/prompts/daily-website-improvements.md
-          output-file: codex-site-review.json
-          model: gpt-5.3-codex
-          effort: high
-          sandbox: workspace-write
-          safety-strategy: drop-sudo
-          codex-args: >-
-            ["--output-schema",".github/codex/schemas/daily-website-improvement.schema.json"]
+          token: ${{ github.token }}
+          commit-message: 'codex: focused daily improvement'
+          branch: 'codex/daily-improvement-${{ github.run_id }}'
+          title: 'codex: focused daily improvement'
+          body-path: ${{ steps.pr_body.outputs.path }}
+          labels: codex,automation
+          draft: true
 
-      - name: Write fallback report when Codex apply fails
-        if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success' }}
-        shell: bash
-        run: |
-          jq -n '{
-            action_required: false,
-            title: "Codex apply phase failed",
-            summary: "The daily Codex UI improvement step did not complete successfully, so no UI change was available for visual review.",
-            recommendation: "Review the `implementation-summary.md` output and the workflow logs before enabling another automated UI change run.",
-            rationale: "The workflow now degrades to a no-op report instead of failing the entire job when the model run itself errors.",
-            relevant_files: [],
-            validation_notes: ["Codex apply phase failed before the build step."],
-            browser_support_notes: [],
-            visual_target: "",
-            artifact_dir: "",
-            screenshots: [],
-            ui_change_description: ""
-          }' > codex-site-review.json
-
-      - name: Write fallback report when OPENAI_API_KEY is missing
+      - name: Summary when OPENAI_API_KEY is missing
         if: ${{ env.OPENAI_API_KEY == '' }}
-        shell: bash
         run: |
-          jq -n '{
-            action_required: false,
-            title: "OPENAI_API_KEY secret is missing",
-            summary: "The workflow cannot run the Codex apply step because the `OPENAI_API_KEY` secret is not configured for this repository/environment.",
-            recommendation: "Add `OPENAI_API_KEY` in repository or environment secrets, then rerun the workflow.",
-            rationale: "The Codex GitHub Action requires an OpenAI API key to start its local Responses API proxy before executing prompts.",
-            relevant_files: [".github/workflows/daily-codex-site-review.yml"],
-            validation_notes: ["Codex apply step was skipped because `secrets.OPENAI_API_KEY` was empty."],
-            browser_support_notes: [],
-            visual_target: "",
-            artifact_dir: "",
-            screenshots: [],
-            ui_change_description: ""
-          }' > codex-site-review.json
+          echo "OPENAI_API_KEY is missing; skipping Codex improvement run." >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Write fallback report when post-change build fails
-        if: (steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success') && steps.build_after_codex.outcome != 'success'
-        shell: bash
+      - name: Summary when Codex apply failed
+        if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success' }}
         run: |
-          jq -n '{
-            action_required: false,
-            title: "Generated UI change did not build",
-            summary: "Codex produced a UI change, but the repository no longer built successfully afterwards, so the visual capture phase was skipped.",
-            recommendation: "Inspect `ui-change.patch` and the saved build log, then tighten the apply prompt or revert the generated change before the next scheduled run.",
-            rationale: "The automation keeps the pipeline green and preserves the generated diff for inspection rather than failing the entire workflow run.",
-            relevant_files: [],
-            validation_notes: ["`npm run build` failed after the generated UI change."],
-            browser_support_notes: [],
-            visual_target: "",
-            artifact_dir: "",
-            screenshots: [],
-            ui_change_description: ""
-          }' > codex-site-review.json
+          echo "Codex apply step failed twice; no PR was created." >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Write fallback report when visual audit fails
-        if: steps.build_after_codex.outcome == 'success' && steps.run_codex.outcome != 'success'
-        shell: bash
+      - name: Summary when no code changes were produced
+        if: ${{ (steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success') && steps.detect_changes.outputs.has_changes != 'true' }}
         run: |
-          jq -n '{
-            action_required: false,
-            title: "Visual audit phase failed",
-            summary: "The site built successfully after the generated UI change, but the screenshot/reporting phase did not complete.",
-            recommendation: "Inspect the Chrome and Codex visual-audit logs, then rerun the workflow once the Chrome DevTools MCP connection issue is resolved.",
-            rationale: "The workflow keeps the generated patch and build artifacts available even when the post-build reporting phase fails.",
-            relevant_files: [],
-            validation_notes: ["The visual Codex audit did not finish successfully after a successful build."],
-            browser_support_notes: [],
-            visual_target: "",
-            artifact_dir: "",
-            screenshots: [],
-            ui_change_description: ""
-          }' > codex-site-review.json
+          echo "Codex completed but produced no code changes; no PR was created." >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Summarize result
-        id: summarize
-        shell: bash
-        run: |
-          jq . codex-site-review.json > /tmp/codex-site-review.pretty.json
-          echo "action_required=$(jq -r '.action_required' codex-site-review.json)" >> "$GITHUB_OUTPUT"
-          echo "title=$(jq -r '.title' codex-site-review.json)" >> "$GITHUB_OUTPUT"
-          {
-            echo "## Daily Codex Site Review"
-            echo
-            echo "**Title:** $(jq -r '.title' codex-site-review.json)"
-            echo
-            echo "**Summary:**"
-            echo "$(jq -r '.summary' codex-site-review.json)"
-            echo
-            echo "**Recommendation:**"
-            echo "$(jq -r '.recommendation' codex-site-review.json)"
-            echo
-            echo "**Rationale:**"
-            echo "$(jq -r '.rationale' codex-site-review.json)"
-            echo
-            echo "**Relevant files:**"
-            jq -r '.relevant_files[]? | "- `\(.)`"' codex-site-review.json
-            echo
-            echo "**Validation notes:**"
-            jq -r '.validation_notes[]? | "- \(.)"' codex-site-review.json
-            echo
-            echo "**Browser support notes:**"
-            jq -r '.browser_support_notes[]? | "- \(.)"' codex-site-review.json
-            echo
-            echo "**Visual target:**"
-            echo "$(jq -r '.visual_target' codex-site-review.json)"
-            echo
-            echo "**UI change description:**"
-            echo "$(jq -r '.ui_change_description' codex-site-review.json)"
-            echo
-            echo "**Artifact directory:**"
-            echo "`$(jq -r '.artifact_dir' codex-site-review.json)`"
-            echo
-            echo "**Screenshot artifacts:**"
-            jq -r '.screenshots[]? | "- `\(.path)` | \(.theme) | \(.viewport) | \(.note)"' codex-site-review.json
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Upload Codex report artifact
+      - name: Upload run artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: daily-codex-site-review
           path: |
-            codex-site-review.json
-            /tmp/codex-site-review.pretty.json
             reports/daily-codex-site-review/**
-            /tmp/daily-codex-site-review-build.log
-            /tmp/daily-codex-site-review-serve.log
-            /tmp/daily-codex-site-review-chrome.log
-
-      - name: Create tracking issue
-        if: steps.summarize.outputs.action_required == 'true'
-        uses: actions/github-script@v7
-        env:
-          CODEX_REPORT_PATH: codex-site-review.json
-        with:
-          github-token: ${{ github.token }}
-          script: |
-            const fs = require("fs");
-            const report = JSON.parse(fs.readFileSync(process.env.CODEX_REPORT_PATH, "utf8"));
-
-            const labelsToEnsure = ["codex", "site-review"];
-            const existingLabels = await github.paginate(github.rest.issues.listLabelsForRepo, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              per_page: 100,
-            });
-
-            for (const name of labelsToEnsure) {
-              if (!existingLabels.some((label) => label.name === name)) {
-                await github.rest.issues.createLabel({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  name,
-                  color: name === "codex" ? "5319e7" : "0e8a16",
-                });
-              }
-            }
-
-            const today = new Date().toISOString().slice(0, 10);
-            const title = `[Codex Site Review ${today}] ${report.title}`;
-            const body = [
-              "## Summary",
-              report.summary,
-              "",
-              "## Recommendation",
-              report.recommendation,
-              "",
-              "## Why This Matters",
-              report.rationale,
-              "",
-              "## Visual Target",
-              report.visual_target,
-              "",
-              "## Proposed UI Change",
-              report.ui_change_description,
-              "",
-              "## Artifact Directory",
-              `\`${report.artifact_dir}\``,
-              "",
-              "## Relevant Files",
-              ...(report.relevant_files.length ? report.relevant_files.map((file) => `- \`${file}\``) : ["- None"]),
-              "",
-              "## Validation Notes",
-              ...(report.validation_notes.length ? report.validation_notes.map((note) => `- ${note}`) : ["- None"]),
-              "",
-              "## Browser Support Notes",
-              ...(report.browser_support_notes.length ? report.browser_support_notes.map((note) => `- ${note}`) : ["- None"]),
-              "",
-              "## Screenshot Artifacts",
-              ...(report.screenshots.length
-                ? report.screenshots.map((shot) => `- \`${shot.path}\` (${shot.theme}, ${shot.viewport}) - ${shot.note}`)
-                : ["- No screenshots captured"]),
-              "",
-              "Artifacts are uploaded with this workflow run under `daily-codex-site-review`.",
-              "",
-              "_Generated automatically by the Daily Codex Site Review workflow._"
-            ].join("\n");
-
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title,
-              body,
-              labels: labelsToEnsure,
-            });
-
-      - name: Stop local server
-        if: always()
-        shell: bash
-        run: |
-          if [ -f /tmp/daily-codex-site-review-serve.pid ]; then
-            kill "$(cat /tmp/daily-codex-site-review-serve.pid)" || true
-          fi
-          if [ -f /tmp/daily-codex-site-review-chrome.pid ]; then
-            kill "$(cat /tmp/daily-codex-site-review-chrome.pid)" || true
-          fi
