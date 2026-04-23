@@ -21,6 +21,7 @@ jobs:
       HUSKY: 0
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
       NEXT_PUBLIC_CRONITORIO_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_CRONITORIO_CLIENT_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -50,7 +51,7 @@ jobs:
 
       - name: Run Codex UI improvement
         id: apply_codex
-        if: ${{ secrets.OPENAI_API_KEY != '' }}
+        if: ${{ env.OPENAI_API_KEY != '' }}
         continue-on-error: true
         uses: openai/codex-action@v1
         with:
@@ -64,7 +65,7 @@ jobs:
 
       - name: Retry Codex UI improvement once
         id: apply_codex_retry
-        if: ${{ secrets.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' }}
+        if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' }}
         continue-on-error: true
         uses: openai/codex-action@v1
         with:
@@ -147,7 +148,7 @@ jobs:
             ["--output-schema",".github/codex/schemas/daily-website-improvement.schema.json"]
 
       - name: Write fallback report when Codex apply fails
-        if: ${{ secrets.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success' }}
+        if: ${{ env.OPENAI_API_KEY != '' && steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success' }}
         shell: bash
         run: |
           jq -n '{
@@ -166,7 +167,7 @@ jobs:
           }' > codex-site-review.json
 
       - name: Write fallback report when OPENAI_API_KEY is missing
-        if: ${{ secrets.OPENAI_API_KEY == '' }}
+        if: ${{ env.OPENAI_API_KEY == '' }}
         shell: bash
         run: |
           jq -n '{
