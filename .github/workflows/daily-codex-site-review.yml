@@ -61,6 +61,20 @@ jobs:
           sandbox: workspace-write
           safety-strategy: drop-sudo
 
+      - name: Retry Codex UI improvement once
+        id: apply_codex_retry
+        if: steps.apply_codex.outcome != 'success'
+        continue-on-error: true
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .github/codex/prompts/daily-website-improvement-apply.md
+          output-file: reports/daily-codex-site-review/implementation-summary.md
+          model: gpt-5.3-codex
+          effort: high
+          sandbox: workspace-write
+          safety-strategy: drop-sudo
+
       - name: Save generated patch artifacts
         if: always()
         shell: bash
@@ -70,7 +84,7 @@ jobs:
 
       - name: Build static site after Codex changes
         id: build_after_codex
-        if: steps.apply_codex.outcome == 'success'
+        if: steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success'
         continue-on-error: true
         shell: bash
         run: npm run build > /tmp/daily-codex-site-review-build.log 2>&1
@@ -132,7 +146,7 @@ jobs:
             ["--output-schema",".github/codex/schemas/daily-website-improvement.schema.json"]
 
       - name: Write fallback report when Codex apply fails
-        if: steps.apply_codex.outcome != 'success'
+        if: steps.apply_codex.outcome != 'success' && steps.apply_codex_retry.outcome != 'success'
         shell: bash
         run: |
           jq -n '{
@@ -151,7 +165,7 @@ jobs:
           }' > codex-site-review.json
 
       - name: Write fallback report when post-change build fails
-        if: steps.apply_codex.outcome == 'success' && steps.build_after_codex.outcome != 'success'
+        if: (steps.apply_codex.outcome == 'success' || steps.apply_codex_retry.outcome == 'success') && steps.build_after_codex.outcome != 'success'
         shell: bash
         run: |
           jq -n '{
