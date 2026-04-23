@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "action_required": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recommendation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "relevant_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "browser_support_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visual_target": {
+      "type": "string"
+    },
+    "artifact_dir": {
+      "type": "string"
+    },
+    "screenshots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "route": {
+            "type": "string",
+            "minLength": 1
+          },
+          "theme": {
+            "type": "string",
+            "enum": ["light", "dark"]
+          },
+          "viewport": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["path", "route", "theme", "viewport", "note"],
+        "additionalProperties": false
+      }
+    },
+    "ui_change_description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "action_required",
+    "title",
+    "summary",
+    "recommendation",
+    "rationale",
+    "relevant_files",
+    "validation_notes",
+    "browser_support_notes",
+    "visual_target",
+    "artifact_dir",
+    "screenshots",
+    "ui_change_description"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action_required": {
+            "const": true
+          }
+        },
+        "required": ["action_required"]
+      },
+      "then": {
+        "properties": {
+          "visual_target": {
+            "minLength": 1
+          },
+          "artifact_dir": {
+            "minLength": 1
+          },
+          "screenshots": {
+            "minItems": 1
+          },
+          "ui_change_description": {
+            "minLength": 1
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "visual_target": {
+            "maxLength": 0
+          },
+          "artifact_dir": {
+            "maxLength": 0
+          },
+          "screenshots": {
+            "maxItems": 0
+          },
+          "ui_change_description": {
+            "maxLength": 0
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}
