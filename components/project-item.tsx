@@ -21,6 +21,7 @@ interface ProjectItemProps {
   content?: string;
   isDraft?: boolean;
   className?: string;
+  priority?: boolean;
 }
 
 export default function ProjectItem({
@@ -31,10 +32,11 @@ export default function ProjectItem({
   slug,
   technologies,
   language,
+  priority = false,
 }: ProjectItemProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
-    <article className="group relative overflow-hidden rounded-[28px] border border-border-color bg-[var(--bg)] transition-all duration-300 hover:-translate-y-1 hover:shadow-custom-low">
+    <article className="group relative overflow-hidden rounded-[28px] border border-border-color bg-[var(--bg)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low">
       <div className="flex h-full flex-col">
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--bg-color)]">
           {!isLoaded && (
@@ -44,11 +46,11 @@ export default function ProjectItem({
             src={coverImage}
             alt={`${title} - cover image`}
             fill
-            loading="eager"
+            priority={priority}
+            fetchPriority={priority ? 'high' : undefined}
             onLoad={() => setIsLoaded(true)}
             className={`object-cover transition duration-500 group-hover:scale-[1.015] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority
           />
         </div>
         <div className="flex flex-1 flex-col gap-4 p-7">
@@ -62,6 +64,7 @@ export default function ProjectItem({
                   height={14}
                   width={22}
                   alt="dansk"
+                  className="h-auto w-[22px]"
                 />
               ) : (
                 <Image
@@ -70,6 +73,7 @@ export default function ProjectItem({
                   height={14}
                   width={22}
                   alt="english"
+                  className="h-auto w-[22px]"
                 />
               )}
             </span>

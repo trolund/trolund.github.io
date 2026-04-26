@@ -16,7 +16,8 @@
   width: 2px;
   border-radius: 999px;
   background-image: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
-  animation: pulseLine 3.5s ease-in-out infinite;
+  opacity: 0.45;
+  animation: pulseLine 6s ease-in-out infinite;
 }
 
 .timelineItem {
@@ -50,7 +51,10 @@
   border-radius: 999px;
   position: relative;
   z-index: 2;
-  transition: transform 220ms ease, opacity 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .markerDot::after {
@@ -89,7 +93,10 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(-6px);
-  transition: max-height 320ms ease, opacity 200ms ease, transform 200ms ease;
+  transition:
+    max-height 320ms ease,
+    opacity 200ms ease,
+    transform 200ms ease;
 }
 
 .detailsPanelOpen {
@@ -144,6 +151,18 @@
 @media (min-width: 768px) {
   .timeline {
     --line-offset: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::before,
+  .timelineItem,
+  .markerDotActive::after {
+    animation: none;
+  }
+
+  .detailsPanel {
+    transition: opacity 180ms ease;
   }
 }
 

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Your own custom utilities */
 :root {
   --is-dark: 0;
@@ -72,14 +71,14 @@
 @media (prefers-reduced-transparency: reduce) {
   :root {
     --bg-color: #e2e8f0; /* Removed transparency */
-    --footer: #f5f5f5;    /* Solid footer color */
-    --shadow: none;       /* Optional: remove subtle shadows if they create visual noise */
+    --footer: #f5f5f5; /* Solid footer color */
+    --shadow: none; /* Optional: remove subtle shadows if they create visual noise */
     --shadow-low: none;
     --border-color-muted: rgba(203, 179, 179, 0.1); /* Less transparent fallback */
   }
 
   [data-theme='dark'] {
-    --bg-color: #0c0c0c;  /* Solid background in dark mode */
+    --bg-color: #0c0c0c; /* Solid background in dark mode */
     --footer: #12181d;
     --shadow: none;
     --shadow-low: none;
@@ -87,8 +86,8 @@
   }
 }
 
-
 html {
+  color-scheme: light;
   /* make sure that ID-links scroll smooth */
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--menu-height) + 25px);
@@ -101,6 +100,7 @@ html {
 
 body {
   background-color: var(--bg);
+  color: var(--content-text);
 }
 
 .main-content {
@@ -123,10 +123,14 @@ button {
   color: var(--dark-text);
   background-color: rgba(240, 255, 255, 0.7);
   border: solid whitesmoke 1px;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
 }
 
 button:hover {
-  transition: all ease-in-out 0.2s;
   background-color: rgb(240, 255, 255);
   border: solid rgba(255, 255, 255, 0.545) 1px;
 }
@@ -159,7 +163,7 @@ button:hover {
 .nav-shell {
   position: relative;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.62);
   backdrop-filter: blur(24px);
 }
 
@@ -233,61 +237,6 @@ button:hover {
   background-color: rgba(4, 6, 12, 0.78);
 }
 
-main {
-  opacity: 1;
-  transform: none;
-  filter: none;
-}
-
-.page-transition {
-  opacity: 0;
-  transform: translateY(40px);
-  filter: blur(12px);
-}
-
-::view-transition-old(page) {
-  animation: page-fade-out 180ms ease-out forwards;
-}
-
-::view-transition-new(page) {
-  animation: page-fade-in 220ms ease-out forwards;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-}
-
-@keyframes page-fade-out {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(8px);
-    filter: blur(2px);
-  }
-}
-
-@keyframes page-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-    filter: blur(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-.vt-page {
-  view-transition-name: page;
-}
-
 /* Keyframes for blending when there are 2 images */
 @keyframes -ua-mix-blend-mode-plus-lighter {
   from {
@@ -306,4 +255,14 @@ main {
 
 .bg-color {
   background-image: var(--bg-img);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

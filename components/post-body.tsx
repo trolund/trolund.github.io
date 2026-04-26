@@ -21,9 +21,9 @@ type postBodyTypes = {
 export default function PostBody({ className, content }: postBodyTypes) {
   const { resolvedTheme } = useTheme();
 
-  const defClassNames = 'max-w-4xl mx-auto prose dark:prose-invert relative';
+  const defaultClassNames = 'relative mx-auto max-w-4xl prose dark:prose-invert';
   return (
-    <div className={cn(className ?? defClassNames, markdownStyles['markdown'])}>
+    <div className={cn(defaultClassNames, className, markdownStyles['markdown'])}>
       <ReactMarkdown
         components={markdownRenderers(resolvedTheme === Themes.DARK)}
         remarkPlugins={[remarkGfm, remarkMath]}

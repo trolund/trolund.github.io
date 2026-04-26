@@ -57,7 +57,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
           <SearchInput searchTerm={searchTerm} onSearchTermChange={onSearchTermChange} />
         </div>
         <div className="grid w-full max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {visiblePosts.map((post) => (
+          {visiblePosts.map((post, index) => (
             <ProjectItem
               key={post.slug}
               title={post.title}
@@ -69,6 +69,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
               technologies={post.technologies}
               content={''}
               language={post.language}
+              priority={index < 3}
             />
           ))}
           {filteredPosts.length === 0 && (
@@ -85,13 +86,14 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
         >
           <div className="mb-12 flex flex-col items-center justify-center gap-4">
             <button
+              type="button"
               className="inline-flex items-center justify-center rounded-full border border-border-color bg-[var(--bg)] px-6 py-2 text-sm font-semibold text-content-text shadow-custom transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-custom-low"
               onClick={loadMore}
             >
               Load more projects
             </button>
-            <div className="ml-2 text-sm text-gray-500 dark:text-gray-400">
-              {isLoading ? 'Loading more...' : 'Scroll to load more'}
+            <div aria-live="polite" className="ml-2 text-sm text-gray-500 dark:text-gray-400">
+              {isLoading ? 'Loading more…' : 'Scroll to load more'}
             </div>
             <div className="animate-ping">
               <MdArrowDownward className="text-gray-500 dark:text-gray-400" />

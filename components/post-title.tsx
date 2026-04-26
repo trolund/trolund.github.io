@@ -4,11 +4,13 @@ type PostTitleProps = {
 
 export default function PostTitle({ children }: PostTitleProps) {
   return (
-    <div>
-      <h1 className="mb-12 text-center text-5xl font-bold leading-tight tracking-tighter transition-all md:text-left md:text-6xl md:leading-none lg:text-7xl">
+    <header className="mb-8 flex flex-col gap-3 md:mb-10">
+      <p className="text-content-text/55 text-xs font-semibold uppercase tracking-[0.32em]">
+        Portfolio
+      </p>
+      <h1 className="text-balance text-center text-5xl font-semibold leading-[0.96] tracking-[-0.045em] md:text-left md:text-6xl lg:text-[4.5rem]">
         {children}
-        <div className="bg-colors ml-auto mr-auto h-[5px] max-w-[500px] rounded-[8px] bg-cover md:m-0" />
       </h1>
-    </div>
+    </header>
   );
 }

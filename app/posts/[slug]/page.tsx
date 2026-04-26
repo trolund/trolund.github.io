@@ -1,11 +1,9 @@
 import { getAllPosts, getPostBySlug } from '@/lib/api';
 import PostHeader from '@/components/post-header';
 import PostBody from '@/components/post-body';
-import Layout from '@/components/layout';
-import NavBar from '@/components/nav-bar';
 import Container from '@/components/container';
 import { TITLE } from '@/lib/constants';
-import menuItems from '@/constants/menu';
+import { ContainedPage } from '@/components/site-chrome';
 
 type Props = {
   params: Promise<{
@@ -45,24 +43,21 @@ export default async function PostPage({ params }: Props) {
   ]);
 
   return (
-    <>
-      <NavBar items={menuItems} spacing />
-      <Layout>
-        <Container>
-          <article className="mb-32">
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-              language={post.language}
-              technologies={post.technologies}
-              slug={post.slug}
-            />
-            <PostBody content={post.content} />
-          </article>
-        </Container>
-      </Layout>
-    </>
+    <ContainedPage>
+      <Container>
+        <article className="mb-32">
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage}
+            date={post.date}
+            author={post.author}
+            language={post.language}
+            technologies={post.technologies}
+            slug={post.slug}
+          />
+          <PostBody content={post.content} />
+        </article>
+      </Container>
+    </ContainedPage>
   );
 }

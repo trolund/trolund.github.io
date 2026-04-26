@@ -1,5 +1,6 @@
 .markdown {
-  @apply text-lg leading-relaxed;
+  @apply text-[1.02rem] leading-8;
+  color: rgb(19 19 19 / 0.8);
 }
 
 .markdown p,
@@ -10,13 +11,28 @@
 }
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply mb-4 mt-12 text-balance text-3xl font-semibold leading-snug tracking-tight;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply mb-4 mt-8 text-balance text-2xl font-semibold leading-snug tracking-tight;
 }
 
 .markdown a {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.markdown strong {
+  @apply font-semibold;
+  color: rgb(19 19 19);
+}
+
+:global([data-theme='dark']) .markdown {
+  color: rgb(255 255 255 / 0.8);
+}
+
+:global([data-theme='dark']) .markdown strong {
+  color: rgb(255 255 255);
 }

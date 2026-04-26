@@ -9,23 +9,24 @@ function FrontBanner() {
     <section className={styles.hero}>
       <div className={styles.heroInner}>
         <div className={styles.copy}>
+          <p className={styles.eyebrow}>Engineering Portfolio</p>
           <h1 className={styles.title}>Troels Lund</h1>
           <p className={styles.lead}>
-            Software engineer turning complex ideas into clear, fast, and highly-engineered
-            products.
+            Software engineer building resilient digital products with a focus on performance,
+            clarity, and operationally safe systems.
           </p>
           <div className={styles.ctaRow}>
-            <LinkTransition className={styles.primaryCta} href="projects">
-              View projects
+            <LinkTransition className={styles.primaryCta} href="/projects">
+              Explore Projects
             </LinkTransition>
-            <LinkTransition className={styles.secondaryCta} href="about">
-              About me
+            <LinkTransition className={styles.secondaryCta} href="/about">
+              About Me
             </LinkTransition>
           </div>
           <div className={styles.tags}>
-            <span className={styles.tag}>Software engineering 🧑🏽‍💻</span>
-            <span className={styles.tag}>Product-minded builder 🛠️</span>
-            <span className={styles.tag}>Performance, concurrency & scalability 🚀</span>
+            <span className={styles.tag}>Full-stack Engineering</span>
+            <span className={styles.tag}>Product-minded Delivery</span>
+            <span className={styles.tag}>Performance, Concurrency &amp; Scale</span>
           </div>
           <SocialLinks />
         </div>

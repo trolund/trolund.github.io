@@ -28,7 +28,14 @@ export default function PostHeader({
   return (
     <header className="mb-12">
       <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[28px] bg-[var(--bg-color)]">
-        <Image src={coverImage} alt={title} fill className="object-cover" priority />
+        <Image
+          src={coverImage}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 1200px"
+          priority
+        />
       </div>
       <div className="mt-8 flex flex-col gap-6">
         <div className="flex flex-wrap items-center justify-between text-[0.7rem] uppercase tracking-[0.35em] text-content-text opacity-60">
@@ -41,6 +48,7 @@ export default function PostHeader({
                 height={14}
                 width={22}
                 alt="dansk"
+                className="h-auto w-[22px]"
               />
             ) : (
               <Image
@@ -49,6 +57,7 @@ export default function PostHeader({
                 height={14}
                 width={22}
                 alt="english"
+                className="h-auto w-[22px]"
               />
             )}
           </span>
