@@ -1,8 +1,7 @@
-import NavBar from '../components/nav-bar';
-import menuItems from '../constants/menu';
 import FrontBanner from '../components/front-banner';
 import { TITLE } from '@/lib/constants';
 import FrontBackDrop from '@/components/home-backdrop';
+import { ImmersivePage } from '@/components/site-chrome';
 
 export const metadata = {
   title: `${TITLE} | Home`,
@@ -10,12 +9,11 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <>
-      <NavBar items={menuItems} />
-      <main className="vt-page overflow-x-hidden overflow-y-hidden">
+    <ImmersivePage mainClassName="overflow-y-hidden">
+      <div className="relative">
         <FrontBanner />
         <FrontBackDrop />
-      </main>
-    </>
+      </div>
+    </ImmersivePage>
   );
 }

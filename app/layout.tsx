@@ -63,8 +63,14 @@ const spaceGrotesk = Space_Grotesk({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="en" data-scroll-behavior="smooth">
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-content-text focus:px-4 focus:py-2 focus:text-text"
+        >
+          Skip to main content
+        </a>
         <StrictMode>
           <ThemeProvider enableSystem={true}>
             {children}

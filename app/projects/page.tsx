@@ -1,12 +1,10 @@
 import Container from '@/components/container';
-import Layout from '@/components/layout';
-import NavBar from '@/components/nav-bar';
 import PostBody from '@/components/post-body';
 import PostTitle from '@/components/post-title';
 import ProjectsView from '@/components/projects';
-import menuItems from '@/constants/menu';
 import { getAllProjects, getContent } from '@/lib/api';
 import { TITLE } from '@/lib/constants';
+import { ContainedPage } from '@/components/site-chrome';
 
 export const metadata = {
   title: `${TITLE} | Projects`,
@@ -28,15 +26,12 @@ export default async function ProjectsPage() {
   const project = await getContent('project', ['title', 'content']);
 
   return (
-    <>
-      <NavBar items={menuItems} spacing />
-      <Layout>
-        <Container>
-          <PostTitle>Projects</PostTitle>
-          <PostBody className="mx-auto" content={project.content} />
-          <ProjectsView posts={projects} />
-        </Container>
-      </Layout>
-    </>
+    <ContainedPage>
+      <Container>
+        <PostTitle>Projects</PostTitle>
+        <PostBody className="mx-auto" content={project.content} />
+        <ProjectsView posts={projects} />
+      </Container>
+    </ContainedPage>
   );
 }

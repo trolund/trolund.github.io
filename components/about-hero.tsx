@@ -34,33 +34,16 @@ const highlights = [
   },
 ];
 
-function calculateAge(birthdate: string) {
-  const birthDate = new Date(birthdate);
-  const today = new Date();
-
-  let age = today.getFullYear() - birthDate.getFullYear();
-
-  const monthDifference = today.getMonth() - birthDate.getMonth();
-  const dayDifference = today.getDate() - birthDate.getDate();
-
-  if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
-    age--;
-  }
-
-  return age;
-}
-
 export default function AboutHero({ content }: AboutHeroProps) {
   return (
-    <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white shadow-[0_35px_60px_rgba(15,23,42,0.45)]">
-      <div className="pointer-events-none absolute -right-32 top-10 h-72 w-72 rounded-full bg-white/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-fuchsia-500/30 blur-[140px]" />
-      <div className="relative grid gap-10 p-4 md:p-8 lg:grid-cols-[320px,1fr] lg:gap-14 lg:p-12">
+    <section className="relative overflow-hidden rounded-[36px] border border-border-color bg-[var(--bg)] text-content-text shadow-custom">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(141,177,224,0.2),transparent_34%),radial-gradient(circle_at_96%_8%,rgba(170,92,233,0.14),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.3),transparent_38%)] dark:bg-[radial-gradient(circle_at_8%_0%,rgba(141,177,224,0.12),transparent_34%),radial-gradient(circle_at_96%_8%,rgba(170,92,233,0.14),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.05),transparent_40%)]" />
+      <div className="relative grid gap-8 p-5 md:p-8 lg:grid-cols-[320px,1fr] lg:gap-12 lg:p-10">
         <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
-          <div className="relative h-48 w-48 overflow-hidden rounded-[28px] border border-white/25 shadow-[0_20px_45px_rgba(15,15,40,0.7)]">
+          <div className="relative h-48 w-48 overflow-hidden rounded-[30px] border border-white/60 bg-white/60 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:shadow-[0_24px_60px_rgba(0,0,0,0.3)]">
             <Image
               loader={localImageLoader}
-              src="/profil3.png"
+              src="/profil3.jpg"
               alt="Portrait of Troels Lund"
               fill
               className="object-cover object-top"
@@ -68,30 +51,31 @@ export default function AboutHero({ content }: AboutHeroProps) {
               priority
             />
           </div>
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
+          <div className="space-y-3">
+            <p className="text-content-text/55 text-xs font-semibold uppercase tracking-[0.35em]">
               Software Engineer
             </p>
-            <h2 className="text-4xl font-semibold leading-tight">Troels Elsvad Lund</h2>
-            <i className="text-white/80">
-              {calculateAge('1994-10-06')} y/o engineer combining product thinking, modern .NET
-              platforms, and elegant frontend experiences to deliver resilient, user-centered
-              systems.
-            </i>
+            <h2 className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-[2.8rem]">
+              Troels Elsvad Lund
+            </h2>
+            <p className="text-content-text/72 text-pretty text-sm leading-7 md:text-base">
+              Engineer combining product thinking, modern .NET platforms, and elegant frontend
+              experiences to deliver resilient, user-centered systems.
+            </p>
           </div>
-          <dl className="grid w-full grid-cols-2 gap-4 text-left text-white/90">
+          <dl className="grid w-full grid-cols-2 gap-4 text-left text-content-text">
             {highlights.map((item) => (
               <div
                 key={item.label}
-                className="min-w-0 rounded-2xl border border-white/15 bg-white/5 p-4 text-sm backdrop-blur-lg transition hover:bg-white/10"
+                className="bg-white/72 hover:bg-white/86 min-w-0 rounded-[24px] border border-border-color p-4 text-sm shadow-[0_16px_36px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-colors dark:bg-white/5 dark:hover:bg-white/10"
               >
-                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-white/60">
+                <dt className="text-content-text/55 text-[0.65rem] font-semibold uppercase tracking-[0.3em]">
                   {item.label}
                 </dt>
-                <dd className="text-balance text-[clamp(1rem,2.1vw,1.3rem)] font-semibold leading-tight text-white">
+                <dd className="text-balance text-[clamp(1rem,2.1vw,1.3rem)] font-semibold leading-tight">
                   {item.value}
                 </dd>
-                <p className="mt-1 text-xs text-white/70">{item.detail}</p>
+                <p className="text-content-text/68 mt-1 text-xs leading-5">{item.detail}</p>
               </div>
             ))}
           </dl>
@@ -99,7 +83,8 @@ export default function AboutHero({ content }: AboutHeroProps) {
             <a
               onClick={() => Cronitor.track('CVDownload')}
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.26em] transition hover:bg-white/20"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border-color bg-white/70 px-5 py-2 text-sm font-semibold uppercase tracking-[0.26em] text-content-text shadow-custom transition-[transform,background-color] duration-200 hover:-translate-y-0.5 hover:bg-white/90 dark:bg-white/5 dark:hover:bg-white/10"
               href="/assets/Troels_Lund_CV_2025.pdf"
               aria-label="Download my CV"
             >
@@ -108,13 +93,13 @@ export default function AboutHero({ content }: AboutHeroProps) {
             </a>
             <SocialLinks
               iconSize={24}
-              className="text-white/80"
-              linkClassName="text-white/80 hover:text-white"
+              className="text-content-text/80"
+              linkClassName="text-content-text/78 hover:text-content-text"
             />
           </div>
         </div>
-        <div className="rounded-2xl border border-white/10 bg-slate-900/30 p-6 shadow-[0_25px_65px_rgba(15,23,42,0.35)] backdrop-blur">
-          <PostBody className="prose prose-invert max-w-none text-white/90" content={content} />
+        <div className="bg-white/74 rounded-[30px] border border-border-color p-6 shadow-[0_24px_70px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:bg-white/5">
+          <PostBody className="max-w-none" content={content} />
         </div>
       </div>
     </section>

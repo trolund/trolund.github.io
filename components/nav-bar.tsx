@@ -17,6 +17,38 @@ export type MenuProps = {
   noBackground?: boolean;
 };
 
+type NavLinkProps = {
+  item: MenuItem;
+  isActive: boolean;
+  mobile?: boolean;
+};
+
+function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
+  return (
+    <LinkTransition
+      href={item.link}
+      aria-current={isActive ? 'page' : undefined}
+      className={cn(
+        'nav-pill relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
+        mobile
+          ? 'min-w-0 px-2 py-2 text-center text-[0.65rem] leading-tight tracking-[0.12em]'
+          : 'px-4 py-2 text-[0.82rem] tracking-[0.3em]',
+        isActive
+          ? 'bg-content-text text-text'
+          : 'hover:bg-content-text/15 text-content-text opacity-80 hover:text-content-text hover:opacity-100',
+      )}
+    >
+      {mobile ? <span className="block">{item.itemName}</span> : item.itemName}
+      {isActive && !mobile && (
+        <span
+          className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
+          aria-hidden="true"
+        />
+      )}
+    </LinkTransition>
+  );
+}
+
 const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const pathname = usePathname();
   const reduceTransparency = usePrefersReducedTransparency();
@@ -25,10 +57,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const [animateThemeIcon, setAnimateThemeIcon] = useState(false);
   const lastScrollY = useRef(0);
   const scrollRaf = useRef<number | null>(null);
-
-  if (reduceTransparency) {
-    noBackground = false;
-  }
+  const shouldUseSolidShell = reduceTransparency || noBackground;
 
   const themes = Object.values(Themes) as Themes[];
   const currentTheme = (theme as Themes) ?? Themes.SYSTEM;
@@ -80,35 +109,21 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
       <div className={cn('fixed top-0 z-40 w-full text-content-text')}>
         <div className="mx-auto flex h-[74px] max-w-6xl items-center justify-end px-3 md:justify-center">
           {/* Desktop Navigation */}
-          <div
+          <nav
+            aria-label="Primary"
             className={cn(
               'nav-shell hidden items-center gap-2 rounded-full px-2 py-2 backdrop-blur-md md:flex',
               !noBackground && 'border border-border-color shadow-custom',
+              shouldUseSolidShell && 'nav-shell-solid',
             )}
             onMouseMove={handleGlowMove}
           >
             {items.map((item) => (
-              <LinkTransition
-                key={item.link}
-                href={item.link}
-                className={cn(
-                  'nav-pill relative rounded-full px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.3em] transition-all duration-200',
-                  pathname === item.link
-                    ? 'bg-content-text text-text'
-                    : 'hover:bg-content-text/15 text-content-text opacity-80 hover:text-content-text hover:opacity-100',
-                )}
-              >
-                {item.itemName}
-                {pathname === item.link && (
-                  <span
-                    className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
-                    aria-hidden="true"
-                  />
-                )}
-              </LinkTransition>
+              <NavLink key={item.link} item={item} isActive={pathname === item.link} />
             ))}
             <button
-              className="ml-1 inline-flex h-9 w-9 min-w-0 items-center justify-center rounded-full p-0 text-content-text opacity-70 transition-all hover:bg-black/20 hover:text-content-text hover:opacity-100"
+              type="button"
+              className="ml-1 inline-flex h-9 w-9 min-w-0 items-center justify-center rounded-full p-0 text-content-text opacity-70 transition-colors duration-200 hover:bg-black/20 hover:text-content-text hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950"
               aria-label="Toggle theme"
               onClick={handleThemeToggle}
             >
@@ -118,7 +133,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
                 onAnimationComplete={() => setAnimateThemeIcon(false)}
               />
             </button>
-          </div>
+          </nav>
         </div>
       </div>
 
@@ -138,34 +153,31 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             } as React.CSSProperties
           }
         >
-          <div
+          <nav
+            aria-label="Primary mobile"
             className={cn(
               'nav-shell nav-blur flex items-center gap-2 rounded-full px-2 py-2',
               'border border-border-color shadow-custom',
+              shouldUseSolidShell && 'nav-shell-solid',
             )}
             style={{ paddingTop: '0.5rem', paddingBottom: '0.5rem' }}
             onMouseMove={handleGlowMove}
           >
             <div className="grid flex-1 grid-cols-4 gap-1">
               {items.map((item) => (
-                <LinkTransition
+                <NavLink
                   key={item.link}
-                  href={item.link}
-                  className={cn(
-                    'nav-pill min-w-0 rounded-full px-2 py-2 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-all',
-                    pathname === item.link
-                      ? 'bg-content-text text-text'
-                      : 'hover:bg-content-text/15 text-content-text opacity-70 hover:text-content-text hover:opacity-100',
-                  )}
-                >
-                  <span className="block">{item.itemName}</span>
-                </LinkTransition>
+                  item={item}
+                  isActive={pathname === item.link}
+                  mobile={true}
+                />
               ))}
             </div>
-          </div>
+          </nav>
           <button
+            type="button"
             className={cn(
-              'absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-all hover:-translate-y-0.5 hover:bg-black/20 hover:text-content-text',
+              'absolute -top-12 right-4 inline-flex h-11 w-11 min-w-0 items-center justify-center rounded-full border border-border-color bg-bg-color p-0 text-content-text shadow-custom transition-[transform,background-color,color] duration-200 hover:-translate-y-0.5 hover:bg-black/20 hover:text-content-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
               !noBackground &&
                 (reduceTransparency ? 'bg-bg-color backdrop-blur-md' : 'bg-[var(--bg)]'),
             )}

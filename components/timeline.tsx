@@ -162,7 +162,7 @@ export function TimelineItem({
 
   const cardClassName = cn(
     styles.card,
-    'group rounded-[28px] border border-border-color bg-[var(--bg)] shadow-custom transition-all duration-300 hover:-translate-y-1 hover:shadow-custom-low',
+    'group rounded-[28px] border border-border-color bg-[var(--bg)] shadow-custom transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low',
   );
   const cardHeaderClassName = 'px-6 py-6';
 
