@@ -1,5 +1,5 @@
 import { VscGithubInverted } from 'react-icons/vsc';
-import { SiLinkedin } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 
 type SocialLinksProps = {
@@ -32,7 +32,7 @@ export default function SocialLinks({ className, linkClassName, iconSize = 22 }:
         rel="noreferrer"
         target="_blank"
       >
-        <SiLinkedin color="currentColor" size={iconSize} />
+        <FaLinkedin color="currentColor" size={iconSize} />
         LinkedIn
       </a>
     </div>

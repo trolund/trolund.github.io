@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/legacy/image';
-import { SiLinkedin } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa';
 import { VscGithubInverted, VscCloudDownload } from 'react-icons/vsc';
 import * as Cronitor from '@cronitorio/cronitor-rum';
 import Card from './card';
@@ -76,7 +76,7 @@ export default function ProfileCard() {
                   href="https://www.linkedin.com/in/trolund/"
                   aria-label="Link to my Linkedin profile"
                 >
-                  <SiLinkedin color="var(--content-text)" size={25} />
+                  <FaLinkedin color="var(--content-text)" size={25} />
                 </a>
               </li>
             </ol>
