@@ -15,7 +15,7 @@ type TimelineLogo = {
   borderRadius?: number;
 };
 
-export type TimelineItemProps = {
+type TimelineItemProps = {
   title: string;
   subtitle: string;
   period: string;

@@ -31,7 +31,7 @@ import {
   FaCss3Alt,
 } from 'react-icons/fa';
 
-export interface ShipProps {
+interface ShipProps {
   value: string;
   className?: string;
   icon?: React.ReactNode;

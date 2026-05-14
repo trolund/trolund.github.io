@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import LinkTransition from './link-transition';
 
-export interface CertificationItemProps {
+interface CertificationItemProps {
   href?: URL | string;
   title: string;
   subTitle: string;

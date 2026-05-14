@@ -6,13 +6,13 @@ import { BlogPost } from '../types/blogPost';
 const postsDirectory = join(process.cwd(), '_posts');
 const contentDirectory = join(process.cwd(), '_content');
 
-export type BlogFields = (keyof BlogPost)[];
+type BlogFields = (keyof BlogPost)[];
 
-export async function getPostSlugs() {
+async function getPostSlugs() {
   return await fs.readdir(postsDirectory);
 }
 
-export async function getContentFile(name: string): Promise<string> {
+async function getContentFile(name: string): Promise<string> {
   const filePath = join(postsDirectory, `${name}.md`);
   const fileContents = await fs.readFile(filePath, 'utf8');
   return fileContents;

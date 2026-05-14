@@ -11,7 +11,7 @@ import { useTheme } from 'next-themes';
 import { Themes } from '@/types/theme';
 import * as Cronitor from '@cronitorio/cronitor-rum';
 
-export type MenuProps = {
+type MenuProps = {
   items: MenuItem[];
   spacing?: boolean;
   noBackground?: boolean;
