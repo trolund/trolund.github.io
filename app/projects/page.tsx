@@ -1,7 +1,7 @@
 import Container from '@/components/container';
-import PostBody from '@/components/post-body';
 import PostTitle from '@/components/post-title';
 import ProjectsView from '@/components/projects';
+import StaticMarkdown from '@/components/static-markdown';
 import { getAllProjects, getContent } from '@/lib/api';
 import { TITLE } from '@/lib/constants';
 import { ContainedPage } from '@/components/site-chrome';
@@ -29,7 +29,7 @@ export default async function ProjectsPage() {
     <ContainedPage>
       <Container>
         <PostTitle>Projects</PostTitle>
-        <PostBody className="mx-auto" content={project.content} />
+        <StaticMarkdown className="mx-auto" content={project.content} />
         <ProjectsView posts={projects} />
       </Container>
     </ContainedPage>

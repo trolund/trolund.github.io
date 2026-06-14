@@ -13,11 +13,20 @@ const publicDir = path.join(__dirname, '../public');
 const sizes = [
   { name: 'xxsmall', width: 100 },
   { name: 'xsmall', width: 200 },
-  { name: 'small', width: 400 },
-  { name: 'medium', width: 800 },
+  { name: 'small', width: 320 },
+  { name: 'medium', width: 640 },
   { name: 'large', width: 1200 },
   { name: 'xlarge', width: 1800 },
 ];
+
+const qualityByVariant = {
+  xxsmall: 72,
+  xsmall: 72,
+  small: 70,
+  medium: 68,
+  large: 74,
+  xlarge: 78,
+};
 
 function walkAndOptimize(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -51,10 +60,11 @@ function optimizeImage(filePath) {
 
   sizes.forEach(({ name, width }) => {
     const outputPath = path.join(outputDir, `${baseName}-${name}.webp`);
+    const quality = qualityByVariant[name] ?? 75;
 
     sharp(filePath)
       .resize({ width })
-      .webp({ quality: 80 })
+      .webp({ quality })
       .toFile(outputPath)
       .then(() => console.log(`✅ Optimized: ${filePath} → ${outputPath}`))
       .catch((err) => console.error(`❌ Failed: ${filePath}`, err));

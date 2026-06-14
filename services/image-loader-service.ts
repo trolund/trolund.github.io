@@ -5,8 +5,8 @@ import type { ImageLoaderProps } from 'next/image';
 const IMAGE_VARIANTS = [
   { name: 'xxsmall', width: 100 },
   { name: 'xsmall', width: 200 },
-  { name: 'small', width: 400 },
-  { name: 'medium', width: 800 },
+  { name: 'small', width: 320 },
+  { name: 'medium', width: 640 },
   { name: 'large', width: 1200 },
   { name: 'xlarge', width: 1800 },
 ] as const;
