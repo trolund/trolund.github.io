@@ -35,6 +35,7 @@ interface ShipProps {
   value: string;
   className?: string;
   icon?: React.ReactNode;
+  showIcon?: boolean;
 }
 
 function getIconForValue(value: string) {
@@ -93,8 +94,8 @@ function getIconForValue(value: string) {
   return null;
 }
 
-export default function Ship({ value, className, icon }: ShipProps) {
-  const resolvedIcon = icon ?? getIconForValue(value);
+export default function Ship({ value, className, icon, showIcon = true }: ShipProps) {
+  const resolvedIcon = showIcon ? icon ?? getIconForValue(value) : null;
   return (
     <span
       className={cn(

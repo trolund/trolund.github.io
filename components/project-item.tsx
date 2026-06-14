@@ -83,6 +83,7 @@ export default function ProjectItem({
                 <Ship
                   key={`${i}-${slug}`}
                   value={t}
+                  showIcon={false}
                   className="rounded-full border border-border-color bg-transparent px-3 py-1 text-[0.7rem] uppercase tracking-[0.2em] text-content-text opacity-70"
                 />
               ))}
