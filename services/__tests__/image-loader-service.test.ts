@@ -9,26 +9,26 @@ import {
 describe('image loader service', () => {
   test('maps local raster images to the nearest optimized asset', () => {
     expect(getOptimizedImagePath('/assets/blog/front1.jpeg', 640)).toBe(
-      '/assets/blog/optimized/front1-medium.webp'
+      '/assets/blog/optimized/front1-medium.webp',
     );
     expect(getOptimizedImagePath('/assets/blog/front1.jpeg', 1600)).toBe(
-      '/assets/blog/optimized/front1-xlarge.webp'
+      '/assets/blog/optimized/front1-xlarge.webp',
     );
   });
 
   test('keeps svg and remote assets unchanged', () => {
     expect(getOptimizedImagePath('/assets/flags/en.svg', 200)).toBe('/assets/flags/en.svg');
     expect(getOptimizedImagePath('https://example.com/image.jpg', 200)).toBe(
-      'https://example.com/image.jpg'
+      'https://example.com/image.jpg',
     );
   });
 
   test('produces a responsive srcset for local raster images', () => {
     expect(getOptimizedImageSrcSet('/assets/blog/front1.jpeg')).toContain(
-      '/assets/blog/optimized/front1-xxsmall.webp 100w'
+      '/assets/blog/optimized/front1-xxsmall.webp 100w',
     );
     expect(getOptimizedImageSrcSet('/assets/blog/front1.jpeg')).toContain(
-      '/assets/blog/optimized/front1-xlarge.webp 1800w'
+      '/assets/blog/optimized/front1-xlarge.webp 1800w',
     );
   });
 

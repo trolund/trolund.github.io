@@ -34,7 +34,8 @@ export const isOptimizableLocalImage = (src: string): boolean => {
 };
 
 const getClosestVariant = (width: number) =>
-  IMAGE_VARIANTS.find((variant) => variant.width >= width) ?? IMAGE_VARIANTS[IMAGE_VARIANTS.length - 1];
+  IMAGE_VARIANTS.find((variant) => variant.width >= width) ??
+  IMAGE_VARIANTS[IMAGE_VARIANTS.length - 1];
 
 export const getOptimizedImagePath = (src: string, width: number): string => {
   const normalizedSource = stripSearchAndHash(normalizeSource(src));
@@ -58,7 +59,9 @@ export const getOptimizedImageSrcSet = (src: string): string | undefined => {
     return undefined;
   }
 
-  return IMAGE_VARIANTS.map((variant) => `${getOptimizedImagePath(src, variant.width)} ${variant.width}w`).join(', ');
+  return IMAGE_VARIANTS.map(
+    (variant) => `${getOptimizedImagePath(src, variant.width)} ${variant.width}w`,
+  ).join(', ');
 };
 
 const localImageLoader = ({ src, width }: ImageLoaderProps): string => {

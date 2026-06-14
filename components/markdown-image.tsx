@@ -14,13 +14,7 @@ type MarkdownImageProps = {
 
 const DEFAULT_SIZES = '(max-width: 768px) 100vw, 768px';
 
-export default function MarkdownImage({
-  alt = '',
-  height,
-  src,
-  style,
-  width,
-}: MarkdownImageProps) {
+export default function MarkdownImage({ alt = '', height, src, style, width }: MarkdownImageProps) {
   if (!src || typeof src !== 'string') {
     return null;
   }
