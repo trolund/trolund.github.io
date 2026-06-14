@@ -1,21 +1,39 @@
 'use client';
 
 import type { CronitorRUMConfig } from '@cronitorio/cronitor-rum';
-import * as Cronitor from '@cronitorio/cronitor-rum';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+
+let cronitorModulePromise: Promise<typeof import('@cronitorio/cronitor-rum')> | null = null;
+
+const loadCronitor = async () => {
+  if (!cronitorModulePromise) {
+    cronitorModulePromise = import('@cronitorio/cronitor-rum');
+  }
+
+  return cronitorModulePromise;
+};
+
+export async function trackCronitorEvent(event: string, payload?: { message?: string }) {
+  const Cronitor = await loadCronitor();
+  Cronitor.track(event, payload);
+}
 
 export function useCronitor(clientKey: string, config: CronitorRUMConfig = {}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    Cronitor.load(clientKey, config);
+    if (!clientKey) return;
+
+    void loadCronitor().then((Cronitor) => {
+      Cronitor.load(clientKey, config);
+    });
   }, [clientKey, config]);
 
   useEffect(() => {
-    Cronitor.track('Pageview');
-  }, [pathname, searchParams]);
+    if (!clientKey) return;
 
-  return Cronitor;
+    void trackCronitorEvent('Pageview');
+  }, [clientKey, pathname, searchParams]);
 }

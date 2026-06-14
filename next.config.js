@@ -6,6 +6,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   reactCompiler: true,
+  productionBrowserSourceMaps: true,
   images: {
     loader: 'custom',
     loaderFile: './services/image-loader-service.ts',

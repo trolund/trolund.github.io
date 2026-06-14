@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Language from '../types/languages';
 import DateFormatter from './date-formatter';
 import Ship from './ship';
-import { useState } from 'react';
 import localImageLoader from '../services/image-loader-service';
 
 interface ProjectItemProps {
@@ -34,7 +33,6 @@ export default function ProjectItem({
   language,
   priority = false,
 }: ProjectItemProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
   const cardImageSizes =
     '(max-width: 768px) calc(100vw - 2.5rem), (max-width: 1024px) calc((100vw - 4.5rem) / 2), 305px';
 
@@ -42,17 +40,13 @@ export default function ProjectItem({
     <article className="group relative overflow-hidden rounded-[28px] border border-border-color bg-[var(--bg)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low">
       <div className="flex h-full flex-col">
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--bg-color)]">
-          {!isLoaded && (
-            <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
-          )}
           <Image
             src={coverImage}
             alt={`${title} - cover image`}
             fill
             priority={priority}
             fetchPriority={priority ? 'high' : undefined}
-            onLoad={() => setIsLoaded(true)}
-            className={`object-cover transition duration-500 group-hover:scale-[1.015] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className="object-cover transition duration-500 group-hover:scale-[1.015]"
             sizes={cardImageSizes}
           />
         </div>
@@ -81,7 +75,7 @@ export default function ProjectItem({
               )}
             </span>
           </div>
-          <h3 className="text-2xl font-semibold tracking-tight text-content-text">{title}</h3>
+          <h2 className="text-2xl font-semibold tracking-tight text-content-text">{title}</h2>
           <p className="text-base leading-relaxed text-content-text opacity-80">{excerpt}</p>
           <div className="flex flex-wrap gap-2">
             {technologies &&

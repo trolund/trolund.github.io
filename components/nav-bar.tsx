@@ -9,7 +9,7 @@ import { ThemeIcon } from './theme-icon';
 import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTransparency';
 import { useTheme } from 'next-themes';
 import { Themes } from '@/types/theme';
-import * as Cronitor from '@cronitorio/cronitor-rum';
+import { trackCronitorEvent } from '@/hooks/useCronitor';
 
 type MenuProps = {
   items: MenuItem[];
@@ -68,7 +68,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   };
   const handleThemeToggle = () => {
     const next = getNextTheme(currentTheme);
-    Cronitor.track('ThemeChange', { message: next });
+    void trackCronitorEvent('ThemeChange', { message: next });
     setAnimateThemeIcon(true);
     setTheme(next);
   };
