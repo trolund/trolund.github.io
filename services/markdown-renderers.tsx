@@ -8,6 +8,7 @@ import { oneDark } from './code-styles/one-dark';
 import { oneLight } from './code-styles/one-light';
 import { ImageDataElement } from '../types/ImageDataElement';
 import ImageItem from '../components/ImageItem';
+import MarkdownImage from '../components/markdown-image';
 import { mapLangIdentifierToLanguage } from './code-name-service';
 
 function copyToClipboard(text: string) {
@@ -22,14 +23,14 @@ function copyToClipboard(text: string) {
 }
 
 export const markdownRenderers = (isDark: boolean = false): Markdown.Components => ({
-  image: ({ node }) => {
-    const imageElement: HTMLImageElement = node as any;
+  img: ({ alt, height, src, style, width }) => {
     return (
-      <Image
-        src={imageElement.src ?? ''}
-        alt={imageElement.alt ?? ''}
-        height={imageElement.height ?? 50}
-        width={imageElement.width ?? 50}
+      <MarkdownImage
+        alt={alt}
+        height={height}
+        src={typeof src === 'string' ? src : undefined}
+        style={style}
+        width={width}
       />
     );
   },
