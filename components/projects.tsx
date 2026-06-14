@@ -25,7 +25,10 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
     <section>
       <div className="flex flex-col items-center justify-center gap-8">
         <ProjectsControls searchIndex={searchIndex} />
-        <div id={PROJECTS_GRID_ID} className="grid w-full max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div
+          id={PROJECTS_GRID_ID}
+          className="grid w-full max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
+        >
           {posts.map((post, index) => (
             <div
               key={post.slug}
