@@ -95,7 +95,7 @@ function getIconForValue(value: string) {
 }
 
 export default function Ship({ value, className, icon, showIcon = true }: ShipProps) {
-  const resolvedIcon = showIcon ? icon ?? getIconForValue(value) : null;
+  const resolvedIcon = showIcon ? (icon ?? getIconForValue(value)) : null;
   return (
     <span
       className={cn(
