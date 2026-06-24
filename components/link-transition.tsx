@@ -46,9 +46,11 @@ export default function LinkTransition({ children, href, onClick, ...props }: Li
     activeTransition = transition;
     // Swallow rejection — skipTransition() or the failsafe can cause the browser
     // to reject finished; the navigation itself still completes correctly.
-    transition.finished.catch(() => {}).finally(() => {
-      activeTransition = null;
-    });
+    transition.finished
+      .catch(() => {})
+      .finally(() => {
+        activeTransition = null;
+      });
   };
 
   return (

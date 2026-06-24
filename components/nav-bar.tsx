@@ -29,7 +29,9 @@ function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
       <LinkTransition
         href={item.link}
         aria-current={isActive ? 'page' : undefined}
-        style={isActive ? { viewTransitionName: mobile ? 'nav-active-mobile' : 'nav-active' } : undefined}
+        style={
+          isActive ? { viewTransitionName: mobile ? 'nav-active-mobile' : 'nav-active' } : undefined
+        }
         className={cn(
           'nav-pill relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
           mobile
