@@ -25,27 +25,31 @@ type NavLinkProps = {
 
 function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
   return (
-    <LinkTransition
-      href={item.link}
-      aria-current={isActive ? 'page' : undefined}
-      className={cn(
-        'nav-pill relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
-        mobile
-          ? 'min-w-0 px-2 py-2 text-center text-[0.65rem] leading-tight tracking-[0.12em]'
-          : 'px-4 py-2 text-[0.82rem] tracking-[0.3em]',
-        isActive
-          ? 'bg-content-text text-text'
-          : 'hover:bg-content-text/15 text-content-text opacity-80 hover:text-content-text hover:opacity-100',
-      )}
-    >
-      {mobile ? <span className="block">{item.itemName}</span> : item.itemName}
+    <span className="relative">
+      <LinkTransition
+        href={item.link}
+        aria-current={isActive ? 'page' : undefined}
+        style={isActive ? { viewTransitionName: mobile ? 'nav-active-mobile' : 'nav-active' } : undefined}
+        className={cn(
+          'nav-pill relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
+          mobile
+            ? 'min-w-0 px-2 py-2 text-center text-[0.65rem] leading-tight tracking-[0.12em]'
+            : 'px-4 py-2 text-[0.82rem] tracking-[0.3em]',
+          isActive
+            ? 'bg-content-text text-text'
+            : 'hover:bg-content-text/15 text-content-text opacity-80 hover:text-content-text hover:opacity-100',
+        )}
+      >
+        {mobile ? <span className="block">{item.itemName}</span> : item.itemName}
+      </LinkTransition>
+      {/* Dot lives outside the <a> so it's excluded from the view-transition snapshot */}
       {isActive && !mobile && (
         <span
           className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
           aria-hidden="true"
         />
       )}
-    </LinkTransition>
+    </span>
   );
 }
 
@@ -111,6 +115,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           {/* Desktop Navigation */}
           <nav
             aria-label="Primary"
+            style={{ viewTransitionName: 'site-nav' }}
             className={cn(
               'nav-shell hidden items-center gap-2 rounded-full px-2 py-2 backdrop-blur-md md:flex',
               !noBackground && 'border border-border-color shadow-custom',
@@ -145,13 +150,14 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
         )}
       >
         <div
-          className="relative rounded-full backdrop-blur-md transition-transform duration-300"
           style={
             {
+              viewTransitionName: 'site-nav-mobile',
               transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
               paddingBottom: 'env(safe-area-inset-bottom)',
             } as React.CSSProperties
           }
+          className="relative rounded-full backdrop-blur-md transition-transform duration-300"
         >
           <nav
             aria-label="Primary mobile"

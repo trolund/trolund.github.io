@@ -2,6 +2,7 @@ import '@/styles/index.css';
 import Toast from '@/components/toast';
 import { ReactNode, StrictMode, Suspense } from 'react';
 import ClientInit from './client-init';
+import { NavigationProgress } from '@/components/navigation-progress';
 import { ThemeProvider } from 'next-themes';
 import { Metadata } from 'next';
 import { TITLE } from '@/lib/constants';
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <StrictMode>
           <ThemeProvider enableSystem={true}>
             {children}
+            <NavigationProgress />
             <Suspense fallback={null}>
               <ClientInit />
             </Suspense>
