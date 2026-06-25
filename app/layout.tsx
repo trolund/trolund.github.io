@@ -72,16 +72,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           Skip to main content
         </a>
-        <StrictMode>
-          <ThemeProvider enableSystem={true}>
+        <ThemeProvider enableSystem={true}>
+          <StrictMode>
             {children}
             <NavigationProgress />
             <Suspense fallback={null}>
               <ClientInit />
             </Suspense>
             <Toast />
-          </ThemeProvider>
-        </StrictMode>
+          </StrictMode>
+        </ThemeProvider>
       </body>
     </html>
   );
