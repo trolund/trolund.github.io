@@ -160,7 +160,7 @@ function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
           'nav-pill relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
           mobile
             ? 'block w-full px-2 py-2 text-center text-[0.65rem] leading-tight tracking-[0.12em]'
-            : 'px-4 py-2 text-[0.82rem] tracking-[0.12em]',
+            : 'inline-flex h-9 min-w-[7rem] items-center justify-center text-[0.82rem] tracking-[0.12em]',
           isActive
             ? 'bg-content-text text-text'
             : 'hover:bg-content-text/15 text-content-text opacity-80 hover:text-content-text hover:opacity-100',
@@ -245,7 +245,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
               theme={currentTheme}
               onSelect={setTheme}
               placement="bottom"
-              triggerClassName="h-8 w-8"
+              triggerClassName="h-9 w-9"
             />
           </nav>
         </div>

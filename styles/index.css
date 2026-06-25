@@ -330,10 +330,19 @@ button:hover {
   animation: vt-fade-in 200ms ease-out forwards;
 }
 
-/* Nav bars: freeze in place — no animation, no flash */
+
+/* Nav bars: freeze in place — group + images all static */
+::view-transition-group(site-nav),
+::view-transition-group(site-nav-mobile) {
+  animation: none;
+}
 ::view-transition-old(site-nav),
+::view-transition-old(site-nav-mobile) {
+  animation: none;
+  opacity: 0;
+  mix-blend-mode: normal;
+}
 ::view-transition-new(site-nav),
-::view-transition-old(site-nav-mobile),
 ::view-transition-new(site-nav-mobile) {
   animation: none;
   mix-blend-mode: normal;
