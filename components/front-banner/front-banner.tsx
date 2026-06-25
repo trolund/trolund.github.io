@@ -29,13 +29,16 @@ function FrontBanner() {
     rafRef.current = requestAnimationFrame(loop);
   }, []);
 
-  const onMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const nx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-    const ny = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-    target.current = { rx: -ny * 3, ry: nx * 4 };
-    startLoop();
-  }, [startLoop]);
+  const onMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const nx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+      const ny = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+      target.current = { rx: -ny * 3, ry: nx * 4 };
+      startLoop();
+    },
+    [startLoop],
+  );
 
   const onMouseLeave = useCallback(() => {
     target.current = { rx: 0, ry: 0 };
