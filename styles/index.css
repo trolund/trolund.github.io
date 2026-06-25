@@ -319,6 +319,9 @@ button:hover {
 }
 
 /* Page title morphs independently with its own timing */
+::view-transition-image-pair(page-title) {
+  overflow: visible;
+}
 ::view-transition-group(page-title) {
   animation-duration: 250ms;
   animation-timing-function: ease;
