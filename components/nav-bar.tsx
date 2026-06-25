@@ -24,9 +24,9 @@ type NavLinkProps = {
 };
 
 const THEME_OPTIONS = [
-  { value: Themes.LIGHT,  Icon: MdLightMode, label: 'Light'  },
-  { value: Themes.SYSTEM, Icon: MdAutoMode,  label: 'System' },
-  { value: Themes.DARK,   Icon: MdDarkMode,  label: 'Dark'   },
+  { value: Themes.LIGHT, Icon: MdLightMode, label: 'Light' },
+  { value: Themes.SYSTEM, Icon: MdAutoMode, label: 'System' },
+  { value: Themes.DARK, Icon: MdDarkMode, label: 'Dark' },
 ] as const;
 
 function ThemeIcon({ theme, size }: { theme: Themes; size: number }) {
@@ -46,7 +46,12 @@ type ThemeDropdownProps = {
   triggerClassName?: string;
 };
 
-function ThemeDropdown({ theme, onSelect, placement = 'bottom', triggerClassName }: ThemeDropdownProps) {
+function ThemeDropdown({
+  theme,
+  onSelect,
+  placement = 'bottom',
+  triggerClassName,
+}: ThemeDropdownProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -70,9 +75,7 @@ function ThemeDropdown({ theme, onSelect, placement = 'bottom', triggerClassName
   const panelBase =
     'absolute right-0 z-50 min-w-[148px] overflow-hidden rounded-xl border border-border-color bg-[var(--bg)] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-150 dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]';
 
-  const panelPosition = placement === 'top'
-    ? 'bottom-full mb-2'
-    : 'top-full mt-3';
+  const panelPosition = placement === 'top' ? 'bottom-full mb-2' : 'top-full mt-3';
 
   return (
     <div ref={containerRef} className="relative">
@@ -84,7 +87,7 @@ function ThemeDropdown({ theme, onSelect, placement = 'bottom', triggerClassName
         aria-label="Theme"
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          'flex min-w-0 items-center justify-center rounded-full border-0 bg-black/[0.06] p-0 text-content-text transition-colors duration-150 hover:bg-black/[0.11] dark:bg-white/[0.08] dark:hover:bg-white/[0.14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 dark:focus-visible:ring-white/20',
+          'flex min-w-0 items-center justify-center rounded-full border-0 bg-black/[0.06] p-0 text-content-text transition-colors duration-150 hover:bg-black/[0.11] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 dark:bg-white/[0.08] dark:hover:bg-white/[0.14] dark:focus-visible:ring-white/20',
           triggerClassName,
         )}
       >
@@ -130,7 +133,9 @@ function ThemeDropdown({ theme, onSelect, placement = 'bottom', triggerClassName
               >
                 <Icon size={16} />
                 <span className="flex-1 text-left">{label}</span>
-                {isActive && <MdCheck size={14} className="shrink-0 text-black/40 dark:text-white/50" />}
+                {isActive && (
+                  <MdCheck size={14} className="shrink-0 text-black/40 dark:text-white/50" />
+                )}
               </button>
             );
           })}
@@ -148,7 +153,9 @@ function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
       <LinkTransition
         href={item.link}
         aria-current={isActive ? 'page' : undefined}
-        style={isActive ? { viewTransitionName: mobile ? 'nav-active-mobile' : 'nav-active' } : undefined}
+        style={
+          isActive ? { viewTransitionName: mobile ? 'nav-active-mobile' : 'nav-active' } : undefined
+        }
         className={cn(
           'nav-pill relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
           mobile
@@ -156,14 +163,14 @@ function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
             : 'px-4 py-2 text-[0.82rem] tracking-[0.12em]',
           isActive
             ? 'bg-content-text text-text'
-            : 'text-content-text opacity-80 hover:bg-content-text/15 hover:text-content-text hover:opacity-100',
+            : 'hover:bg-content-text/15 text-content-text opacity-80 hover:text-content-text hover:opacity-100',
         )}
       >
         {item.itemName}
       </LinkTransition>
       {isActive && !mobile && (
         <span
-          className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-content-text/80"
+          className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
           aria-hidden="true"
         />
       )}
@@ -233,7 +240,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
             {items.map((item) => (
               <NavLink key={item.link} item={item} isActive={pathname === item.link} />
             ))}
-            <span className="mx-0.5 h-4 w-px rounded-full bg-content-text/15" aria-hidden="true" />
+            <span className="bg-content-text/15 mx-0.5 h-4 w-px rounded-full" aria-hidden="true" />
             <ThemeDropdown
               theme={currentTheme}
               onSelect={setTheme}
