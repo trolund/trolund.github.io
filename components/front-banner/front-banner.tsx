@@ -1,12 +1,49 @@
-import React from 'react';
+'use client';
+
+import React, { useRef, useCallback } from 'react';
 import styles from './front-banner.module.css';
 import Image from 'next/image';
 import LinkTransition from '../link-transition';
 import SocialLinks from '../social-links';
 
 function FrontBanner() {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const target = useRef({ rx: 0, ry: 0 });
+  const current = useRef({ rx: 0, ry: 0 });
+
+  const startLoop = useCallback(() => {
+    if (rafRef.current) return;
+    const loop = () => {
+      const c = current.current;
+      const t = target.current;
+      c.rx += (t.rx - c.rx) * 0.1;
+      c.ry += (t.ry - c.ry) * 0.1;
+      const frame = frameRef.current;
+      if (frame) {
+        frame.style.transform = `perspective(900px) rotateY(${c.ry}deg) rotateX(${c.rx}deg)`;
+      }
+      const still = Math.abs(t.rx - c.rx) < 0.01 && Math.abs(t.ry - c.ry) < 0.01;
+      rafRef.current = still ? null : requestAnimationFrame(loop);
+    };
+    rafRef.current = requestAnimationFrame(loop);
+  }, []);
+
+  const onMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const nx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const ny = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    target.current = { rx: -ny * 3, ry: nx * 4 };
+    startLoop();
+  }, [startLoop]);
+
+  const onMouseLeave = useCallback(() => {
+    target.current = { rx: 0, ry: 0 };
+    startLoop();
+  }, [startLoop]);
+
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
       <div className={styles.heroInner}>
         <div className={styles.copy}>
           <p className={styles.eyebrow}>Engineering Portfolio</p>
@@ -31,7 +68,7 @@ function FrontBanner() {
           <SocialLinks />
         </div>
         <div className={styles.visual}>
-          <div className={styles.deviceFrame}>
+          <div ref={frameRef} className={styles.deviceFrame}>
             <div className={styles.portraitWrap}>
               <Image
                 className={styles.portrait}
