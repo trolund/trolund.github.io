@@ -281,20 +281,51 @@ button:hover {
   }
 }
 
+@keyframes vt-cross-fade-out {
+  to { opacity: 0; }
+}
+
+/* ─ Wildcard defaults for named element morphs (cover images, etc.)
+   Specific named rules below override via cascade ordering. */
+::view-transition-group(*) {
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+::view-transition-image-pair(*) {
+  overflow: hidden;
+}
+/* Only show the new snapshot during morph: old fades in 60ms, new stays at
+   full opacity throughout. The new image flies from card → header position
+   without a cross-fade smear between the two differently-cropped snapshots. */
+::view-transition-old(*) {
+  animation: vt-cross-fade-out 60ms ease forwards;
+  object-fit: cover;
+  height: 100%;
+  mix-blend-mode: normal;
+}
+::view-transition-new(*) {
+  animation: none;
+  object-fit: cover;
+  height: 100%;
+  mix-blend-mode: normal;
+}
+
 /* Page content: fast exit, smooth enter */
 ::view-transition-old(root) {
   animation: vt-fade-out 120ms ease forwards;
 }
-
 ::view-transition-new(root) {
   animation: vt-fade-in 220ms ease forwards;
 }
 
-/* Page title morphs independently */
+/* Page title morphs independently with its own timing */
+::view-transition-group(page-title) {
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+}
 ::view-transition-old(page-title) {
   animation: vt-fade-out 100ms ease forwards;
 }
-
 ::view-transition-new(page-title) {
   animation: vt-fade-in 200ms ease-out forwards;
 }
@@ -314,12 +345,10 @@ button:hover {
   animation-duration: 280ms;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 ::view-transition-image-pair(nav-active),
 ::view-transition-image-pair(nav-active-mobile) {
   overflow: hidden;
 }
-
 ::view-transition-old(nav-active),
 ::view-transition-new(nav-active),
 ::view-transition-old(nav-active-mobile),
@@ -327,6 +356,7 @@ button:hover {
   height: 100%;
   object-fit: fill;
   mix-blend-mode: normal;
+  animation: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -39,7 +39,10 @@ export default function ProjectItem({
   return (
     <article className="group relative overflow-hidden rounded-[28px] border border-border-color bg-[var(--bg)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low">
       <div className="flex h-full flex-col">
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--bg-color)]">
+        <div
+          className="relative aspect-[4/3] w-full overflow-hidden rounded-t-[28px] bg-[var(--bg-color)]"
+          style={{ viewTransitionName: `cover-${slug}` }}
+        >
           <Image
             src={coverImage}
             alt={`${title} - cover image`}
