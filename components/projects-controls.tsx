@@ -81,7 +81,7 @@ export default function ProjectsControls({ searchIndex }: ProjectsControlsProps)
       <div
         className={cn(
           'col-span-full flex items-center justify-center transition-opacity duration-300',
-          shouldShowScrollLabel ? 'opacity-100' : 'opacity-0',
+          shouldShowScrollLabel ? 'opacity-100' : 'hidden',
         )}
       >
         <div className="mb-12 flex flex-col items-center justify-center gap-4">

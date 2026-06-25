@@ -27,7 +27,10 @@ export default function PostHeader({
 }: postHeaderOptions) {
   return (
     <header className="mb-12">
-      <div className="relative aspect-[21/9] w-full overflow-hidden rounded-[28px] bg-[var(--bg-color)]">
+      <div
+        className="relative aspect-[21/9] w-full overflow-hidden rounded-[28px] bg-[var(--bg-color)]"
+        style={{ viewTransitionName: `cover-${slug}` }}
+      >
         <Image
           src={coverImage}
           alt={title}

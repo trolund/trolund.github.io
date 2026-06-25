@@ -181,6 +181,8 @@
     0 32px 80px rgba(15, 23, 42, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(24px);
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .portraitWrap {
@@ -263,6 +265,11 @@
   .primaryCta,
   .secondaryCta {
     transition: none;
+  }
+
+  .deviceFrame {
+    will-change: auto;
+    transform: none !important;
   }
 }
 

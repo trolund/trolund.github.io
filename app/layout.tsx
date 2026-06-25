@@ -2,6 +2,7 @@ import '@/styles/index.css';
 import Toast from '@/components/toast';
 import { ReactNode, StrictMode, Suspense } from 'react';
 import ClientInit from './client-init';
+import { NavigationProgress } from '@/components/navigation-progress';
 import { ThemeProvider } from 'next-themes';
 import { Metadata } from 'next';
 import { TITLE } from '@/lib/constants';
@@ -71,15 +72,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           Skip to main content
         </a>
-        <StrictMode>
-          <ThemeProvider enableSystem={true}>
+        <ThemeProvider enableSystem={true}>
+          <StrictMode>
             {children}
+            <NavigationProgress />
             <Suspense fallback={null}>
               <ClientInit />
             </Suspense>
             <Toast />
-          </ThemeProvider>
-        </StrictMode>
+          </StrictMode>
+        </ThemeProvider>
       </body>
     </html>
   );

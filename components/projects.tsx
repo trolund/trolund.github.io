@@ -22,7 +22,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
   const searchIndex = posts.map((post) => getSearchContent(post));
 
   return (
-    <section>
+    <section className="pb-20">
       <div className="flex flex-col items-center justify-center gap-8">
         <ProjectsControls searchIndex={searchIndex} />
         <div

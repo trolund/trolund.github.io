@@ -162,7 +162,6 @@ button:hover {
 
 .nav-shell {
   position: relative;
-  overflow: hidden;
   background-color: rgba(255, 255, 255, 0.62);
   backdrop-filter: blur(24px);
 }
@@ -264,5 +263,119 @@ button:hover {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* ── View Transitions ─────────────────────────────── */
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.99);
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes vt-cross-fade-out {
+  to { opacity: 0; }
+}
+
+/* ─ Wildcard defaults for named element morphs (cover images, etc.)
+   Specific named rules below override via cascade ordering. */
+::view-transition-group(*) {
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+::view-transition-image-pair(*) {
+  overflow: hidden;
+}
+/* Only show the new snapshot during morph: old fades in 60ms, new stays at
+   full opacity throughout. The new image flies from card → header position
+   without a cross-fade smear between the two differently-cropped snapshots. */
+::view-transition-old(*) {
+  animation: vt-cross-fade-out 60ms ease forwards;
+  object-fit: cover;
+  height: 100%;
+  mix-blend-mode: normal;
+}
+::view-transition-new(*) {
+  animation: none;
+  object-fit: cover;
+  height: 100%;
+  mix-blend-mode: normal;
+}
+
+/* Page content: fast exit, smooth enter */
+::view-transition-old(root) {
+  animation: vt-fade-out 120ms ease forwards;
+}
+::view-transition-new(root) {
+  animation: vt-fade-in 220ms ease forwards;
+}
+
+/* Page title morphs independently with its own timing */
+::view-transition-image-pair(page-title) {
+  overflow: visible;
+}
+::view-transition-group(page-title) {
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+}
+::view-transition-old(page-title) {
+  animation: vt-fade-out 100ms ease forwards;
+}
+::view-transition-new(page-title) {
+  animation: vt-fade-in 200ms ease-out forwards;
+}
+
+
+/* Nav bars: freeze in place — group + images all static */
+::view-transition-group(site-nav),
+::view-transition-group(site-nav-mobile) {
+  animation: none;
+}
+::view-transition-old(site-nav),
+::view-transition-old(site-nav-mobile) {
+  animation: none;
+  opacity: 0;
+  mix-blend-mode: normal;
+}
+::view-transition-new(site-nav),
+::view-transition-new(site-nav-mobile) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Active nav pill morphs between items */
+::view-transition-group(nav-active),
+::view-transition-group(nav-active-mobile) {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+::view-transition-image-pair(nav-active),
+::view-transition-image-pair(nav-active-mobile) {
+  overflow: hidden;
+}
+::view-transition-old(nav-active),
+::view-transition-new(nav-active),
+::view-transition-old(nav-active-mobile),
+::view-transition-new(nav-active-mobile) {
+  height: 100%;
+  object-fit: fill;
+  mix-blend-mode: normal;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(page-title),
+  ::view-transition-new(page-title) {
+    animation: none;
   }
 }
