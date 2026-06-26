@@ -48,9 +48,25 @@ function FrontBanner() {
   return (
     <section className={styles.hero} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
       <div className={styles.heroInner}>
-        <div className={styles.copy}>
+        <div className={styles.copyHead}>
           <p className={styles.eyebrow}>Engineering Portfolio</p>
           <h1 className={styles.title}>Troels Lund</h1>
+        </div>
+        <div className={styles.visual}>
+          <div ref={frameRef} className={styles.deviceFrame}>
+            <div className={styles.portraitWrap}>
+              <Image
+                className={styles.portrait}
+                src="/profil3.jpg"
+                priority
+                alt="Portrait of Troels Elsvad Lund"
+                width={1200}
+                height={1712}
+              />
+            </div>
+          </div>
+        </div>
+        <div className={styles.copyBody}>
           <p className={styles.lead}>
             Software engineer building resilient digital products with a focus on performance,
             clarity, and operationally safe systems.
@@ -69,20 +85,6 @@ function FrontBanner() {
             <span className={styles.tag}>Performance, Concurrency &amp; Scale</span>
           </div>
           <SocialLinks />
-        </div>
-        <div className={styles.visual}>
-          <div ref={frameRef} className={styles.deviceFrame}>
-            <div className={styles.portraitWrap}>
-              <Image
-                className={styles.portrait}
-                src="/profil3.jpg"
-                priority
-                alt="Portrait of Troels Elsvad Lund"
-                width={1200}
-                height={1712}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
