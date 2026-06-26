@@ -330,20 +330,6 @@ button:hover {
   animation: vt-fade-in 220ms ease forwards;
 }
 
-/* Page title morphs independently with its own timing */
-::view-transition-image-pair(page-title) {
-  overflow: visible;
-}
-::view-transition-group(page-title) {
-  animation-duration: 250ms;
-  animation-timing-function: ease;
-}
-::view-transition-old(page-title) {
-  animation: vt-fade-out 100ms ease forwards;
-}
-::view-transition-new(page-title) {
-  animation: vt-fade-in 200ms ease-out forwards;
-}
 
 
 /* Nav bars: freeze in place — group + images all static */
@@ -385,9 +371,7 @@ button:hover {
 
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
-  ::view-transition-new(root),
-  ::view-transition-old(page-title),
-  ::view-transition-new(page-title) {
+  ::view-transition-new(root) {
     animation: none;
   }
 }

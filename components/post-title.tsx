@@ -9,7 +9,6 @@ export default function PostTitle({ children }: PostTitleProps) {
         Portfolio
       </p>
       <h1
-        style={{ viewTransitionName: 'page-title' }}
         className="text-balance text-center text-5xl font-semibold leading-[0.96] tracking-[-0.045em] md:text-left md:text-6xl lg:text-[4.5rem]"
       >
         {children}
