@@ -253,21 +253,18 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
 
       {/* Mobile bottom tab bar */}
       <div
+        style={
+          {
+            bottom: isMobileHidden ? 'calc(-6rem - env(safe-area-inset-bottom))' : '1rem',
+            paddingBottom: 'env(safe-area-inset-bottom)',
+          } as React.CSSProperties
+        }
         className={cn(
-          'fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] md:hidden',
+          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] transition-[bottom] duration-300 md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
       >
-        <div
-          style={
-            {
-              viewTransitionName: 'site-nav-mobile',
-              transform: isMobileHidden ? 'translateY(calc(100% + 8rem))' : 'translateY(0)',
-              paddingBottom: 'env(safe-area-inset-bottom)',
-            } as React.CSSProperties
-          }
-          className="relative rounded-full transition-transform duration-300"
-        >
+        <div className="relative rounded-full">
           {/* Floating theme dropdown above mobile nav */}
           <div className="absolute -top-14 right-3">
             <ThemeDropdown
@@ -280,6 +277,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
 
           <nav
             aria-label="Primary mobile"
+            style={{ viewTransitionName: 'site-nav-mobile' } as React.CSSProperties}
             className={cn(
               'nav-shell flex items-center gap-2 rounded-full px-2 py-2',
               'border border-border-color shadow-custom',
