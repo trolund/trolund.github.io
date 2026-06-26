@@ -34,6 +34,7 @@ export default function ProjectsView({ posts }: ProjectsViewProps) {
               key={post.slug}
               data-project-card={true}
               hidden={index >= INITIAL_VISIBLE_PROJECTS}
+              style={{ '--i': index } as React.CSSProperties}
             >
               <ProjectItem
                 title={post.title}

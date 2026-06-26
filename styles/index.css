@@ -282,6 +282,17 @@ button:hover {
   }
 }
 
+@keyframes card-reveal {
+  from { opacity: 0; translate: 0 20px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-project-card] {
+    animation: card-reveal 380ms ease-out backwards;
+    animation-delay: calc(min(var(--i, 0), 6) * 60ms + 80ms);
+  }
+}
+
 @keyframes vt-cross-fade-out {
   to { opacity: 0; }
 }
