@@ -92,8 +92,20 @@ export function TimelineItem({
           >
             {logo.dark ? (
               <>
-                <Image src={logo.light} alt="" width={logo.width} height={logo.height} className="block dark:hidden" />
-                <Image src={logo.dark} alt="" width={logo.width} height={logo.height} className="hidden dark:block" />
+                <Image
+                  src={logo.light}
+                  alt=""
+                  width={logo.width}
+                  height={logo.height}
+                  className="block dark:hidden"
+                />
+                <Image
+                  src={logo.dark}
+                  alt=""
+                  width={logo.width}
+                  height={logo.height}
+                  className="hidden dark:block"
+                />
               </>
             ) : (
               <Image src={logo.light} alt="" width={logo.width} height={logo.height} />
@@ -127,7 +139,10 @@ export function TimelineItem({
           aria-expanded={isExpanded}
           onClick={() => setIsExpanded((prev) => !prev)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsExpanded((prev) => !prev); }
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setIsExpanded((prev) => !prev);
+            }
           }}
         >
           <div className={styles.cardBody}>
@@ -135,7 +150,11 @@ export function TimelineItem({
             {mainContent}
           </div>
           <div
-            className={cn(styles.detailsPanel, 'border-t border-border-color', isExpanded && styles.detailsPanelOpen)}
+            className={cn(
+              styles.detailsPanel,
+              'border-t border-border-color',
+              isExpanded && styles.detailsPanelOpen,
+            )}
             style={{ maxHeight: isExpanded ? detailsHeight : 0 }}
           >
             <div ref={detailsRef} className={cn(styles.detailsInner, 'px-6 pb-6 pt-4')}>
@@ -157,7 +176,10 @@ export function TimelineItem({
 
 export function TimelineDivider({ label }: TimelineDividerProps) {
   return (
-    <li className={cn(styles.categoryDividerItem, 'text-neutral-400 dark:text-neutral-500')} aria-hidden="true">
+    <li
+      className={cn(styles.categoryDividerItem, 'text-neutral-400 dark:text-neutral-500')}
+      aria-hidden="true"
+    >
       <div className={styles.categoryDivider}>
         <span>{label}</span>
       </div>
