@@ -2,9 +2,12 @@
 
 import { useTheme } from 'next-themes';
 import { Slide, ToastContainer } from 'react-toastify';
+import { useMounted } from '@/hooks/useMounted';
 
 const Toast = () => {
   const { resolvedTheme } = useTheme();
+  const mounted = useMounted();
+  if (!mounted) return null;
   return (
     <ToastContainer
       position="bottom-center"

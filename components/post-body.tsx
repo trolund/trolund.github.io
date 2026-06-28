@@ -12,6 +12,7 @@ import { markdownRenderers } from '../services/markdown-renderers';
 import { useTheme } from 'next-themes';
 import { Themes } from '@/types/theme';
 import { cn } from '@/lib/utils';
+import { useMounted } from '@/hooks/useMounted';
 
 type postBodyTypes = {
   content: string;
@@ -20,12 +21,13 @@ type postBodyTypes = {
 
 export default function PostBody({ className, content }: postBodyTypes) {
   const { resolvedTheme } = useTheme();
+  const mounted = useMounted();
 
   const defaultClassNames = 'relative mx-auto max-w-4xl prose dark:prose-invert';
   return (
     <div className={cn(defaultClassNames, className, markdownStyles['markdown'])}>
       <ReactMarkdown
-        components={markdownRenderers(resolvedTheme === Themes.DARK)}
+        components={markdownRenderers(mounted && resolvedTheme === Themes.DARK)}
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex, rehypeMeta, rehypeRaw]}
       >

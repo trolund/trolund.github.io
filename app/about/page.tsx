@@ -368,6 +368,7 @@ export default async function AboutPage() {
         <SubPostTitle id="experience-education">Experience &amp; Education</SubPostTitle>
         <Timeline>
           <TimelineItem
+            id="exp-copopt"
             category="experience"
             title="Software Engineer"
             subtitle="Copenhagen Optimization"
@@ -382,6 +383,7 @@ export default async function AboutPage() {
             }}
           />
           <TimelineItem
+            id="exp-cvation"
             category="experience"
             title="Software Engineer"
             subtitle="cVation"
@@ -396,6 +398,7 @@ export default async function AboutPage() {
             }}
           />
           <TimelineItem
+            id="exp-logos"
             category="experience"
             title="Development Engineer"
             subtitle="Logos Payment Solutions"
@@ -409,6 +412,7 @@ export default async function AboutPage() {
             }}
           />
           <TimelineItem
+            id="exp-itminds-1"
             category="experience"
             title="Software Developer"
             subtitle="IT Minds"
@@ -422,6 +426,7 @@ export default async function AboutPage() {
             }}
           />
           <TimelineItem
+            id="exp-itminds-intern"
             category="experience"
             title="Software Developer (Internship)"
             subtitle="IT Minds"
@@ -435,6 +440,7 @@ export default async function AboutPage() {
             }}
           />
           <TimelineItem
+            id="exp-dtu"
             category="experience"
             title="Software Developer"
             subtitle="Technical University of Denmark"
@@ -448,6 +454,7 @@ export default async function AboutPage() {
           />
           <TimelineDivider label="Education" />
           <TimelineItem
+            id="edu-msc"
             category="education"
             title="MSc Eng. – Computer Science and Engineering"
             subtitle="Technical University of Denmark (DTU)"
@@ -466,6 +473,7 @@ export default async function AboutPage() {
             }
           />
           <TimelineItem
+            id="edu-beng"
             category="education"
             title="B.Eng – Software Technology"
             subtitle="Technical University of Denmark (DTU)"

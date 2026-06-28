@@ -9,6 +9,7 @@ import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTranspar
 import { useTheme } from 'next-themes';
 import { Themes } from '@/types/theme';
 import { trackCronitorEvent } from '@/hooks/useCronitor';
+import { useMounted } from '@/hooks/useMounted';
 import { MdLightMode, MdDarkMode, MdAutoMode, MdCheck } from 'react-icons/md';
 
 type MenuProps = {
@@ -184,11 +185,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const pathname = usePathname();
   const reduceTransparency = usePrefersReducedTransparency();
   const { theme, setTheme } = useTheme();
+  const mounted = useMounted();
   const [isMobileHidden, setIsMobileHidden] = useState(false);
   const lastScrollY = useRef(0);
   const scrollRaf = useRef<number | null>(null);
   const shouldUseSolidShell = reduceTransparency || noBackground;
-  const currentTheme = (theme as Themes) ?? Themes.SYSTEM;
+  const currentTheme = mounted ? ((theme as Themes) ?? Themes.SYSTEM) : Themes.SYSTEM;
 
   const handleGlowMove = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.currentTarget;
