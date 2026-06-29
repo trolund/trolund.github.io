@@ -40,7 +40,9 @@ const categoryLabel: Record<TimelineCategory, string> = {
 };
 
 export default function Timeline({ children }: TimelineProps) {
-  return <ol className={styles.timeline}>{children}</ol>;
+  return (
+    <ol className="m-0 flex list-none flex-col gap-4 p-0">{children}</ol>
+  );
 }
 
 export function TimelineItem({
@@ -68,44 +70,41 @@ export function TimelineItem({
   }, [detailsTable, isExpanded]);
 
   const sideClassName = cn(
-    styles.cardSide,
+    'flex flex-row items-center gap-3 py-[0.875rem] px-5',
+    'sm:flex-col sm:items-start sm:justify-between sm:py-6 sm:px-5 sm:gap-0',
+    'sm:col-start-1 sm:row-start-1',
     category === 'experience' ? styles.cardSideExp : styles.cardSideEdu,
   );
 
-  const cardClassName = cn(styles.card, 'group overflow-hidden', cardClass);
+  const cardClassName = cn(
+    'group relative overflow-hidden grid grid-cols-1 sm:grid-cols-[178px_1fr]',
+    cardClass,
+  );
 
   const side = (
     <div className={sideClassName}>
-      <span className={styles.sideCategory}>{categoryLabel[category]}</span>
-      <span className={styles.sidePeriod}>{period}</span>
+      <span className="whitespace-nowrap text-[0.55rem] font-bold uppercase tracking-[0.3em] text-content-text opacity-50">
+        {categoryLabel[category]}
+      </span>
+      <span className="whitespace-nowrap text-[0.7rem] max-sm:text-[0.6rem] font-semibold leading-[1.5] tracking-[0.01em] max-sm:tracking-[0.02em] text-content-text opacity-[0.85]">
+        {period}
+      </span>
     </div>
   );
 
   const mainContent = (
-    <div className={styles.cardMain}>
+    <div className="flex flex-col justify-center gap-3 p-5 sm:px-7 sm:py-6 sm:col-start-2 sm:row-start-1">
       <div className="flex items-center gap-4">
         {logo && (
           <div
-            className={styles.logo}
+            className="inline-flex shrink-0 items-center justify-center overflow-hidden bg-[rgba(15,23,42,0.05)] p-1"
             style={{ borderRadius: `${logo.borderRadius ?? 10}px` }}
             aria-hidden="true"
           >
             {logo.dark ? (
               <>
-                <Image
-                  src={logo.light}
-                  alt=""
-                  width={logo.width}
-                  height={logo.height}
-                  className="block dark:hidden"
-                />
-                <Image
-                  src={logo.dark}
-                  alt=""
-                  width={logo.width}
-                  height={logo.height}
-                  className="hidden dark:block"
-                />
+                <Image src={logo.light} alt="" width={logo.width} height={logo.height} className="block dark:hidden" />
+                <Image src={logo.dark} alt="" width={logo.width} height={logo.height} className="hidden dark:block" />
               </>
             ) : (
               <Image src={logo.light} alt="" width={logo.width} height={logo.height} />
@@ -145,29 +144,25 @@ export function TimelineItem({
             }
           }}
         >
-          <div className={styles.cardBody}>
-            {side}
-            {mainContent}
-          </div>
+          {side}
+          {mainContent}
           <div
             className={cn(
               styles.detailsPanel,
-              'border-t border-border-color',
+              'border-t border-border-color sm:col-span-full sm:row-start-2',
               isExpanded && styles.detailsPanelOpen,
             )}
             style={{ maxHeight: isExpanded ? detailsHeight : 0 }}
           >
-            <div ref={detailsRef} className={cn(styles.detailsInner, 'px-6 pb-6 pt-4')}>
+            <div ref={detailsRef} className="overflow-hidden px-6 pb-6 pt-4">
               {detailsTable}
             </div>
           </div>
         </div>
       ) : (
         <div className={cardClassName}>
-          <div className={styles.cardBody}>
-            {side}
-            {mainContent}
-          </div>
+          {side}
+          {mainContent}
         </div>
       )}
     </li>
@@ -176,11 +171,8 @@ export function TimelineItem({
 
 export function TimelineDivider({ label }: TimelineDividerProps) {
   return (
-    <li
-      className={cn(styles.categoryDividerItem, 'text-neutral-400 dark:text-neutral-500')}
-      aria-hidden="true"
-    >
-      <div className={styles.categoryDivider}>
+    <li className="my-2 list-none text-neutral-400 dark:text-neutral-500" aria-hidden="true">
+      <div className={cn(styles.categoryDivider, 'flex items-center gap-3 text-[0.6rem] tracking-[0.35em] uppercase font-semibold')}>
         <span>{label}</span>
       </div>
     </li>
