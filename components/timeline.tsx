@@ -40,9 +40,7 @@ const categoryLabel: Record<TimelineCategory, string> = {
 };
 
 export default function Timeline({ children }: TimelineProps) {
-  return (
-    <ol className="m-0 flex list-none flex-col gap-4 p-0">{children}</ol>
-  );
+  return <ol className="m-0 flex list-none flex-col gap-4 p-0">{children}</ol>;
 }
 
 export function TimelineItem({
@@ -86,14 +84,14 @@ export function TimelineItem({
       <span className="whitespace-nowrap text-[0.55rem] font-bold uppercase tracking-[0.3em] text-content-text opacity-50">
         {categoryLabel[category]}
       </span>
-      <span className="whitespace-nowrap text-[0.7rem] max-sm:text-[0.6rem] font-semibold leading-[1.5] tracking-[0.01em] max-sm:tracking-[0.02em] text-content-text opacity-[0.85]">
+      <span className="whitespace-nowrap text-[0.7rem] font-semibold leading-[1.5] tracking-[0.01em] text-content-text opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
         {period}
       </span>
     </div>
   );
 
   const mainContent = (
-    <div className="flex flex-col justify-center gap-3 p-5 sm:px-7 sm:py-6 sm:col-start-2 sm:row-start-1">
+    <div className="flex flex-col justify-center gap-3 p-5 sm:col-start-2 sm:row-start-1 sm:px-7 sm:py-6">
       <div className="flex items-center gap-4">
         {logo && (
           <div
@@ -103,8 +101,20 @@ export function TimelineItem({
           >
             {logo.dark ? (
               <>
-                <Image src={logo.light} alt="" width={logo.width} height={logo.height} className="block dark:hidden" />
-                <Image src={logo.dark} alt="" width={logo.width} height={logo.height} className="hidden dark:block" />
+                <Image
+                  src={logo.light}
+                  alt=""
+                  width={logo.width}
+                  height={logo.height}
+                  className="block dark:hidden"
+                />
+                <Image
+                  src={logo.dark}
+                  alt=""
+                  width={logo.width}
+                  height={logo.height}
+                  className="hidden dark:block"
+                />
               </>
             ) : (
               <Image src={logo.light} alt="" width={logo.width} height={logo.height} />
@@ -172,7 +182,12 @@ export function TimelineItem({
 export function TimelineDivider({ label }: TimelineDividerProps) {
   return (
     <li className="my-2 list-none text-neutral-400 dark:text-neutral-500" aria-hidden="true">
-      <div className={cn(styles.categoryDivider, 'flex items-center gap-3 text-[0.6rem] tracking-[0.35em] uppercase font-semibold')}>
+      <div
+        className={cn(
+          styles.categoryDivider,
+          'flex items-center gap-3 text-[0.6rem] font-semibold uppercase tracking-[0.35em]',
+        )}
+      >
         <span>{label}</span>
       </div>
     </li>
