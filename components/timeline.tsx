@@ -151,9 +151,7 @@ export function TimelineItem({
               isExpanded && styles.detailsPanelOpen,
             )}
           >
-            <div className="overflow-hidden px-6 pb-6 pt-4">
-              {detailsTable}
-            </div>
+            <div className="overflow-hidden px-6 pb-6 pt-4">{detailsTable}</div>
           </div>
         </div>
       ) : (

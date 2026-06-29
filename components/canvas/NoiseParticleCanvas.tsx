@@ -170,7 +170,10 @@ const VectorFieldParticleCanvas: React.FC = () => {
     // Pause/resume the rAF loop when the tab is hidden to save CPU/battery
     const handleVisibility = () => {
       if (document.hidden) {
-        if (anim.current) { cancelAnimationFrame(anim.current); anim.current = null; }
+        if (anim.current) {
+          cancelAnimationFrame(anim.current);
+          anim.current = null;
+        }
       } else if (!anim.current) {
         anim.current = requestAnimationFrame(animate);
       }
