@@ -202,9 +202,23 @@ const NightParticleCanvas: React.FC = () => {
 
     animationFrameId.current = requestAnimationFrame(animate);
 
+    // Pause/resume the rAF loop when the tab is hidden to save CPU/battery
+    const handleVisibility = () => {
+      if (document.hidden) {
+        if (animationFrameId.current !== null) {
+          cancelAnimationFrame(animationFrameId.current);
+          animationFrameId.current = null;
+        }
+      } else if (animationFrameId.current === null) {
+        animationFrameId.current = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
     return () => {
       if (animationFrameId.current !== null) cancelAnimationFrame(animationFrameId.current);
       if (resizeRaf.current !== null) cancelAnimationFrame(resizeRaf.current);
+      document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);

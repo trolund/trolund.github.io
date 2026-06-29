@@ -50,6 +50,10 @@ export default function LinkTransition({ children, href, onClick, ...props }: Li
       .catch(() => {})
       .finally(() => {
         activeTransition = null;
+        // Route focus to main content so keyboard/AT users get context after the transition
+        (document.getElementById('main-content') as HTMLElement | null)?.focus({
+          preventScroll: true,
+        });
       });
   };
 

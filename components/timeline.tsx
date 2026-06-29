@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { cn, cardClass } from '@/lib/utils';
 import styles from './timeline.module.css';
 
@@ -54,18 +54,6 @@ export function TimelineItem({
   detailsTable,
 }: TimelineItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [detailsHeight, setDetailsHeight] = useState(0);
-  const detailsRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!detailsTable) return;
-    const node = detailsRef.current;
-    if (!node) return;
-    const updateHeight = () => setDetailsHeight(node.scrollHeight);
-    updateHeight();
-    window.addEventListener('resize', updateHeight);
-    return () => window.removeEventListener('resize', updateHeight);
-  }, [detailsTable, isExpanded]);
 
   const sideClassName = cn(
     'flex flex-row items-center gap-3 py-[0.875rem] px-5',
@@ -162,9 +150,8 @@ export function TimelineItem({
               'border-t border-border-color sm:col-span-full sm:row-start-2',
               isExpanded && styles.detailsPanelOpen,
             )}
-            style={{ maxHeight: isExpanded ? detailsHeight : 0 }}
           >
-            <div ref={detailsRef} className="overflow-hidden px-6 pb-6 pt-4">
+            <div className="overflow-hidden px-6 pb-6 pt-4">
               {detailsTable}
             </div>
           </div>

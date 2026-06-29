@@ -35,19 +35,21 @@
   background: linear-gradient(to bottom, rgba(141, 177, 224, 0.10), rgba(170, 92, 233, 0.16));
 }
 
-/* ─ Details panel transition (max-height is JS-driven, needs multi-prop transition) */
+/* ─ Details panel transition — height: 0 → auto via interpolate-size (Chrome 129+),
+     instant jump in Firefox/Safari (still functional) */
 .detailsPanel {
-  max-height: 0;
+  height: 0;
   overflow: hidden;
   opacity: 0;
   transform: translateY(-4px);
   transition:
-    max-height 320ms ease,
+    height 320ms ease,
     opacity 220ms ease,
     transform 220ms ease;
 }
 
 .detailsPanelOpen {
+  height: auto;
   opacity: 1;
   transform: translateY(0);
 }
