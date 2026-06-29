@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@cronitorio/cronitor-rum": "^0.4.1",
+    "@oddbird/popover-polyfill": "^0.7.0",
     "date-fns": "4.1.0",
     "framer-motion": "^12.23.24",
     "gray-matter": "4.0.3",
