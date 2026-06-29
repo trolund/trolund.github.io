@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import LinkTransition from './link-transition';
+import { cn, cardClass } from '@/lib/utils';
 
 interface CertificationItemProps {
   href?: URL | string;
@@ -45,8 +46,7 @@ export default function CertificationItem({
     </>
   );
 
-  const className =
-    'group cursor-pointer overflow-hidden rounded-[28px] border border-border-color bg-[var(--bg)] transition-all duration-300 hover:-translate-y-1 hover:shadow-custom-low';
+  const className = cn('group cursor-pointer overflow-hidden', cardClass);
 
   if (href) {
     const hrefString = href.toString();

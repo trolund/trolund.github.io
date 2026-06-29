@@ -65,6 +65,22 @@ const spaceGrotesk = Space_Grotesk({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html suppressHydrationWarning lang="en" data-scroll-behavior="smooth">
+      <head>
+        {/* Prerender likely-next pages on hover/pointer-down — Chrome 121+, silent fallback */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [
+                {
+                  eagerness: 'moderate',
+                  where: { href_matches: ['/', '/about', '/projects', '/blog', '/posts/*'] },
+                },
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
         <a
           href="#main-content"

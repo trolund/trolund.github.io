@@ -26,7 +26,11 @@ export function ImmersivePage({
   return (
     <>
       <NavBar items={menuItems} noBackground={navNoBackground} />
-      <main id="main-content" className={cn('overflow-x-hidden', mainClassName)}>
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className={cn('overflow-x-hidden outline-none', mainClassName)}
+      >
         {children}
       </main>
     </>

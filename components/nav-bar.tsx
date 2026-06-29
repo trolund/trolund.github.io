@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import popoverStyles from './nav-popover.module.css';
 import { MenuItem } from '@/types/MenuItem';
 import { usePathname } from 'next/navigation';
 import LinkTransition from './link-transition';
@@ -9,6 +10,7 @@ import { usePrefersReducedTransparency } from '@/hooks/usePrefersReducedTranspar
 import { useTheme } from 'next-themes';
 import { Themes } from '@/types/theme';
 import { trackCronitorEvent } from '@/hooks/useCronitor';
+import { useMounted } from '@/hooks/useMounted';
 import { MdLightMode, MdDarkMode, MdAutoMode, MdCheck } from 'react-icons/md';
 
 type MenuProps = {
@@ -52,41 +54,22 @@ function ThemeDropdown({
   placement = 'bottom',
   triggerClassName,
 }: ThemeDropdownProps) {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Close on outside click or Escape
-  useEffect(() => {
-    if (!open) return;
-    const onPointer = (e: PointerEvent) => {
-      if (!containerRef.current?.contains(e.target as Node)) setOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    document.addEventListener('pointerdown', onPointer);
-    document.addEventListener('keydown', onKey);
-    return () => {
-      document.removeEventListener('pointerdown', onPointer);
-      document.removeEventListener('keydown', onKey);
-    };
-  }, [open]);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const isTop = placement === 'top';
+  const popoverId = `theme-popover-${placement}`;
 
   const panelBase =
-    'absolute right-0 z-50 min-w-[148px] overflow-hidden rounded-xl border border-border-color bg-[var(--bg)] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-150 dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]';
-
-  const panelPosition = placement === 'top' ? 'bottom-full mb-2' : 'top-full mt-3';
+    'min-w-[148px] overflow-hidden rounded-xl border border-border-color bg-[var(--bg)] shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]';
 
   return (
-    <div ref={containerRef} className="relative">
-      {/* Trigger */}
+    <div className="relative">
       <button
         type="button"
+        {...{ popovertarget: popoverId }}
         aria-haspopup="listbox"
-        aria-expanded={open}
         aria-label="Theme"
-        onClick={() => setOpen((v) => !v)}
         className={cn(
+          popoverStyles[isTop ? 'triggerMobile' : 'triggerDesktop'],
           'flex min-w-0 items-center justify-center rounded-full border-0 bg-black/[0.06] p-0 text-content-text transition-colors duration-150 hover:bg-black/[0.11] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 dark:bg-white/[0.08] dark:hover:bg-white/[0.14] dark:focus-visible:ring-white/20',
           triggerClassName,
         )}
@@ -94,18 +77,16 @@ function ThemeDropdown({
         <ThemeIcon theme={theme} size={18} />
       </button>
 
-      {/* Dropdown panel */}
       <div
+        ref={panelRef}
+        id={popoverId}
+        {...{ popover: 'auto' }}
         role="listbox"
         aria-label="Theme"
         className={cn(
           panelBase,
-          panelPosition,
-          open
-            ? 'pointer-events-auto translate-y-0 opacity-100'
-            : placement === 'top'
-              ? 'pointer-events-none translate-y-1 opacity-0'
-              : 'pointer-events-none -translate-y-1 opacity-0',
+          popoverStyles.panel,
+          isTop ? popoverStyles.panelTop : popoverStyles.panelBottom,
         )}
       >
         <div className="flex flex-col gap-0.5 p-1">
@@ -122,7 +103,7 @@ function ThemeDropdown({
                     void trackCronitorEvent('ThemeChange', { message: value });
                     onSelect(value);
                   }
-                  setOpen(false);
+                  panelRef.current?.hidePopover?.();
                 }}
                 className={cn(
                   'flex w-full items-center gap-2.5 rounded-lg border border-transparent bg-transparent px-2.5 py-2 text-sm transition-colors duration-100',
@@ -184,11 +165,12 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
   const pathname = usePathname();
   const reduceTransparency = usePrefersReducedTransparency();
   const { theme, setTheme } = useTheme();
+  const mounted = useMounted();
   const [isMobileHidden, setIsMobileHidden] = useState(false);
   const lastScrollY = useRef(0);
   const scrollRaf = useRef<number | null>(null);
   const shouldUseSolidShell = reduceTransparency || noBackground;
-  const currentTheme = (theme as Themes) ?? Themes.SYSTEM;
+  const currentTheme = mounted ? ((theme as Themes) ?? Themes.SYSTEM) : Themes.SYSTEM;
 
   const handleGlowMove = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.currentTarget;

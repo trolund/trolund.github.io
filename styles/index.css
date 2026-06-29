@@ -4,6 +4,7 @@
 
 /* Your own custom utilities */
 :root {
+  interpolate-size: allow-keywords; /* enables height: 0 → auto transitions */
   --is-dark: 0;
   --dark-primary: #002034;
   --primary: #006de4;
@@ -369,9 +370,65 @@ button:hover {
   animation: none;
 }
 
+/* Timeline cards: slide-up enter, quick fade-out exit */
+::view-transition-group(timeline-card-exp-copopt),
+::view-transition-group(timeline-card-exp-cvation),
+::view-transition-group(timeline-card-exp-logos),
+::view-transition-group(timeline-card-exp-itminds-1),
+::view-transition-group(timeline-card-exp-itminds-intern),
+::view-transition-group(timeline-card-exp-dtu),
+::view-transition-group(timeline-card-edu-msc),
+::view-transition-group(timeline-card-edu-beng) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+::view-transition-new(timeline-card-exp-copopt),
+::view-transition-new(timeline-card-exp-cvation),
+::view-transition-new(timeline-card-exp-logos),
+::view-transition-new(timeline-card-exp-itminds-1),
+::view-transition-new(timeline-card-exp-itminds-intern),
+::view-transition-new(timeline-card-exp-dtu),
+::view-transition-new(timeline-card-edu-msc),
+::view-transition-new(timeline-card-edu-beng) {
+  animation: vt-slide-up 400ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+::view-transition-old(timeline-card-exp-copopt),
+::view-transition-old(timeline-card-exp-cvation),
+::view-transition-old(timeline-card-exp-logos),
+::view-transition-old(timeline-card-exp-itminds-1),
+::view-transition-old(timeline-card-exp-itminds-intern),
+::view-transition-old(timeline-card-exp-dtu),
+::view-transition-old(timeline-card-edu-msc),
+::view-transition-old(timeline-card-edu-beng) {
+  animation: vt-cross-fade-out 120ms ease forwards;
+}
+
+@keyframes vt-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
+  }
+}
+
+/* ─ Scroll-driven entry animation for cards — zero JS, pure CSS */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    @keyframes scroll-reveal {
+      from {
+        opacity: 0;
+        translate: 0 24px;
+      }
+    }
+
+    .scroll-reveal {
+      animation: scroll-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 25%;
+    }
   }
 }

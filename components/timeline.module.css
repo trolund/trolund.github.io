@@ -1,205 +1,76 @@
-.timeline {
-  position: relative;
-  padding-left: 0;
-  margin-left: 0;
-  overflow: visible;
-  list-style: none;
-  --line-offset: 0.85rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0.35rem;
-  bottom: 0.35rem;
-  left: var(--line-offset);
-  width: 2px;
-  border-radius: 999px;
-  background-image: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
-  opacity: 0.45;
-  animation: pulseLine 6s ease-in-out infinite;
-}
-
+/* ─ Stagger fade-in animation (CSS variable driven, can't be Tailwind) */
 .timelineItem {
-  position: relative;
-  list-style: none;
-  margin-bottom: 1.5rem;
-  padding-left: calc(var(--line-offset) + 1.25rem);
   opacity: 0;
-  transform: translateY(12px);
-  animation: fadeSlide 0.65s ease forwards;
-  animation-delay: calc(var(--index, 0) * 120ms);
-  overflow: visible;
+  transform: translateY(14px);
+  animation: fadeSlide 0.5s ease forwards;
+  animation-delay: calc(var(--index, 0) * 90ms);
 }
 
-.marker {
-  position: absolute;
-  top: 1.6rem;
-  left: var(--line-offset);
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+.timelineItem:nth-child(1)  { --index: 0; }
+.timelineItem:nth-child(2)  { --index: 1; }
+.timelineItem:nth-child(3)  { --index: 2; }
+.timelineItem:nth-child(4)  { --index: 3; }
+.timelineItem:nth-child(5)  { --index: 4; }
+.timelineItem:nth-child(6)  { --index: 5; }
+.timelineItem:nth-child(7)  { --index: 6; }
+.timelineItem:nth-child(8)  { --index: 7; }
+.timelineItem:nth-child(9)  { --index: 8; }
+.timelineItem:nth-child(10) { --index: 9; }
+.timelineItem:nth-child(11) { --index: 10; }
+.timelineItem:nth-child(12) { --index: 11; }
+
+@keyframes fadeSlide {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.markerDot {
-  width: 0.95rem;
-  height: 0.95rem;
-  border-radius: 999px;
-  position: relative;
-  z-index: 2;
-  transition:
-    transform 220ms ease,
-    opacity 220ms ease,
-    box-shadow 220ms ease;
+/* ─ Complex layered gradients */
+.cardSideExp {
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(141, 177, 224, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 90%, rgba(100, 180, 255, 0.18) 0%, transparent 55%),
+    linear-gradient(160deg, rgba(141, 177, 224, 0.10) 0%, rgba(100, 180, 255, 0.13) 100%);
 }
 
-.markerDot::after {
-  content: '';
-  position: absolute;
-  inset: -0.35rem;
-  border-radius: 999px;
-  border: 2px solid currentColor;
-  opacity: 0;
-  transform: scale(0.7);
-  pointer-events: none;
+.cardSideEdu {
+  background: linear-gradient(to bottom, rgba(141, 177, 224, 0.10), rgba(170, 92, 233, 0.16));
 }
 
-.markerDotInactive {
-  opacity: 0.45;
-  transform: scale(0.75);
-  z-index: 1;
-}
-
-.markerDotActive {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-.markerDotActive::after {
-  opacity: 1;
-  animation: ripple 3.2s ease-out infinite;
-}
-
-.card {
-  position: relative;
-}
-
+/* ─ Details panel transition — height: 0 → auto via interpolate-size (Chrome 129+),
+     instant jump in Firefox/Safari (still functional) */
 .detailsPanel {
-  max-height: 0;
+  height: 0;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   transition:
-    max-height 320ms ease,
-    opacity 200ms ease,
-    transform 200ms ease;
+    height 320ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
 }
 
 .detailsPanelOpen {
+  height: auto;
   opacity: 1;
   transform: translateY(0);
 }
 
-.detailsInner {
-  overflow: hidden;
-}
-
-.categoryDividerItem {
-  list-style: none;
-  padding-left: calc(var(--line-offset) + 1.25rem);
-  margin: 0.5rem 0 0.85rem;
-}
-
-.categoryDivider {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-left: 0.25rem;
-}
-
+/* ─ Divider pseudo-elements */
 .categoryDivider::before,
 .categoryDivider::after {
   content: '';
   flex: 1;
   height: 1px;
-  background-image: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-  opacity: 0.7;
-}
-
-.categoryDivider::after {
-  background-image: linear-gradient(90deg, var(--gradient-end), var(--gradient-start));
-}
-
-.logo {
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(15, 23, 42, 0.04);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-}
-
-@media (min-width: 768px) {
-  .timeline {
-    --line-offset: 1.25rem;
-  }
+  background: var(--content-text);
+  opacity: 0.1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .timeline::before,
-  .timelineItem,
-  .markerDotActive::after {
+  .timelineItem {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
-
   .detailsPanel {
     transition: opacity 180ms ease;
-  }
-}
-
-@keyframes fadeSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulseLine {
-  0% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 0.95;
-  }
-  100% {
-    opacity: 0.25;
-  }
-}
-
-@keyframes ripple {
-  0% {
-    opacity: 0.65;
-    transform: scale(0.4);
-  }
-  70% {
-    opacity: 0;
-    transform: scale(1.6);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.6);
   }
 }

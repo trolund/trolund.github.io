@@ -1,0 +1,54 @@
+/* ─ Reset UA popover defaults */
+.panel {
+  padding: 0;
+
+  /* ─ Anchor positioning: shared */
+  inset: auto;
+  margin: 0;
+  position-try-fallbacks: flip-block, flip-inline;
+
+  /* ─ Entry/exit animation */
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease,
+    overlay 150ms ease allow-discrete,
+    display 150ms ease allow-discrete;
+}
+
+/* Bottom placement (desktop): panel appears below trigger, right-aligned */
+.panelBottom {
+  position-anchor: --theme-popover-desktop;
+  position-area: block-end span-inline-start;
+  margin-block-start: 0.75rem;
+}
+
+/* Top placement (mobile): panel appears above trigger, right-aligned */
+.panelTop {
+  position-anchor: --theme-popover-mobile;
+  position-area: block-start span-inline-start;
+  margin-block-end: 0.5rem;
+  transform: translateY(4px);
+}
+
+/* ─ Open state — :is() combines native pseudo-class with polyfill class */
+.panel:is(:popover-open, .\:popover-open) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─ Entry starting point (@starting-style prevents flash-of-open) */
+@starting-style {
+  .panel:popover-open {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  .panelTop:popover-open {
+    transform: translateY(4px);
+  }
+}
+
+/* ─ Per-instance anchor names (unique to avoid desktop/mobile collision) */
+.triggerDesktop { anchor-name: --theme-popover-desktop; }
+.triggerMobile  { anchor-name: --theme-popover-mobile; }

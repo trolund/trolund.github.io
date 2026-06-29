@@ -166,9 +166,24 @@ const VectorFieldParticleCanvas: React.FC = () => {
     };
 
     anim.current = requestAnimationFrame(animate);
+
+    // Pause/resume the rAF loop when the tab is hidden to save CPU/battery
+    const handleVisibility = () => {
+      if (document.hidden) {
+        if (anim.current) {
+          cancelAnimationFrame(anim.current);
+          anim.current = null;
+        }
+      } else if (!anim.current) {
+        anim.current = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
     return () => {
       if (anim.current) cancelAnimationFrame(anim.current);
       if (resizeRaf.current !== null) cancelAnimationFrame(resizeRaf.current);
+      document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('resize', handleResize);
     };
   }, []);

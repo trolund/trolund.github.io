@@ -4,6 +4,7 @@ import PostBody from '@/components/post-body';
 import Container from '@/components/container';
 import { TITLE } from '@/lib/constants';
 import { ContainedPage } from '@/components/site-chrome';
+import { ReadingProgress } from '@/components/reading-progress';
 
 type Props = {
   params: Promise<{
@@ -44,6 +45,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <ContainedPage>
+      <ReadingProgress />
       <Container>
         <article className="mb-32">
           <PostHeader

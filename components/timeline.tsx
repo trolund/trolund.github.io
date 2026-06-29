@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+import { useState, type ReactNode } from 'react';
+import { cn, cardClass } from '@/lib/utils';
 import styles from './timeline.module.css';
 
 type TimelineCategory = 'experience' | 'education';
@@ -16,6 +16,7 @@ type TimelineLogo = {
 };
 
 type TimelineItemProps = {
+  id: string;
   title: string;
   subtitle: string;
   period: string;
@@ -38,26 +39,12 @@ const categoryLabel: Record<TimelineCategory, string> = {
   education: 'Education',
 };
 
-const categoryAccent: Record<TimelineCategory, string> = {
-  experience: 'bg-timeline-exp dark:bg-timeline-exp',
-  education: 'bg-timeline-edu dark:bg-timeline-edu',
-};
-
-const categoryRingClass: Record<TimelineCategory, string> = {
-  experience: 'ring-timeline-exp-ring dark:ring-timeline-exp-ring-dark',
-  education: 'ring-timeline-edu-ring dark:ring-timeline-edu-ring-dark',
-};
-
-const categoryPulseTone: Record<TimelineCategory, string> = {
-  experience: 'text-timeline-exp-ring dark:text-timeline-exp-ring-dark',
-  education: 'text-timeline-edu-ring dark:text-timeline-edu-ring-dark',
-};
-
 export default function Timeline({ children }: TimelineProps) {
-  return <ol className={styles.timeline}>{children}</ol>;
+  return <ol className="m-0 flex list-none flex-col gap-4 p-0">{children}</ol>;
 }
 
 export function TimelineItem({
+  id,
   title,
   subtitle,
   period,
@@ -66,62 +53,38 @@ export function TimelineItem({
   logo,
   detailsTable,
 }: TimelineItemProps) {
-  const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [detailsHeight, setDetailsHeight] = useState(0);
-  const itemRef = useRef<HTMLLIElement | null>(null);
-  const detailsRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const node = itemRef.current;
-    if (!node) return;
+  const sideClassName = cn(
+    'flex flex-row items-center gap-3 py-[0.875rem] px-5',
+    'sm:flex-col sm:items-start sm:justify-between sm:py-6 sm:px-5 sm:gap-0',
+    'sm:col-start-1 sm:row-start-1',
+    category === 'experience' ? styles.cardSideExp : styles.cardSideEdu,
+  );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.target !== node) return;
-          setIsVisible(entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0.35,
-        rootMargin: '-15% 0px -10% 0px',
-      },
-    );
+  const cardClassName = cn(
+    'group relative overflow-hidden grid grid-cols-1 sm:grid-cols-[178px_1fr]',
+    cardClass,
+  );
 
-    observer.observe(node);
+  const side = (
+    <div className={sideClassName}>
+      <span className="whitespace-nowrap text-[0.55rem] font-bold uppercase tracking-[0.3em] text-content-text opacity-50">
+        {categoryLabel[category]}
+      </span>
+      <span className="whitespace-nowrap text-[0.7rem] font-semibold leading-[1.5] tracking-[0.01em] text-content-text opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
+        {period}
+      </span>
+    </div>
+  );
 
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!detailsTable) return;
-    const node = detailsRef.current;
-    if (!node) return;
-    const updateHeight = () => setDetailsHeight(node.scrollHeight);
-    updateHeight();
-    window.addEventListener('resize', updateHeight);
-    return () => window.removeEventListener('resize', updateHeight);
-  }, [detailsTable, isExpanded]);
-
-  const cardContent = (
-    <>
-      <div className="flex items-center justify-between">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-content-text opacity-60">
-          {categoryLabel[category]}
-        </p>
-        {detailsTable && (
-          <span className="flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-content-text opacity-50">
-            <span>View courses</span>
-            <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-          </span>
-        )}
-      </div>
-      <div className="mt-3 flex items-start gap-4">
+  const mainContent = (
+    <div className="flex flex-col justify-center gap-3 p-5 sm:col-start-2 sm:row-start-1 sm:px-7 sm:py-6">
+      <div className="flex items-center gap-4">
         {logo && (
           <div
-            className={styles.logo}
-            style={{ borderRadius: `${logo.borderRadius ?? 12}px` }}
+            className="inline-flex shrink-0 items-center justify-center overflow-hidden bg-[rgba(15,23,42,0.05)] p-1"
+            style={{ borderRadius: `${logo.borderRadius ?? 10}px` }}
             aria-hidden="true"
           >
             {logo.dark ? (
@@ -146,76 +109,55 @@ export function TimelineItem({
             )}
           </div>
         )}
-        <div className="flex flex-col gap-1">
-          <h3 className="text-lg font-semibold tracking-tight text-content-text">{title}</h3>
-          <p className="text-sm font-medium text-content-text opacity-70">{subtitle}</p>
+        <div className="flex flex-col gap-0.5">
+          <h3 className="text-base font-semibold tracking-tight text-content-text">{title}</h3>
+          <p className="text-sm text-content-text opacity-60">{subtitle}</p>
         </div>
       </div>
-      <p className="mt-4 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-content-text opacity-60">
-        {period}
-      </p>
       {description && (
-        <p className="mt-3 text-sm leading-relaxed text-content-text opacity-75">{description}</p>
+        <p className="text-sm leading-relaxed text-content-text opacity-70">{description}</p>
       )}
-    </>
+      {detailsTable && (
+        <span className="flex items-center gap-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-content-text opacity-40 transition-opacity duration-200 group-hover:opacity-70">
+          <span>View courses</span>
+          <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+        </span>
+      )}
+    </div>
   );
-
-  const cardClassName = cn(
-    styles.card,
-    'group rounded-[28px] border border-border-color bg-[var(--bg)] shadow-custom transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low',
-  );
-  const cardHeaderClassName = 'px-6 py-6';
 
   return (
-    <li ref={itemRef} className={styles.timelineItem}>
-      <div className={styles.marker}>
-        <span
-          className={cn(
-            styles.markerDot,
-            categoryAccent[category],
-            categoryPulseTone[category],
-            isVisible ? styles.markerDotActive : styles.markerDotInactive,
-            isVisible && 'ring-4 ring-offset-2 ring-offset-white dark:ring-offset-zinc-900',
-            isVisible && categoryRingClass[category],
-          )}
-        />
-      </div>
+    <li className={styles.timelineItem} style={{ viewTransitionName: `timeline-card-${id}` }}>
       {detailsTable ? (
-        <div className={cardClassName}>
-          <div
-            className={cn(
-              cardHeaderClassName,
-              'w-full cursor-pointer select-none text-left focus-visible:outline-none',
-            )}
-            role="button"
-            tabIndex={0}
-            aria-expanded={isExpanded}
-            onClick={() => setIsExpanded((prev) => !prev)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                setIsExpanded((prev) => !prev);
-              }
-            }}
-          >
-            {cardContent}
-          </div>
+        <div
+          className={cardClassName}
+          role="button"
+          tabIndex={0}
+          aria-expanded={isExpanded}
+          onClick={() => setIsExpanded((prev) => !prev)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setIsExpanded((prev) => !prev);
+            }
+          }}
+        >
+          {side}
+          {mainContent}
           <div
             className={cn(
               styles.detailsPanel,
-              'border-t border-border-color',
+              'border-t border-border-color sm:col-span-full sm:row-start-2',
               isExpanded && styles.detailsPanelOpen,
             )}
-            style={{ maxHeight: isExpanded ? detailsHeight : 0 }}
           >
-            <div ref={detailsRef} className={cn(styles.detailsInner, 'px-6 pb-6 pt-4')}>
-              {detailsTable}
-            </div>
+            <div className="overflow-hidden px-6 pb-6 pt-4">{detailsTable}</div>
           </div>
         </div>
       ) : (
         <div className={cardClassName}>
-          <div className={cardHeaderClassName}>{cardContent}</div>
+          {side}
+          {mainContent}
         </div>
       )}
     </li>
@@ -224,11 +166,13 @@ export function TimelineItem({
 
 export function TimelineDivider({ label }: TimelineDividerProps) {
   return (
-    <li
-      className={cn(styles.categoryDividerItem, 'text-neutral-500 dark:text-neutral-400')}
-      aria-hidden="true"
-    >
-      <div className={styles.categoryDivider}>
+    <li className="my-2 list-none text-neutral-400 dark:text-neutral-500" aria-hidden="true">
+      <div
+        className={cn(
+          styles.categoryDivider,
+          'flex items-center gap-3 text-[0.6rem] font-semibold uppercase tracking-[0.35em]',
+        )}
+      >
         <span>{label}</span>
       </div>
     </li>

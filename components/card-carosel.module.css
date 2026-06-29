@@ -1,0 +1,62 @@
+/* ─ Scroll container */
+.scroller {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 0.5rem 1rem 1.25rem; /* bottom padding for shadow room */
+  list-style: none;
+  margin: 0;
+  /* Hide scrollbar visually but keep it functional */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─ Each card snap-aligns to center */
+.slide {
+  flex: 0 0 min(100%, 28rem);
+  scroll-snap-align: center;
+}
+
+/* ─ Scroll-driven scale effect — card fades/scales as it enters/exits center */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view(inline)) {
+    @keyframes card-focus {
+      0%   { scale: 0.88; opacity: 0.5; }
+      50%  { scale: 1;    opacity: 1;   }
+      100% { scale: 0.88; opacity: 0.5; }
+    }
+
+    .slide {
+      animation: card-focus linear both;
+      animation-timeline: view(inline);
+    }
+  }
+}
+
+/* ─ Dot indicators */
+.dots {
+  display: flex;
+  gap: 0.375rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.25;
+  transition: opacity 200ms ease, width 200ms ease;
+}
+
+.dotActive {
+  width: 18px;
+  opacity: 0.8;
+}
