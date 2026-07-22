@@ -69,10 +69,10 @@ export function TimelineItem({
 
   const side = (
     <div className={sideClassName}>
-      <span className="whitespace-nowrap text-[0.55rem] font-bold uppercase tracking-[0.3em] text-content-text opacity-50">
+      <span className="text-content-text text-[0.55rem] font-bold tracking-[0.3em] whitespace-nowrap uppercase opacity-50">
         {categoryLabel[category]}
       </span>
-      <span className="whitespace-nowrap text-[0.7rem] font-semibold leading-normal tracking-[0.01em] text-content-text opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
+      <span className="text-content-text text-[0.7rem] leading-normal font-semibold tracking-[0.01em] whitespace-nowrap opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
         {period}
       </span>
     </div>
@@ -110,15 +110,15 @@ export function TimelineItem({
           </div>
         )}
         <div className="flex flex-col gap-0.5">
-          <h3 className="text-base font-semibold tracking-tight text-content-text">{title}</h3>
-          <p className="text-sm text-content-text opacity-60">{subtitle}</p>
+          <h3 className="text-content-text text-base font-semibold tracking-tight">{title}</h3>
+          <p className="text-content-text text-sm opacity-60">{subtitle}</p>
         </div>
       </div>
       {description && (
-        <p className="text-sm leading-relaxed text-content-text opacity-70">{description}</p>
+        <p className="text-content-text text-sm leading-relaxed opacity-70">{description}</p>
       )}
       {detailsTable && (
-        <span className="flex items-center gap-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-content-text opacity-40 transition-opacity duration-200 group-hover:opacity-70">
+        <span className="text-content-text flex items-center gap-1.5 text-[0.6rem] font-semibold tracking-[0.28em] uppercase opacity-40 transition-opacity duration-200 group-hover:opacity-70">
           <span>View courses</span>
           <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
         </span>
@@ -147,11 +147,11 @@ export function TimelineItem({
           <div
             className={cn(
               styles.detailsPanel,
-              'border-t border-border-color sm:col-span-full sm:row-start-2',
+              'border-border-color border-t sm:col-span-full sm:row-start-2',
               isExpanded && styles.detailsPanelOpen,
             )}
           >
-            <div className="overflow-hidden px-6 pb-6 pt-4">{detailsTable}</div>
+            <div className="overflow-hidden px-6 pt-4 pb-6">{detailsTable}</div>
           </div>
         </div>
       ) : (
@@ -170,7 +170,7 @@ export function TimelineDivider({ label }: TimelineDividerProps) {
       <div
         className={cn(
           styles.categoryDivider,
-          'flex items-center gap-3 text-[0.6rem] font-semibold uppercase tracking-[0.35em]',
+          'flex items-center gap-3 text-[0.6rem] font-semibold tracking-[0.35em] uppercase',
         )}
       >
         <span>{label}</span>

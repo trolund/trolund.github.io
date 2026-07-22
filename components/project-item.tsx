@@ -37,7 +37,7 @@ export default function ProjectItem({
     '(max-width: 768px) calc(100vw - 2.5rem), (max-width: 1024px) calc((100vw - 4.5rem) / 2), 305px';
 
   return (
-    <article className="scroll-reveal group relative overflow-hidden rounded-[28px] border border-border-color bg-(--bg) transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low">
+    <article className="scroll-reveal group border-border-color hover:shadow-custom-low relative overflow-hidden rounded-[28px] border bg-(--bg) transition-[transform,box-shadow] duration-300 hover:-translate-y-1">
       <div className="flex h-full flex-col">
         <div
           className="relative aspect-21/9 w-full overflow-hidden rounded-t-[28px] bg-(--bg-color)"
@@ -54,7 +54,7 @@ export default function ProjectItem({
           />
         </div>
         <div className="flex flex-1 flex-col gap-4 p-7">
-          <div className="flex items-center justify-between text-[0.68rem] uppercase tracking-[0.35em] text-content-text opacity-60">
+          <div className="text-content-text flex items-center justify-between text-[0.68rem] tracking-[0.35em] uppercase opacity-60">
             <DateFormatter date={date} />
             <span>
               {language === 'da' ? (
@@ -78,8 +78,8 @@ export default function ProjectItem({
               )}
             </span>
           </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-content-text">{title}</h2>
-          <p className="text-base leading-relaxed text-content-text opacity-80">{excerpt}</p>
+          <h2 className="text-content-text text-2xl font-semibold tracking-tight">{title}</h2>
+          <p className="text-content-text text-base leading-relaxed opacity-80">{excerpt}</p>
           <div className="flex flex-wrap gap-2">
             {technologies &&
               technologies.map((t, i) => (
@@ -87,11 +87,11 @@ export default function ProjectItem({
                   key={`${i}-${slug}`}
                   value={t}
                   showIcon={false}
-                  className="rounded-full border border-border-color bg-transparent px-3 py-1 text-[0.7rem] uppercase tracking-[0.2em] text-content-text opacity-70"
+                  className="border-border-color text-content-text rounded-full border bg-transparent px-3 py-1 text-[0.7rem] tracking-[0.2em] uppercase opacity-70"
                 />
               ))}
           </div>
-          <div className="mt-auto flex items-center justify-between text-sm font-semibold text-content-text opacity-80">
+          <div className="text-content-text mt-auto flex items-center justify-between text-sm font-semibold opacity-80">
             <span>Read more</span>
             <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
           </div>
@@ -100,7 +100,7 @@ export default function ProjectItem({
       <LinkTransition
         href={`/posts/${slug}`}
         aria-label={title}
-        className="absolute inset-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500/40"
+        className="absolute inset-0 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:outline-hidden"
       />
     </article>
   );
