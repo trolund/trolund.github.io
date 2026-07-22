@@ -4,7 +4,7 @@ import Image from 'next/legacy/image';
 import { FaLinkedin } from 'react-icons/fa';
 import { VscGithubInverted, VscCloudDownload } from 'react-icons/vsc';
 import * as Cronitor from '@cronitorio/cronitor-rum';
-import Card from './card';
+import Card from '../components/card';
 import localImageLoader from '../services/image-loader-service';
 
 export default function ProfileCard() {
