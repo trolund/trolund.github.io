@@ -50,7 +50,7 @@ function FrontBanner() {
       <div className={styles.heroInner}>
         <div className={styles.copyHead}>
           <p className={styles.eyebrow}>Engineering Portfolio</p>
-          <h1 className="m-0 text-balance text-[clamp(2.9rem,6vw,5rem)] leading-[0.95] font-semibold tracking-[-0.045em] [font-family:var(--font-space-grotesk),var(--font-manrope),sans-serif]">
+          <h1 className="m-0 [font-family:var(--font-space-grotesk),var(--font-manrope),sans-serif] text-[clamp(2.9rem,6vw,5rem)] leading-[0.95] font-semibold tracking-[-0.045em] text-balance">
             Troels Lund
           </h1>
         </div>
@@ -75,13 +75,13 @@ function FrontBanner() {
           </p>
           <div className={styles.ctaRow}>
             <LinkTransition
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-content-text px-6 py-3.5 text-[0.94rem] font-semibold tracking-[0.02em] text-bg shadow-[0_18px_44px_rgba(19,19,19,0.16)] transition-[transform,translate,box-shadow,background-color,color,border-color] duration-300 ease-[ease] hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(19,19,19,0.25)] motion-reduce:transition-none"
+              className="bg-content-text text-bg pointer-events-auto inline-flex items-center justify-center rounded-full px-6 py-3.5 text-[0.94rem] font-semibold tracking-[0.02em] shadow-[0_18px_44px_rgba(19,19,19,0.16)] transition-[transform,translate,box-shadow,background-color,color,border-color] duration-300 ease-[ease] hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(19,19,19,0.25)] motion-reduce:transition-none"
               href="/projects"
             >
               Explore Projects
             </LinkTransition>
             <LinkTransition
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-[rgba(20,22,32,0.1)] bg-[rgba(255,255,255,0.72)] px-6 py-3.5 text-[0.94rem] font-semibold tracking-[0.02em] text-content-text backdrop-blur-[14px] transition-[transform,translate,box-shadow,background-color,color,border-color] duration-300 ease-[ease] hover:-translate-y-0.5 hover:border-[rgba(20,22,32,0.3)] motion-reduce:transition-none dark:border-[rgba(255,255,255,0.2)] dark:bg-[rgba(14,18,30,0.76)] dark:text-[rgba(235,238,255,0.9)]"
+              className="text-content-text pointer-events-auto inline-flex items-center justify-center rounded-full border border-[rgba(20,22,32,0.1)] bg-[rgba(255,255,255,0.72)] px-6 py-3.5 text-[0.94rem] font-semibold tracking-[0.02em] backdrop-blur-[14px] transition-[transform,translate,box-shadow,background-color,color,border-color] duration-300 ease-[ease] hover:-translate-y-0.5 hover:border-[rgba(20,22,32,0.3)] motion-reduce:transition-none dark:border-[rgba(255,255,255,0.2)] dark:bg-[rgba(14,18,30,0.76)] dark:text-[rgba(235,238,255,0.9)]"
               href="/about"
             >
               About Me
