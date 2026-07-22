@@ -229,6 +229,13 @@ body {
     background-color: rgb(240, 255, 255);
     border: solid rgba(255, 255, 255, 0.545) 1px;
   }
+
+  /* Tailwind v4 changed the button default cursor from pointer to default;
+     restore the previous (and expected) behavior site-wide. */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
 }
 
 .nav-pill {
