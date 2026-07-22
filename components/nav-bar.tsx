@@ -149,12 +149,6 @@ function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
       >
         {item.itemName}
       </LinkTransition>
-      {isActive && !mobile && (
-        <span
-          className="bg-content-text/80 absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
-          aria-hidden="true"
-        />
-      )}
     </span>
   );
 }
