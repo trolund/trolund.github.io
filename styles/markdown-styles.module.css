@@ -1,8 +1,18 @@
 @reference './index.css';
 
+/*
+  !important throughout: this file's rules exist specifically to override
+  @tailwindcss/typography's `.prose` defaults (applied alongside `.markdown` on the
+  same element), and Tailwind v4 compiles both Preflight and `.prose` with a boosted
+  specificity (its cascade-layer emulation trick) that beats plain CSS Module rules
+  regardless of normal specificity — so without !important these overrides silently
+  lose to `.prose`'s own values.
+*/
 .markdown {
   @apply text-[1.02rem] leading-8;
-  color: rgb(19 19 19 / 0.8);
+  font-size: 1.02rem !important;
+  line-height: 2rem !important;
+  color: rgb(19 19 19 / 0.8) !important;
 }
 
 .markdown p,
@@ -10,31 +20,46 @@
 .markdown ol,
 .markdown blockquote {
   @apply my-6;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .markdown h2 {
   @apply mb-4 mt-12 text-balance text-3xl font-semibold leading-snug tracking-tight;
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+  font-size: var(--text-3xl) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  line-height: 1.375 !important;
+  letter-spacing: var(--tracking-tight) !important;
 }
 
 .markdown h3 {
   @apply mb-4 mt-8 text-balance text-2xl font-semibold leading-snug tracking-tight;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  font-size: var(--text-2xl) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  line-height: 1.375 !important;
+  letter-spacing: var(--tracking-tight) !important;
 }
 
 .markdown a {
-  text-decoration: underline;
+  text-decoration: underline !important;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
 .markdown strong {
   @apply font-semibold;
-  color: rgb(19 19 19);
+  font-weight: var(--font-weight-semibold) !important;
+  color: rgb(19 19 19) !important;
 }
 
 :global([data-theme='dark']) .markdown {
-  color: rgb(255 255 255 / 0.8);
+  color: rgb(255 255 255 / 0.8) !important;
 }
 
 :global([data-theme='dark']) .markdown strong {
-  color: rgb(255 255 255);
+  color: rgb(255 255 255) !important;
 }
