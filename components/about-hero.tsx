@@ -36,9 +36,9 @@ const highlights = [
 
 export default function AboutHero({ content }: AboutHeroProps) {
   return (
-    <section className="relative overflow-hidden rounded-[36px] border border-border-color bg-[var(--bg)] text-content-text shadow-custom">
+    <section className="relative overflow-hidden rounded-[36px] border border-border-color bg-(--bg) text-content-text shadow-custom">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(141,177,224,0.2),transparent_34%),radial-gradient(circle_at_96%_8%,rgba(170,92,233,0.14),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.3),transparent_38%)] dark:bg-[radial-gradient(circle_at_8%_0%,rgba(141,177,224,0.12),transparent_34%),radial-gradient(circle_at_96%_8%,rgba(170,92,233,0.14),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.05),transparent_40%)]" />
-      <div className="relative grid gap-8 p-5 md:p-8 lg:grid-cols-[320px,1fr] lg:gap-12 lg:p-10">
+      <div className="relative grid gap-8 p-5 md:p-8 lg:grid-cols-[320px_1fr] lg:gap-12 lg:p-10">
         <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
           <div className="relative h-48 w-48 overflow-hidden rounded-[30px] border border-white/60 bg-white/60 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:shadow-[0_24px_60px_rgba(0,0,0,0.3)]">
             <Image

@@ -27,10 +27,10 @@ export default function HeroPost({
 }: HeroPostProps) {
   return (
     <section className={className}>
-      <article className="scroll-reveal group relative overflow-hidden rounded-[28px] border border-border-color bg-[var(--bg)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low">
+      <article className="scroll-reveal group relative overflow-hidden rounded-[28px] border border-border-color bg-(--bg) transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low">
         <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
           <div
-            className="relative aspect-[21/9] w-full overflow-hidden bg-[var(--bg-color)]"
+            className="relative aspect-21/9 w-full overflow-hidden bg-(--bg-color)"
             style={{ viewTransitionName: `cover-${slug}` }}
           >
             <Image
@@ -72,7 +72,7 @@ export default function HeroPost({
         <LinkTransition
           href={`/posts/${slug}`}
           aria-label={title}
-          className="absolute inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40"
+          className="absolute inset-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500/40"
         />
       </article>
     </section>

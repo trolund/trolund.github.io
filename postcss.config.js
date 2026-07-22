@@ -7,8 +7,7 @@ const config = {
         'is-pseudo-class': false,
       },
     },
-    tailwindcss: {},
-    autoprefixer: {},
+    '@tailwindcss/postcss': {},
   },
 };
 

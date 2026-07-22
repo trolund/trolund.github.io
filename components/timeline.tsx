@@ -56,7 +56,7 @@ export function TimelineItem({
   const [isExpanded, setIsExpanded] = useState(false);
 
   const sideClassName = cn(
-    'flex flex-row items-center gap-3 py-[0.875rem] px-5',
+    'flex flex-row items-center gap-3 py-3.5 px-5',
     'sm:flex-col sm:items-start sm:justify-between sm:py-6 sm:px-5 sm:gap-0',
     'sm:col-start-1 sm:row-start-1',
     category === 'experience' ? styles.cardSideExp : styles.cardSideEdu,
@@ -72,7 +72,7 @@ export function TimelineItem({
       <span className="whitespace-nowrap text-[0.55rem] font-bold uppercase tracking-[0.3em] text-content-text opacity-50">
         {categoryLabel[category]}
       </span>
-      <span className="whitespace-nowrap text-[0.7rem] font-semibold leading-[1.5] tracking-[0.01em] text-content-text opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
+      <span className="whitespace-nowrap text-[0.7rem] font-semibold leading-normal tracking-[0.01em] text-content-text opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
         {period}
       </span>
     </div>

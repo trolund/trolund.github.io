@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
       <div
         style={{ minHeight: 'calc(100vh - (var(--footer-height) + var(--menu-height) + 20px))' }}
       >
-        <main id="main-content" tabIndex={-1} className="z-30 outline-none">
+        <main id="main-content" tabIndex={-1} className="z-30 outline-hidden">
           {children}
         </main>
       </div>

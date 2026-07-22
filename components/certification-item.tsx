@@ -29,7 +29,7 @@ export default function CertificationItem({
         <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.32em] text-content-text opacity-60">
           <span>{label}</span>
           {image && (
-            <span className="relative h-10 w-10 overflow-hidden rounded-full border border-border-color bg-[var(--bg-color)]">
+            <span className="relative h-10 w-10 overflow-hidden rounded-full border border-border-color bg-(--bg-color)">
               <Image alt="institution" src={image} fill sizes="40px" className="object-cover" />
             </span>
           )}
