@@ -27,7 +27,7 @@ export default function HeroPost({
 }: HeroPostProps) {
   return (
     <section className={className}>
-      <article className="scroll-reveal group border-border-color hover:shadow-custom-low relative overflow-hidden rounded-[28px] border bg-(--bg) transition-[transform,box-shadow] duration-300 hover:-translate-y-1">
+      <article className="scroll-reveal group border-border-color hover:shadow-custom-low relative overflow-hidden rounded-[28px] border bg-(--bg) transition-[transform,translate,box-shadow] duration-300 hover:-translate-y-1">
         <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
           <div
             className="relative aspect-21/9 w-full overflow-hidden bg-(--bg-color)"

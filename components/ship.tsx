@@ -99,7 +99,7 @@ export default function Ship({ value, className, icon, showIcon = true }: ShipPr
   return (
     <span
       className={cn(
-        'border-opacity-25 mr-2 mb-1 inline-flex h-8 grow-0 items-center gap-2 rounded-full border border-solid border-gray-800 bg-(--footer) px-3 py-1 text-[0.9rem] leading-none dark:border-gray-600 dark:bg-slate-950',
+        'mr-2 mb-1 inline-flex h-8 grow-0 items-center gap-2 rounded-full border border-solid border-gray-800/25 bg-(--footer) px-3 py-1 text-[0.9rem] leading-none dark:border-gray-600/25 dark:bg-slate-950',
         className,
       )}
     >

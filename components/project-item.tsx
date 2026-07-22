@@ -37,7 +37,7 @@ export default function ProjectItem({
     '(max-width: 768px) calc(100vw - 2.5rem), (max-width: 1024px) calc((100vw - 4.5rem) / 2), 305px';
 
   return (
-    <article className="scroll-reveal group border-border-color hover:shadow-custom-low relative overflow-hidden rounded-[28px] border bg-(--bg) transition-[transform,box-shadow] duration-300 hover:-translate-y-1">
+    <article className="scroll-reveal group border-border-color hover:shadow-custom-low relative overflow-hidden rounded-[28px] border bg-(--bg) transition-[transform,translate,box-shadow] duration-300 hover:-translate-y-1">
       <div className="flex h-full flex-col">
         <div
           className="relative aspect-21/9 w-full overflow-hidden rounded-t-[28px] bg-(--bg-color)"

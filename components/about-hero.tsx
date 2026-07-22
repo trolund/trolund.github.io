@@ -84,7 +84,7 @@ export default function AboutHero({ content }: AboutHeroProps) {
               onClick={() => Cronitor.track('CVDownload')}
               target="_blank"
               rel="noreferrer"
-              className="border-border-color text-content-text shadow-custom inline-flex items-center gap-2 rounded-full border bg-white/70 px-5 py-2 text-sm font-semibold tracking-[0.26em] uppercase transition-[transform,background-color] duration-200 hover:-translate-y-0.5 hover:bg-white/90 dark:bg-white/5 dark:hover:bg-white/10"
+              className="border-border-color text-content-text shadow-custom inline-flex items-center gap-2 rounded-full border bg-white/70 px-5 py-2 text-sm font-semibold tracking-[0.26em] uppercase transition-[transform,translate,background-color] duration-200 hover:-translate-y-0.5 hover:bg-white/90 dark:bg-white/5 dark:hover:bg-white/10"
               href="/assets/Troels_Lund_CV_2025.pdf"
               aria-label="Download my CV"
             >

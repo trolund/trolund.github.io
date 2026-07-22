@@ -195,28 +195,40 @@ body {
   background-image: var(--bg-img);
 }
 
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
+/*
+  Wrapped in @layer base: Tailwind v4 emulates cascade layers via a
+  specificity boost (":not(#\#)" chains) instead of real @layer ordering, and
+  it applies that boost to ALL plain CSS in this file, not just its own
+  Preflight. Left unlayered, these bare tag selectors would get a HIGHER
+  boost than Tailwind's own utility classes, so any `<h2>`/`<button>` styled
+  with utility classes elsewhere would lose to these resets. `@layer base`
+  puts them at the same (lowest) tier as Preflight, restoring the expected
+  "utility classes always win" behavior.
+*/
+@layer base {
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 
-button {
-  padding: 15px;
-  min-width: 140px;
-  border-radius: calc(var(--border-radius) + 10px);
-  color: var(--dark-text);
-  background-color: rgba(240, 255, 255, 0.7);
-  border: solid whitesmoke 1px;
-  transition:
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-}
+  button {
+    padding: 15px;
+    min-width: 140px;
+    border-radius: calc(var(--border-radius) + 10px);
+    color: var(--dark-text);
+    background-color: rgba(240, 255, 255, 0.7);
+    border: solid whitesmoke 1px;
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
 
-button:hover {
-  background-color: rgb(240, 255, 255);
-  border: solid rgba(255, 255, 255, 0.545) 1px;
+  button:hover {
+    background-color: rgb(240, 255, 255);
+    border: solid rgba(255, 255, 255, 0.545) 1px;
+  }
 }
 
 .nav-pill {
