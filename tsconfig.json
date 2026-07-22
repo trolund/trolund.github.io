@@ -24,6 +24,7 @@
       }
     ],
     "strictNullChecks": true,
+    "ignoreDeprecations": "6.0", // baseUrl is deprecated, still needed for "paths" below
     "baseUrl": ".", // also required for "paths" to work
     "paths": {
       "@/components/*": [
