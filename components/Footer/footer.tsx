@@ -33,7 +33,12 @@ export default function Footer() {
             <ul className={styles.links}>
               {menuItems.map((l, i) => (
                 <li key={i}>
-                  <LinkTransition href={l.link}>{l.itemName}</LinkTransition>
+                  <LinkTransition
+                    className="text-[0.95rem] text-[rgba(28,31,43,0.75)] transition-colors duration-200 hover:text-[rgba(28,31,43,1)] dark:text-[rgba(226,231,255,0.7)] dark:hover:text-[rgba(226,231,255,1)]"
+                    href={l.link}
+                  >
+                    {l.itemName}
+                  </LinkTransition>
                 </li>
               ))}
             </ul>

@@ -1,5 +1,8 @@
 .footer {
-  border-top: 1px solid var(--border-color);
+  /* !important: Tailwind v4 Preflight's universal `*{border:0 solid;margin:0;padding:0}` reset
+     is compiled with a boosted specificity (its cascade-layer emulation trick) that otherwise
+     beats plain CSS Module rules regardless of normal specificity — see .inner below too. */
+  border-top: 1px solid var(--border-color) !important;
   background:
     radial-gradient(circle at 10% 20%, rgba(141, 177, 224, 0.2), transparent 40%),
     radial-gradient(circle at 90% 10%, rgba(170, 92, 233, 0.18), transparent 45%),
@@ -11,7 +14,7 @@
   display: grid;
   gap: 2.5rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  padding: 3.5rem 0 2.5rem;
+  padding: 3.5rem 0 2.5rem !important;
 }
 
 .section {
@@ -88,18 +91,8 @@
   list-style: none;
 }
 
-.links a {
-  font-size: 0.95rem;
-  color: rgba(28, 31, 43, 0.75);
-  transition: color 0.2s ease;
-}
-
-.links a:hover {
-  color: rgba(28, 31, 43, 1);
-}
-
 .bottom {
-  padding: 1rem 0 2rem;
+  padding: 1rem 0 2rem !important;
   text-align: center;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
@@ -120,13 +113,8 @@
 
 :global([data-theme='dark']) .contactItem,
 :global([data-theme='dark']) .note,
-:global([data-theme='dark']) .links a,
 :global([data-theme='dark']) .bottom {
   color: rgba(226, 231, 255, 0.7);
-}
-
-:global([data-theme='dark']) .links a:hover {
-  color: rgba(226, 231, 255, 1);
 }
 
 :global([data-theme='dark']) .socials a {
