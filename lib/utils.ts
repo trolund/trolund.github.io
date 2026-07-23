@@ -6,4 +6,4 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const cardClass =
-  'rounded-[28px] border border-border-color bg-[var(--bg)] shadow-custom transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low';
+  'rounded-[28px] border border-border-color bg-[var(--bg)] shadow-custom transition-[transform,translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-custom-low';

@@ -11,7 +11,7 @@ interface coverImageProps {
 export default function CoverImage({ title, src, slug, tags }: coverImageProps) {
   const image = (
     <div>
-      <div aria-label={title} className="relative h-64 w-full overflow-hidden shadow-small">
+      <div aria-label={title} className="shadow-small relative h-64 w-full overflow-hidden">
         <Image
           src={src}
           alt={title}
@@ -26,7 +26,7 @@ export default function CoverImage({ title, src, slug, tags }: coverImageProps) 
         tags.map((t, i) => (
           <span
             key={i}
-            className="rounded-full border-gray-200 border-transparent bg-accent-2 p-4 transition-shadow duration-200 hover:shadow-medium"
+            className="bg-accent-2 hover:shadow-medium rounded-full border-gray-200 border-transparent p-4 transition-shadow duration-200"
           >
             {t}
           </span>

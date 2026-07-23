@@ -28,7 +28,7 @@ export function SearchInput({
         placeholder="Search projects…"
         value={searchTerm}
         onChange={onSearchTermChange}
-        className="block w-full rounded-full border border-border-color bg-[var(--bg)] px-5 py-3 pl-12 text-sm text-content-text shadow-custom focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:placeholder-gray-500"
+        className="border-border-color text-content-text shadow-custom block w-full rounded-full border bg-(--bg) px-5 py-3 pl-12 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:outline-hidden dark:placeholder-gray-500"
       />
     </div>
   );

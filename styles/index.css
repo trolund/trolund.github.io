@@ -1,6 +1,89 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+@theme {
+  --color-accent-1: #fafafa;
+  --color-accent-2: #eaeaea;
+  --color-accent-7: #333;
+  --color-success: #0070f3;
+  --color-cyan: #79ffe1;
+  --color-primary: var(--primary);
+  --color-dark-primary: var(--dark-primary);
+  --color-text: var(--text);
+  --color-dark-text: var(--dark-text);
+  --color-bg: var(--bg);
+  --color-bg-color: var(--bg-color);
+  --color-content-text: var(--content-text);
+  --color-footer: var(--footer);
+  --color-border-color: var(--border-color);
+  --color-border-color-muted: var(--border-color-muted);
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
+  --color-surface-5: var(--surface-5);
+  --color-surface-6: var(--surface-6);
+  --color-secondary-0: var(--secondary-0);
+  --color-secondary-1: var(--secondary-1);
+  --color-secondary-2: var(--secondary-2);
+  --color-secondary-3: var(--secondary-3);
+  --color-timeline-exp: #f97316;
+  --color-timeline-exp-ring: #fed7aa;
+  --color-timeline-exp-ring-dark: #fb923c;
+  --color-timeline-edu: #a855f7;
+  --color-timeline-edu-ring: #e9d5ff;
+  --color-timeline-edu-ring-dark: #d946ef;
+
+  --tracking-tighter: -0.04em;
+
+  --leading-tight: 1.2;
+
+  --text-5xl: 2.5rem;
+  --text-6xl: 2.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6.25rem;
+
+  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-custom: var(--shadow);
+  --shadow-custom-low: var(--shadow-low);
+
+  --background-image-bg-img: var(--bg-img);
+  --background-image-gradient: var(--gradient);
+
+  --radius-custom: var(--border-radius);
+
+  --height-footer-height: var(--footer-height);
+
+  --container-page-max: var(--page-max-page);
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 /* Your own custom utilities */
 :root {
@@ -112,28 +195,40 @@ body {
   background-image: var(--bg-img);
 }
 
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
+/*
+  Wrapped in @layer base: Tailwind v4 emulates cascade layers via a
+  specificity boost (":not(#\#)" chains) instead of real @layer ordering, and
+  it applies that boost to ALL plain CSS in this file, not just its own
+  Preflight. Left unlayered, these bare tag selectors would get a HIGHER
+  boost than Tailwind's own utility classes, so any `<h2>`/`<button>` styled
+  with utility classes elsewhere would lose to these resets. `@layer base`
+  puts them at the same (lowest) tier as Preflight, restoring the expected
+  "utility classes always win" behavior.
+*/
+@layer base {
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 
-button {
-  padding: 15px;
-  min-width: 140px;
-  border-radius: calc(var(--border-radius) + 10px);
-  color: var(--dark-text);
-  background-color: rgba(240, 255, 255, 0.7);
-  border: solid whitesmoke 1px;
-  transition:
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-}
+  button {
+    padding: 15px;
+    min-width: 140px;
+    border-radius: calc(var(--border-radius) + 10px);
+    color: var(--dark-text);
+    background-color: rgba(240, 255, 255, 0.7);
+    border: solid whitesmoke 1px;
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
 
-button:hover {
-  background-color: rgb(240, 255, 255);
-  border: solid rgba(255, 255, 255, 0.545) 1px;
+  button:hover {
+    background-color: rgb(240, 255, 255);
+    border: solid rgba(255, 255, 255, 0.545) 1px;
+  }
 }
 
 .nav-pill {

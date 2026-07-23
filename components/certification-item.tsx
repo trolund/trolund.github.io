@@ -26,19 +26,19 @@ export default function CertificationItem({
   const content = (
     <>
       <div className="flex flex-col gap-6 p-7">
-        <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.32em] text-content-text opacity-60">
+        <div className="text-content-text flex items-center justify-between text-[0.65rem] tracking-[0.32em] uppercase opacity-60">
           <span>{label}</span>
           {image && (
-            <span className="relative h-10 w-10 overflow-hidden rounded-full border border-border-color bg-[var(--bg-color)]">
+            <span className="border-border-color relative h-10 w-10 overflow-hidden rounded-full border bg-(--bg-color)">
               <Image alt="institution" src={image} fill sizes="40px" className="object-cover" />
             </span>
           )}
         </div>
         <div className="flex flex-col gap-2">
-          <h3 className="text-base font-semibold text-content-text opacity-70">{subTitle}</h3>
-          <h2 className="text-2xl font-semibold tracking-tight text-content-text">{title}</h2>
+          <h3 className="text-content-text text-base font-semibold opacity-70">{subTitle}</h3>
+          <h2 className="text-content-text text-2xl font-semibold tracking-tight">{title}</h2>
         </div>
-        <div className="mt-auto flex items-center justify-between text-sm font-semibold text-content-text opacity-80">
+        <div className="text-content-text mt-auto flex items-center justify-between text-sm font-semibold opacity-80">
           <span>{actionLabel}</span>
           <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
         </div>
