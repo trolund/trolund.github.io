@@ -29,7 +29,7 @@ export function ImmersivePage({
       <main
         id="main-content"
         tabIndex={-1}
-        className={cn('outline-hidden overflow-x-hidden', mainClassName)}
+        className={cn('overflow-x-hidden outline-hidden', mainClassName)}
       >
         {children}
       </main>

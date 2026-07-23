@@ -26,10 +26,10 @@ export default function CertificationItem({
   const content = (
     <>
       <div className="flex flex-col gap-6 p-7">
-        <div className="text-content-text flex items-center justify-between text-[0.65rem] uppercase tracking-[0.32em] opacity-60">
+        <div className="text-content-text flex items-center justify-between text-[0.65rem] tracking-[0.32em] uppercase opacity-60">
           <span>{label}</span>
           {image && (
-            <span className="border-border-color bg-(--bg-color) relative h-10 w-10 overflow-hidden rounded-full border">
+            <span className="border-border-color relative h-10 w-10 overflow-hidden rounded-full border bg-(--bg-color)">
               <Image alt="institution" src={image} fill sizes="40px" className="object-cover" />
             </span>
           )}

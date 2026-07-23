@@ -50,7 +50,7 @@ function FrontBanner() {
       <div className={styles.heroInner}>
         <div className={styles.copyHead}>
           <p className={styles.eyebrow}>Engineering Portfolio</p>
-          <h1 className="m-0 text-balance text-[clamp(2.9rem,6vw,5rem)] font-semibold leading-[0.95] tracking-[-0.045em] [font-family:var(--font-space-grotesk),var(--font-manrope),sans-serif]">
+          <h1 className="m-0 [font-family:var(--font-space-grotesk),var(--font-manrope),sans-serif] text-[clamp(2.9rem,6vw,5rem)] leading-[0.95] font-semibold tracking-[-0.045em] text-balance">
             Troels Lund
           </h1>
         </div>

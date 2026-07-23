@@ -313,7 +313,7 @@ const formatTerm = (term: string) => {
 const renderEducationTable = (courses: EducationCourse[]) => (
   <div className="overflow-x-auto">
     <table className="text-content-text min-w-full text-left text-xs">
-      <thead className="text-content-text text-[0.6rem] uppercase tracking-[0.28em] opacity-60">
+      <thead className="text-content-text text-[0.6rem] tracking-[0.28em] uppercase opacity-60">
         <tr>
           <th scope="col" className="py-2 pr-4 font-semibold">
             Code
@@ -347,7 +347,7 @@ const renderDiplomaLink = () => (
   <div className="mt-4">
     <a
       href="#certifications"
-      className="text-content-text inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] opacity-70 transition-opacity duration-200 hover:opacity-100"
+      className="text-content-text inline-flex items-center gap-2 text-xs font-semibold tracking-[0.28em] uppercase opacity-70 transition-opacity duration-200 hover:opacity-100"
     >
       <span>View diploma</span>
       <span aria-hidden="true">→</span>
