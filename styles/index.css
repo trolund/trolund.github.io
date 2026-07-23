@@ -523,7 +523,7 @@ body {
     @keyframes scroll-reveal {
       from {
         opacity: 0;
-        translate: 0 24px;
+        transform: translateY(24px);
       }
     }
 
