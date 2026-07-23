@@ -65,7 +65,7 @@ function ThemeDropdown({
     <div className="relative">
       <button
         type="button"
-        {...{ popovertarget: popoverId }}
+        popoverTarget={popoverId}
         aria-haspopup="listbox"
         aria-label="Theme"
         className={cn(
@@ -80,7 +80,7 @@ function ThemeDropdown({
       <div
         ref={panelRef}
         id={popoverId}
-        {...{ popover: 'auto' }}
+        popover="auto"
         role="listbox"
         aria-label="Theme"
         className={cn(
