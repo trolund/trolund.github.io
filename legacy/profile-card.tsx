@@ -28,7 +28,7 @@ export default function ProfileCard() {
   }
 
   return (
-    <Card className="mb-2 mr-5 h-auto w-full sm:float-left sm:w-[280px]">
+    <Card className="mr-5 mb-2 h-auto w-full sm:float-left sm:w-[280px]">
       <figure>
         <div className="flex flex-col space-y-4 p-5">
           <div className="relative aspect-square w-full">
@@ -52,7 +52,7 @@ export default function ProfileCard() {
                 <i>{calculateAge('1994-10-06')} years old</i>
               </li>
               <li>Copenhagen, Denmark</li>
-              <li className="border-t-[1px] border-border-color" />
+              <li className="border-border-color border-t-[1px]" />
               <li className="flex gap-4">
                 <a
                   onClick={() => Cronitor.track('CVDownload')}

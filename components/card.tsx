@@ -13,7 +13,7 @@ const Card: React.FC<CardProp> = ({ children, href, className, ...props }: CardP
     <div
       className={cn(
         className,
-        'h-auto w-auto scale-100 transform overflow-hidden rounded-[15px] border border-border-color bg-footer shadow-custom transition-all duration-200 ease-in-out hover:shadow-custom-low',
+        'border-border-color bg-footer shadow-custom hover:shadow-custom-low h-auto w-auto scale-100 transform overflow-hidden rounded-[15px] border transition-all duration-200 ease-in-out',
       )}
       {...props}
     >

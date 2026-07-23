@@ -12,8 +12,8 @@ export const metadata = {
 export default function NotFoundPage() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white p-5">
-      <Card className="justify-between p-5 text-center text-content-text">
-        <TbError404 size={90} className="ml-auto mr-auto" />
+      <Card className="text-content-text justify-between p-5 text-center">
+        <TbError404 size={90} className="mr-auto ml-auto" />
         <h1 className="mb-2 text-3xl font-bold">Page Not Found</h1>
         <Splitter />
         <div className="p-5">

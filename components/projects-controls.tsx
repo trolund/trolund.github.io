@@ -87,7 +87,7 @@ export default function ProjectsControls({ searchIndex }: ProjectsControlsProps)
         <div className="mb-12 flex flex-col items-center justify-center gap-4">
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full border border-border-color bg-[var(--bg)] px-6 py-2 text-sm font-semibold text-content-text shadow-custom transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-custom-low disabled:pointer-events-none disabled:opacity-0"
+            className="border-border-color text-content-text shadow-custom hover:shadow-custom-low inline-flex items-center justify-center rounded-full border bg-(--bg) px-6 py-2 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5 disabled:pointer-events-none disabled:opacity-0"
             onClick={loadMore}
             disabled={!canLoadMore}
           >

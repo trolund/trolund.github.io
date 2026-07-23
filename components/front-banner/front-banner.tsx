@@ -50,7 +50,9 @@ function FrontBanner() {
       <div className={styles.heroInner}>
         <div className={styles.copyHead}>
           <p className={styles.eyebrow}>Engineering Portfolio</p>
-          <h1 className={styles.title}>Troels Lund</h1>
+          <h1 className="m-0 [font-family:var(--font-space-grotesk),var(--font-manrope),sans-serif] text-[clamp(2.9rem,6vw,5rem)] leading-[0.95] font-semibold tracking-[-0.045em] text-balance">
+            Troels Lund
+          </h1>
         </div>
         <div className={styles.visual}>
           <div ref={frameRef} className={styles.deviceFrame}>
@@ -72,17 +74,29 @@ function FrontBanner() {
             clarity, and operationally safe systems.
           </p>
           <div className={styles.ctaRow}>
-            <LinkTransition className={styles.primaryCta} href="/projects">
+            <LinkTransition
+              className="bg-content-text text-bg pointer-events-auto inline-flex items-center justify-center rounded-full px-6 py-3.5 text-[0.94rem] font-semibold tracking-[0.02em] shadow-[0_18px_44px_rgba(19,19,19,0.16)] transition-[transform,translate,box-shadow,background-color,color,border-color] duration-300 ease-[ease] hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(19,19,19,0.25)] motion-reduce:transition-none"
+              href="/projects"
+            >
               Explore Projects
             </LinkTransition>
-            <LinkTransition className={styles.secondaryCta} href="/about">
+            <LinkTransition
+              className="text-content-text pointer-events-auto inline-flex items-center justify-center rounded-full border border-[rgba(20,22,32,0.1)] bg-[rgba(255,255,255,0.72)] px-6 py-3.5 text-[0.94rem] font-semibold tracking-[0.02em] backdrop-blur-[14px] transition-[transform,translate,box-shadow,background-color,color,border-color] duration-300 ease-[ease] hover:-translate-y-0.5 hover:border-[rgba(20,22,32,0.3)] motion-reduce:transition-none dark:border-[rgba(255,255,255,0.2)] dark:bg-[rgba(14,18,30,0.76)] dark:text-[rgba(235,238,255,0.9)]"
+              href="/about"
+            >
               About Me
             </LinkTransition>
           </div>
           <div className={styles.tags}>
-            <span className={styles.tag}>Full-stack Engineering</span>
-            <span className={styles.tag}>Product-minded Delivery</span>
-            <span className={styles.tag}>Performance, Concurrency &amp; Scale</span>
+            <span className="rounded-full border border-[rgba(20,22,32,0.06)] bg-[rgba(255,255,255,0.76)] px-3.5 py-[9px] text-[0.8rem] font-semibold tracking-[0.02em] text-[rgba(35,38,53,0.76)] dark:border-[rgba(255,255,255,0.12)] dark:bg-[rgba(12,16,28,0.65)] dark:text-[rgba(226,231,255,0.8)]">
+              Full-stack Engineering
+            </span>
+            <span className="rounded-full border border-[rgba(20,22,32,0.06)] bg-[rgba(255,255,255,0.76)] px-3.5 py-[9px] text-[0.8rem] font-semibold tracking-[0.02em] text-[rgba(35,38,53,0.76)] dark:border-[rgba(255,255,255,0.12)] dark:bg-[rgba(12,16,28,0.65)] dark:text-[rgba(226,231,255,0.8)]">
+              Product-minded Delivery
+            </span>
+            <span className="rounded-full border border-[rgba(20,22,32,0.06)] bg-[rgba(255,255,255,0.76)] px-3.5 py-[9px] text-[0.8rem] font-semibold tracking-[0.02em] text-[rgba(35,38,53,0.76)] dark:border-[rgba(255,255,255,0.12)] dark:bg-[rgba(12,16,28,0.65)] dark:text-[rgba(226,231,255,0.8)]">
+              Performance, Concurrency &amp; Scale
+            </span>
           </div>
           <SocialLinks />
         </div>
