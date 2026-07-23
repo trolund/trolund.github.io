@@ -70,7 +70,7 @@ function ThemeDropdown({
         aria-label="Theme"
         className={cn(
           popoverStyles[isTop ? 'triggerMobile' : 'triggerDesktop'],
-          'text-content-text flex min-w-0 items-center justify-center rounded-full border-0 bg-black/6 p-0 transition-colors duration-150 hover:bg-black/11 focus-visible:ring-2 focus-visible:ring-black/20 focus-visible:outline-hidden dark:bg-white/8 dark:hover:bg-white/[0.14] dark:focus-visible:ring-white/20',
+          'text-content-text bg-black/6 hover:bg-black/11 focus-visible:outline-hidden dark:bg-white/8 flex min-w-0 items-center justify-center rounded-full border-0 p-0 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-black/20 dark:hover:bg-white/[0.14] dark:focus-visible:ring-white/20',
           triggerClassName,
         )}
       >
@@ -108,8 +108,8 @@ function ThemeDropdown({
                 className={cn(
                   'flex w-full items-center gap-2.5 rounded-lg border border-transparent bg-transparent px-2.5 py-2 text-sm transition-colors duration-100',
                   isActive
-                    ? 'bg-black/6 font-semibold text-black dark:bg-white/12 dark:text-white'
-                    : 'font-medium text-black/50 hover:border-black/[0.07] hover:bg-black/5 hover:text-black dark:text-white/50 dark:hover:border-white/8 dark:hover:bg-white/8 dark:hover:text-white',
+                    ? 'bg-black/6 dark:bg-white/12 font-semibold text-black dark:text-white'
+                    : 'dark:hover:border-white/8 dark:hover:bg-white/8 font-medium text-black/50 hover:border-black/[0.07] hover:bg-black/5 hover:text-black dark:text-white/50 dark:hover:text-white',
                 )}
               >
                 <Icon size={16} />
@@ -138,7 +138,7 @@ function NavLink({ item, isActive, mobile = false }: NavLinkProps) {
           isActive ? { viewTransitionName: mobile ? 'nav-active-mobile' : 'nav-active' } : undefined
         }
         className={cn(
-          'nav-pill relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-hidden dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
+          'nav-pill focus-visible:outline-hidden relative rounded-full font-semibold uppercase transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-black/10 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-white/25 dark:focus-visible:ring-offset-zinc-950',
           mobile
             ? 'block w-full px-2 py-2 text-center text-[0.65rem] leading-tight tracking-[0.12em]'
             : 'inline-flex h-9 min-w-28 items-center justify-center text-[0.82rem] tracking-[0.12em]',
@@ -242,7 +242,7 @@ const NavBar = ({ items, spacing, noBackground = false }: MenuProps) => {
           } as React.CSSProperties
         }
         className={cn(
-          'fixed right-0 left-0 z-50 mx-auto w-[min(98vw,680px)] transition-[bottom] duration-300 md:hidden',
+          'fixed left-0 right-0 z-50 mx-auto w-[min(98vw,680px)] transition-[bottom] duration-300 md:hidden',
           isMobileHidden ? 'pointer-events-none' : '',
         )}
       >

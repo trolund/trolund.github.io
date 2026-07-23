@@ -37,10 +37,10 @@ export default function ProjectItem({
     '(max-width: 768px) calc(100vw - 2.5rem), (max-width: 1024px) calc((100vw - 4.5rem) / 2), 305px';
 
   return (
-    <article className="scroll-reveal group border-border-color hover:shadow-custom-low relative overflow-hidden rounded-[28px] border bg-(--bg) transition-[transform,translate,box-shadow] duration-300 hover:-translate-y-1">
+    <article className="scroll-reveal border-border-color hover:shadow-custom-low bg-(--bg) group relative overflow-hidden rounded-[28px] border transition-[transform,translate,box-shadow] duration-300 hover:-translate-y-1">
       <div className="flex h-full flex-col">
         <div
-          className="relative aspect-21/9 w-full overflow-hidden rounded-t-[28px] bg-(--bg-color)"
+          className="aspect-21/9 bg-(--bg-color) relative w-full overflow-hidden rounded-t-[28px]"
           style={{ viewTransitionName: `cover-${slug}` }}
         >
           <Image
@@ -54,7 +54,7 @@ export default function ProjectItem({
           />
         </div>
         <div className="flex flex-1 flex-col gap-4 p-7">
-          <div className="text-content-text flex items-center justify-between text-[0.68rem] tracking-[0.35em] uppercase opacity-60">
+          <div className="text-content-text flex items-center justify-between text-[0.68rem] uppercase tracking-[0.35em] opacity-60">
             <DateFormatter date={date} />
             <span>
               {language === 'da' ? (
@@ -87,7 +87,7 @@ export default function ProjectItem({
                   key={`${i}-${slug}`}
                   value={t}
                   showIcon={false}
-                  className="border-border-color text-content-text rounded-full border bg-transparent px-3 py-1 text-[0.7rem] tracking-[0.2em] uppercase opacity-70"
+                  className="border-border-color text-content-text rounded-full border bg-transparent px-3 py-1 text-[0.7rem] uppercase tracking-[0.2em] opacity-70"
                 />
               ))}
           </div>
@@ -100,7 +100,7 @@ export default function ProjectItem({
       <LinkTransition
         href={`/posts/${slug}`}
         aria-label={title}
-        className="absolute inset-0 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:outline-hidden"
+        className="focus-visible:outline-hidden absolute inset-0 focus-visible:ring-2 focus-visible:ring-blue-500/40"
       />
     </article>
   );

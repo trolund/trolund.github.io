@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
         <a
           href="#main-content"
-          className="focus:bg-content-text focus:text-text sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:px-4 focus:py-2"
+          className="focus:bg-content-text focus:text-text focus:z-100 sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-full focus:px-4 focus:py-2"
         >
           Skip to main content
         </a>

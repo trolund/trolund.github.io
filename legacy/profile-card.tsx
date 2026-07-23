@@ -28,7 +28,7 @@ export default function ProfileCard() {
   }
 
   return (
-    <Card className="mr-5 mb-2 h-auto w-full sm:float-left sm:w-[280px]">
+    <Card className="mb-2 mr-5 h-auto w-full sm:float-left sm:w-[280px]">
       <figure>
         <div className="flex flex-col space-y-4 p-5">
           <div className="relative aspect-square w-full">

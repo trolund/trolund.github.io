@@ -69,10 +69,10 @@ export function TimelineItem({
 
   const side = (
     <div className={sideClassName}>
-      <span className="text-content-text text-[0.55rem] font-bold tracking-[0.3em] whitespace-nowrap uppercase opacity-50">
+      <span className="text-content-text whitespace-nowrap text-[0.55rem] font-bold uppercase tracking-[0.3em] opacity-50">
         {categoryLabel[category]}
       </span>
-      <span className="text-content-text text-[0.7rem] leading-normal font-semibold tracking-[0.01em] whitespace-nowrap opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
+      <span className="text-content-text whitespace-nowrap text-[0.7rem] font-semibold leading-normal tracking-[0.01em] opacity-[0.85] max-sm:text-[0.6rem] max-sm:tracking-[0.02em]">
         {period}
       </span>
     </div>
@@ -118,7 +118,7 @@ export function TimelineItem({
         <p className="text-content-text text-sm leading-relaxed opacity-70">{description}</p>
       )}
       {detailsTable && (
-        <span className="text-content-text flex items-center gap-1.5 text-[0.6rem] font-semibold tracking-[0.28em] uppercase opacity-40 transition-opacity duration-200 group-hover:opacity-70">
+        <span className="text-content-text flex items-center gap-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.28em] opacity-40 transition-opacity duration-200 group-hover:opacity-70">
           <span>View courses</span>
           <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
         </span>
@@ -151,7 +151,7 @@ export function TimelineItem({
               isExpanded && styles.detailsPanelOpen,
             )}
           >
-            <div className="overflow-hidden px-6 pt-4 pb-6">{detailsTable}</div>
+            <div className="overflow-hidden px-6 pb-6 pt-4">{detailsTable}</div>
           </div>
         </div>
       ) : (
@@ -170,7 +170,7 @@ export function TimelineDivider({ label }: TimelineDividerProps) {
       <div
         className={cn(
           styles.categoryDivider,
-          'flex items-center gap-3 text-[0.6rem] font-semibold tracking-[0.35em] uppercase',
+          'flex items-center gap-3 text-[0.6rem] font-semibold uppercase tracking-[0.35em]',
         )}
       >
         <span>{label}</span>

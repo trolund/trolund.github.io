@@ -27,10 +27,10 @@ export default function HeroPost({
 }: HeroPostProps) {
   return (
     <section className={className}>
-      <article className="scroll-reveal group border-border-color hover:shadow-custom-low relative overflow-hidden rounded-[28px] border bg-(--bg) transition-[transform,translate,box-shadow] duration-300 hover:-translate-y-1">
+      <article className="scroll-reveal border-border-color hover:shadow-custom-low bg-(--bg) group relative overflow-hidden rounded-[28px] border transition-[transform,translate,box-shadow] duration-300 hover:-translate-y-1">
         <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr] lg:items-stretch">
           <div
-            className="relative aspect-21/9 w-full overflow-hidden bg-(--bg-color)"
+            className="aspect-21/9 bg-(--bg-color) relative w-full overflow-hidden"
             style={{ viewTransitionName: `cover-${slug}` }}
           >
             <Image
@@ -43,11 +43,11 @@ export default function HeroPost({
             />
           </div>
           <div className="flex h-full flex-col gap-5 p-7">
-            <div className="text-content-text flex items-center justify-between text-[0.68rem] tracking-[0.35em] uppercase opacity-60">
+            <div className="text-content-text flex items-center justify-between text-[0.68rem] uppercase tracking-[0.35em] opacity-60">
               <DateFormatter date={date} />
               <span>Featured</span>
             </div>
-            <h3 className="text-content-text text-3xl leading-tight font-semibold md:text-5xl">
+            <h3 className="text-content-text text-3xl font-semibold leading-tight md:text-5xl">
               {title}
             </h3>
             <p className="text-content-text text-base leading-relaxed opacity-80 md:text-lg">
@@ -59,7 +59,7 @@ export default function HeroPost({
                   <Ship
                     key={`${i}-${slug}`}
                     value={t}
-                    className="border-border-color text-content-text rounded-full border bg-transparent px-3 py-1 text-[0.7rem] tracking-[0.2em] uppercase opacity-70"
+                    className="border-border-color text-content-text rounded-full border bg-transparent px-3 py-1 text-[0.7rem] uppercase tracking-[0.2em] opacity-70"
                   />
                 ))}
             </div>
@@ -72,7 +72,7 @@ export default function HeroPost({
         <LinkTransition
           href={`/posts/${slug}`}
           aria-label={title}
-          className="absolute inset-0 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:outline-hidden"
+          className="focus-visible:outline-hidden absolute inset-0 focus-visible:ring-2 focus-visible:ring-blue-500/40"
         />
       </article>
     </section>

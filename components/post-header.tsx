@@ -28,7 +28,7 @@ export default function PostHeader({
   return (
     <header className="mb-12">
       <div
-        className="relative aspect-21/9 w-full overflow-hidden rounded-[28px] bg-(--bg-color)"
+        className="aspect-21/9 bg-(--bg-color) relative w-full overflow-hidden rounded-[28px]"
         style={{ viewTransitionName: `cover-${slug}` }}
       >
         <Image
@@ -41,7 +41,7 @@ export default function PostHeader({
         />
       </div>
       <div className="mt-8 flex flex-col gap-6">
-        <div className="text-content-text flex flex-wrap items-center justify-between text-[0.7rem] tracking-[0.35em] uppercase opacity-60">
+        <div className="text-content-text flex flex-wrap items-center justify-between text-[0.7rem] uppercase tracking-[0.35em] opacity-60">
           <DateFormatter date={date} />
           <span className="flex items-center">
             {language === 'da' ? (
@@ -65,7 +65,7 @@ export default function PostHeader({
             )}
           </span>
         </div>
-        <h1 className="text-content-text text-3xl leading-tight font-semibold md:text-5xl">
+        <h1 className="text-content-text text-3xl font-semibold leading-tight md:text-5xl">
           {title}
         </h1>
         <div className="flex items-center gap-2">
@@ -77,7 +77,7 @@ export default function PostHeader({
               <Ship
                 key={`${i}-${slug}-${t}`}
                 value={t}
-                className="border-border-color text-content-text rounded-full border bg-transparent px-3 py-1 text-[0.7rem] tracking-[0.2em] uppercase opacity-70"
+                className="border-border-color text-content-text rounded-full border bg-transparent px-3 py-1 text-[0.7rem] uppercase tracking-[0.2em] opacity-70"
               />
             ))}
         </div>

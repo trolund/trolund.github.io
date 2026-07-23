@@ -230,7 +230,7 @@ const NightParticleCanvas: React.FC = () => {
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="pointer-events-none fixed top-0 left-0 -z-10 h-dvh w-dvw" />
+    <canvas ref={canvasRef} className="pointer-events-none fixed left-0 top-0 -z-10 h-dvh w-dvw" />
   );
 };
 

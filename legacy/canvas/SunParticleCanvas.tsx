@@ -173,7 +173,7 @@ const DayParticleCanvas: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 h-dvh w-dvw" />;
+  return <canvas ref={canvasRef} className="fixed left-0 top-0 h-dvh w-dvw" />;
 };
 
 export default DayParticleCanvas;
