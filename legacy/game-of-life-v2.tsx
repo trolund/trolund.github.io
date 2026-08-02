@@ -9,6 +9,10 @@ const SIZE = WIDTH * HEIGHT;
 const FPS = 120; // 120ms pr frame
 
 type tickFunction = (offset: number, width: number, height: number) => boolean;
+type GameOfLifeExports = WebAssembly.Exports & {
+  memory: WebAssembly.Memory;
+  tick: tickFunction;
+};
 
 function getEdgeProximityValue(x: number, y: number, width: number, height: number): number {
   const centerX = (width - 1) / 2;
@@ -52,7 +56,7 @@ export default function GameOfLifeV2() {
   const heightRef = useRef(0);
   const sizeRef = useRef(0);
   const bufferRef = useRef<Uint8Array>(new Uint8Array(SIZE));
-  const intervalIdRef = useRef<any>(null);
+  const intervalIdRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const tickRef = useRef<tickFunction>(() => false);
 
   const draw = useCallback(() => {
@@ -119,12 +123,12 @@ export default function GameOfLifeV2() {
       const wasmBytes = await wasmResponse.arrayBuffer();
       const wasmModule = await WebAssembly.instantiate(wasmBytes, {
         env: {
-          abort(msgPtr: number, filePtr: number, line: number, column: number) {
+          abort(_msgPtr: number, _filePtr: number, line: number, column: number) {
             console.error('abort called at', line + ':' + column);
           },
         },
       });
-      const exports = wasmModule.instance.exports as any;
+      const exports = wasmModule.instance.exports as GameOfLifeExports;
 
       const memory: WebAssembly.Memory = exports.memory;
       tickRef.current = exports.tick;
@@ -144,10 +148,10 @@ export default function GameOfLifeV2() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      var done = tickRef.current?.(0, WIDTH, HEIGHT);
+      const done = tickRef.current?.(0, WIDTH, HEIGHT);
 
       if (done) {
-        intervalIdRef.current = undefined;
+        intervalIdRef.current = null;
         clearInterval(intervalId);
       } else {
         draw();
@@ -158,7 +162,7 @@ export default function GameOfLifeV2() {
 
     return () => {
       clearInterval(intervalId);
-      intervalIdRef.current = undefined;
+      intervalIdRef.current = null;
     };
   }, [draw]);
 

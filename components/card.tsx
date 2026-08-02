@@ -9,7 +9,7 @@ interface CardProp {
 }
 
 const Card: React.FC<CardProp> = ({ children, href, className, ...props }: CardProp) => {
-  var container = (
+  const container = (
     <div
       className={cn(
         className,

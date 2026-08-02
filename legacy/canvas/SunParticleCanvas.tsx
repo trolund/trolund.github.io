@@ -5,6 +5,17 @@ import { getColorCssVarWithAlpha, getHexColor } from '../../services/color-servi
 
 const secondaryPaletteVars = ['--secondary-0', '--secondary-1', '--secondary-2', '--secondary-3'];
 
+type Particle = {
+  angle: number;
+  radius: number;
+  baseRadius: number;
+  speed: number;
+  drift: number;
+  size: number;
+  alpha: number;
+  color: string;
+};
+
 const DayParticleCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const maxNumberOfParticles = 400;
@@ -17,8 +28,8 @@ const DayParticleCanvas: React.FC = () => {
 
     const palette = secondaryPaletteVars.map(getHexColor);
 
-    const particles: any[] = [];
-    const burstParticles: any[] = [];
+    const particles: Particle[] = [];
+    const burstParticles: Particle[] = [];
 
     const sun = {
       x: canvas.width / 2,
@@ -62,7 +73,7 @@ const DayParticleCanvas: React.FC = () => {
     }
 
     function drawParticles() {
-      for (let p of particles) {
+      for (const p of particles) {
         const x = sun.x + Math.cos(p.angle) * p.radius;
         const y = sun.y + Math.sin(p.angle) * p.radius;
 

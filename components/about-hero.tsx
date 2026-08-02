@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { VscCloudDownload } from 'react-icons/vsc';
 import * as Cronitor from '@cronitorio/cronitor-rum';
 import PostBody from './post-body';
-import localImageLoader from 'services/image-loader-service';
+import localImageLoader from '../services/image-loader-service';
 import SocialLinks from './social-links';
 
 type AboutHeroProps = {

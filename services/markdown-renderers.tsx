@@ -1,5 +1,4 @@
 import * as Markdown from 'react-markdown';
-import Image from 'next/legacy/image';
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { MdContentCopy } from 'react-icons/md';
@@ -11,6 +10,8 @@ import ImageItem from '../components/ImageItem';
 import MarkdownImage from '../components/markdown-image';
 import { mapLangIdentifierToLanguage } from './code-name-service';
 
+type SyntaxHighlighterStyle = { [key: string]: React.CSSProperties };
+
 function copyToClipboard(text: string) {
   navigator.clipboard
     .writeText(text)
@@ -20,6 +21,12 @@ function copyToClipboard(text: string) {
     .catch(() => {
       toast('Failed to copy', { type: 'error' });
     });
+}
+
+function hasClassNameProps(
+  value: React.ReactNode,
+): value is React.ReactElement<{ className?: string }> {
+  return React.isValidElement(value) && typeof value.props === 'object' && value.props !== null;
 }
 
 export const markdownRenderers = (isDark: boolean = false): Markdown.Components => ({
@@ -35,7 +42,8 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     );
   },
   pre: ({ children, style, ...rest }) => {
-    const isCode = (children as any)?.props?.className?.includes('language-');
+    const isCode =
+      hasClassNameProps(children) && children.props.className?.includes('language-') === true;
     return (
       <pre {...rest} style={isCode ? { ...style, padding: '0px', overflowX: 'visible' } : style}>
         {children}
@@ -47,14 +55,11 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     const match = /language-(\w+)/.exec(className || '');
     const code = String(children).replace(/\n$/, '');
     const langName = match ? match[1] : 'unknown';
+    const syntaxStyle = (isDark ? oneDark : oneLight) as unknown as SyntaxHighlighterStyle;
+
     return match ? (
       <div className="relative">
-        <SyntaxHighlighter
-          showLineNumbers
-          wrapLongLines
-          language={langName}
-          style={isDark ? (oneDark as any) : oneLight}
-        >
+        <SyntaxHighlighter showLineNumbers wrapLongLines language={langName} style={syntaxStyle}>
           {code}
         </SyntaxHighlighter>
         <div
@@ -87,7 +92,7 @@ export const markdownRenderers = (isDark: boolean = false): Markdown.Components 
     );
   },
   li: ({ node, children }) => {
-    const element: ImageDataElement = node as any;
+    const element = node as unknown as ImageDataElement;
     let imageUrl = element.properties.dataUrl;
 
     if (imageUrl?.includes(':')) {
