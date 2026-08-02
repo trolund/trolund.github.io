@@ -12,19 +12,13 @@ async function getPostSlugs() {
   return await fs.readdir(postsDirectory);
 }
 
-async function getContentFile(name: string): Promise<string> {
-  const filePath = join(postsDirectory, `${name}.md`);
-  const fileContents = await fs.readFile(filePath, 'utf8');
-  return fileContents;
-}
-
 export async function getContent(name: string, fields: BlogFields = []) {
   const realSlug = name.replace(/\.md$/, '');
   const fullPath = join(contentDirectory, `${realSlug}.md`);
   const fileContents = await fs.readFile(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const items: { [key: string]: any } = {};
+  const items = {} as Partial<BlogPost>;
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -49,7 +43,7 @@ export async function getPostBySlug(slug: string, fields: BlogFields = []) {
   const fileContents = await fs.readFile(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const items: { [key: string]: any } = {};
+  const items = {} as Partial<BlogPost>;
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {

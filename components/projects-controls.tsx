@@ -24,10 +24,6 @@ const getProjectCards = (): HTMLElement[] => {
   return Array.from(grid.querySelectorAll<HTMLElement>('[data-project-card]'));
 };
 
-const getSearchableText = (card: HTMLElement): string => {
-  return card.dataset.searchContent ?? '';
-};
-
 export default function ProjectsControls({ searchIndex }: ProjectsControlsProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_PROJECTS);

@@ -14,11 +14,6 @@ export function getColorCssVarWithAlpha(cssVarName: string, alpha: number): stri
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-function getColorWithAlpha(hex: string, alpha: number): string {
-  const { r, g, b } = getRgbColor(hex);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
-
 // get getColorWithAlpha but slightly different cores based on x and y position
 function getColorWithAlphaBasedOnPosition(
   hex: string,
@@ -41,8 +36,4 @@ export function getCssColorBasedOnPosition(
   y: number,
 ): string {
   return getColorWithAlphaBasedOnPosition(getHexColor(cssVarName), alpha, x, y);
-}
-
-function getCssColor(cssVarName: string, alpha: number): string {
-  return getColorWithAlpha(getHexColor(cssVarName), alpha);
 }

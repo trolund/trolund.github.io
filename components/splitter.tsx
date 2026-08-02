@@ -1,8 +1,4 @@
-import { FunctionComponent } from 'react';
-
-interface SplitterProps {}
-
-const Splitter: FunctionComponent<SplitterProps> = () => {
+const Splitter = () => {
   return <div className="bg-color mb-4 h-[5px] rounded-[8px] bg-(--bg-img) bg-cover" />;
 };
 

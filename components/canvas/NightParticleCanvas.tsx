@@ -126,7 +126,7 @@ const NightParticleCanvas: React.FC = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
 
-      for (let p of particles.current) {
+      for (const p of particles.current) {
         const dx = cursor.x - p.x;
         const dy = cursor.y - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy) || 1;

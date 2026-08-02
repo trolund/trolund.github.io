@@ -2,6 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 
+type TickFunction = (offset: number, width: number, height: number) => void;
+type GameOfLifeExports = WebAssembly.Exports & {
+  memory: WebAssembly.Memory;
+  tick: TickFunction;
+};
+
 export default function GameOfLife() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const scale = 20; // px per cell
@@ -9,7 +15,7 @@ export default function GameOfLife() {
   const heightRef = useRef(0);
   const sizeRef = useRef(0);
   const bufferRef = useRef<Uint8Array>(new Uint8Array());
-  const intervalIdRef = useRef<any>(null);
+  const intervalIdRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const init = async () => {
@@ -33,7 +39,7 @@ export default function GameOfLife() {
       const wasmResponse = await fetch('/wasm/release.wasm');
       const wasmBytes = await wasmResponse.arrayBuffer();
       const wasmModule = await WebAssembly.instantiate(wasmBytes, {});
-      const exports = wasmModule.instance.exports as any;
+      const exports = wasmModule.instance.exports as GameOfLifeExports;
 
       const memory: WebAssembly.Memory = exports.memory;
       const tick = exports.tick;

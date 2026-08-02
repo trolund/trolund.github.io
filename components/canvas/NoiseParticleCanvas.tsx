@@ -112,7 +112,7 @@ const VectorFieldParticleCanvas: React.FC = () => {
       const lookAhead = 0.0035;
       const sigma = 200; // standard deviation for Gaussian spread
 
-      for (let p of particles.current) {
+      for (const p of particles.current) {
         const { t: nearestT } = closestPointOnPath(path.current, p.pos);
 
         const targetT = Math.min(1, nearestT + lookAhead);
