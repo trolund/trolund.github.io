@@ -1,5 +1,3 @@
-import { describe, expect, test } from '@jest/globals';
-
 import { getAllPosts, getAllProjects } from '../api';
 
 describe('content loader', () => {
