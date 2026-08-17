@@ -12,6 +12,7 @@
 /.next/
 /out/
 /public/*.js
+/next-env.d.ts
 
 # production
 /build
